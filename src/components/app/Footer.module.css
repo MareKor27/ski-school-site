@@ -1,0 +1,31 @@
+.footer-css {
+  background-color: #3a5b84;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
+}
+
+a.button-nav {
+  color: #fff;
+  text-decoration: none;
+}
+.quick-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quick-contact a,
+.quick-contact {
+  color: #fff;
+  text-decoration: none;
+}
+
+.quick-contact p {
+  text-align: center;
+}
+
+.footer-logo {
+  height: 5rem;
+}
