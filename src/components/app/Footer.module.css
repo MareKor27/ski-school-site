@@ -29,3 +29,12 @@ a.button-nav {
 .footer-logo {
   height: 5rem;
 }
+
+.copyright {
+  height: 2rem;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

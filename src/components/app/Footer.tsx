@@ -28,6 +28,7 @@ export function Footer() {
           </p>
         </div>
       </div>
+      <div className={style["copyright"]}>Copyright HUsKor 2023</div>
     </>
   );
 }
