@@ -13,7 +13,7 @@ export function InfoBox({ children, type, image }: InfoBoxType) {
   const s = useStyles(style);
   return (
     <div className={style["infoBox"]}>
-      <Contener>
+      <Contener resolution="max">
         <div
           className={style["infoBox-content"]}
           style={{

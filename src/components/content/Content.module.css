@@ -1,0 +1,48 @@
+.content p {
+  padding: 20px 20px 40px 40px;
+}
+
+.content h1 {
+  padding: 20px 20px 0px 40px;
+}
+
+.content img {
+  width: 50%;
+  float: right;
+  padding: 0px 20px 20px 20px;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  display: table;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 40px;
+}
+
+table td {
+  border: 1px solid #000;
+  width: 100%;
+  padding: 10px;
+}
+
+table td strong {
+  font-weight: 800;
+}
+
+table th {
+  font-weight: 800;
+  font-size: 20px;
+  padding: 20px;
+  background-color: #2290be;
+  border: 1px solid #000;
+}
+
+table td:nth-child(2n-1) {
+  background-color: #2290be;
+}
+table td:nth-child(2n) {
+  background-color: #3a5b84;
+}

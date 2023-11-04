@@ -3,5 +3,12 @@
   inline-size: 100%;
   min-block-size: 100%;
   margin-inline: auto;
+}
+
+.body-max {
   max-width: 100%;
+}
+
+.body-md {
+  max-width: 1200px;
 }
