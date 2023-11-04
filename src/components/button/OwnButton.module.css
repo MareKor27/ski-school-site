@@ -1,0 +1,21 @@
+.linked-button {
+  background-color: #3a5b84;
+  border: 1px solid #000;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  margin: 10px 0 0 10px;
+  transition: all 0.5s linear;
+  text-shadow: #aae6ff 2px 2px 10px;
+}
+
+.linked-button:hover {
+  background-color: #96b3d1;
+  border: 1px solid #000;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #000000;
+  margin: 10px 0 0 10px;
+  transition: all 0.5s linear;
+  text-shadow: #ffffff 2px 2px 10px;
+}

@@ -21,8 +21,6 @@ export function InfoBox({ children, type, image }: InfoBoxType) {
           }}
         >
           <div className={s("appla")}></div>
-
-          {/* <div className={[style["text-part"], style[`type${type}`]].join(" ")}> */}
           <div className={s(`text-part type${type}`)}>{children}</div>
         </div>
       </Contener>
