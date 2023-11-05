@@ -1,3 +1,9 @@
+/* .footer-conteiner {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+} */
+
 .footer-css {
   background-color: #3a5b84;
   display: flex;

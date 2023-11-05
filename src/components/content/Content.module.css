@@ -4,6 +4,7 @@
 
 .content h1 {
   padding: 20px 20px 0px 40px;
+  color: aliceblue;
 }
 
 .content img {
@@ -41,7 +42,7 @@ table th {
 }
 
 table td:nth-child(2n-1) {
-  background-color: #2290be;
+  background-color: #45b4e4;
 }
 table td:nth-child(2n) {
   background-color: #3a5b84;

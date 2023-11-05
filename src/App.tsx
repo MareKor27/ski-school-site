@@ -7,20 +7,23 @@ import { AboutUs } from "./pages/AboutUs";
 import { PriceList } from "./pages/PriceList";
 import { Contact } from "./pages/Contact";
 import { Main } from "./components/app/Main";
+import { PageContainer } from "./components/app/PageContainer";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/o-nas" element={<AboutUs />} />
-          <Route path="/cennik" element={<PriceList />} />
-          <Route path="/kontakt" element={<Contact />} />
-        </Routes>
-      </Main>
-      <Footer />
+      <PageContainer>
+        <Navbar />
+        <Main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/o-nas" element={<AboutUs />} />
+            <Route path="/cennik" element={<PriceList />} />
+            <Route path="/kontakt" element={<Contact />} />
+          </Routes>
+        </Main>
+        <Footer />
+      </PageContainer>
     </>
   );
 }
