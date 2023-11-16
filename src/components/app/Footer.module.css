@@ -1,15 +1,22 @@
-/* .footer-conteiner {
-  position: absolute;
+.footer-conteiner {
   bottom: 0;
   width: 100%;
-} */
+  margin-top: 50px;
+}
 
 .footer-css {
   background-color: #3a5b84;
+  background: rgb(58, 91, 132);
+  background: linear-gradient(
+    180deg,
+    rgba(58, 91, 132, 1) 0%,
+    rgba(32, 50, 72, 1) 100%
+  );
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 100px;
+  height: 120px;
+  box-shadow: 1px -3px 20px 0px black;
 }
 
 a.button-nav {
@@ -43,4 +50,10 @@ a.button-nav {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.footer-conteiner img {
+  background-color: #ffffff6b;
+  box-shadow: 0 0 20px 10px #ffffff80;
+  border-radius: 5px;
 }

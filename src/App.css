@@ -11,3 +11,17 @@
 b {
   font-weight: 800;
 }
+
+p {
+  font-size: 18px;
+  text-shadow: 1px 1px rgba(255, 255, 255, 0);
+  line-height: 1.5;
+}
+
+li {
+  background: url("public/images/icons/li-pointer.png") 2px 5px no-repeat;
+  display: table;
+  padding-left: 45px;
+  padding-top: 5px;
+  margin-left: 5px;
+}

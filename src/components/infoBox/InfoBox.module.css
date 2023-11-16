@@ -1,7 +1,7 @@
 .infoBox {
-  height: 500px;
-  margin: 0px 0 30px 0;
-  background-color: rgba(25, 49, 187, 0.548);
+  height: 600px;
+  margin: 0px 0 0px 0;
+  background-color: rgba(25, 49, 187, 0);
   width: 100%;
 }
 
@@ -11,9 +11,9 @@
   position: relative;
 }
 
-.appla {
+.infoBox .appla {
   width: 100%;
-  height: 500px;
+  height: 600px;
   background-color: #aae6ff77;
   position: absolute;
   z-index: 10;
@@ -23,8 +23,8 @@
   flex-direction: column;
 }
 
-.text-part {
-  height: 500px;
+.infoBox .text-part {
+  height: 600px;
   position: absolute;
   background-color: #3a5b8485;
   z-index: 15;
@@ -35,28 +35,30 @@
   padding: 0 20px 0 40px;
 }
 
-.text-part > * {
+.infoBox .text-part > * {
   padding: 10px;
 }
 
-.type1 {
+.infoBox.type1 .text-part {
   right: 0;
   width: 50%;
 }
-.type2 {
+.infoBox.type2 .text-part {
   left: 0;
   width: 50%;
 }
-.type3 {
+.infoBox.type3 .text-part {
   width: 100%;
 }
 
-h2,
-p {
+.infoBox h1,
+.infoBox h2,
+.infoBox p {
   color: white;
 }
 
-h2 {
+.infoBox h1,
+.infoBox h2 {
   text-transform: uppercase;
   font-size: 2rem;
 }

@@ -1,6 +1,10 @@
 import style from "~/components/parallax/Parallax.module.css";
 
-export function Parallax() {
+type ParallaxType = {
+  image: string;
+};
+
+export function Parallax({ image }: ParallaxType) {
   return (
     <>
       <div className={style["parallax"]}>
@@ -10,11 +14,7 @@ export function Parallax() {
           </div>
           <div className={style["parallax-heading-2"]}></div>
         </div>
-        <img
-          style={{
-            backgroundImage: "url('public/images/skiing-parallax.webp')",
-          }}
-        ></img>
+        <img style={{ backgroundImage: `url(${image})` }}></img>
       </div>
     </>
   );

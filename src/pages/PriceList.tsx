@@ -1,13 +1,19 @@
 import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
+import style from "~/components/content/Content.module.css";
+import useStyles from "~/hooks/useStyle";
 
 export function PriceList() {
+  const s = useStyles(style);
   return (
     <Contener resolution="md">
       <Content clas={"content"}>
         <h1>Cennik</h1>
         <p>
-          <img src="public/images/box-1.jpg" />
+          <img
+            className={s(`contentimg`)}
+            src="public/images/gallery/galeria-foto-10.webp"
+          />
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
           nesciunt voluptatibus minus harum aperiam, necessitatibus sapiente
           iusto architecto nam distinctio dolores debitis earum asperiores,
@@ -24,77 +30,90 @@ export function PriceList() {
           expedita repellendus quaerat officia voluptates tempore velit
           similique quo tenetur facere corporis enim nam.
         </p>
-        <table>
-          <th>MEDYCYNA NATURALNA</th>
-
-          <td>
-            <strong>I. Konchowanie uszu </strong>
-            <br />
-            <em>(zabieg obejmuje obydwoje uszu)</em>
-            <br />
-            Czas&nbsp;45 min, Cena&nbsp;130 PLN
-          </td>
-
-          <td>
-            <strong>II. Pępkowanie</strong>
-            <br />
-            <span>
-              <em>(wraz z&nbsp;masażem br/zucha)</em>
-            </span>
-            <br />
-            Czas 45 min, Cena 120 PLN
-          </td>
-
-          <td>
-            <strong>III. Autorska metoda Body Coning</strong>
-            <br />
-            <span>
-              <em>(konchowanie ciała)</em>
-              <br />
-            </span>
-            Czas 60 min, Cena 150 PLN
-          </td>
-
-          <td>
-            <strong>IV. Autorski masaż meridianów </strong>
-            <br />
-            <span>
-              <em>(wg Medycyny Chińskiej z&nbsp;elementami masażu Tui-Na)</em>
-            </span>
-            <br />
-            Czas 75 min, Cena 250 PLN
-          </td>
-
-          <td>
-            <strong>
-              V. Częściowy masaż meridianów + bańki <br />
-            </strong>
-            <span>
-              <em>(wg Medycyny Chińskiej)</em>
-            </span>
-            <br />
-            Czas 70 min, Cena 190 PLN
-          </td>
-
-          <td>
-            <strong>
-              VI. Stawianie baniek lekarskich
-              <br />
-            </strong>
-            <span>
-              <em>(Bańki ogniowe, miedziane i&nbsp;bambusowe)</em>
-            </span>
-            <br />
-            Czas 45 min, Cena 100 PLN
-          </td>
-
-          <td>
-            <strong>
-              VII. Refleksologia stóp
-              <br />
-            </strong>
-            Czas 60 min, Cena 140 PLN
-          </td>
+        <table className={s(`price-table`)}>
+          <thead>
+            <tr>
+              <th>Usługa</th>
+              <th>Cena indywidualna (dzieci)</th>
+              <th>Cena indywidualna (dorośli)</th>
+              <th>Cena grupowa (dzieci)</th>
+              <th>Cena grupowa (dorośli)</th>
+              <th>Wypożyczenie sprzętu (dzienna opłata)</th>
+              <th>Wycieczka narciarska (całodniowa)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Instruktaż indywidualny
+                <br />
+                (1 godzina)
+              </td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>250 zł/osoba</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+            </tr>
+            <tr>
+              <td>
+                Instruktaż grupowy
+                <br />
+                (1 godzina)
+              </td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>250 zł/osoba</td>
+              <td>-----</td>
+            </tr>
+            <tr>
+              <td>Wypożyczenie nart i kijków</td>
+              <td>-----</td>
+              <td>250 zł/osoba</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+            </tr>
+            <tr>
+              <td>Wypożyczenie kasku</td>
+              <td>250 zł/osoba</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+            </tr>
+            <tr>
+              <td>
+                Pakiet instruktaż + wypożyczenie sprzętu
+                <br />
+                (1 dzień)
+              </td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>250 zł/osoba</td>
+            </tr>
+            <tr>
+              <td>
+                Wycieczka narciarska z instruktorem
+                <br />
+                (1 dzień)
+              </td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>-----</td>
+              <td>250 zł/osoba</td>
+              <td>-----</td>
+            </tr>
+          </tbody>
         </table>
       </Content>
     </Contener>

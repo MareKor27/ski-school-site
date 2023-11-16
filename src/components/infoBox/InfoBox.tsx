@@ -12,16 +12,14 @@ type InfoBoxType = {
 export function InfoBox({ children, type, image }: InfoBoxType) {
   const s = useStyles(style);
   return (
-    <div className={style["infoBox"]}>
-      <Contener resolution="max">
+    <div className={s(`infoBox type${type}`)}>
+      <Contener resolution="md">
         <div
           className={style["infoBox-content"]}
-          style={{
-            backgroundImage: image,
-          }}
+          style={{ backgroundImage: `url(${image})` }}
         >
           <div className={s("appla")}></div>
-          <div className={s(`text-part type${type}`)}>{children}</div>
+          <div className={s(`text-part`)}>{children}</div>
         </div>
       </Contener>
     </div>

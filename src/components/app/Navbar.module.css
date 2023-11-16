@@ -1,14 +1,26 @@
 .navbar-css {
   background-color: #45b4e4;
+  background: rgb(58, 91, 132);
+  background: linear-gradient(
+    0deg,
+    rgba(58, 91, 132, 1) 0%,
+    rgba(64, 136, 181, 1) 70%,
+    rgba(69, 180, 228, 1) 100%
+  );
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 100px;
+  box-shadow: 0px 2px 20px 0px black;
+  /* , inset 0px 3px 20px 0px black; */
 }
 
 a.button-nav {
   color: #fff;
   text-decoration: none;
+  /* padding: 15px;
+  border-radius: 100vmax;
+  box-shadow: 1px 1px 5px 1px #3a5b84, inset 1px 1px 20px 1px #3a5b84; */
 }
 .quick-contact {
   display: flex;

@@ -1,14 +1,20 @@
 import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
+import style from "~/components/content/Content.module.css";
+import useStyles from "~/hooks/useStyle";
 
 export function AboutUs() {
+  const s = useStyles(style);
   return (
     <Contener resolution="md">
       <Content clas={"content"}>
         <h1>O nas</h1>
 
         <p>
-          <img src="public/images/box-1.jpg" />
+          <img
+            className={s(`contentimg`)}
+            src="public/images/gallery/galeria-foto-3.webp"
+          />
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
           nesciunt voluptatibus minus harum aperiam, necessitatibus sapiente
           iusto architecto nam distinctio dolores debitis earum asperiores,

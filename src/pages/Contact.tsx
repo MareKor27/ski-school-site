@@ -1,13 +1,21 @@
 import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
+import style from "~/components/content/Content.module.css";
+import style2 from "~/Global.module.css";
+import useStyles from "~/hooks/useStyle";
 
 export function Contact() {
+  const s = useStyles(style);
+  const s2 = useStyles(style2);
   return (
     <Contener resolution="md">
       <Content clas={"content"}>
-        <h1>Contact</h1>
+        <h1>Kontakt z FigowSki</h1>
         <p>
-          <img src="public/images/box-1.jpg" />
+          <img
+            className={s(`contentimg`)}
+            src="public/images/gallery/galeria-foto-5.webp"
+          />
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
           nesciunt voluptatibus minus harum aperiam, necessitatibus sapiente
           iusto architecto nam distinctio dolores debitis earum asperiores,
@@ -24,6 +32,58 @@ export function Contact() {
           expedita repellendus quaerat officia voluptates tempore velit
           similique quo tenetur facere corporis enim nam.
         </p>
+
+        <table className={s2(`contact-table`)}>
+          <tbody>
+            <tr>
+              <td>
+                <img src="/images/icons/pin.png"></img>
+              </td>
+              <td>
+                <p>Strefa Ruchu ul. Drawska 22</p>
+                <p>02-202 Warszawa</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/images/icons/clock.png"></img>
+              </td>
+              <td>
+                <p>Godziny otwarcia:</p>
+                <p>Pon. - Pt.: 10:00 - 20:00</p>
+                <p>Sob.: 9:00 - 17:00</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/images/icons/email.png"></img>
+              </td>
+              <td>
+                <p>
+                  E-mail: <a href="tel:+48517933264">tel +48 517 933 264</a>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/images/icons/regon.png"></img>
+              </td>
+              <td>
+                <p>NIP: ---=---</p>
+                <p>REGON: ---=---</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/images/icons/konto.png"></img>
+              </td>
+              <td>
+                <p>Nr konta:</p>
+                <p>-- ---- ---- ---- ---- ---- ----</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.0450452839646!2d20.9562744!3d52.2062289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccaa5fc07595%3A0x43a0adedb664106a!2sDrawska%2022%2C%2002-202%20Warszawa!5e0!3m2!1spl!2spl!4v1699181558414!5m2!1spl!2spl"
           width="100%"

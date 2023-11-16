@@ -1,0 +1,32 @@
+.contact-table {
+  width: 500px;
+  border: none;
+}
+table.contact-table td:nth-child(1) {
+  width: 25%;
+  text-align: center;
+}
+
+table.contact-table p {
+  padding: 5px;
+}
+
+table.contact-table img {
+  padding: 0px;
+  width: 24px;
+  float: none;
+}
+
+table.contact-table td:nth-child(1),
+table.contact-table td:nth-child(2) {
+  background-color: #45b4e400;
+}
+
+table.contact-table td {
+  border: 1px solid #00000000;
+}
+
+table.contact-table a {
+  color: #fff;
+  text-decoration: none;
+}

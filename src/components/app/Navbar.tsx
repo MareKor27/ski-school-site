@@ -22,7 +22,7 @@ export function Navbar() {
         <div className={style["quick-contact"]}>
           <a href="mailto:figowskisport@gmail.com">figowskisport@gmail.com</a>
           <br />
-          <a href="tel:+48504979553">tel 504 979 553</a>
+          <a href="tel:+48517933264">tel +48 517 933 264</a>
         </div>
       </div>
     </>
