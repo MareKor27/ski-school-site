@@ -13,7 +13,7 @@ export function InfoBox({ children, type, image }: InfoBoxType) {
   const s = useStyles(style);
   return (
     <div className={s(`infoBox type${type}`)}>
-      <Contener resolution="md">
+      <Contener size="stretched">
         <div
           className={style["infoBox-content"]}
           style={{ backgroundImage: `url(${image})` }}

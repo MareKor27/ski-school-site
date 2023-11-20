@@ -4,10 +4,15 @@ import useStyles from "~/hooks/useStyle";
 
 type ContainerProps = {
   children: ReactNode;
-  resolution: string;
+  size: string;
 };
 
-export function Contener({ children, resolution }: ContainerProps) {
+export function Contener({ children, size }: ContainerProps) {
   const s = useStyles(style);
-  return <div className={s(`container body-${resolution}`)}>{children}</div>;
+  return (
+    <div className={s(`container body-${size}`)}>
+      {children}
+      {/* <div className={s(`conteinder-body-${conteinderBody}`)}></div> */}
+    </div>
+  );
 }

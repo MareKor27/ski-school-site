@@ -1,0 +1,93 @@
+:root {
+  --module-size: 800px;
+}
+
+.infobox {
+  height: var(--module-size);
+  margin: 0px;
+  width: 100%;
+}
+
+.infobox .bg-image {
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-image: url(public/images/content/michal.webp); */
+}
+
+.infobox-overlay {
+  /* background-color: rgba(0, 0, 0, 0.6); */
+}
+
+.infobox .tp-overlay {
+  width: 100%;
+  height: var(--module-size);
+  /* background-color: #528aa177; */
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.infobox .tp-text {
+  height: var(--module-size);
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 20px 0 40px;
+}
+
+.infobox .infobox-content {
+  display: flex;
+}
+
+.infobox .ip-image {
+  width: 100%;
+  height: var(--module-size);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-image: url(public/images/content/michal.webp);
+}
+.infobox .ip-overlay {
+  width: 100%;
+  height: var(--module-size);
+  background: rgba(44, 8, 78, 0.308);
+}
+
+.infobox .tp-text > * {
+  padding: 10px;
+}
+
+.infobox .ip-image {
+  height: 100%;
+}
+.infobox.type1 .tp-image {
+  width: 50%;
+  order: 2;
+  background-color: #3a5b84;
+}
+.infobox.type1 .tp-text {
+  width: 50%;
+  display: flex;
+  left: 0;
+}
+.infobox.type1 .ip-image {
+  order: 1;
+  width: 50%;
+}
+
+.infobox h1,
+.infobox h2,
+.infobox p {
+  color: rgb(221, 221, 221);
+}
+
+.infobox h1,
+.infobox h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+}

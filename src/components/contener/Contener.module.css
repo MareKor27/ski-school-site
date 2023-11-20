@@ -5,10 +5,10 @@
   margin-inline: auto;
 }
 
-.body-max {
+.body-stretched {
   max-width: 100%;
 }
 
-.body-md {
+.body-arranged-md {
   max-width: 1500px;
 }

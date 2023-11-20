@@ -13,7 +13,7 @@ export function MainPageBox({ children, type, image }: MainPageBoxType) {
   const s = useStyles(style);
   return (
     <div className={s(`mainPageBox type${type}`)}>
-      <Contener resolution="md">
+      <Contener size="arranged-md">
         <div
           className={style["mainPageBox-content"]}
           // style={{

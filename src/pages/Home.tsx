@@ -1,5 +1,6 @@
 import { OwnButton } from "~/components/button/OwnButton";
 import { InfoBox } from "~/components/infoBox/InfoBox";
+import { NewInfoBox } from "~/components/infoBox/NewInfoBox";
 import { MainPageBox } from "~/components/mainPageBox/MainPageBox";
 import { Parallax } from "~/components/parallax/Parallax";
 import { Slider } from "~/components/slider/Slider";
@@ -9,6 +10,7 @@ export function Home() {
     <>
       <Slider />
       <MainPageBox type={1} image={"public/images/content/michal.webp"}>
+        {/* <MainPageBox type={1} image={"public/images/zrodlowe/IMG_7580.jpg"}> */}
         <h1>Szkoła narciarstwa i snowboardu FigowSki</h1>
         <p>
           Nauczymy Cię jeździć na nartach - wystarczą tylko chęci, skupienie
@@ -30,7 +32,8 @@ export function Home() {
           wyniki i postęp oraz satysfakcje klienta
         </p>
       </MainPageBox>
-      <InfoBox type={1} image={"public/images/content/michal.webp"}>
+
+      <NewInfoBox image={"public/images/content/michal.webp"}>
         <h2>o mnie</h2>
         <p>
           Nazywam się Michał Jaśkiewicz, należę do Stowarzyszenia Trenerów i
@@ -45,8 +48,7 @@ export function Home() {
         </p>
         <p></p>
         <OwnButton link={"o-nas"} text={"Czytaj więcej"} />
-      </InfoBox>
-
+      </NewInfoBox>
       <InfoBox type={2} image={"public/images/slider/slider-n-3.webp"}>
         <h2>Oferta</h2>
         <p>
@@ -62,6 +64,23 @@ export function Home() {
         </p>
         <p></p>
         <OwnButton link={"cennik"} text={"Sprawdz naszą ofertę"} />
+      </InfoBox>
+
+      <InfoBox type={1} image={"public/images/content/michal.webp"}>
+        <h2>o mnie</h2>
+        <p>
+          Nazywam się Michał Jaśkiewicz, należę do Stowarzyszenia Trenerów i
+          Instruktorów Narciarstwa Polskiego Związku Narciarskiego, nieustannie
+          podążam za nowymi innowacjami w szkoleniu dzieci i młodzieży
+          jednocześnie doskonaląc osobiście swój warsztat pracy. Narty maja nas
+          cieszyć, rozwijać, pomagać w przełamywaniu często ograniczajacych nas
+          barier, integrowac dzieci, ale również nas dorosłych i uczyc
+          bezpieczeństwa (nie tylko na stoku), zdrowej, przyjaznej rywalizacji
+          oraz kibicowania. Dlatego uczymy jezdzic na nartach w sposob
+          uwielbiany przez dzieci - „Od zabawy do sportu”.
+        </p>
+        <p></p>
+        <OwnButton link={"o-nas"} text={"Czytaj więcej"} />
       </InfoBox>
 
       {/* <InfoBox type={3} image={"public/images/slider/slider-n-4.webp"}>
