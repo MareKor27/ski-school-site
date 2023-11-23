@@ -1,5 +1,9 @@
+:root {
+  --module-mainpage-height: 850px;
+}
+
 .mainPageBox {
-  height: 850px;
+  height: var(--module-mainpage-height);
   margin: 0px 0 30px 0;
   background-color: rgba(25, 49, 187, 0);
   width: 100%;
@@ -15,7 +19,7 @@
 
 .appla {
   width: 100%;
-  height: 600px;
+  height: var(--module-mainpage-height);
   background-color: #aae6ff00;
   position: absolute;
   z-index: 10;
@@ -26,7 +30,7 @@
 }
 
 .text-part {
-  height: 850px;
+  height: var(--module-mainpage-height);
   background-color: #3a5b8485;
   z-index: 15;
   display: flex;
@@ -38,10 +42,15 @@
 }
 
 .photo-part {
-  height: 850px;
+  height: var(--module-mainpage-height);
   object-fit: cover;
   display: flex;
   justify-content: center;
+  /* background-image: url(public/images/content/mainbox-content.webp); */
+}
+
+.photo-part img {
+  object-fit: cover;
 }
 
 .text-part > * {
@@ -67,7 +76,7 @@
 .mainPageBox h1,
 .mainPageBox h2,
 .mainPageBox p {
-  color: rgb(185, 193, 229);
+  color: rgb(221, 221, 221);
   text-shadow: none;
 }
 

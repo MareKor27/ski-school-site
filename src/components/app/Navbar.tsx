@@ -16,6 +16,9 @@ export function Navbar() {
         <a className={style["button-nav"]} href="/cennik">
           Cennik
         </a>
+        <a className={style["button-nav"]} href="/galeria">
+          Galeria
+        </a>
         <a className={style["button-nav"]} href="/kontakt">
           Kontakt
         </a>

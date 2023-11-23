@@ -1,5 +1,9 @@
+:root {
+  --module-infobox-height: 400px;
+}
+
 .infoBox {
-  height: 600px;
+  /* height: var(--module-infobox-height); */
   margin: 0px 0 0px 0;
   background-color: rgba(25, 49, 187, 0);
   width: 100%;
@@ -9,11 +13,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  box-shadow: inset 0px 0px 20px 2px black, 0px 0px 20px 2px black;
 }
 
 .infoBox .appla {
   width: 100%;
-  height: 600px;
+  height: 100%;
   background-color: #aae6ff77;
   position: absolute;
   z-index: 10;
@@ -24,7 +29,7 @@
 }
 
 .infoBox .text-part {
-  height: 600px;
+  height: 100%;
   position: absolute;
   background-color: #3a5b8485;
   z-index: 15;
@@ -49,6 +54,7 @@
 }
 .infoBox.type3 .text-part {
   width: 100%;
+  padding: 0 20vw 0 20vw;
 }
 
 .infoBox h1,

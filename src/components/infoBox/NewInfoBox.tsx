@@ -7,9 +7,10 @@ type InfoBoxType = {
   children: ReactNode;
   //   type: number;
   image: string;
+  size: string;
 };
 
-export function NewInfoBox({ children, image }: InfoBoxType) {
+export function NewInfoBox({ children, image, size }: InfoBoxType) {
   const s = useStyles(style);
   return (
     <div className={s(`infobox type1`)}>

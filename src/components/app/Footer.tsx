@@ -17,6 +17,9 @@ export function Footer() {
           <a className={style["button-nav"]} href="/cennik">
             Cennik
           </a>
+          <a className={style["button-nav"]} href="/galeria">
+            Galeria
+          </a>
           <a className={style["button-nav"]} href="/kontakt">
             Kontakt
           </a>

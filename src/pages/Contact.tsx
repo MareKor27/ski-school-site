@@ -8,12 +8,12 @@ export function Contact() {
   const s = useStyles(style);
   const s2 = useStyles(style2);
   return (
-    <Contener resolution="md">
+    <Contener size="arranged-md">
       <Content clas={"content"}>
         <h1>Kontakt z FigowSki</h1>
         <p>
           <img
-            className={s(`contentimg`)}
+            className={s(`contentimg imgRight`)}
             src="public/images/gallery/galeria-foto-5.webp"
           />
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
@@ -69,8 +69,8 @@ export function Contact() {
                 <img src="/images/icons/regon.png"></img>
               </td>
               <td>
-                <p>NIP: ---=---</p>
-                <p>REGON: ---=---</p>
+                <p>NIP: 7471658760</p>
+                <p>REGON: 384808813</p>
               </td>
             </tr>
             <tr>

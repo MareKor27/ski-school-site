@@ -6,12 +6,12 @@ import useStyles from "~/hooks/useStyle";
 export function PriceList() {
   const s = useStyles(style);
   return (
-    <Contener resolution="md">
+    <Contener size="arranged-md">
       <Content clas={"content"}>
         <h1>Cennik</h1>
         <p>
           <img
-            className={s(`contentimg`)}
+            className={s(`contentimg imgRight`)}
             src="public/images/gallery/galeria-foto-10.webp"
           />
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione

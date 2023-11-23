@@ -7,12 +7,13 @@ type InfoBoxType = {
   children: ReactNode;
   type: number;
   image: string;
+  height: string;
 };
 
-export function InfoBox({ children, type, image }: InfoBoxType) {
+export function InfoBox({ height, children, type, image }: InfoBoxType) {
   const s = useStyles(style);
   return (
-    <div className={s(`infoBox type${type}`)}>
+    <div className={s(`infoBox type${type}`)} style={{ height: `${height}px` }}>
       <Contener size="stretched">
         <div
           className={style["infoBox-content"]}

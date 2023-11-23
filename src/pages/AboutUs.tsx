@@ -6,13 +6,13 @@ import useStyles from "~/hooks/useStyle";
 export function AboutUs() {
   const s = useStyles(style);
   return (
-    <Contener resolution="md">
+    <Contener size="arranged-md">
       <Content clas={"content"}>
         <h1>O nas</h1>
 
         <p>
           <img
-            className={s(`contentimg`)}
+            className={s(`contentimg imgRight`)}
             src="public/images/gallery/galeria-foto-3.webp"
           />
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione

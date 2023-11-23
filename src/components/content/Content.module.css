@@ -8,7 +8,7 @@
   color: rgb(185, 193, 229);
 }
 
-.content img {
+.content img.imgRight {
   width: 40%;
   float: right;
 }
