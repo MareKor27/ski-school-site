@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "~/components/modal/Modal";
-import style2 from "~/components/app/gallery/Gallery.module.css";
+import style2 from "~/components/gallery/Gallery.module.css";
 import useStyles from "~/hooks/useStyle";
 
 type GalleryType = {

@@ -1,11 +1,13 @@
 .content p {
-  padding: 20px 20px 40px 40px;
-  color: rgb(221, 223, 230);
+  color: rgb(233, 233, 233);
 }
-
-.content h1 {
-  padding: 20px 20px 0px 40px;
-  color: rgb(185, 193, 229);
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: rgb(233, 233, 233);
 }
 
 .content img.imgRight {
@@ -19,7 +21,7 @@ table.price-table {
   margin-bottom: 20px;
   display: table;
   flex-direction: column;
-  padding: 0px 40px;
+  /* padding: 0px 40px; */
   margin-left: auto;
   margin-right: auto;
   border-spacing: 5px;
@@ -49,6 +51,11 @@ table.price-table td strong {
 .price-table td:nth-child(2n) {
   background-color: #72c7ff;
 }
+.price-table td:nth-child(1) {
+  background-color: #00517c;
+  color: #91d5ff;
+  width: 25%;
+}
 
 .price-table th,
 .price-table td {
@@ -64,5 +71,5 @@ table.price-table {
 .contentimg {
   box-shadow: 0px 3px 6px 1px black;
   border-radius: 20px;
-  margin: 0px 20px 40px 20px;
+  margin: 0px 0px 40px 40px;
 }

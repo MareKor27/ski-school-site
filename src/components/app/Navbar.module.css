@@ -29,7 +29,8 @@ a.button-nav {
 }
 
 .quick-contact a {
-  color: #fff;
+  color: #a7dbfd;
+  text-shadow: 1px 1px 5px black;
   text-decoration: none;
 }
 

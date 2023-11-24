@@ -1,0 +1,51 @@
+.text-box {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 0px 20px 0 20px;
+}
+
+.text-box p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.text-box h1,
+.text-box h2,
+.text-box h3,
+.text-box h4,
+.text-box h5,
+.text-box h6 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-clear {
+  clear: both;
+}
+
+.text-box a {
+  color: #a7dbfd;
+  text-shadow: 1px 1px 5px black;
+  text-decoration: none;
+}
+
+.text-box .warning {
+  font-weight: bolder;
+  font-size: 25px;
+  color: rgb(221 25 25);
+  letter-spacing: 3px;
+}
+
+/* #429ecd */

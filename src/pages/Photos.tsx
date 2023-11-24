@@ -1,9 +1,10 @@
-import { Gallery } from "~/components/app/gallery/Gallery";
+import { Gallery } from "~/components/gallery/Gallery";
 import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
 import style from "~/components/content/Content.module.css";
 import style2 from "~/Global.module.css";
 import useStyles from "~/hooks/useStyle";
+import { TextBox } from "~/components/textbox/TextBox";
 
 export function Photos() {
   const s = useStyles(style);
@@ -59,14 +60,18 @@ export function Photos() {
   return (
     <Contener size="arranged-md">
       <Content clas={"content"}>
-        <h1>Galeria</h1>
-        <p>Zapraszamy do galerii</p>
-        <p></p>
-        <Gallery images={images} />
-        <h2>Galeria</h2>
-        <p>Zapraszamy do galerii</p>
-        <p></p>
-        <Gallery images={images} />
+        <TextBox>
+          <h1>Galeria</h1>
+          <p>Zapraszamy do galerii</p>
+          <p></p>
+        </TextBox>
+        <TextBox type={"text-center"}>
+          <Gallery images={images} />
+          <h2>Zlot przyjaciół klubu FigowSki</h2>
+          <p>24.11.2023r</p>
+          <p></p>
+          <Gallery images={images} />
+        </TextBox>
       </Content>
     </Contener>
   );
