@@ -4,10 +4,10 @@ import useStyles from "~/hooks/useStyle";
 
 type TextBoxType = {
   children: ReactNode;
-  type?: string;
+  className?: string;
 };
 
-export function TextBox({ children, type = "text-left" }: TextBoxType) {
+export function TextBox({ children, className = "text-left" }: TextBoxType) {
   const s = useStyles(style);
-  return <div className={s(`text-box ${type}`)}>{children}</div>;
+  return <div className={s(`text-box ${className}`)}>{children}</div>;
 }

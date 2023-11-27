@@ -9,6 +9,11 @@
   padding-bottom: 10px;
 }
 
+.text-box25 {
+  /* flex-grow: 1; */
+  /* max-width: 50%; */
+}
+
 .text-box h1,
 .text-box h2,
 .text-box h3,
@@ -49,3 +54,9 @@
 }
 
 /* #429ecd */
+
+/* ---MAP--- */
+
+.map > iframe {
+  border-radius: 20px;
+}

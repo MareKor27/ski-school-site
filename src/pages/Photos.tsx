@@ -65,7 +65,7 @@ export function Photos() {
           <p>Zapraszamy do galerii</p>
           <p></p>
         </TextBox>
-        <TextBox type={"text-center"}>
+        <TextBox className={"text-center"}>
           <Gallery images={images} />
           <h2>Zlot przyjaciół klubu FigowSki</h2>
           <p>24.11.2023r</p>

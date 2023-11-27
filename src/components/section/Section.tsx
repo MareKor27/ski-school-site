@@ -12,10 +12,10 @@ type SectionType = {
 export function Section({ children, size, type }: SectionType) {
   const s = useStyles(style);
   return (
-    <div className={s(`section section-type${type}`)}>
-      <div className={s(`section-bg-overlay`)}>
-        <Contener size={size}>{children}</Contener>
-      </div>
+    <div className={s(`section`)}>
+      <Contener size={size}>
+        <div className={s(`section-type${type}`)}>{children}</div>
+      </Contener>
     </div>
   );
 }

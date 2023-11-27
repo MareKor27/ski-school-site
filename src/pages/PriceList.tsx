@@ -24,7 +24,7 @@ export function PriceList() {
             itaque exercitationem reiciendis aliquid tempore voluptate?
           </p>
         </TextBox>
-        <TextBox type={"text-clear text-center"}>
+        <TextBox className={"text-clear text-center"}>
           <h2>Cennik zajęć narciarskich na stoku Szczęśliwice</h2>
 
           <table className={s(`price-table`)}>
