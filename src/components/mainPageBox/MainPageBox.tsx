@@ -5,26 +5,20 @@ import useStyles from "~/hooks/useStyle";
 
 type MainPageBoxType = {
   children: ReactNode;
-  type: number;
+  className: string;
   image: string;
 };
 
-export function MainPageBox({ children, type, image }: MainPageBoxType) {
+export function MainPageBox({ children, className, image }: MainPageBoxType) {
   const s = useStyles(style);
   return (
-    <div className={s(`mainPageBox type${type}`)}>
-      <Contener size="arranged-md">
-        <div
-          className={style["mainPageBox-content"]}
-          // style={{
-          //   backgroundImage: image,
-          // }}
-        >
-          <div className={s("appla")}></div>
-          <div className={s(`photo-part`)}>
-            <img src={image}></img>
+    <div className={s(`mainPage`)}>
+      <Contener className={className}>
+        <div className={s(`main`)}>
+          <div className={s(`mainPageBox`)}>
+            <img className={s(`image-part`)} src={image}></img>
+            <div className={s(`text-part`)}>{children}</div>
           </div>
-          <div className={s(`text-part`)}>{children}</div>
         </div>
       </Contener>
     </div>

@@ -14,6 +14,7 @@ export function Gallery({ images }: GalleryType) {
   const closeModal = () => {
     setActiveImage(null);
   };
+
   return (
     <div className={s2(`gallery-conteiner`)}>
       <Modal open={activeImage !== null} onClose={closeModal}>

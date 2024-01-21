@@ -1,91 +1,69 @@
-:root {
-  --module-mainpage-height: 850px;
+/* ----GRID---- */
+
+.mainPage {
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
-.mainPageBox {
-  height: var(--module-mainpage-height);
-  margin: 0px 0 30px 0;
-  background-color: rgba(25, 49, 187, 0);
-  width: 100%;
-  margin: 50px;
-}
-
-.mainPageBox-content {
-  position: relative;
-  display: flex;
-  box-shadow: 0px 0px 20px 0px black;
-  border-radius: 20px;
-}
-
-.appla {
-  width: 100%;
-  height: var(--module-mainpage-height);
-  background-color: #aae6ff00;
-  position: absolute;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.text-part {
-  height: var(--module-mainpage-height);
-  background-color: #3a5b8485;
-  z-index: 15;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 0 20px 0 40px;
-  border-radius: 0px 20px 20px 0px;
-}
-
-.photo-part {
-  height: var(--module-mainpage-height);
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  /* background-image: url(public/images/content/mainbox-content.webp); */
-}
-
-.photo-part img {
-  object-fit: cover;
-}
-
-.text-part > * {
-  padding: 10px;
-}
-
-.type1 .text-part {
-  right: 0;
-  width: 50%;
-}
-.type1 .photo-part {
-  width: 50%;
-}
-
-.type2 .text-part {
-  left: 0;
-  width: 50%;
-}
-.type3 .text-part {
-  width: 100%;
-}
-
-.mainPageBox h1,
-.mainPageBox h2,
-.mainPageBox p {
+.mainPage h1,
+.mainPage h2,
+.mainPage p {
   color: rgb(221, 221, 221);
   text-shadow: none;
 }
-
-.mainPageBox h1,
-.mainPageBox h2 {
+.mainPage h1,
+.mainPage h2 {
   text-transform: uppercase;
   font-size: 2rem;
 }
 
-.mainPageBox img {
-  border-radius: 20px 0px 0px 20px;
+.image-part {
+  grid-area: photo;
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 800px;
+  /* position: relative; */
+}
+/* .image-part::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  );  Kolor tła z przezroczystością (0.5 oznacza 50% przezroczystości) 
+  z-index: 1;
+} */
+
+.text-part {
+  grid-area: content;
+  padding: 0 40px;
+}
+.text-part > * {
+  padding: 10px;
+}
+
+.mainPageBox {
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr fit-content(50%);
+  grid-template-areas: "photo content";
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #3a5b8485;
+  box-shadow: 0px 0px 20px 0px black;
+}
+
+.mainPageBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: 0px 0px 5px 0px rgb(0, 0, 0) inset;
 }

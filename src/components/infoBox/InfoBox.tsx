@@ -8,13 +8,20 @@ type InfoBoxType = {
   type: number;
   image: string;
   height: string;
+  classname: string;
 };
 
-export function InfoBox({ height, children, type, image }: InfoBoxType) {
+export function InfoBox({
+  height,
+  children,
+  type,
+  image,
+  classname,
+}: InfoBoxType) {
   const s = useStyles(style);
   return (
     <div className={s(`infoBox type${type}`)} style={{ height: `${height}px` }}>
-      <Contener size="stretched">
+      <Contener className={classname}>
         <div
           className={style["infoBox-content"]}
           style={{ backgroundImage: `url(${image})` }}

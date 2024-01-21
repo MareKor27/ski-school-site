@@ -7,25 +7,39 @@
   margin: 0px;
   width: 100%;
 }
+.infobox h1,
+.infobox h2,
+.infobox p {
+  color: rgb(221, 221, 221);
+}
+.infobox h1,
+.infobox h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.mainInfoBox-content {
+  height: var(--module-size);
+}
 
+/* 
 .infobox .bg-image {
   /* background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  background-image: url(public/images/content/michal.webp); */
-}
-.infobox .bg-overlay {
+  background-image: url(public/images/content/michal.webp); 
+}*/
+/* .infobox .bg-overlay {
   background-color: #3a5b849c;
   box-shadow: inset 0px 0px 20px 0px black, 0px 0px 20px 0px black;
   position: relative;
   z-index: 1000;
-}
-
+} */
+/*
 .infobox-overlay {
-  /* background-color: rgba(0, 0, 0, 0.6); */
+   background-color: rgba(0, 0, 0, 0.6); 
 }
-
-.infobox .tp-overlay {
+*/
+/* .infobox .tp-overlay {
   width: 100%;
   height: var(--module-size);
   z-index: 10;
@@ -33,9 +47,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
+} */
 
-.infobox .tp-text {
+/* .infobox .tp-text {
   height: var(--module-size);
   z-index: 15;
   display: flex;
@@ -43,19 +57,16 @@
   align-items: flex-start;
   justify-content: center;
   padding: 0 20px 0 40px;
-}
+} */
 
-.infobox .infobox-content {
-  display: flex;
-}
-
-.infobox .ip-image {
+/* .infobox .ip-image {
   height: var(--module-size);
   display: flex;
   justify-content: center;
   text-align: center;
-}
-.infobox .ip-overlay {
+} */
+/**/
+/* .infobox .ip-overlay {
   width: 100%;
   height: var(--module-size);
   position: relative;
@@ -64,9 +75,9 @@
   background-image: url(public/images/content/newbox1.webp);
   background-position: bottom;
   z-index: 10;
-}
+} */
 
-.infobox .tp-text > * {
+/* .infobox .tp-text > * {
   padding: 10px;
 }
 
@@ -85,16 +96,4 @@
 .infobox.type1 .ip-image {
   order: 1;
   width: 50%;
-}
-
-.infobox h1,
-.infobox h2,
-.infobox p {
-  color: rgb(221, 221, 221);
-}
-
-.infobox h1,
-.infobox h2 {
-  text-transform: uppercase;
-  font-size: 2rem;
-}
+} */

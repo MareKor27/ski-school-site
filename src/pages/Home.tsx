@@ -11,7 +11,7 @@ export function Home() {
     <>
       <Slider />
       <MainPageBox
-        type={1}
+        className={"body-arranged-md"}
         image={"public/images/content/mainbox-content.webp"}
       >
         <h1>Szkoła narciarstwa i snowboardu FigowSki</h1>
@@ -36,9 +36,32 @@ export function Home() {
         </p>
       </MainPageBox>
 
-      <NewInfoBox
-        size={"rozciagniete-czy-nie"}
+      <MainPageBox
+        className={"body-stretched"}
         image={"public/images/content/newbox1.webp"}
+      >
+        <h2>o mnie</h2>
+        <p>
+          Nazywam się Michał Jaśkiewicz, należę do Stowarzyszenia Trenerów i
+          Instruktorów Narciarstwa Polskiego Związku Narciarskiego, nieustannie
+          podążam za nowymi innowacjami w szkoleniu dzieci i młodzieży
+          jednocześnie doskonaląc osobiście swój warsztat pracy. Narty maja nas
+          cieszyć, rozwijać, pomagać w przełamywaniu często ograniczajacych nas
+          barier, integrowac dzieci, ale również nas dorosłych i uczyc
+          bezpieczeństwa (nie tylko na stoku), zdrowej, przyjaznej rywalizacji
+          oraz kibicowania. <br />
+          Dlatego uczymy jezdzic na nartach w sposob uwielbiany przez dzieci -
+          <b> „Od zabawy do sportu”.</b>
+        </p>
+        <p></p>
+        <OwnButton link={"o-nas"} text={"Czytaj więcej"} />
+      </MainPageBox>
+
+      <NewInfoBox
+        className={"body-stretched"}
+        image={"public/images/content/newbox1.webp"}
+        height={"400"}
+        type={2}
       >
         <h2>o mnie</h2>
         <p>
@@ -60,6 +83,7 @@ export function Home() {
         height={"400"}
         type={2}
         image={"public/images/slider/slider-n-3.webp"}
+        classname="body-stretched"
       >
         <h2>Oferta</h2>
         <p>
@@ -81,6 +105,7 @@ export function Home() {
         height={"400"}
         type={1}
         image={"public/images/content/michal.webp"}
+        classname="body-stretched"
       >
         <h2>Galeria</h2>
         <p>Zapraszamy do galerii</p>
@@ -94,6 +119,7 @@ export function Home() {
         height={"300"}
         type={3}
         image={"public/images/slider/slider-n-4.webp"}
+        classname="body-stretched"
       >
         <h2>Kontakt</h2>
         <p>Zapraszamy do kontaktu</p>

@@ -58,7 +58,7 @@ export function Photos() {
   ];
 
   return (
-    <Contener size="arranged-md">
+    <Contener className="body-arranged-md">
       <Content clas={"content"}>
         <TextBox>
           <h1>Galeria</h1>

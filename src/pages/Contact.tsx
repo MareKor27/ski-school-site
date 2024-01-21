@@ -13,7 +13,7 @@ export function Contact() {
   const g2 = useStyles(styleGlobal);
   const styleTB = useStyles(styleTextBox);
   return (
-    <Contener size="arranged-md">
+    <Contener className="body-arranged-md">
       <Content clas={"content"}>
         <TextBox>
           <h1>Kontakt z FigowSki</h1>

@@ -9,7 +9,7 @@ export function PriceList() {
   const s = useStyles(style);
   const textBoxStyle = useStyles(styleTextBox);
   return (
-    <Contener size="arranged-md">
+    <Contener className="body-arranged-md">
       <Content clas={"content"}>
         <TextBox>
           <h1>Cennik</h1>

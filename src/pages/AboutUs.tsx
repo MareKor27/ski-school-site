@@ -7,7 +7,7 @@ import useStyles from "~/hooks/useStyle";
 export function AboutUs() {
   const s = useStyles(style);
   return (
-    <Contener size="arranged-md">
+    <Contener className="body-arranged-md">
       <Content clas={"content"}>
         <TextBox>
           <h1>O nas</h1>
