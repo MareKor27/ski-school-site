@@ -18,3 +18,15 @@ body {
   background-position-x: center;
   background-size: cover;
 }
+
+/* * {
+  border: solid 1px red;
+} */
+
+/* 
+XL – 1440 – 1920 desktop
+LG 1200 – 1439 desktop
+MD 992 – 1199 desktop
+SM 768 – 991 Tablet
+XS 320 – 767 Mobile 
+*/

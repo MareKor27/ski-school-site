@@ -23,10 +23,8 @@ export function NewInfoBox({
     <div className={s(`infobox type1`)}>
       <div className={s("infobox-overlay")}>
         <Contener className={className}>
-          <div
-            className={s("mainInfoBox-content")}
-            style={{ backgroundImage: `url(${image})` }}
-          >
+          <div className={s("mainInfoBox-content")}>
+            <img className={s("infobox-photo")} src={image} />
             <div className={s("infobox-text")}>{children}</div>
           </div>
         </Contener>

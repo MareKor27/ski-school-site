@@ -1,4 +1,4 @@
-import style from "~/components/infoBox/InfoBox.module.css";
+import style from "~/components/infoBox/InfoBox.module.scss";
 import { Contener } from "../contener/Contener";
 import { ReactNode } from "react";
 import useStyles from "~/hooks/useStyle";

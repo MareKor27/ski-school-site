@@ -1,5 +1,5 @@
+@use "~/scss/abstracts" as *;
 /* ----GRID---- */
-
 .mainPage {
   margin-bottom: 50px;
   margin-top: 50px;
@@ -43,7 +43,7 @@
 
 .text-part {
   grid-area: content;
-  padding: 0 40px;
+  padding: 0 20px 40px;
 }
 .text-part > * {
   padding: 10px;
@@ -59,9 +59,21 @@
   overflow: hidden;
   background-color: #3a5b8485;
   box-shadow: 0px 0px 20px 0px black;
+  @include screen-xs {
+    grid-template-areas:
+      "photo"
+      "content";
+  }
+}
+
+.mainPageBox img {
+  @include screen-xs {
+    height: 400px;
+  }
 }
 
 .mainPageBox::after {
+  pointer-events: none;
   content: "";
   position: absolute;
   inset: 0;

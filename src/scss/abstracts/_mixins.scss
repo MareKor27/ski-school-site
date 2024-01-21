@@ -1,0 +1,73 @@
+@use "./breakpoints" as *;
+
+@mixin screen-xs {
+  @media only screen and (width < $content-sm) {
+    @content;
+  }
+}
+
+@mixin screen-sm($mode: default) {
+  @if $mode == max {
+    @media only screen and (width < $content-md) {
+      @content;
+    }
+  } @else if $mode == min {
+    @media only screen and ($content-sm <= width) {
+      @content;
+    }
+  } @else {
+    @media only screen and ($content-sm <= width < $content-md) {
+      @content;
+    }
+  }
+}
+
+@mixin screen-md($mode: default) {
+  @if $mode == max {
+    @media only screen and (width < $content-lg) {
+      @content;
+    }
+  } @else if $mode == min {
+    @media only screen and ($content-md <= width) {
+      @content;
+    }
+  } @else {
+    @media only screen and ($content-md <= width < $content-lg) {
+      @content;
+    }
+  }
+}
+
+@mixin screen-lg($mode: default) {
+  @if $mode == min {
+    @media only screen and (width < $content-xl) {
+      @content;
+    }
+  } @else if $mode == max {
+    @media only screen and ($content-lg <= width) {
+      @content;
+    }
+  } @else {
+    @media only screen and ($content-lg <= width < $content-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin screen-xl {
+  @media only screen and ($content-lg <= width) {
+    @content;
+  }
+}
+
+@mixin screen-desktop {
+  @include screen-md(min) {
+    @content;
+  }
+}
+
+@mixin screen-mobile {
+  @include screen-sm(max) {
+    @content;
+  }
+}

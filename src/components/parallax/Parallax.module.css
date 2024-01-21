@@ -14,7 +14,18 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: 125px;
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1500px) {
+  .parallax img {
+    background-position-y: 300px;
+  }
+}
+
+@media screen and (min-width: 1501px) {
+  .parallax img {
+    background-position-y: 150px;
+  }
 }
 
 .appla {

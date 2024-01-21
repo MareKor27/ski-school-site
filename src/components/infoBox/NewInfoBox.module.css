@@ -4,8 +4,8 @@
 
 .infobox {
   height: var(--module-size);
-  margin: 0px;
   width: 100%;
+  margin-bottom: 50px;
 }
 .infobox h1,
 .infobox h2,
@@ -19,6 +19,32 @@
 }
 .mainInfoBox-content {
   height: var(--module-size);
+}
+
+.mainInfoBox-content {
+  display: grid;
+  grid-template-columns: 1fr fit-content(50%);
+  grid-template-rows: auto;
+  grid-template-areas: "photo text";
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #3a5b8485;
+  box-shadow: 0px 0px 20px 0px black;
+}
+
+.infobox-photo {
+  grid-area: photo;
+  object-fit: cover;
+  height: var(--module-size);
+}
+
+.infobox-text {
+  grid-area: text;
+  padding: 0 40px;
+}
+.infobox-text > * {
+  padding: 10px;
 }
 
 /* 

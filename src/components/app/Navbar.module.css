@@ -37,3 +37,9 @@ a.button-nav {
 .navbar-logo {
   height: 5rem;
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .navbar-css {
+    display: none;
+  }
+}

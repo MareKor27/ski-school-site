@@ -9,7 +9,7 @@ import { Slider } from "~/components/slider/Slider";
 export function Home() {
   return (
     <>
-      <Slider />
+      <Slider className={"body-arranged-md"} />
       <MainPageBox
         className={"body-arranged-md"}
         image={"public/images/content/mainbox-content.webp"}
@@ -57,7 +57,7 @@ export function Home() {
         <OwnButton link={"o-nas"} text={"Czytaj więcej"} />
       </MainPageBox>
 
-      <NewInfoBox
+      {/* <NewInfoBox
         className={"body-stretched"}
         image={"public/images/content/newbox1.webp"}
         height={"400"}
@@ -78,12 +78,12 @@ export function Home() {
         </p>
         <p></p>
         <OwnButton link={"o-nas"} text={"Czytaj więcej"} />
-      </NewInfoBox>
+      </NewInfoBox> */}
       <InfoBox
         height={"400"}
         type={2}
         image={"public/images/slider/slider-n-3.webp"}
-        classname="body-stretched"
+        classname="body-arranged-md"
       >
         <h2>Oferta</h2>
         <p>
@@ -97,33 +97,30 @@ export function Home() {
             </li>
           </ul>
         </p>
-        <p></p>
         <OwnButton link={"cennik"} text={"Sprawdz naszą ofertę"} />
       </InfoBox>
 
       <InfoBox
         height={"400"}
         type={1}
-        image={"public/images/content/michal.webp"}
-        classname="body-stretched"
+        image={"public/images/slider/slider-n-6.webp"}
+        classname="body-arranged-md"
       >
         <h2>Galeria</h2>
         <p>Zapraszamy do galerii</p>
-        <p></p>
         <OwnButton link={"o-nas"} text={"Zobacz więcej"} />
       </InfoBox>
       {/* <Section size="arranged-md" type="">
         <h4>section</h4>
       </Section> */}
       <InfoBox
-        height={"300"}
+        height={"400"}
         type={3}
         image={"public/images/slider/slider-n-4.webp"}
-        classname="body-stretched"
+        classname="body-arranged-md"
       >
         <h2>Kontakt</h2>
         <p>Zapraszamy do kontaktu</p>
-        <p></p>
         <OwnButton link={"kontakt"} text={"Kontakt"} />
       </InfoBox>
 

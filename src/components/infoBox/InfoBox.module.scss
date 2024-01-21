@@ -1,3 +1,5 @@
+@use "~/scss/abstracts" as *;
+
 :root {
   --module-infobox-height: 400px;
 }
@@ -13,7 +15,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  box-shadow: inset 0px 0px 20px 2px black, 0px 0px 20px 2px black;
+  box-shadow: inset 0px 0px 20px 2px #031022, 0px 0px 20px 2px #031022;
 }
 
 .infoBox .appla {
@@ -47,14 +49,24 @@
 .infoBox.type1 .text-part {
   right: 0;
   width: 50%;
+  @include screen-xs {
+    width: 100%;
+    align-items: flex-end;
+  }
 }
 .infoBox.type2 .text-part {
   left: 0;
   width: 50%;
+  @include screen-xs {
+    width: 100%;
+  }
 }
 .infoBox.type3 .text-part {
   width: 100%;
   padding: 0 20vw 0 20vw;
+  @include screen-xs {
+    padding: 0 0 0 40px;
+  }
 }
 
 .infoBox h1,

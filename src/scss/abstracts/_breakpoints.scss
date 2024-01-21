@@ -1,0 +1,15 @@
+// XL – 1440 – 1920 desktop
+// LG 1200 – 1439 desktop
+// MD 992 – 1199 desktop
+// SM 768 – 991 Tablet
+// XS 320 – 767 Mobile
+
+$content-xs: 767px;
+$content-sm: 991px;
+$content-md: 1199px;
+$content-lg: 1439px;
+$content-xl: 1920px;
+
+// @include screen-md {
+//     color: red;
+//   }
