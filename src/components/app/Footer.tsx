@@ -1,4 +1,4 @@
-import style from "../app/Footer.module.css";
+import style from "../app/Footer.module.scss";
 
 export function Footer() {
   return (
@@ -32,7 +32,7 @@ export function Footer() {
             </p>
           </div>
         </div>
-        <div className={style["copyright"]}>Copyright HUsKor 2023</div>
+        <div className={style["copyright"]}>Copyright HUsKor 2024</div>
       </div>
     </>
   );

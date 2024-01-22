@@ -1,0 +1,149 @@
+@use "~/scss/abstracts" as *;
+
+.navbar-css {
+  background-color: #45b4e4;
+  background: rgb(58, 91, 132);
+  background: linear-gradient(
+    0deg,
+    rgba(58, 91, 132, 1) 0%,
+    rgba(64, 136, 181, 1) 70%,
+    rgba(69, 180, 228, 1) 100%
+  );
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
+  box-shadow: 0px 2px 20px 0px black;
+  /* , inset 0px 3px 20px 0px black; */
+  @include screen-xs {
+    justify-content: space-between;
+  }
+}
+
+a.button-nav {
+  color: #fff;
+  text-decoration: none;
+  /* padding: 15px;
+  border-radius: 100vmax;
+  box-shadow: 1px 1px 5px 1px #3a5b84, inset 1px 1px 20px 1px #3a5b84; */
+}
+.quick-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quick-contact a {
+  color: #a7dbfd;
+  text-shadow: 1px 1px 5px black;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  height: 5rem;
+  @include screen-xs {
+    margin-left: 25px;
+  }
+}
+
+// @media screen and (min-width: 320px) and (max-width: 767px) {
+//   .navbar-css {
+//     display: none;
+//   }
+// }
+
+// ========================== XS
+
+// ====== X
+:root {
+  --bar-width: 60px;
+  --bar-height: 8px;
+  --hamburger-gap: 6px;
+  --foreground: #203248;
+  --background: #fff;
+  --animation-timing: 200ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+.div-hamburger-icon {
+  width: 60px;
+  margin-right: 25px;
+}
+
+.hamburger-icon {
+  --x-width: calc(var(--hamburger-height) * 1.4142135);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  margin-right: 25px;
+  width: 60px;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after,
+.hamburger-icon input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  transform-origin: left center;
+  border-radius: 1000px;
+  cursor: pointer;
+  transition: opacity var(--animation-timing), width var(--animation-timing),
+    rotate var(--animation-timing), translate var(--animation-timing);
+}
+
+.hamburger-icon input {
+  appearance: none;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburger-icon:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
+}
+.hamburger-icon:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-icon input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+// ====== X to MENU
+
+.hamburger-menu {
+  translate: -100%;
+  // translate: 0;
+  transition: translate var(--animation-timing),
+    background-color var(--animation-timing);
+  position: absolute;
+  z-index: 1000;
+  top: 100px;
+  background-color: #a7dbfd00;
+  width: 100vw;
+}
+
+.hamburger-menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hamburger-menu li {
+  width: 100%;
+  margin: 10px 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-icon:has(input:checked) + .hamburger-menu {
+  translate: 0;
+  width: 100vw;
+  background-color: #a7dbfd;
+}

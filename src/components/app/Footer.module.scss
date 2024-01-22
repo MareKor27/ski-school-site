@@ -1,3 +1,5 @@
+@use "~/scss/abstracts" as *;
+
 .footer-conteiner {
   bottom: 0;
   width: 100%;
@@ -17,10 +19,22 @@
   align-items: center;
   height: 120px;
   box-shadow: 1px -3px 20px 0px black;
+
+  @include screen-xs {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.footer-css > div,
+.footer-css > a {
+  @include screen-xs {
+    margin-top: 10px;
+  }
 }
 
 a.button-nav {
-  color: #fff;
+  color: #2ca4ff;
   text-decoration: none;
 }
 .quick-contact {
@@ -37,10 +51,24 @@ a.button-nav {
 
 .quick-contact p {
   text-align: center;
+  @include screen-xs {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
 
-.footer-logo {
+.footer-css .footer-logo {
   height: 5rem;
+  @include screen-xs {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.footer-logo img {
+  @include screen-xs {
+    transform: scale(1.5);
+  }
 }
 
 .copyright {
@@ -50,10 +78,4 @@ a.button-nav {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.footer-conteiner img {
-  /* background-color: #ffffff6b;
-  box-shadow: 0 0 20px 10px #ffffff80;
-  border-radius: 5px; */
 }
