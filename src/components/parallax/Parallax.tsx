@@ -1,4 +1,4 @@
-import style from "~/components/parallax/Parallax.module.css";
+import style from "~/components/parallax/Parallax.module.scss";
 
 type ParallaxType = {
   image: string;

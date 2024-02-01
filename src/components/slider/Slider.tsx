@@ -1,4 +1,4 @@
-import style from "~/components/slider/Slider.module.css";
+import style from "~/components/slider/Slider.module.scss";
 import { Contener } from "../contener/Contener";
 
 type SliderType = {
