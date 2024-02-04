@@ -19,9 +19,9 @@ p {
 }
 
 li {
-  background: url("public/images/icons/li-pointer.png") 2px 5px no-repeat;
+  background: url("/images/icons/li-pointer.png") 2px 5px no-repeat;
+  background-size: 20px;
   display: table;
-  padding-left: 45px;
+  padding-left: 30px;
   padding-top: 5px;
-  margin-left: 5px;
 }

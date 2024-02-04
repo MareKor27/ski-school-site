@@ -52,7 +52,7 @@
   /* background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  background-image: url(public/images/content/michal.webp); 
+  background-image: url(/images/content/michal.webp); 
 }*/
 /* .infobox .bg-overlay {
   background-color: #3a5b849c;
@@ -98,7 +98,7 @@
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(public/images/content/newbox1.webp);
+  background-image: url(/images/content/newbox1.webp);
   background-position: bottom;
   z-index: 10;
 } */

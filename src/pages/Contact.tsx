@@ -14,13 +14,13 @@ export function Contact() {
   const styleTB = useStyles(styleTextBox);
   return (
     <Contener className="body-arranged-md">
-      <Content clas={"content"}>
+      <Content className={"content"}>
         <TextBox>
           <h1>Kontakt z FigowSki</h1>
           <p>
             <img
               className={s(`contentimg imgRight`)}
-              src="public/images/gallery/galeria-foto-5.webp"
+              src="images/gallery/galeria-foto-5.webp"
             />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
             nesciunt voluptatibus minus harum aperiam, necessitatibus sapiente

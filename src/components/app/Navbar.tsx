@@ -6,6 +6,11 @@ export function Navbar() {
 
   return (
     <>
+      <div className={style["quick-contact-only-xs"]}>
+        <a href="mailto:figowskisport@gmail.com">figowskisport@gmail.com</a>
+
+        <a href="tel:+48517933264">tel +48 517 933 264</a>
+      </div>
       <nav className={style["navbar-css"]}>
         <div className={style["navbar-logo"]}>
           <img src="/images/logo.png" />

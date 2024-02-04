@@ -1,11 +1,11 @@
 import style from "~/components/slider/Slider.module.scss";
-import { Contener } from "../contener/Contener";
+//import { Contener } from "../contener/Contener";
 
 type SliderType = {
   className: string;
 };
 
-export function Slider({ className }: SliderType) {
+export function Slider({}: SliderType) {
   return (
     <>
       <div className={style["slider"]}>
@@ -20,7 +20,7 @@ export function Slider({ className }: SliderType) {
           {/* </Contener> */}
         </div>
 
-        <img src="public/images/slider/slider-n-4.webp"></img>
+        <img src="images/slider/slider-n-4.webp"></img>
       </div>
     </>
   );

@@ -22,7 +22,7 @@ export function Gallery({ images }: GalleryType) {
       </Modal>
       <div className={s2(`image-container`)}>
         {images.map((image) => (
-          <div className={s2(`image`)}>
+          <div className={s2(`image`)} key={image}>
             <img
               src={image}
               onClick={() => {

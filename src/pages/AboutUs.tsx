@@ -8,13 +8,13 @@ export function AboutUs() {
   const s = useStyles(style);
   return (
     <Contener className="body-arranged-md">
-      <Content clas={"content"}>
+      <Content className={"content"}>
         <TextBox>
           <h1>O nas</h1>
           <p>
             <img
               className={s(`contentimg imgRight`)}
-              src="public/images/gallery/galeria-foto-3.webp"
+              src="images/gallery/galeria-foto-3.webp"
             />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
             nesciunt voluptatibus minus harum aperiam, necessitatibus sapiente

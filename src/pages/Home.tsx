@@ -1,9 +1,7 @@
 import { OwnButton } from "~/components/button/OwnButton";
 import { InfoBox } from "~/components/infoBox/InfoBox";
-import { NewInfoBox } from "~/components/infoBox/NewInfoBox";
 import { MainPageBox } from "~/components/mainPageBox/MainPageBox";
 import { Parallax } from "~/components/parallax/Parallax";
-import { Section } from "~/components/section/Section";
 import { Slider } from "~/components/slider/Slider";
 
 export function Home() {
@@ -12,7 +10,7 @@ export function Home() {
       <Slider className={"body-arranged-md"} />
       <MainPageBox
         className={"body-arranged-md"}
-        image={"public/images/content/mainbox-content.webp"}
+        image={"images/content/mainbox-content.webp"}
       >
         <h1>Szkoła narciarstwa i snowboardu FigowSki</h1>
         <p>
@@ -38,7 +36,7 @@ export function Home() {
 
       <MainPageBox
         className={"body-stretched"}
-        image={"public/images/content/newbox1.webp"}
+        image={"images/content/newbox1.webp"}
       >
         <h2>o mnie</h2>
         <p>
@@ -59,7 +57,7 @@ export function Home() {
 
       {/* <NewInfoBox
         className={"body-stretched"}
-        image={"public/images/content/newbox1.webp"}
+        image={"images/content/newbox1.webp"}
         height={"400"}
         type={2}
       >
@@ -82,33 +80,33 @@ export function Home() {
       <InfoBox
         height={"400"}
         type={2}
-        image={"public/images/slider/slider-n-3.webp"}
+        image={"images/slider/slider-n-3.webp"}
         classname="body-arranged-md"
       >
         <h2>Oferta</h2>
-        <p>
-          <ul>
-            <li>szkolenie indyw. cennik</li>
-            <li>szkolenie grupowe cennik</li>
-            <li>wyjazdynarciarskie</li>
-            <li>wyjazdy rodzinne</li>
-            <li>
-              pomoc w samorozwoju kursantów – od demonstratora do instruktora
-            </li>
-          </ul>
-        </p>
+
+        <ul>
+          <li>szkolenie indyw. cennik</li>
+          <li>szkolenie grupowe cennik</li>
+          <li>wyjazdynarciarskie</li>
+          <li>wyjazdy rodzinne</li>
+          <li>
+            pomoc w samorozwoju kursantów – od demonstratora do instruktora
+          </li>
+        </ul>
+
         <OwnButton link={"cennik"} text={"Sprawdz naszą ofertę"} />
       </InfoBox>
 
       <InfoBox
         height={"400"}
         type={1}
-        image={"public/images/slider/slider-n-6.webp"}
+        image={"images/slider/slider-n-6.webp"}
         classname="body-arranged-md"
       >
         <h2>Galeria</h2>
         <p>Zapraszamy do galerii</p>
-        <OwnButton link={"o-nas"} text={"Zobacz więcej"} />
+        <OwnButton link={"galeria"} text={"Zobacz więcej"} />
       </InfoBox>
       {/* <Section size="arranged-md" type="">
         <h4>section</h4>
@@ -116,7 +114,7 @@ export function Home() {
       <InfoBox
         height={"400"}
         type={3}
-        image={"public/images/slider/slider-n-4.webp"}
+        image={"images/slider/slider-n-4.webp"}
         classname="body-arranged-md"
       >
         <h2>Kontakt</h2>
@@ -124,8 +122,8 @@ export function Home() {
         <OwnButton link={"kontakt"} text={"Kontakt"} />
       </InfoBox>
 
-      {/* <Parallax image={"public/images/skiing-parallax.webp"} /> */}
-      <Parallax image={"public/images/zrodlowe/IMG_3970.jpg"} />
+      {/* <Parallax image={"images/skiing-parallax.webp"} /> */}
+      <Parallax image={"images/zrodlowe/IMG_3970.jpg"} />
     </>
   );
 }

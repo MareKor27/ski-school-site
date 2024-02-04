@@ -13,7 +13,7 @@ export function Section({ children, size, type }: SectionType) {
   const s = useStyles(style);
   return (
     <div className={s(`section`)}>
-      <Contener size={size}>
+      <Contener className={size}>
         <div className={s(`section-type${type}`)}>{children}</div>
       </Contener>
     </div>

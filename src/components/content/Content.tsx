@@ -4,10 +4,10 @@ import style from "~/components/content/Content.module.css";
 
 type ContentType = {
   children: ReactNode;
-  clas: string;
+  className: string;
 };
 
-export function Content({ children, clas }: ContentType) {
+export function Content({ children, className }: ContentType) {
   const s = useStyles(style);
-  return <div className={s(`content ${clas}`)}>{children}</div>;
+  return <div className={s(`content ${className}`)}>{children}</div>;
 }

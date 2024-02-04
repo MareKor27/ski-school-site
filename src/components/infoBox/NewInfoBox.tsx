@@ -11,13 +11,7 @@ type InfoBoxType = {
   className: string;
 };
 
-export function NewInfoBox({
-  children,
-  image,
-  className,
-  height,
-  type,
-}: InfoBoxType) {
+export function NewInfoBox({ children, image, className }: InfoBoxType) {
   const s = useStyles(style);
   return (
     <div className={s(`infobox type1`)}>

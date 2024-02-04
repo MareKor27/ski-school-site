@@ -1,8 +1,8 @@
 @use "~/scss/abstracts" as *;
 
-* {
-  border: 1px solid red;
-}
+// * {
+//   border: 1px solid red;
+// }
 
 .navbar-css {
   background-color: #45b4e4;
@@ -23,6 +23,9 @@
   //   display: grid;
   //   grid-template-areas: "logo link menu";
   // }
+  @include screen-xs {
+    justify-content: space-between;
+  }
 }
 
 menu.navbar-menu-sidebar {
@@ -96,9 +99,9 @@ menu.navbar-menu-sidebar li a:hover {
   }
 }
 
-menu.navbar-menu-sidebar li.button-hamburger-open {
+.button-hamburger-open {
   @include screen-xs {
-    min-width: 100px;
+    min-width: 80px;
   }
 }
 
@@ -128,11 +131,12 @@ a.button-nav {
     width: 20%;
   }
   @include screen-sm {
-    width: 15%;
+    width: 17%;
   }
   @include screen-xs {
     grid-area: link;
     min-width: 150px;
+    display: none;
   }
 }
 
@@ -168,122 +172,32 @@ a.button-nav {
   @include screen-xs {
     grid-area: logo;
     padding-left: 5px;
-    min-width: 100px;
+    min-width: 200px;
   }
 }
 
-// @media screen and (min-width: 320px) and (max-width: 767px) {
-//   .navbar-css {
-//     display: none;
-//   }
-// }
-
-// ========================== XS
-
-// // ====== X
-// :root {
-//   --bar-width: 60px;
-//   --bar-height: 8px;
-//   --hamburger-gap: 6px;
-//   --foreground: #203248;
-//   --background: #fff;
-//   --animation-timing: 200ms ease-in-out;
-//   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
-// }
-
-// .hamburger-icon {
-//   --x-width: calc(var(--hamburger-height) * 1.4142135);
-//   display: flex;
-//   flex-direction: column;
-//   gap: var(--hamburger-gap);
-//   margin-right: 25px;
-//   width: 60px;
-//   @include screen-xs {
-//     grid-area: menu;
-//   }
-// }
-
-// .hamburger-icon::before,
-// .hamburger-icon::after,
-// .hamburger-icon input {
-//   content: "";
-//   width: var(--bar-width);
-//   height: var(--bar-height);
-//   background-color: var(--foreground);
-//   transform-origin: left center;
-//   border-radius: 1000px;
-//   cursor: pointer;
-//   transition: opacity var(--animation-timing), width var(--animation-timing),
-//     rotate var(--animation-timing), translate var(--animation-timing);
-// }
-
-// .hamburger-icon input {
-//   appearance: none;
-//   outline: none;
-//   pointer-events: none;
-// }
-
-// .hamburger-icon:has(input:checked)::before {
-//   rotate: 45deg;
-//   width: var(--x-width);
-//   translate: 0 calc(var(--bar-height) / -2);
-// }
-// .hamburger-icon:has(input:checked)::after {
-//   rotate: -45deg;
-//   width: var(--x-width);
-//   translate: 0 calc(var(--bar-height) / 2);
-// }
-
-// .hamburger-icon input:checked {
-//   opacity: 0;
-//   width: 0;
-// }
-
-// // ====== X to MENU
-
-// .hamburger-menu {
-//   translate: -100%;
-//   transition: translate var(--animation-timing),
-//     background-color var(--animation-timing);
-//   position: absolute;
-//   z-index: 1000;
-//   top: 100px;
-//   background: linear-gradient(180deg, #bfe6ff 0%, #88a4c2 100%);
-//   width: 100vw;
-// }
-
-// .hamburger-menu ul {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// }
-
-// .hamburger-menu li {
-//   width: 100%;
-//   margin: 10px 0;
-//   height: 40px;
-//   display: flex;
-//   align-items: center;
-// }
-
-// .hamburger-icon:has(input:checked) + .hamburger-menu {
-//   translate: 0;
-//   width: 100vw;
-//   background: linear-gradient(180deg, #bfe6ff 0%, #88a4c2 100%);
-// }
-
-// .pozycja {
-//   width: 100vw;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// .pozycja img {
-//   margin: 10px;
-// }
-
-// .pozycja a {
-//   color: #3a5b84;
-//   font-weight: bold;
-// }
+.quick-contact-only-xs {
+  display: none;
+  @include screen-xs {
+    background: #007bb1;
+    display: flex;
+    top: 0px;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    justify-content: space-around;
+  }
+}
+.quick-contact-only-xs a {
+  @include screen-xs {
+    background: #007bb1;
+    color: #a7dbfd;
+    text-shadow: 1px 1px 5px black;
+    text-decoration: none;
+    font-size: 12px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

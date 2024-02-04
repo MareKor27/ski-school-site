@@ -10,12 +10,12 @@ export function PriceList() {
   const textBoxStyle = useStyles(styleTextBox);
   return (
     <Contener className="body-arranged-md">
-      <Content clas={"content"}>
+      <Content className={"content"}>
         <TextBox>
           <h1>Cennik</h1>
           <img
             className={s(`contentimg imgRight`)}
-            src="public/images/gallery/galeria-foto-10.webp"
+            src="images/gallery/galeria-foto-10.webp"
           />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
