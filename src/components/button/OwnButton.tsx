@@ -1,4 +1,4 @@
-import style from "~/components/button/OwnButton.module.css";
+import style from "~/components/button/OwnButton.module.scss";
 
 type OwnButton = {
   link: string;

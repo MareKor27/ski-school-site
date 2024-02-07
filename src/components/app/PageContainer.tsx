@@ -1,4 +1,4 @@
-import style from "~/components/app/PageConteiner.module.css";
+import style from "~/components/app/PageConteiner.module.scss";
 import { ReactNode } from "react";
 import useStyles from "~/hooks/useStyle";
 

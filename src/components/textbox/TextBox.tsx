@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import style from "~/components/textbox/TextBox.module.css";
+import style from "~/components/textbox/TextBox.module.scss";
 import useStyles from "~/hooks/useStyle";
 
 type TextBoxType = {

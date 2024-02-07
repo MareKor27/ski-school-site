@@ -1,21 +1,27 @@
 import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
-import style from "~/components/content/Content.module.css";
-import styleTextBox from "~/components/textbox/TextBox.module.css";
+import style from "~/components/content/Content.module.scss";
+import styleTextBox from "~/components/textbox/TextBox.module.scss";
 import { TextBox } from "~/components/textbox/TextBox";
 import useStyles from "~/hooks/useStyle";
+import { Helmet } from "react-helmet-async";
 
 export function PriceList() {
   const s = useStyles(style);
   const textBoxStyle = useStyles(styleTextBox);
   return (
     <Contener className="body-arranged-md">
+      <Helmet>
+        <title>FigowSki - Cennik</title>
+        <meta name="description" content="FigowSki - Cennik opis" />
+      </Helmet>
       <Content className={"content"}>
         <TextBox>
           <h1>Cennik</h1>
           <img
             className={s(`contentimg imgRight`)}
             src="images/gallery/galeria-foto-10.webp"
+            alt={"Dziecko na torze szkoleniowym"}
           />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione

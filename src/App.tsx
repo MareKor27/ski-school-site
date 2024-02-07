@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Navbar } from "./components/app/Navbar";
 import { Footer } from "./components/app/Footer";
 import { Routes, Route } from "react-router-dom";
@@ -9,10 +9,11 @@ import { Photos } from "./pages/Photos";
 import { Contact } from "./pages/Contact";
 import { Main } from "./components/app/Main";
 import { PageContainer } from "./components/app/PageContainer";
+import GlobalConfig from "./configs/GlobalConfig";
 
 function App() {
   return (
-    <>
+    <GlobalConfig>
       <PageContainer>
         <Navbar />
         <Main>
@@ -26,7 +27,7 @@ function App() {
         </Main>
         <Footer />
       </PageContainer>
-    </>
+    </GlobalConfig>
   );
 }
 

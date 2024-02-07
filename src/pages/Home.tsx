@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { OwnButton } from "~/components/button/OwnButton";
 import { InfoBox } from "~/components/infoBox/InfoBox";
 import { MainPageBox } from "~/components/mainPageBox/MainPageBox";
@@ -7,10 +8,15 @@ import { Slider } from "~/components/slider/Slider";
 export function Home() {
   return (
     <>
+      <Helmet>
+        <title>FigowSki - Strona Główna</title>
+        <meta name="description" content="Strona o narciarstwie opis" />
+      </Helmet>
       <Slider className={"body-arranged-md"} />
       <MainPageBox
         className={"body-arranged-md"}
         image={"images/content/mainbox-content.webp"}
+        alt={"Grupa na stocku"}
       >
         <h1>Szkoła narciarstwa i snowboardu FigowSki</h1>
         <p>
@@ -37,6 +43,7 @@ export function Home() {
       <MainPageBox
         className={"body-stretched"}
         image={"images/content/newbox1.webp"}
+        alt={"Michał Jaśkiewicz na stocku narciarskim"}
       >
         <h2>o mnie</h2>
         <p>
@@ -123,7 +130,10 @@ export function Home() {
       </InfoBox>
 
       {/* <Parallax image={"images/skiing-parallax.webp"} /> */}
-      <Parallax image={"images/zrodlowe/IMG_3970.jpg"} />
+      <Parallax
+        image={"images/zrodlowe/IMG_3970.jpg"}
+        alt={"Grupa dzieci na nartach"}
+      />
     </>
   );
 }

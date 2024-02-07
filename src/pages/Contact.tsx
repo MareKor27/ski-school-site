@@ -1,12 +1,12 @@
 import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
-import style from "~/components/content/Content.module.css";
+import style from "~/components/content/Content.module.scss";
 import { TextBox } from "~/components/textbox/TextBox";
-import styleGlobal from "~/Global.module.css";
-import styleTextBox from "~/components/textbox/TextBox.module.css";
-
+import styleGlobal from "~/Global.module.scss";
+import styleTextBox from "~/components/textbox/TextBox.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { Section } from "~/components/section/Section";
+import { Helmet } from "react-helmet-async";
 
 export function Contact() {
   const s = useStyles(style);
@@ -14,6 +14,10 @@ export function Contact() {
   const styleTB = useStyles(styleTextBox);
   return (
     <Contener className="body-arranged-md">
+      <Helmet>
+        <title>FigowSki - Kontakt</title>
+        <meta name="description" content="FigowSki - Kontakt opis" />
+      </Helmet>
       <Content className={"content"}>
         <TextBox>
           <h1>Kontakt z FigowSki</h1>
@@ -21,6 +25,7 @@ export function Contact() {
             <img
               className={s(`contentimg imgRight`)}
               src="images/gallery/galeria-foto-5.webp"
+              alt={"Grupa z instruktorem"}
             />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
             nesciunt voluptatibus minus harum aperiam, necessitatibus sapiente
@@ -45,16 +50,22 @@ export function Contact() {
               <tbody>
                 <tr>
                   <td>
-                    <img src="/images/icons/icon-pin.webp"></img>
+                    <img
+                      src="/images/icons/icon-pin.webp"
+                      alt={"Ikona lokalizacji"}
+                    ></img>
                   </td>
                   <td>
-                    <p>Strefa Ruchu ul. Drawska 22</p>
-                    <p>02-202 Warszawa</p>
+                    <p>Szkoła Narciarska FigowSki Sport</p>
+                    <p>ul. Drawska 22, 02-202 Warszawa</p>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <img src="/images/icons/icon-clock.webp"></img>
+                    <img
+                      src="/images/icons/icon-clock.webp"
+                      alt={"Ikona godziny"}
+                    ></img>
                   </td>
                   <td>
                     <p>Godziny otwarcia:</p>
@@ -70,7 +81,10 @@ export function Contact() {
               <tbody>
                 <tr>
                   <td>
-                    <img src="/images/icons/icon-email.webp"></img>
+                    <img
+                      src="/images/icons/icon-email.webp"
+                      alt={"Ikona email"}
+                    ></img>
                   </td>
                   <td>
                     <p>
@@ -84,12 +98,15 @@ export function Contact() {
                 </tr>
                 <tr>
                   <td>
-                    <img src="/images/icons/icon-phone.webp"></img>
+                    <img
+                      src="/images/icons/icon-phone.webp"
+                      alt={"Ikona telefonu"}
+                    ></img>
                   </td>
                   <td>
                     <p>
                       Telefon:
-                      <br /> <a href="m:+48517933264">+48 517 933 264</a>
+                      <br /> <a href="tel:+48517933264">+48 517 933 264</a>
                     </p>
                   </td>
                 </tr>
@@ -101,7 +118,10 @@ export function Contact() {
               <tbody>
                 <tr>
                   <td>
-                    <img src="/images/icons/icon-document.webp"></img>
+                    <img
+                      src="/images/icons/icon-document.webp"
+                      alt={"Ikona dokumentu"}
+                    ></img>
                   </td>
                   <td>
                     <p>
@@ -112,7 +132,10 @@ export function Contact() {
                 </tr>
                 <tr>
                   <td>
-                    <img src="/images/icons/icon-document.webp"></img>
+                    <img
+                      src="/images/icons/icon-document.webp"
+                      alt={"Ikona dokumentu"}
+                    ></img>
                   </td>
                   <td>
                     <p>
@@ -130,7 +153,10 @@ export function Contact() {
             <tbody>
               <tr>
                 <td>
-                  <img src="/images/icons/icon-card.webp"></img>
+                  <img
+                    src="/images/icons/icon-card.webp"
+                    alt={"Ikona karty kredytowej"}
+                  ></img>
                 </td>
                 <td>
                   <p>Nr konta:</p>
@@ -143,7 +169,7 @@ export function Contact() {
         <TextBox>
           <div className={styleTB(`map`)}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.0450452839646!2d20.9562744!3d52.2062289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccaa5fc07595%3A0x43a0adedb664106a!2sDrawska%2022%2C%2002-202%20Warszawa!5e0!3m2!1spl!2spl!4v1699181558414!5m2!1spl!2spl"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.044865926853!2d20.953699477578546!3d52.20623215941143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecdea8813eb91%3A0x59fea50c2ceba40!2sSzko%C5%82a%20Narciarska%20FigowSki%20Sport!5e0!3m2!1spl!2spl!4v1707237928477!5m2!1spl!2spl"
               width="100%"
               height="450"
               style={{ border: 0 }}

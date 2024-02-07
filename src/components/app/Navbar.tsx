@@ -13,7 +13,7 @@ export function Navbar() {
       </div>
       <nav className={style["navbar-css"]}>
         <div className={style["navbar-logo"]}>
-          <img src="/images/logo.png" />
+          <img src="/images/logo.png" alt={"Logo FigowSki Sport"} />
         </div>
 
         <menu

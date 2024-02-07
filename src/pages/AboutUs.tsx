@@ -1,6 +1,7 @@
+import { Helmet } from "react-helmet-async";
 import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
-import style from "~/components/content/Content.module.css";
+import style from "~/components/content/Content.module.scss";
 import { TextBox } from "~/components/textbox/TextBox";
 import useStyles from "~/hooks/useStyle";
 
@@ -8,6 +9,10 @@ export function AboutUs() {
   const s = useStyles(style);
   return (
     <Contener className="body-arranged-md">
+      <Helmet>
+        <title>FigowSki - O nas</title>
+        <meta name="description" content="FigowSki - O nas opis" />
+      </Helmet>
       <Content className={"content"}>
         <TextBox>
           <h1>O nas</h1>
@@ -15,6 +20,7 @@ export function AboutUs() {
             <img
               className={s(`contentimg imgRight`)}
               src="images/gallery/galeria-foto-3.webp"
+              alt={"Rozgrzewka grupy na stoku"}
             />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
             nesciunt voluptatibus minus harum aperiam, necessitatibus sapiente

@@ -7,16 +7,22 @@ type MainPageBoxType = {
   children: ReactNode;
   className: string;
   image: string;
+  alt: string;
 };
 
-export function MainPageBox({ children, className, image }: MainPageBoxType) {
+export function MainPageBox({
+  children,
+  className,
+  image,
+  alt,
+}: MainPageBoxType) {
   const s = useStyles(style);
   return (
     <div className={s(`mainPage`)}>
       <Contener className={className}>
         <div className={s(`main`)}>
           <div className={s(`mainPageBox`)}>
-            <img className={s(`image-part`)} src={image}></img>
+            <img className={s(`image-part`)} src={image} alt={alt}></img>
             <div className={s(`text-part`)}>{children}</div>
           </div>
         </div>

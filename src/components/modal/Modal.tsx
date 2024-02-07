@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import style2 from "~/components/gallery/Gallery.module.css";
+import style2 from "~/components/gallery/Gallery.module.scss";
 import useStyles from "~/hooks/useStyle";
 
 type ModalType = {

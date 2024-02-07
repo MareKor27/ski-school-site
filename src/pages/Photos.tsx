@@ -5,6 +5,7 @@ import { Content } from "~/components/content/Content";
 // import style2 from "~/Global.module.css";
 // import useStyles from "~/hooks/useStyle";
 import { TextBox } from "~/components/textbox/TextBox";
+import { Helmet } from "react-helmet-async";
 
 export function Photos() {
   // const s = useStyles(style);
@@ -59,6 +60,10 @@ export function Photos() {
 
   return (
     <Contener className="body-arranged-md">
+      <Helmet>
+        <title>FigowSki - Galeria</title>
+        <meta name="description" content="FigowSki - Galeria opis" />
+      </Helmet>
       <Content className={"content"}>
         <TextBox>
           <h1>Galeria</h1>

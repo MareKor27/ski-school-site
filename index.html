@@ -1,13 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/images/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FigowSki</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="http://185.25.150.226/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Szkoła Narciarska FigowSki Sport" />
+    <meta
+      property="og:description"
+      content="Szkoła Narciarska FigowSki Sport - opis"
+    />
+    <meta property="og:image" content="content/opengraph.jpg" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="185.25.150.226" />
+    <meta property="twitter:url" content="http://185.25.150.226/" />
+    <meta name="twitter:title" content="Szkoła Narciarska FigowSki Sport" />
+    <meta
+      name="twitter:description"
+      content="Szkoła Narciarska FigowSki Sport - opis"
+    />
+    <meta name="twitter:image" content="/content/opengraph.jpg" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://www.schema.org",
+        "@type": "SkiResort",
+        "name": "Szkoła Narciarska FigowSki Sport",
+        "logo": "/images/logo.png",
+        "description": "Opis",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Warszawa",
+          "addressRegion": "Mazowieckie",
+          "postalCode": "02-202",
+          "addressCountry": "Polska"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "52.2063145",
+          "longitude": "20.9540432"
+        },
+        "hasMap": "https://www.google.com/maps/place/Szko%C5%82a+Narciarska+FigowSki+Sport/@52.2062322,20.9536995,17z/data=!3m1!4b1!4m6!3m5!1s0x471ecdea8813eb91:0x59fea50c2ceba40!8m2!3d52.2062289!4d20.9562744!16s%2Fg%2F11r_vq2_y0?hl=pl&entry=ttu",
+        "openingHours": "Mo 06:00-20:00",
+        "telephone": "+48 517 933 264"
+      }
+    </script>
+    <span itemscope itemtype="https://schema.org/LocalBusiness">
+      <span
+        itemprop="address"
+        itemscope
+        itemtype="https://schema.org/PostalAddress"
+      >
+        <meta itemprop="streetAddress" content="ul. Drawska 22" />
+        <meta itemprop="addressLocality" content="Warszawa" />
+        <meta itemprop="postalCode" content="02-202" />
+      </span>
+      <span
+        itemprop="geo"
+        itemscope
+        itemtype="https://schema.org/GeoCoordinates"
+      >
+        <meta itemprop="latitude" content="52.2063141" />
+        <meta itemprop="longitude" content="20.9540431" />
+      </span>
+      <meta itemprop="telephone" content="+48 517 933 264" />
+      <meta itemprop="openingHours" content="Mo 06:00-20:00" />
+      <meta itemprop="name" content="Szkoła Narciarska FigowSki Sport1" />
+      <meta itemprop="image" content="/images/logo1.png" />
+      <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+        <meta itemprop="logo" content="/images/logo1.png" />
+        <link itemprop="url" href="https://notaras.pl/" />
+        <link
+          itemprop="hasMap"
+          href="https://www.google.com/maps/place/Tomasz+Balas+-+Kancelaria+notarialna/@50.259296,19.0140891,15z/data=!4m6!3m5!1s0x4716ce475c6cc731:0xac77da6ed0b84413!8m2!3d50.259296!4d19.0140891!16s%2Fg%2F1ths82j8?entry=ttu"
+        />
+      </span>
+    </span>
   </body>
 </html>

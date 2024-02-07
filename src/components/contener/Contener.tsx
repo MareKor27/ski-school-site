@@ -1,4 +1,4 @@
-import style from "~/components/contener/Contener.module.css";
+import style from "~/components/contener/Contener.module.scss";
 import { ReactNode } from "react";
 import useStyles from "~/hooks/useStyle";
 

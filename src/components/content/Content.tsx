@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import useStyles from "~/hooks/useStyle";
-import style from "~/components/content/Content.module.css";
+import style from "~/components/content/Content.module.scss";
 
 type ContentType = {
   children: ReactNode;

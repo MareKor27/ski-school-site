@@ -6,7 +6,7 @@ export function Footer() {
       <div className={style["footer-conteiner"]}>
         <div className={style["footer-css"]}>
           <div className={style["footer-logo"]}>
-            <img src="/images/logo.png" />
+            <img src="/images/logo.png" alt={"Logo FigowSki Sport"} />
           </div>
           <a className={style["button-nav"]} href="/">
             Strona Główna
@@ -25,8 +25,8 @@ export function Footer() {
           </a>
           <div className={style["quick-contact"]}>
             <p>
-              Strefa Ruchu ul. Drawska 22
-              <br /> 02-202 Warszawa
+              Szkoła Narciarska FigowSki Sport
+              <br /> ul. Drawska 22, 02-202 Warszawa
               <br /> Pn - Pt: 8:00 - 15:00
               <br /> Sob - Ndz: Nieczynne
             </p>
