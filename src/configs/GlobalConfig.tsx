@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import { HelmetProvider } from "react-helmet-async";
 
 type GlobalConfigProps = {
-  children: JSX.Element;
+  children: ReactNode;
 };
 
 const GlobalConfig = (props: GlobalConfigProps) => {

@@ -10,10 +10,13 @@ import { Contact } from "./pages/Contact";
 import { Main } from "./components/app/Main";
 import { PageContainer } from "./components/app/PageContainer";
 import GlobalConfig from "./configs/GlobalConfig";
+import PageNotFound from "./pages/PageNotFound";
+import ScrollToTop from "./components/scrollToTop/scrollToTop";
 
 function App() {
   return (
     <GlobalConfig>
+      <ScrollToTop />
       <PageContainer>
         <Navbar />
         <Main>
@@ -23,6 +26,7 @@ function App() {
             <Route path="/cennik" element={<PriceList />} />
             <Route path="/galeria" element={<Photos />} />
             <Route path="/kontakt" element={<Contact />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Main>
         <Footer />

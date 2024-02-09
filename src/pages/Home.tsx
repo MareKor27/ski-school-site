@@ -59,7 +59,7 @@ export function Home() {
           <b> „Od zabawy do sportu”.</b>
         </p>
         <p></p>
-        <OwnButton link={"o-nas"} text={"Czytaj więcej"} />
+        <OwnButton to="/o-nas" text={"Czytaj więcej"} />
       </MainPageBox>
 
       {/* <NewInfoBox
@@ -102,7 +102,7 @@ export function Home() {
           </li>
         </ul>
 
-        <OwnButton link={"cennik"} text={"Sprawdz naszą ofertę"} />
+        <OwnButton to="/cennik" text={"Sprawdz naszą ofertę"} />
       </InfoBox>
 
       <InfoBox
@@ -113,7 +113,7 @@ export function Home() {
       >
         <h2>Galeria</h2>
         <p>Zapraszamy do galerii</p>
-        <OwnButton link={"galeria"} text={"Zobacz więcej"} />
+        <OwnButton to="/galeria" text={"Zobacz więcej"} />
       </InfoBox>
       {/* <Section size="arranged-md" type="">
         <h4>section</h4>
@@ -126,12 +126,12 @@ export function Home() {
       >
         <h2>Kontakt</h2>
         <p>Zapraszamy do kontaktu</p>
-        <OwnButton link={"kontakt"} text={"Kontakt"} />
+        <OwnButton to="/kontakt" text={"Kontakt"} />
       </InfoBox>
 
       {/* <Parallax image={"images/skiing-parallax.webp"} /> */}
       <Parallax
-        image={"images/zrodlowe/IMG_3970.jpg"}
+        image={"images/content/paralaks-1.webp"}
         alt={"Grupa dzieci na nartach"}
       />
     </>

@@ -2,7 +2,7 @@ import style from "~/components/parallax/Parallax.module.scss";
 
 type ParallaxType = {
   image: string;
-  alt: string;
+  alt?: string;
 };
 
 export function Parallax({ image, alt }: ParallaxType) {

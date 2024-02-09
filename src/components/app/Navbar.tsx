@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import style from "~/components/app/Navbar.module.scss";
+import { LinkImage } from "../button/LinkImage";
 
 export function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -7,14 +9,16 @@ export function Navbar() {
   return (
     <>
       <div className={style["quick-contact-only-xs"]}>
-        <a href="mailto:figowskisport@gmail.com">figowskisport@gmail.com</a>
+        <Link to="mailto:figowskisport@gmail.com">figowskisport@gmail.com</Link>
 
-        <a href="tel:+48517933264">tel +48 517 933 264</a>
+        <Link to="tel:+48517933264">tel +48 517 933 264</Link>
       </div>
       <nav className={style["navbar-css"]}>
-        <div className={style["navbar-logo"]}>
+        {/* <div className={style["navbar-logo"]}> */}
+        <LinkImage className={"navbar-logo"} to="/">
           <img src="/images/logo.png" alt={"Logo FigowSki Sport"} />
-        </div>
+        </LinkImage>
+        {/* </div> */}
 
         <menu
           className={style["navbar-menu-sidebar"]}
@@ -36,35 +40,37 @@ export function Navbar() {
             </svg>
           </li>
           <li>
-            <a className={style["button-nav"]} href="/">
+            <Link className={style["button-nav"]} to="/">
               Strona Główna
-            </a>
+            </Link>
           </li>
           <li>
-            <a className={style["button-nav"]} href="/o-nas">
+            <Link className={style["button-nav"]} to="/o-nas">
               O nas
-            </a>
+            </Link>
           </li>
           <li>
-            <a className={style["button-nav"]} href="/cennik">
+            <Link className={style["button-nav"]} to="/cennik">
               Cennik
-            </a>
+            </Link>
           </li>
           <li>
-            <a className={style["button-nav"]} href="/galeria">
+            <Link className={style["button-nav"]} to="/galeria">
               Galeria
-            </a>
+            </Link>
           </li>
           <li>
-            <a className={style["button-nav"]} href="/kontakt">
+            <Link className={style["button-nav"]} to="/kontakt">
               Kontakt
-            </a>
+            </Link>
           </li>
         </menu>
         <div className={style["quick-contact"]}>
-          <a href="mailto:figowskisport@gmail.com">figowskisport@gmail.com</a>
+          <Link to="mailto:figowskisport@gmail.com">
+            figowskisport@gmail.com
+          </Link>
           <br />
-          <a href="tel:+48517933264">tel +48 517 933 264</a>
+          <Link to="tel:+48517933264">tel +48 517 933 264</Link>
         </div>
         <div
           className={style["button-hamburger-open"]}

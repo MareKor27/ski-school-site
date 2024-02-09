@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import style from "../app/Footer.module.scss";
+import { LinkImage } from "../button/LinkImage";
 
 export function Footer() {
   return (
@@ -6,23 +8,25 @@ export function Footer() {
       <div className={style["footer-conteiner"]}>
         <div className={style["footer-css"]}>
           <div className={style["footer-logo"]}>
-            <img src="/images/logo.png" alt={"Logo FigowSki Sport"} />
+            <LinkImage to="/">
+              <img src="/images/logo.png" alt={"Logo FigowSki Sport"} />
+            </LinkImage>
           </div>
-          <a className={style["button-nav"]} href="/">
+          <Link className={style["button-nav"]} to="/">
             Strona Główna
-          </a>
-          <a className={style["button-nav"]} href="/o-nas">
+          </Link>
+          <Link className={style["button-nav"]} to="/o-nas">
             O nas
-          </a>
-          <a className={style["button-nav"]} href="/cennik">
+          </Link>
+          <Link className={style["button-nav"]} to="/cennik">
             Cennik
-          </a>
-          <a className={style["button-nav"]} href="/galeria">
+          </Link>
+          <Link className={style["button-nav"]} to="/galeria">
             Galeria
-          </a>
-          <a className={style["button-nav"]} href="/kontakt">
+          </Link>
+          <Link className={style["button-nav"]} to="/kontakt">
             Kontakt
-          </a>
+          </Link>
           <div className={style["quick-contact"]}>
             <p>
               Szkoła Narciarska FigowSki Sport

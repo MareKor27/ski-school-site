@@ -1,14 +1,15 @@
+import { Link } from "react-router-dom";
 import style from "~/components/button/OwnButton.module.scss";
 
 type OwnButton = {
-  link: string;
+  to: string;
   text: string;
 };
 
-export function OwnButton({ link, text }: OwnButton) {
+export function OwnButton({ to, text }: OwnButton) {
   return (
-    <a className={style["linked-button"]} href={`/${link}`}>
+    <Link className={style["linked-button"]} to={to}>
       {text}
-    </a>
+    </Link>
   );
 }

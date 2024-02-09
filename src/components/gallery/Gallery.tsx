@@ -4,10 +4,13 @@ import style2 from "~/components/gallery/Gallery.module.scss";
 import useStyles from "~/hooks/useStyle";
 
 type GalleryType = {
-  images: string[];
+  photos: {
+    url: string;
+    alt: string;
+  }[];
 };
 
-export function Gallery({ images }: GalleryType) {
+export function Gallery({ photos }: GalleryType) {
   const s2 = useStyles(style2);
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
@@ -21,14 +24,14 @@ export function Gallery({ images }: GalleryType) {
         {!!activeImage && <img src={activeImage} />}
       </Modal>
       <div className={s2(`image-container`)}>
-        {images.map((image) => (
-          <div className={s2(`image`)} key={image}>
+        {photos.map((image) => (
+          <div className={s2(`image`)} key={image.url}>
             <img
-              src={image}
+              src={image.url}
               onClick={() => {
-                setActiveImage(image);
+                setActiveImage(image.url);
               }}
-              alt={image}
+              alt={image.alt}
             />
           </div>
         ))}
