@@ -4,12 +4,14 @@ import { TextBox } from "~/components/textbox/TextBox";
 import style from "~/components/content/Content.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { OwnButton } from "~/components/button/OwnButton";
+import { Breadcrums } from "~/components/breadcrumbs/Breadcrumbs";
 
 const PageNotFound = () => {
   const s = useStyles(style);
   return (
     <Contener className="body-arranged-md">
       <Content className={"content"}>
+        <Breadcrums namePage={"404"} />
         <TextBox>
           <h1>404 strona nie istnieje</h1>
           <p>Możliwe, że nie możesz zobaczyć tej strony, ponieważ</p>

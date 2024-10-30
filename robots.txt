@@ -1,0 +1,9 @@
+User-agent: *
+
+Allow: /
+Allow: /o-nas
+Allow: /cennik
+Allow: /galeria
+Allow: /kontakt
+
+Sitemap: https://figowski.com/sitemap.xml

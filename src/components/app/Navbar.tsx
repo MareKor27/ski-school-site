@@ -14,11 +14,11 @@ export function Navbar() {
         <Link to="tel:+48517933264">tel +48 517 933 264</Link>
       </div>
       <nav className={style["navbar-css"]}>
-        {/* <div className={style["navbar-logo"]}> */}
-        <LinkImage className={"navbar-logo"} to="/">
-          <img src="/images/logo.png" alt={"Logo FigowSki Sport"} />
-        </LinkImage>
-        {/* </div> */}
+        <div className={style["navbar-logo-div"]}>
+          <LinkImage className={"navbar-logo-image"} to="/" target="">
+            <img src="/images/logo-z-tlem3.png" alt={"Logo FigowSki Sport"} />
+          </LinkImage>
+        </div>
 
         <menu
           className={style["navbar-menu-sidebar"]}
@@ -40,27 +40,57 @@ export function Navbar() {
             </svg>
           </li>
           <li>
-            <Link className={style["button-nav"]} to="/">
+            <Link
+              className={style["button-nav"]}
+              to="/"
+              onClick={() => {
+                setShowSidebar(false);
+              }}
+            >
               Strona Główna
             </Link>
           </li>
           <li>
-            <Link className={style["button-nav"]} to="/o-nas">
+            <Link
+              className={style["button-nav"]}
+              to="/o-nas"
+              onClick={() => {
+                setShowSidebar(false);
+              }}
+            >
               O nas
             </Link>
           </li>
           <li>
-            <Link className={style["button-nav"]} to="/cennik">
+            <Link
+              className={style["button-nav"]}
+              to="/cennik"
+              onClick={() => {
+                setShowSidebar(false);
+              }}
+            >
               Cennik
             </Link>
           </li>
           <li>
-            <Link className={style["button-nav"]} to="/galeria">
+            <Link
+              className={style["button-nav"]}
+              to="/galeria"
+              onClick={() => {
+                setShowSidebar(false);
+              }}
+            >
               Galeria
             </Link>
           </li>
           <li>
-            <Link className={style["button-nav"]} to="/kontakt">
+            <Link
+              className={style["button-nav"]}
+              to="/kontakt"
+              onClick={() => {
+                setShowSidebar(false);
+              }}
+            >
               Kontakt
             </Link>
           </li>

@@ -1,0 +1,13 @@
+@use "~/scss/abstracts" as *;
+
+.gototop {
+  cursor: pointer;
+  position: sticky;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background: green;
+  left: 96%;
+  z-index: 1000;
+  top: 90vh;
+}

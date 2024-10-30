@@ -11,7 +11,9 @@ import { Main } from "./components/app/Main";
 import { PageContainer } from "./components/app/PageContainer";
 import GlobalConfig from "./configs/GlobalConfig";
 import PageNotFound from "./pages/PageNotFound";
-import ScrollToTop from "./components/scrollToTop/scrollToTop";
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
+import { SocialMedia } from "./components/socialMedia/SocialMedia";
+import { GoToTop } from "./components/goToTop/GoToTop";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
       <ScrollToTop />
       <PageContainer>
         <Navbar />
+        <SocialMedia />
+        <GoToTop />
         <Main>
           <Routes>
             <Route path="/" element={<Home />} />

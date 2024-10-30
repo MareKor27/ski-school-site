@@ -1,182 +1,57 @@
 [
   {
-    "url": "images/gallery/galeria-foto-1.webp",
+    "url": "images/gallery/one/gallery-one-1.webp",
     "alt": "Chłopiec na stoku nocą",
     "gallery": "galleryOne"
   },
   {
-    "url": "images/gallery/galeria-foto-2.webp",
+    "url": "images/gallery/one/gallery-one-2.webp",
     "alt": "Chłopiec na stoku nocą 2",
     "gallery": "galleryOne"
   },
   {
-    "url": "images/gallery/galeria-foto-3.webp",
+    "url": "images/gallery/one/gallery-one-3.webp",
     "alt": "Grupa na rozgrzewce",
     "gallery": "galleryOne"
   },
   {
-    "url": "images/gallery/galeria-foto-4.webp",
+    "url": "images/gallery/one/gallery-one-4.webp",
     "alt": "Grupa na wyciągu",
     "gallery": "galleryOne"
   },
   {
-    "url": "images/gallery/galeria-foto-5.webp",
+    "url": "images/gallery/one/gallery-one-5.webp",
     "alt": "Dzieci z instruktorem",
     "gallery": "galleryOne"
   },
   {
-    "url": "images/gallery/galeria-foto-6.webp",
+    "url": "images/gallery/one/gallery-one-6.webp",
     "alt": "Stock nocą",
     "gallery": "galleryOne"
   },
   {
-    "url": "images/gallery/galeria-foto-7.webp",
+    "url": "images/gallery/one/gallery-one-7.webp",
     "alt": "Dzieci na nocnym stoku",
     "gallery": "galleryOne"
   },
   {
-    "url": "images/gallery/galeria-foto-8.webp",
+    "url": "images/gallery/one/gallery-one-8.webp",
     "alt": "Dzieci na nocnym stoku 2",
     "gallery": "galleryOne"
   },
   {
-    "url": "images/zrodlowe/figowski-sport-galeria-001.webp",
-    "alt": "Chłopiec na torze treningowym",
-    "gallery": "galleryTwo"
+    "url": "images/gallery/one/gallery-one-9.webp",
+    "alt": "Dzieci na nocnym stoku 2",
+    "gallery": "galleryOne"
   },
   {
-    "url": "images/zrodlowe/figowski-sport-galeria-002.webp",
-    "alt": "Dziecko z nartami",
-    "gallery": "galleryTwo"
+    "url": "images/gallery/one/gallery-one-10.webp",
+    "alt": "Dzieci na nocnym stoku 2",
+    "gallery": "galleryOne"
   },
   {
-    "url": "images/zrodlowe/figowski-sport-galeria-008.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-009.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-011.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-012.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-013.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-014.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-015.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-016.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-017.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-018.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-019.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-020.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-021.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-022.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-023.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-024.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-025.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-026.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-027.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-028.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-029.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-030.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-031.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-032.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryTwo"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-033.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryThree"
-  },
-  {
-    "url": "images/zrodlowe/figowski-sport-galeria-034.webp",
-    "alt": " Chłopiec na torze treningowym 2",
-    "gallery": "galleryThree"
+    "url": "images/gallery/one/gallery-one-11.webp",
+    "alt": "Dzieci na nocnym stoku 2",
+    "gallery": "galleryOne"
   }
 ]

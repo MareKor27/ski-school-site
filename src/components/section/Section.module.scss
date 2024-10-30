@@ -6,4 +6,12 @@
   gap: 2rem;
   /* flex-wrap: wrap;*/
   /* min-width: 200px; */
+  @include screen-xs {
+    grid-template-columns: repeat(auto-fit, 320px);
+    justify-content: center;
+  }
+}
+
+.section-type1 p {
+  font-size: 18px;
 }

@@ -1,7 +1,7 @@
 @use "~/scss/abstracts" as *;
 
 .footer-conteiner {
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
   margin-top: 50px;
 }
@@ -30,6 +30,14 @@
 .footer-css > a {
   @include screen-xs {
     margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+.footer-css > a {
+  @include screen-xs {
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
   }
 }
 
@@ -57,15 +65,22 @@ a.button-nav {
   }
 }
 
-.footer-css .footer-logo {
-  height: 5rem;
+.footer-css .footer-logo-div {
+  height: 6rem;
+  width: 250px;
+  display: flex;
+  justify-content: center;
   @include screen-xs {
-    margin-top: 20px;
+    margin-top: 35px;
     margin-bottom: 20px;
   }
 }
+.footer-logo-image {
+  height: 6rem;
+  width: 150px;
+}
 
-.footer-logo img {
+.footer-logo-div img {
   @include screen-xs {
     transform: scale(1.5);
   }

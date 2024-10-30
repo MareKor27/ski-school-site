@@ -6,13 +6,14 @@ import useStyles from "~/hooks/useStyle";
 type LinkImage = {
   to: string;
   className: string;
+  target: string;
   children: ReactNode;
 };
 
-export function LinkImage({ to, className, children }: LinkImage) {
+export function LinkImage({ to, className, children, target = "" }: LinkImage) {
   const s = useStyles(style);
   return (
-    <Link className={s(`${className}`)} to={to}>
+    <Link className={s(`${className}`)} to={to} target={target}>
       {children}
     </Link>
   );

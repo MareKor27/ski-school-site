@@ -1,9 +1,13 @@
 @use "~/scss/abstracts" as *;
 
 .text-box {
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 40px;
   padding: 0px 20px 0 20px;
+  // background-color: rgb(68, 180, 180);
+  @include screen-xs {
+    // width: 200px;
+  }
 }
 
 .text-box p {
@@ -11,9 +15,18 @@
   padding-bottom: 10px;
 }
 
-.text-box25 {
-  /* flex-grow: 1; */
-  /* max-width: 50%; */
+.text-style1 {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  align-items: start;
+}
+
+.text-style1 div {
+  padding-left: 20px;
+}
+
+.text-style1 img {
+  margin-top: 10px;
 }
 
 .text-box h1,

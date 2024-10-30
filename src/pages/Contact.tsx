@@ -1,171 +1,108 @@
 import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
-import style from "~/components/content/Content.module.scss";
+//import style from "~/components/content/Content.module.scss";
 import { TextBox } from "~/components/textbox/TextBox";
-import styleGlobal from "~/Global.module.scss";
 import styleTextBox from "~/components/textbox/TextBox.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { Section } from "~/components/section/Section";
 import { Helmet } from "react-helmet-async";
+import { Breadcrums } from "~/components/breadcrumbs/Breadcrumbs";
 
 export function Contact() {
-  const s = useStyles(style);
-  const g2 = useStyles(styleGlobal);
+  //const s = useStyles(style);
   const styleTB = useStyles(styleTextBox);
   return (
     <Contener className="body-arranged-md">
       <Helmet>
-        <title>FigowSki - Kontakt</title>
-        <meta name="description" content="FigowSki - Kontakt opis" />
+        <title>
+          Kontakt | Skontaktuj się z nami w sprawie nauki jazdy - FigowSki
+        </title>
+        <meta
+          name="description"
+          content="Potrzebujesz więcej informacji? Skontaktuj się z nami! Jesteśmy gotowi odpowiedzieć na wszystkie Twoje pytania dotyczące naszych lekcji nauki jazdy na nartach i snowboardzie na Górce Szczęśliwickiej."
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="figowski.com" />
+        <meta property="twitter:url" content="http://figowski.com/kontakt" />
+        <meta
+          name="twitter:title"
+          content="Szkoła Narciarska FigowSki Sport | Kontakt"
+        />
+        <meta
+          name="twitter:description"
+          content="Potrzebujesz więcej informacji? Skontaktuj się z nami!, Górka Szczęśliwicka Warszawa | Instruktor narciarski z licencją PZN - FigowSki"
+        />
+        <meta name="twitter:image" content="/images/content/opengraph.jpg" />
       </Helmet>
       <Content className={"content"}>
+        <Breadcrums namePage={"Kontakt"} />
         <TextBox>
           <h1>Kontakt z FigowSki</h1>
           <p>
-            <img
-              className={s(`contentimg imgRight`)}
-              src="images/gallery/galeria-foto-5.webp"
-              alt={"Grupa z instruktorem"}
-            />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            nesciunt voluptatibus minus harum aperiam, necessitatibus sapiente
-            iusto architecto nam distinctio dolores debitis earum asperiores,
-            itaque exercitationem reiciendis aliquid tempore voluptate? Debitis
-            esse tempore odio, atque fuga autem, deserunt ab cum blanditiis,
-            consectetur possimus dolore natus ad culpa quis doloremque quod
-            provident quos neque nesciunt et exercitationem! Quibusdam maxime
-            pariatur nemo! Magnam iusto optio voluptas corporis doloribus fugit
-            voluptatibus, laudantium nihil officiis expedita possimus adipisci
-            similique, esse ea, reiciendis voluptate accusantium ullam soluta
-            natus iure commodi distinctio doloremque! Temporibus, culpa
-            reprehenderit. Qui ducimus minima dolores, reprehenderit cupiditate
-            asperiores non recusandae quod sunt accusantium, aperiam ullam
-            expedita repellendus quaerat officia voluptates tempore velit
-            similique quo tenetur facere corporis enim nam.
+            Potrzebujesz więcej informacji na temat naszych lekcji nauki jazdy
+            na nartach i snowboardzie na Górce Szczęśliwickiej? Skontaktuj się z
+            nami! Jesteśmy do Twojej dyspozycji, aby odpowiedzieć na wszystkie
+            Twoje pytania i zapewnić Ci kompleksową pomoc.
+          </p>
+          <p>
+            Nie wahaj się, jeśli chcesz dowiedzieć się więcej o naszych
+            usługach, cenach czy dostępności zajęć. Z przyjemnością pomożemy Ci
+            rozpocząć Twoją przygodę na stoku!
           </p>
         </TextBox>
         <Section size={"body-arranged-md"} type={"1"}>
-          <TextBox className={"text-clear text-box25"}>
-            <table className={g2(`contact-table`)}>
-              <tbody>
-                <tr>
-                  <td>
-                    <img
-                      src="/images/icons/icon-pin.webp"
-                      alt={"Ikona lokalizacji"}
-                    ></img>
-                  </td>
-                  <td>
-                    <p>Szkoła Narciarska FigowSki Sport</p>
-                    <p>ul. Drawska 22, 02-202 Warszawa</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="/images/icons/icon-clock.webp"
-                      alt={"Ikona godziny"}
-                    ></img>
-                  </td>
-                  <td>
-                    <p>Godziny otwarcia:</p>
-                    <p>Pon. - Pt.: 10:00 - 20:00</p>
-                    <p>Sob.: 9:00 - 17:00</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <TextBox className={"text-clear text-style1 item1"}>
+            <img
+              src="/images/icons/icon-pin.webp"
+              alt={"Ikona lokalizacji"}
+            ></img>
+            <div>
+              <p>Adress:</p>
+              <p>
+                Szkoła Narciarska FigowSki Sport
+                <br />
+                Górka Szczęśliwicka
+                <br />
+                ul. Drawska 22, 02-202 Warszawa
+              </p>
+            </div>
           </TextBox>
-          <TextBox className={"text-clear text-box25"}>
-            <table className={g2(`contact-table`)}>
-              <tbody>
-                <tr>
-                  <td>
-                    <img
-                      src="/images/icons/icon-email.webp"
-                      alt={"Ikona email"}
-                    ></img>
-                  </td>
-                  <td>
-                    <p>
-                      E-mail:
-                      <br />
-                      <a href="mailto:figowskisport@gmail.com">
-                        figowskisport@gmail.com
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="/images/icons/icon-phone.webp"
-                      alt={"Ikona telefonu"}
-                    ></img>
-                  </td>
-                  <td>
-                    <p>
-                      Telefon:
-                      <br /> <a href="tel:+48517933264">+48 517 933 264</a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <TextBox className={"text-clear text-style1 item2"}>
+            <img src="/images/icons/icon-email.webp" alt={"Ikona email"}></img>
+            <div>
+              <p>
+                E-mail:
+                <br />
+                <a href="mailto:figowskisport@gmail.com">
+                  figowskisport@gmail.com
+                </a>
+              </p>
+            </div>
+
+            <img
+              src="/images/icons/icon-phone.webp"
+              alt={"Ikona telefonu"}
+            ></img>
+            <div>
+              <p>
+                Telefon:
+                <br /> <a href="tel:+48517933264">+48 517 933 264</a>
+              </p>
+            </div>
           </TextBox>
-          <TextBox className={"text-clear text-box25"}>
-            <table className={g2(`contact-table`)}>
-              <tbody>
-                <tr>
-                  <td>
-                    <img
-                      src="/images/icons/icon-document.webp"
-                      alt={"Ikona dokumentu"}
-                    ></img>
-                  </td>
-                  <td>
-                    <p>
-                      REGON:
-                      <br /> 384808813
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="/images/icons/icon-document.webp"
-                      alt={"Ikona dokumentu"}
-                    ></img>
-                  </td>
-                  <td>
-                    <p>
-                      NIP:
-                      <br /> 7471658760
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <TextBox className={"text-clear text-style1 item13"}>
+            <img
+              src="/images/icons/icon-clock.webp"
+              alt={"Ikona godziny"}
+            ></img>
+
+            <div>
+              <p>Godziny otwarcia:</p>
+              <p>Pon. - Ndz.: 10:00 - 20:00</p>
+            </div>
           </TextBox>
         </Section>
-        <TextBox className={"text-clear"}>
-          <table className={g2(`contact-table`)}>
-            <tbody>
-              <tr>
-                <td>
-                  <img
-                    src="/images/icons/icon-card.webp"
-                    alt={"Ikona karty kredytowej"}
-                  ></img>
-                </td>
-                <td>
-                  <p>Nr konta:</p>
-                  <p>-- ---- ---- ---- ---- ---- ----</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </TextBox>
+
         <TextBox>
           <div className={styleTB(`map`)}>
             <iframe

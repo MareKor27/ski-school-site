@@ -1,0 +1,15 @@
+@use "~/scss/abstracts" as *;
+
+.social-media {
+  position: sticky;
+  width: 50px;
+  height: 100px;
+  z-index: 1000;
+  top: 140px;
+  left: 100%;
+}
+
+.social-media img {
+  margin-top: 10px;
+  padding-right: 10px;
+}

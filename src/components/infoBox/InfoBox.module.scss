@@ -47,7 +47,7 @@
 }
 
 .infoBox .text-part > * {
-  padding: 10px;
+  //padding: 10px;
 }
 
 .infoBox.type1 .text-part {
@@ -83,4 +83,8 @@
 .infoBox h2 {
   text-transform: uppercase;
   font-size: 2rem;
+  padding-bottom: 5px;
+  @include screen-xs {
+    margin-right: auto;
+  }
 }
