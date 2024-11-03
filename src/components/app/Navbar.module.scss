@@ -5,19 +5,13 @@
 // }
 
 .navbar-css {
-  background-color: #45b4e4;
-  background: rgb(58, 91, 132);
-  background: linear-gradient(
-    0deg,
-    rgba(58, 91, 132, 1) 0%,
-    rgba(64, 136, 181, 1) 70%,
-    rgba(69, 180, 228, 1) 100%
-  );
+  background-color: var(--main-color-4);
+  background: var(--gradient-2);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 100px;
-  box-shadow: 0px 2px 20px 0px black;
+  box-shadow: 0px 2px 20px 0px rgb(0, 0, 0);
   /* , inset 0px 3px 20px 0px black; */
   // @include screen-xs {
   //   display: grid;
@@ -48,7 +42,7 @@ menu.navbar-menu-sidebar {
     right: 0px;
     z-index: 999;
     transition: all 0.5s ease;
-    background-color: #45b4e488;
+    background-color: var(--main-color-4-mobile1);
     backdrop-filter: blur(10px);
     box-shadow: -10px 0 10px rgb(0, 0, 0, 0.1);
     flex-direction: column;
@@ -82,12 +76,12 @@ menu.navbar-menu-sidebar li a {
   }
   @include screen-xs {
     width: 100%;
-    background-color: #45b4e465;
+    background-color: var(--main-color-4-mobile2);
   }
 }
 menu.navbar-menu-sidebar li a:hover {
-  background-color: #a7dbfd;
-  color: #007bb1;
+  background-color: var(--menu-color-1);
+  color: var(--menu-color-2);
 }
 
 .button-hamburger-close,
@@ -184,7 +178,7 @@ a.button-nav {
 .quick-contact-only-xs {
   display: none;
   @include screen-xs {
-    background: #007bb1;
+    background: var(--menu-color-2);
     display: flex;
     top: 0px;
     width: 100%;
@@ -195,9 +189,9 @@ a.button-nav {
 }
 .quick-contact-only-xs a {
   @include screen-xs {
-    background: #007bb1;
-    color: #a7dbfd;
-    text-shadow: 1px 1px 5px black;
+    background: var(--menu-color-2);
+    color: var(--menu-color-1);
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
     text-decoration: none;
     font-size: 12px;
     vertical-align: middle;

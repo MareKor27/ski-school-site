@@ -7,7 +7,7 @@ export function SocialMedia() {
   return (
     <div className={s(`social-media`)}>
       <LinkImage
-        to={"https://www.facebook.com/"}
+        to={"https://www.facebook.com/profile.php?id=61568073001592"}
         className={""}
         target={"_blank"}
       >

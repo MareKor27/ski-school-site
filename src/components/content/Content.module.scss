@@ -1,15 +1,17 @@
 @use "~/scss/abstracts" as *;
 
 .content p {
-  color: rgb(233, 233, 233);
+  color: var(--font-content);
 }
 .content h1,
-.content h2,
 .content h3,
 .content h4,
 .content h5,
 .content h6 {
-  color: rgb(233, 233, 233);
+  color: var(--font-content);
+}
+.content h2 {
+  color: rgba(68, 179, 227, 1);
 }
 
 .content img.imgRight {
@@ -42,20 +44,20 @@ table.price-table td strong {
 .price-table th {
   font-size: 18px;
   padding: 20px;
-  background-color: #00517c;
+  background-color: rgb(0, 81, 124);
   /* border: 1px solid #000000; */
-  color: #91d5ff;
+  color: var(--table-color-1);
 }
 
 .price-table td:nth-child(2n-1) {
-  background-color: #91d5ff;
+  background-color: var(--table-color-1);
 }
 .price-table td:nth-child(2n) {
   background-color: #72c7ff;
 }
 .price-table td:nth-child(1) {
   background-color: #00517c;
-  color: #91d5ff;
+  color: var(--table-color-1);
   width: 25%;
 }
 
@@ -80,10 +82,6 @@ table.price-table {
 
 .content h1 {
   font-size: 40px;
-}
-
-.content ul li {
-  color: aliceblue;
 }
 
 .content .margin-bottom {

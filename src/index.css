@@ -1,6 +1,41 @@
 :root {
   --page-background: #96b3d1;
-  --white: #ffffff;
+  --main-color-1: rgba(58, 91, 132, 1); /*#3a5b84*/
+  --main-color-2: rgba(32, 50, 72, 1); /*#203248*/
+  --main-color-3: rgba(64, 136, 181, 1);
+  --main-color-4: rgba(69, 180, 228, 1);
+  --main-color-4-mobile1: rgba(69, 180, 228, 0.3);
+  --main-color-4-mobile2: rgba(69, 180, 228, 0.7);
+
+  --menu-color-1: rgba(167, 219, 253, 1);
+  --menu-color-2: rgba(0, 123, 177, 1);
+
+  --gradient-1: linear-gradient(
+    180deg,
+    var(--main-color-1) 0%,
+    var(--main-color-2) 100%
+  );
+  --gradient-2: linear-gradient(
+    0deg,
+    var(--main-color-1) 0%,
+    var(--main-color-3) 70%,
+    var(--main-color-4) 100%
+  );
+
+  --gradient-breadcrumbs: linear-gradient(
+    90deg,
+    rgba(58, 91, 132, 0.733) 0%,
+    rgba(32, 50, 72, 0.521) 40%,
+    rgba(32, 50, 72, 0) 50%,
+    rgba(32, 50, 72, 0) 100%
+  );
+
+  --font-content: rgba(233, 233, 233, 1);
+
+  --table-color-1: rgba(145, 213, 255, 1);
+
+  --font-link-color-1: rgba(255, 255, 255, 1);
+  --font-breadcrumbs-curent-position: rgba(175, 194, 214, 1);
 }
 
 img {

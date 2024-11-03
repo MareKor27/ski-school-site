@@ -7,18 +7,13 @@
 }
 
 .footer-css {
-  background-color: #3a5b84;
-  background: rgb(58, 91, 132);
-  background: linear-gradient(
-    180deg,
-    rgba(58, 91, 132, 1) 0%,
-    rgba(32, 50, 72, 1) 100%
-  );
+  background-color: var(--main-color-1);
+  background: var(--gradient-1);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 120px;
-  box-shadow: 1px -3px 20px 0px black;
+  box-shadow: 1px -3px 20px 0px rgb(0, 0, 0);
 
   @include screen-xs {
     flex-direction: column;
@@ -42,7 +37,7 @@
 }
 
 a.button-nav {
-  color: #ffffff;
+  color: var(--font-link-color-1);
   text-decoration: none;
 }
 .quick-contact {
@@ -53,7 +48,7 @@ a.button-nav {
 
 .quick-contact a,
 .quick-contact {
-  color: #fff;
+  color: var(--font-link-color-1);
   text-decoration: none;
 }
 
@@ -88,8 +83,8 @@ a.button-nav {
 
 .copyright {
   height: 2rem;
-  background-color: black;
-  color: #fff;
+  background-color: rgb(0, 0, 0);
+  color: var(--font-link-color-1);
   display: flex;
   justify-content: center;
   align-items: center;

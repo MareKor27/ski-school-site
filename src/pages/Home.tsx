@@ -17,6 +17,7 @@ export function Home() {
           name="description"
           content="Nauka jazdy na nartach i snowboardzie na Górce Szczęśliwickiej w samym sercu Warszawy! Dołącz do FigowSki już dziś i rozwijaj umiejętności z profesjonalnymi instruktorami."
         />
+        <link rel="canonical" href="https://figowski.com" />
       </Helmet>
       <Slider className={"body-arranged-md"} />
       <MainPageBox
@@ -110,71 +111,79 @@ export function Home() {
         <OwnButton link={"o-nas"} text={"Czytaj więcej"} />
       </NewInfoBox> */}
       <InfoBox
-        height={"600"}
+        height={"750"}
         type={2}
-        image={"images/content/box-glowna-1.webp"}
+        image={"images/content/box-glowna-1-2.webp"}
         classname="body-arranged-md"
       >
         <h2>Oferta</h2>
         <p>
-          Zapraszamy do naszej kompleksowej oferty! Oferujemy szkolenie
-          indywidualne i grupowe, wyjazdy narciarskie dla rodzin oraz pomoc w
-          samorozwoju kursantów – od pierwszych kroków na stoku po daleko idące
-          umiejętności w zdobywaniu stopni awansu na drodze do tytułu
-          instruktora. Zadzwoń do nas i sprawdź naszą ofertę. Każde, najmniejsze
-          Twoje pytanie jest dla nas ważne.
+          Zapraszamy do zapoznania się z naszą kompleksową ofertą! Proponujemy
+          zarówno szkolenia indywidualne, jak i grupowe, wyjazdy narciarskie dla
+          rodzin oraz wsparcie w rozwoju kursantów – od pierwszych kroków na
+          stoku po zaawansowane umiejętności na drodze do zdobycia tytułu
+          instruktora. Skontaktuj się z nami, aby poznać <br />
+          szczegóły – każde, nawet najmniejsze pytanie, jest dla nas ważne.
         </p>
+        <br />
+        <p>Nasza oferta obejmuje:</p>
+        <br />
         <ul>
-          <li>Szkolenie Indywidualne</li>
-          <li>Szkolenie Grupowe</li>
-          <li>Wyjazdy Narciarskie</li>
-          <li>Wyjazdy Rodzinne</li>
-          <li>Pomoc w Samorozwoju Kursantów</li>
+          <li>Szkolenie indywidualne</li>
+          <li>Szkolenie grupowe</li>
+          <li>Wyjazdy narciarskie</li>
+          <li>Wyjazdy rodzinne</li>
+          <li>Wsparcie w samorozwoju sportowym kursantów</li>
         </ul>
-
-        <OwnButton to="/cennik" text={"Sprawdz naszą ofertę"} />
+        <br />
+        <OwnButton to="/cennik" text={"Sprawdź naszą ofertę"} />
       </InfoBox>
 
       <InfoBox
-        height={"500"}
+        height={"700"}
         type={1}
-        image={"images/content/box-glowna-2.webp"}
+        image={"images/content/box-glowna-3.webp"}
         classname="body-arranged-md"
       >
         <h2>Galeria</h2>
         <p>
-          Przejrzyj nasze zdjęcia z szkoleń indywidualnych i grupowych, wyjazdów
-          narciarskich oraz rodzinnych przygód na stoku. Poznaj atmosferę
-          integracji, nauki i zabawy, która towarzyszy naszym kursantom podczas
-          lekcji. Zanurz się w świecie narciarstwa i snowboardu z nami!
+          Zobacz naszą galerię zdjęć ze szkoleń indywidualnych i grupowych,
+          wyjazdów narciarskich oraz rodzinnych przygód na stoku. Poznaj
+          atmosferę integracji, nauki i zabawy, która towarzyszy naszym
+          kursantom podczas lekcji.
         </p>
         <OwnButton to="/galeria" text={"Zobacz więcej"} />
+        <br />
+        <br />
+        <h2>Kontakt</h2>
+        <p>
+          Potrzebujesz więcej informacji? Skontaktuj się z nami – chętnie
+          odpowiemy na wszystkie pytania i pomożemy Ci uzyskać więcej szczegółów
+          naszych usług. Czekamy na Twój kontakt.
+        </p>
+        <OwnButton to="/kontakt" text={"Kontakt"} />
       </InfoBox>
-      {/* <Section size="arranged-md" type="">
-        <h4>section</h4>
-      </Section> */}
-      <InfoBox
+
+      {/* <InfoBox
         height={"500"}
-        type={4}
+        type={2}
         image={"images/content/box-glowna-3.webp"}
         classname="body-arranged-md"
       >
         <h2>Kontakt</h2>
         <p>
-          Potrzebujesz pomocy lub dodatkowych informacji? Jesteśmy tutaj, aby Ci
-          pomóc! Skontaktuj się z nami, aby uzyskać więcej szczegółów na temat
-          naszych usług. Czekamy na Twój kontakt i z przyjemnością odpowiemy na
-          wszystkie Twoje pytania. Dołącz do nas i zacznij działać od zaraz!
+          Potrzebujesz więcej informacji? Skontaktuj się z nami – chętnie
+          odpowiemy na wszystkie pytania i pomożemy Ci uzyskać więcej szczegółów
+          naszych usług. Czekamy na Twój kontakt.
         </p>
         <OwnButton to="/kontakt" text={"Kontakt"} />
-      </InfoBox>
+      </InfoBox> */}
 
-      {/* <Parallax image={"images/skiing-parallax.webp"} /> */}
       <Parallax
         image={"images/content/paralaks-1.webp"}
         alt={"Grupa dzieci na nartach"}
       >
-        Zamień marzenia o nartach w rzeczywistość
+        Zmieniamy marzenia w rzeczywistość :)
       </Parallax>
     </>
   );

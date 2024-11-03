@@ -19,17 +19,17 @@ table.contact-table img {
   float: none;
 }
 
-table.contact-table td:nth-child(1),
-table.contact-table td:nth-child(2) {
-  background-color: #45b4e400;
-}
+// table.contact-table td:nth-child(1),
+// table.contact-table td:nth-child(2) {
+//   background-color: rgba(69, 180, 228, 0);
+// }
 
 table.contact-table td {
-  border: 1px solid #00000000;
+  border: 1px solid rgba(0, 0, 0, 0);
 }
 
 table.contact-table a {
-  color: #fff;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 

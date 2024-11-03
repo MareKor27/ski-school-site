@@ -75,12 +75,10 @@ export function PriceList() {
               </tr>
             </tbody>
           </table>
-          <p>
-            Zajęcia grupowe abonamentowe (4x1.5h = 240 zł/osoba) - cykliczne
-            zajęcia abonamentowe w grupie min. 4 osobowej. 4 lekcje x 1.5 h = 6
-            h
-          </p>
+        </TextBox>
+        <TextBox className={"text-clear text-center"}>
           <p>Masz pytanie lub chcesz umówić się na lekcję?</p>
+
           <p>
             <Link to="/kontakt">Skontaktuj się z nami</Link>
           </p>
@@ -92,65 +90,36 @@ export function PriceList() {
         <TextBox>
           <img
             className={s(`contentimg imgRight`)}
-            src="images/content/content-cennik.webp"
+            src="images/content/content-cennik-2.webp"
             alt={"Górka Szczęśliwicka z rana"}
           />
+          <h2>Zajęcia grupowe abonamentowe</h2>
+          <ul>
+            <li>
+              <b>Koszt:</b> 240 zł/osoba
+            </li>
+            <li>
+              <b>Liczba zajęć:</b> 4 lekcje po 1,5 godziny każda (łącznie 6
+              godzin)
+            </li>
+            <li>
+              <b>Minimalna liczba uczestników:</b> 4 osoby
+            </li>
+            <li>
+              Cykl zajęć grupowych odbywa się regularnie, zapewniając ciągłość
+              nauki i postępy w gronie rówieśników, na bardzo zbliżonym poziomie
+              zaawansowania
+            </li>
+          </ul>
+          <br />
+          <h2>Indywidualne pakiety szkoleniowe</h2>
           <p>
-            Skontaktuj się z nami, aby uzyskać więcej informacji na temat cen
-            oraz dostępnych pakietów szkoleniowych. Nasz zespół z przyjemnością
-            pomoże Ci znaleźć najlepsze rozwiązanie dopasowane do Twoich potrzeb
-            i oczekiwań! Nasza szkoła oferuje różnorodne pakiety szkoleniowe,
-            dostosowane do wszystkich poziomów zaawansowania oraz różnych grup
-            wiekowych.
-          </p>
-          <p>
-            Bez względu na to, czy jesteś dzieckiem, młodzieżą czy dorosłym,
-            mamy coś odpowiedniego dla Ciebie. Nasze oferty szkoleniowe są
-            starannie opracowane, aby zapewnić optymalne warunki nauki i
-            maksymalizować Twój postęp na stoku.
-          </p>
-          <p>
-            Dzięki naszym doświadczonym instruktorom oraz indywidualnemu
-            podejściu, możesz mieć pewność, że każda lekcja będzie doskonałym
-            doświadczeniem, które pozwoli Ci rozwijać swoje umiejętności
-            narciarskie i snowboardowe oraz inne usługi oferowane przez naszą
-            szkołę narciarską:
-          </p>
-
-          <p>
-            <b>Szkolenie Indywidualne:</b>
-            <br />
-            Indywidualne lekcje dostosowane do Twoich potrzeb i umiejętności.
-          </p>
-
-          <p>
-            <b>Szkolenie Grupowe:</b>
-            <br />
-            Lekcje w grupie, idealne dla osób chcących uczyć się w przyjaznej
-            atmosferze z innymi pasjonatami narciarstwa.
-          </p>
-
-          <p>
-            <b>Wyjazdy Narciarskie:</b>
-            <br />
-            Organizujemy wyjazdy narciarskie dla osób chcących poznać nowe stoki
-            i poszerzyć swoje umiejętności podczas wspaniałych przygód na
-            śniegu.
-          </p>
-
-          <p>
-            <b>Wyjazdy Rodzinne:</b>
-            <br />
-            Specjalne pakietu dla rodzin, które chcą spędzić aktywny czas razem
-            na stoku i rozwijać swoje umiejętności narciarskie.
-          </p>
-
-          <p>
-            <b>Pomoc w Samorozwoju Kursantów:</b>
-            <br />
-            Nasza szkoła oferuje wsparcie w rozwoju umiejętności narciarskich od
-            poziomu początkującego do zaawansowanego. Dzięki naszym kursom,
-            każdy może stać się ekspertem od jazdy na nartach.
+            Jeśli potrzebujesz spersonalizowanego programu szkoleniowego,
+            oferujemy możliwość przygotowania{" "}
+            <b>„szytych na miarę” pakietów szkoleniowych</b> dostosowanych do
+            Twoich potrzeb. Pakiety ustalane są indywidualnie – skontaktuj się z
+            nami, aby omówić szczegóły i stworzyć program idealnie dopasowany do
+            Twoich oczekiwań.
           </p>
         </TextBox>
       </Content>

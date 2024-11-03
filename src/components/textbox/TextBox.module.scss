@@ -36,7 +36,7 @@
 .text-box h5,
 .text-box h6 {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .text-center {
@@ -56,19 +56,23 @@
 }
 
 .text-box a {
-  color: #a7dbfd;
-  text-shadow: 1px 1px 5px black;
+  color: rgb(167, 219, 253);
+  text-shadow: 1px 1px 5px rgb(0, 0, 0);
   text-decoration: none;
 }
 
 .text-box .warning {
   font-weight: bolder;
   font-size: 25px;
-  color: rgb(221 25 25);
+  color: rgb(221, 25, 25);
   letter-spacing: 3px;
 }
 
 /* #429ecd */
+
+.text-box ul li {
+  color: #fff;
+}
 
 /* ---MAP--- */
 

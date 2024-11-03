@@ -3,21 +3,15 @@
 .breadcrumbs {
   margin: 20px 10px 10px 20px;
   padding: 10px;
-  background: linear-gradient(
-    90deg,
-    rgba(58, 91, 132, 0.733) 0%,
-    rgba(32, 50, 72, 0.521) 40%,
-    rgba(32, 50, 72, 0) 50%,
-    rgba(32, 50, 72, 0) 100%
-  );
+  background: var(--gradient-breadcrumbs);
 }
 
 .breadcrumbs .breadcrumbs-links {
-  color: white;
+  color: var(--font-link-color-1);
   font-weight: 600;
   text-decoration: none;
 }
 
 .breadcrumbs > span {
-  color: #afc2d6;
+  color: var(--font-breadcrumbs-curent-position);
 }

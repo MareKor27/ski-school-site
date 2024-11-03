@@ -56,7 +56,7 @@ export function Slider({}: SliderType) {
   const startInterval = () => {
     intervalRef.current = window.setInterval(() => {
       handleClick("+");
-    }, 5000);
+    }, 7000);
   };
 
   const clearCurrentInterval = () => {
@@ -100,7 +100,7 @@ export function Slider({}: SliderType) {
             </div>
             <div className={s2(`slider-heading-2`)}>
               <b>Doświadczony instruktor PZN</b> nauczy Cię
-              <br /> jazdy na nartach i snowboardzie w sercu Warszawy.
+              <br /> jazdy na nartach i snowboardzie w samym sercu Warszawy.
               <br />
               Zarezerwuj lekcje już dziś i rozpocznij swoją przygodę na stoku!
             </div>
@@ -118,12 +118,12 @@ export function Slider({}: SliderType) {
         <div className={s2(`${activeSlider === 1 ? "slide" : "slideoff"}`)}>
           <div className={s2(`appla`)}>
             <div className={s2(`slider-heading-1`)}>
-              Cennik Lekcji Narciarskich i Snowboardowych
+              Cennik lekcji narciarskich i snowboardowych
             </div>
             <div className={s2(`slider-heading-2`)}>
-              Zapraszamy do zapoznania się z naszymi
-              <br /> atrakcyjnymi cenami za lekcje jazdy na nartach i
-              snowboardzie.
+              Zapraszamy do zapoznania się z naszymi propozycjami
+              <br /> cenowymi w różnych opcjach szkolenia narciarskiego i
+              snowboardowego.
               <br />{" "}
               <b>
                 Oferujemy pakiety szkoleniowe dla wszystkich
@@ -145,14 +145,16 @@ export function Slider({}: SliderType) {
         <div className={s2(`${activeSlider === 2 ? "slide" : "slideoff"}`)}>
           <div className={s2(`appla`)}>
             <div className={s2(`slider-heading-1`)}>
-              Odkryj Naszą Szkołę Narciarską w Akcji!
+              Odkryj naszą szkołę narciarską w akcji!
             </div>
             <div className={s2(`slider-heading-2`)}>
-              <b>Odwiedź naszą galerię</b>, aby zobaczyć, jak nasi instruktorzy
+              <b>Odwiedź naszą galerię</b> i zobacz jak nasi instruktorzy
+              pomagają kursantom
               <br />
-              pomagają uczniom rozwijać umiejętności narciarskie na różnych
+              rozwijać ich umiejętności narciarskie na różnych poziomach
+              zaawansowania.
               <br />
-              poziomach zaawansowania. Przekonaj się, dlaczego warto dołączyć
+              Przekonaj się, dlaczego warto dołączyć
               <br /> do naszej szkoły narciarskiej!
             </div>
             <div className={s2(`slider-heading-3`)}>

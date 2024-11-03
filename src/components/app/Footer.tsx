@@ -10,10 +10,7 @@ export function Footer() {
           <div className={style["footer-logo-div"]}>
             <div className={style["footer-logo-image"]}>
               <LinkImage className="linked-image" to="/" target="">
-                <img
-                  src="/images/logo-z-tlem3.png"
-                  alt={"Logo FigowSki Sport"}
-                />
+                <img src="/images/logo-biale.png" alt={"Logo FigowSki Sport"} />
               </LinkImage>
             </div>
           </div>
@@ -40,7 +37,9 @@ export function Footer() {
             </p>
           </div>
         </div>
-        <div className={style["copyright"]}>Copyright FigowSki 2024</div>
+        <div className={style["copyright"]}>
+          Wszelkie prawa zastrzeżone © 2024 FigowSki Sport
+        </div>
       </div>
     </>
   );

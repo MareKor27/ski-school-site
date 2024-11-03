@@ -15,13 +15,17 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  box-shadow: inset 0px 0px 20px 2px #031022, 0px 0px 20px 2px #031022;
+  box-shadow: inset 0px 0px 20px 2px rgb(3, 16, 34),
+    0px 0px 20px 2px rgb(3, 16, 34);
+  @include screen-xs {
+    background-position-x: -500px;
+  }
 }
 
 .infoBox .appla {
   width: 100%;
   height: 100%;
-  background-color: #aae6ff77;
+  background-color: rgba(170, 230, 255, 0);
   position: absolute;
   z-index: 10;
   display: flex;
@@ -33,7 +37,7 @@
 .infoBox .text-part {
   height: 100%;
   position: absolute;
-  background-color: #3a5b8485;
+  background-color: rgba(58, 91, 132, 0.75);
   z-index: 15;
   display: flex;
   flex-direction: column;

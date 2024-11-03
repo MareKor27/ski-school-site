@@ -28,6 +28,7 @@ export function Gallery({ photos }: GalleryType) {
           <div className={s2(`image`)} key={image.url}>
             <img
               src={image.url}
+              loading="lazy"
               onClick={() => {
                 setActiveImage(image.url);
               }}

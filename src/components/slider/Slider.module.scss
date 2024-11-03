@@ -65,9 +65,9 @@
   padding: 20px 0 20px 0;
   font-size: 25px;
   width: 100%;
-  color: #e0f6ff;
+  color: rgb(224, 246, 255);
   text-align: center;
-  text-shadow: #000000 4px 4px 5px;
+  text-shadow: rgb(0, 0, 0) 4px 4px 5px;
   @include screen-xs {
     font-size: 16px;
   }
@@ -76,9 +76,9 @@
 .slider-heading-3 {
   padding: 20px 0 20px 0;
   font-size: 18px;
-  color: #aae6ff;
+  color: rgb(170, 230, 255);
   text-align: center;
-  text-shadow: #aae6ff 2px 2px 10px;
+  text-shadow: rgb(170, 230, 255) 2px 2px 10px;
 }
 
 .controls-button {
@@ -99,8 +99,12 @@
   height: 35px;
   width: 260px;
   bottom: 10px;
-  background: linear-gradient(to right top, #3c699369, #6cdaeb6b);
-  box-shadow: 0px 0px 6px 0px #65bac7;
+  background: linear-gradient(
+    to right top,
+    rgba(60, 105, 147, 0.412),
+    rgba(108, 218, 235, 0.42)
+  );
+  box-shadow: 0px 0px 6px 0px rgb(101, 186, 199);
   border-radius: 15px;
   z-index: 10;
   display: flex;
@@ -142,16 +146,16 @@
   background: #aae6ff38;
   z-index: 10;
   border-radius: 50%;
-  border: 2px #aee0f5 solid;
+  border: 2px rgb(174, 224, 245) solid;
   cursor: pointer;
 }
 
 .slide-button:hover {
-  background: #afe7ffb2;
-  box-shadow: 0px 0px 6px 0px #104952 inset;
+  background: rgba(175, 231, 255, 0.698);
+  box-shadow: 0px 0px 6px 0px rgb(16, 73, 82) inset;
 }
 
 .active-slide-button {
   background: #aae6ff;
-  box-shadow: 0px 0px 6px 0px #0c4b55 inset;
+  box-shadow: 0px 0px 6px 0px rgb(12, 75, 85) inset;
 }

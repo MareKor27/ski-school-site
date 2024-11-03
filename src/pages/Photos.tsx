@@ -28,11 +28,12 @@ export function Photos() {
       <Content className={"content"}>
         <Breadcrums namePage={"Galeria"} />
         <TextBox>
-          <h1>Galeria - FigowSki na Górce Szczęśliwickiej</h1>
+          <h1>Galeria</h1>
           <p>
-            Zapraszamy do obejrzenia zdjęć zrobionych w różnych miejscach i
-            momentach naszych narciarskich aktywności i pamiętajcie, że cały
-            czas się rozkręcamy.
+            Zapraszamy do obejrzenia naszej galerii zdjęć z różnych miejsc i
+            momentów naszych narciarskich aktywności. Uchwycone chwile z lekcji,
+            treningów i wspólnych wydarzeń pokazują naszą pasję i nieustanny
+            rozwój. Bądźcie cały czas z nami :)
           </p>
         </TextBox>
         <TextBox className={"text-center"}>

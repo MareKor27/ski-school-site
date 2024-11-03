@@ -16,7 +16,7 @@ export function Navbar() {
       <nav className={style["navbar-css"]}>
         <div className={style["navbar-logo-div"]}>
           <LinkImage className={"navbar-logo-image"} to="/" target="">
-            <img src="/images/logo-z-tlem3.png" alt={"Logo FigowSki Sport"} />
+            <img src="/images/logo-biale.png" alt={"Logo FigowSki Sport"} />
           </LinkImage>
         </div>
 
