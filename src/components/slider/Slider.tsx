@@ -108,11 +108,16 @@ export function Slider({}: SliderType) {
               <OwnButton to="/o-nas" text={"Czytaj więcej"} />
             </div>
           </div>
-
-          <img
-            src="images/slider/slider1.webp"
-            alt="Stok w Parku Szczęśliwickim"
-          ></img>
+          <picture>
+            <source
+              media="(min-width: 990px)"
+              srcSet="images/slider/slider1.webp"
+            />
+            <img
+              src="images/slider/slider1-xs.webp"
+              alt="Stok w Parku Szczęśliwickim"
+            />
+          </picture>
         </div>
 
         <div className={s2(`${activeSlider === 1 ? "slide" : "slideoff"}`)}>
@@ -135,11 +140,16 @@ export function Slider({}: SliderType) {
               <OwnButton to="/cennik" text={"Czytaj więcej"} />
             </div>
           </div>
-
-          <img
-            src="images/slider/slider2.webp"
-            alt="Stok w Parku Szczęśliwickim"
-          ></img>
+          <picture>
+            <source
+              media="(min-width: 990px)"
+              srcSet="images/slider/slider2.webp"
+            />
+            <img
+              src="images/slider/slider2-xs.webp"
+              alt="Stok w Parku Szczęśliwickim"
+            />
+          </picture>
         </div>
 
         <div className={s2(`${activeSlider === 2 ? "slide" : "slideoff"}`)}>
@@ -162,10 +172,16 @@ export function Slider({}: SliderType) {
             </div>
           </div>
 
-          <img
-            src="images/slider/slider3.webp"
-            alt="Stok w Parku Szczęśliwickim"
-          ></img>
+          <picture>
+            <source
+              media="(min-width: 990px)"
+              srcSet="images/slider/slider3.webp"
+            />
+            <img
+              src="images/slider/slider3-xs.webp"
+              alt="Stok w Parku Szczęśliwickim"
+            />
+          </picture>
         </div>
 
         <div

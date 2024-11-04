@@ -14,7 +14,7 @@ export function SocialMedia() {
         <img src="/images/icons/icon-facebook.webp" alt={"Ikona Facebook"} />
       </LinkImage>
       <LinkImage
-        to={"https://www.instagram.com/"}
+        to={"https://www.instagram.com/figowskisport/"}
         className={""}
         target={"_blank"}
       >

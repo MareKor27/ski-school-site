@@ -38,7 +38,8 @@ export function Footer() {
           </div>
         </div>
         <div className={style["copyright"]}>
-          Wszelkie prawa zastrzeżone © 2024 FigowSki Sport
+          Wszelkie prawa zastrzeżone © <br />
+          2024 FigowSki Sport
         </div>
       </div>
     </>
