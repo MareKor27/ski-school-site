@@ -7,23 +7,26 @@ import useStyles from "~/hooks/useStyle";
 import { Section } from "~/components/section/Section";
 import { Helmet } from "react-helmet-async";
 import { Breadcrums } from "~/components/breadcrumbs/Breadcrumbs";
+import { useCanonicalLink } from "~/hooks/useCanonicalLink";
 
 export function Contact() {
   //const s = useStyles(style);
   const styleTB = useStyles(styleTextBox);
+  const canonicalUrl = useCanonicalLink();
   return (
     <Contener className="body-arranged-md">
       <Helmet>
         <title>
           Kontakt | Skontaktuj się z nami w sprawie nauki jazdy - FigowSki
         </title>
+        <link rel="canonical" href={canonicalUrl} />
         <meta
           name="description"
           content="Potrzebujesz więcej informacji? Skontaktuj się z nami! Jesteśmy gotowi odpowiedzieć na wszystkie Twoje pytania dotyczące naszych lekcji nauki jazdy na nartach i snowboardzie na Górce Szczęśliwickiej."
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="figowski.com" />
-        <meta property="twitter:url" content="http://figowski.com/kontakt" />
+        <meta property="twitter:url" content="https://figowski.com/kontakt" />
         <meta
           name="twitter:title"
           content="Szkoła Narciarska FigowSki Sport | Kontakt"

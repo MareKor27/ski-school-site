@@ -112,6 +112,9 @@ a.button-nav {
   // padding: 15px;
   // border-radius: 100vmax;
   // box-shadow: 1px 1px 5px 1px #3a5b84, inset 1px 1px 20px 1px #3a5b84;
+  @include screen-xs {
+    color: var(--main-color-2);
+  }
 }
 
 .quick-contact {
@@ -190,7 +193,6 @@ a.button-nav {
 .quick-contact-only-xs a {
   @include screen-xs {
     background: var(--menu-color-2);
-    color: var(--menu-color-1);
     text-shadow: 1px 1px 5px rgb(0, 0, 0);
     text-decoration: none;
     font-size: 12px;
@@ -198,5 +200,6 @@ a.button-nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #ffffff;
   }
 }

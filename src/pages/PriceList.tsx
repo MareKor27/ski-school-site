@@ -7,10 +7,12 @@ import useStyles from "~/hooks/useStyle";
 import { Helmet } from "react-helmet-async";
 import { Breadcrums } from "~/components/breadcrumbs/Breadcrumbs";
 import { Link } from "react-router-dom";
+import { useCanonicalLink } from "~/hooks/useCanonicalLink";
 
 export function PriceList() {
   const s = useStyles(style);
   const textBoxStyle = useStyles(styleTextBox);
+  const canonicalUrl = useCanonicalLink();
   return (
     <Contener className="body-arranged-md">
       <Helmet>
@@ -19,6 +21,7 @@ export function PriceList() {
           name="description"
           content="Zapoznaj się z cenami za lekcje nauki jazdy na nartach i snowboardzie na Górce Szczęśliwickiej. Oferujemy lekcje dla wszystkich poziomów zaawansowania."
         />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <Content className={"content"}>
         <Breadcrums namePage={"Cennik"} />

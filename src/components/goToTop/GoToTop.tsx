@@ -11,7 +11,13 @@ export function GoToTop() {
   return (
     <>
       <div className={style["gototop"]} onClick={scrollToTop}>
-        <img src="/images/icons/go-to-top.webp" alt={"Ikona GoToTop"} />
+        <svg width="100px" height="300px" transform="scale(1)">
+          <image
+            xlinkHref="/images/icons/arrow.svg"
+            width="60px"
+            height="60px"
+          />
+        </svg>
       </div>
     </>
   );

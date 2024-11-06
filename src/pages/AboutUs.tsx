@@ -5,10 +5,12 @@ import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
 import style from "~/components/content/Content.module.scss";
 import { TextBox } from "~/components/textbox/TextBox";
+import { useCanonicalLink } from "~/hooks/useCanonicalLink";
 import useStyles from "~/hooks/useStyle";
 
 export function AboutUs() {
   const s = useStyles(style);
+  const canonicalUrl = useCanonicalLink();
   return (
     <Contener className="body-arranged-md">
       <Helmet>
@@ -17,6 +19,7 @@ export function AboutUs() {
           name="description"
           content="Poznaj FigowSki - profesjonalną szkołę narciarską z Warszawy. Zapraszamy na Górkę Szczęśliwicką, gdzie uczymy jazdy na nartach i snowboardzie."
         />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <Content className={"content"}>
         <Breadcrums namePage={"O nas"} />

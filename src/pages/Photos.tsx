@@ -8,11 +8,12 @@ import { TextBox } from "~/components/textbox/TextBox";
 import { Helmet } from "react-helmet-async";
 import gallery from "~/data/gallery.json";
 import { Breadcrums } from "~/components/breadcrumbs/Breadcrumbs";
+import { useCanonicalLink } from "~/hooks/useCanonicalLink";
 
 export function Photos() {
   // const s = useStyles(style);
   // const s2 = useStyles(style2);
-
+  const canonicalUrl = useCanonicalLink();
   return (
     <Contener className="body-arranged-md">
       <Helmet>
@@ -20,6 +21,7 @@ export function Photos() {
           Galeria | Nasze zdjęcia z zajęć narciarskich i snowboardowych -
           FigowSki
         </title>
+        <link rel="canonical" href={canonicalUrl} />
         <meta
           name="description"
           content="Odwiedź naszą galerię, aby zobaczyć zdjęcia z naszych zajęć nauki jazdy na nartach i snowboardzie. Przekonaj się, dlaczego warto dołączyć do naszej szkoły narciarskiej!"

@@ -4,8 +4,10 @@ import { InfoBox } from "~/components/infoBox/InfoBox";
 import { MainPageBox } from "~/components/mainPageBox/MainPageBox";
 import { Parallax } from "~/components/parallax/Parallax";
 import { Slider } from "~/components/slider/Slider";
+import { useCanonicalLink } from "~/hooks/useCanonicalLink";
 
 export function Home() {
+  const canonicalUrl = useCanonicalLink();
   return (
     <>
       <Helmet>
@@ -13,11 +15,11 @@ export function Home() {
           Profesjonalna szkółka narciarska w Warszawie | Instruktor narciarski z
           licencją PZN - FigowSki
         </title>
+        <link rel="canonical" href={canonicalUrl} />
         <meta
           name="description"
           content="Nauka jazdy na nartach i snowboardzie na Górce Szczęśliwickiej w samym sercu Warszawy! Dołącz do FigowSki już dziś i rozwijaj umiejętności z profesjonalnymi instruktorami."
         />
-        <link rel="canonical" href="https://figowski.com" />
       </Helmet>
       <Slider className={"body-arranged-md"} />
       <MainPageBox
