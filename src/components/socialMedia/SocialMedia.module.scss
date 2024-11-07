@@ -1,12 +1,12 @@
 @use "~/scss/abstracts" as *;
 
 .social-media {
-  position: sticky;
+  position: fixed;
   width: 50px;
   height: 100px;
   z-index: 1000;
   top: 140px;
-  left: 100%;
+  right: 0%;
 }
 
 .social-media img {

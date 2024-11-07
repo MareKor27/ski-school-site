@@ -2,11 +2,11 @@
 
 .gototop {
   cursor: pointer;
-  position: sticky;
+  position: fixed;
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  left: 96%;
+  right: 3%;
   z-index: 1000;
   top: 90vh;
 }

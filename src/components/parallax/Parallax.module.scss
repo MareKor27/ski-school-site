@@ -39,15 +39,15 @@
 
 .parallax-heading-1 {
   color: aliceblue;
-  font-size: 30px;
+  font-size: 2em;
   text-shadow: #aae6ff 2px 2px 10px;
   @include screen-xs {
-    font-size: 18px;
+    font-size: 1.2em;
   }
 }
 .parallax-heading-2 {
   padding: 20px 0 0 20px;
-  font-size: 18px;
+  font-size: 1.2em;
   color: #aae6ff;
   text-shadow: #aae6ff 2px 2px 10px;
 }

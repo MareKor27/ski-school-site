@@ -38,6 +38,15 @@
   padding-top: 20px;
   padding-bottom: 10px;
 }
+.text-box h2 {
+  font-size: 1.7em;
+}
+.text-box h3 {
+  font-size: 1.4em;
+}
+.text-box h4 {
+  font-size: 1.3em;
+}
 
 .text-center {
   text-align: center;
@@ -59,13 +68,6 @@
   color: rgb(167, 219, 253);
   text-shadow: 1px 1px 5px rgb(0, 0, 0);
   text-decoration: none;
-}
-
-.text-box .warning {
-  font-weight: bolder;
-  font-size: 25px;
-  color: rgb(221, 25, 25);
-  letter-spacing: 3px;
 }
 
 /* #429ecd */

@@ -1,0 +1,202 @@
+@use "~/scss/abstracts" as *;
+
+.login section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    var(--main-color-4),
+    var(--main-color-1)
+  );
+  overflow: hidden;
+}
+
+.login section .color {
+  position: absolute;
+  filter: blur(150px);
+}
+
+.login section .color:nth-child(1) {
+  top: 68%;
+  left: 15%;
+  width: 600px;
+  height: 600px;
+  background: var(--main-color-1);
+}
+
+.login section .color:nth-child(2) {
+  top: 7%;
+  left: 20%;
+  width: 500px;
+  height: 500px;
+  background: var(--main-color-9);
+}
+
+.login section .color:nth-child(3) {
+  top: 27%;
+  left: 57%;
+  width: 500px;
+  height: 500px;
+  background: var(--main-color-1);
+}
+
+.login section .box {
+  position: relative;
+}
+
+.login section .box .square {
+  position: absolute;
+  background-color: rgba(69, 180, 228, 0.199);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(69, 180, 228, 0.5);
+  border-right: 1px solid rgba(69, 180, 228, 0.2);
+  border-bottom: 1px solid rgba(69, 180, 228, 0.2);
+  border-radius: 20px;
+  animation: animate 10s ease infinite;
+  animation-delay: calc(-1s * var(--i));
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    transform: translateY(-40px);
+    rotate: -2deg;
+  }
+  50% {
+    transform: translateY(40px);
+    rotate: 2deg;
+  }
+}
+
+.login section .box .square:nth-child(1) {
+  top: -17%;
+  left: 87%;
+  width: 100px;
+  height: 100px;
+}
+.login section .box .square:nth-child(2) {
+  top: 50%;
+  left: -20%;
+  width: 100px;
+  height: 100px;
+  z-index: 999;
+}
+.login section .box .square:nth-child(3) {
+  top: 67%;
+  left: 95%;
+  width: 120px;
+  height: 120px;
+  z-index: 999;
+}
+.login section .box .square:nth-child(4) {
+  top: 90%;
+  left: 39%;
+  width: 100px;
+  height: 100px;
+}
+.login section .box .square:nth-child(5) {
+  top: -20%;
+  left: -11%;
+  width: 200px;
+  height: 200px;
+}
+
+.login section .box .cointainer {
+  position: relative;
+  width: 400px;
+  min-height: 400px;
+  background-color: rgba(69, 180, 228, 0.199);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(69, 180, 228, 0.5);
+  border-right: 1px solid rgba(69, 180, 228, 0.2);
+  border-bottom: 1px solid rgba(69, 180, 228, 0.2);
+  @include screen-xs {
+    width: 320px;
+  }
+}
+
+.login section .box .cointainer .form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+
+.login section .box .cointainer .form h2 {
+  position: relative;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.login section .box .cointainer .form h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100px;
+  height: 4px;
+  background: #fff;
+}
+
+.login section .box .cointainer .form .inputBox {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.login section .box .cointainer .form .inputBox ::placeholder {
+  color: #000000;
+}
+
+.login section .box .cointainer .form .inputBox input {
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 35px;
+  color: #000;
+  border: 1px solid rgba(69, 180, 228, 0.5);
+  border-right: 1px solid rgba(69, 180, 228, 0.2);
+  border-bottom: 1px solid rgba(69, 180, 228, 0.2);
+  font-size: 16px;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 1cqmax rgba(0, 0, 0, 0.1);
+}
+
+.login section .box .cointainer .form .inputBox input[type="submit"] {
+  background: var(--main-color-4);
+  color: var(--main-color-8);
+  max-width: 100px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: 600;
+  border: 2px solid rgba(32, 50, 72, 0.2);
+  border-right: 1px solid rgba(32, 50, 72, 0.5);
+  border-bottom: 1px solid rgba(32, 50, 72, 0.5);
+}
+
+.login section .box .cointainer .form .forget {
+  margin-top: 5px;
+  color: #fff;
+}
+.login section .box .cointainer .form .forget a {
+  color: #fff;
+  font-weight: 600;
+}
