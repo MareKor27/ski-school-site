@@ -29,7 +29,7 @@ export function LoginView() {
           <div className={S(`cointainer`)}>
             <div className={S(`form`)}>
               <h2>Figowski Sport</h2>
-              <form>
+              <form action="/administrator">
                 <div className={S(`inputBox`)}>
                   <input
                     type="text"

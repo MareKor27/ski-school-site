@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import style from "../app/Footer.module.scss";
 import { LinkImage } from "~/components/button/LinkImage";
+import { Paths } from "~/features/app/constants/Paths";
 
 export function Footer() {
   return (
@@ -9,7 +10,11 @@ export function Footer() {
         <div className={style["footer-css"]}>
           <div className={style["footer-logo-div"]}>
             <div className={style["footer-logo-image"]}>
-              <LinkImage className="linked-image" to="/" target="">
+              <LinkImage
+                className="linked-image"
+                to={Paths.INDEX.absolute}
+                target=""
+              >
                 <img
                   src="/images/logo-biale-2.webp"
                   alt={"Logo FigowSki Sport"}
@@ -17,19 +22,19 @@ export function Footer() {
               </LinkImage>
             </div>
           </div>
-          <Link className={style["button-nav"]} to="/">
+          <Link className={style["button-nav"]} to={Paths.INDEX.absolute}>
             Strona Główna
           </Link>
-          <Link className={style["button-nav"]} to="/o-nas">
+          <Link className={style["button-nav"]} to={Paths.ABOUT_US.absolute}>
             O nas
           </Link>
-          <Link className={style["button-nav"]} to="/cennik">
+          <Link className={style["button-nav"]} to={Paths.PRICE_LIST.absolute}>
             Cennik
           </Link>
-          <Link className={style["button-nav"]} to="/galeria">
+          <Link className={style["button-nav"]} to={Paths.GALLERY.absolute}>
             Galeria
           </Link>
-          <Link className={style["button-nav"]} to="/kontakt">
+          <Link className={style["button-nav"]} to={Paths.CONTACT.absolute}>
             Kontakt
           </Link>
           <div className={style["quick-contact"]}>

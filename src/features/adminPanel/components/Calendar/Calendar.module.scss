@@ -1,0 +1,83 @@
+.calendar {
+  height: 100%;
+  background-color: rgb(64, 136, 181, 0.3);
+  backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-columns: 100px repeat(7, 1fr);
+  gap: 10px;
+  border-radius: 15px;
+}
+.calendar .hours {
+  display: grid;
+  grid-template-rows: 100px repeat(11, 1fr);
+}
+.calendar .hours .hour {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color-7);
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--main-color-2);
+}
+.calendar .hours .hour:nth-child(odd) {
+  background-color: var(--main-color-10);
+}
+
+.calendar .hours .hour.transparent {
+  background-color: #ffffff00;
+}
+
+.calendar .day {
+  background-color: var(--main-color-9);
+  border-radius: 15px;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 50px 50px repeat(11, 1fr);
+}
+
+.calendar .day .date-in-words {
+  font-size: 1.2em;
+  color: #fff;
+  margin-top: 15px;
+}
+.calendar .day .date-in-number {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #fff;
+  margin: 5px 0 10px 0;
+}
+
+.calendar .day .classes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--main-color-10);
+}
+.calendar .day .classes:nth-child(odd) {
+  background-color: var(--main-color-7);
+}
+
+.calendar .day .classes button {
+  font-size: 1em;
+  padding: 5px 10px;
+  overflow: hidden;
+  // background-color: rgba(58, 91, 132, 0.2);
+  background-color: var(--main-color-9);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.3),
+    0px 0px 2px 1px rgba(0, 0, 0, 0.3);
+}
+.calendar .day .classes button.reservation.available:hover {
+  background-color: var(--main-color-4);
+}
+
+.calendar .day .classes .reservation.unavailable {
+  color: var(--main-color-2);
+  font-weight: 700;
+}

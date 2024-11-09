@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "~/components/app/Navbar.module.scss";
 import { LinkImage } from "../button/LinkImage";
+import { Paths } from "~/features/app/constants/Paths";
 
 export function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -15,7 +16,11 @@ export function Navbar() {
       </div>
       <nav className={style["navbar-css"]}>
         <div className={style["navbar-logo-div"]}>
-          <LinkImage className={"navbar-logo-image"} to="/" target="">
+          <LinkImage
+            className={"navbar-logo-image"}
+            to={Paths.INDEX.absolute}
+            target=""
+          >
             <img src="/images/logo-biale-2.webp" alt={"Logo FigowSki Sport"} />
           </LinkImage>
         </div>
@@ -42,7 +47,7 @@ export function Navbar() {
           <li>
             <Link
               className={style["button-nav"]}
-              to="/"
+              to={Paths.INDEX.absolute}
               onClick={() => {
                 setShowSidebar(false);
               }}
@@ -53,7 +58,7 @@ export function Navbar() {
           <li>
             <Link
               className={style["button-nav"]}
-              to="/o-nas"
+              to={Paths.ABOUT_US.absolute}
               onClick={() => {
                 setShowSidebar(false);
               }}
@@ -64,7 +69,7 @@ export function Navbar() {
           <li>
             <Link
               className={style["button-nav"]}
-              to="/cennik"
+              to={Paths.PRICE_LIST.absolute}
               onClick={() => {
                 setShowSidebar(false);
               }}
@@ -75,7 +80,7 @@ export function Navbar() {
           <li>
             <Link
               className={style["button-nav"]}
-              to="/galeria"
+              to={Paths.GALLERY.absolute}
               onClick={() => {
                 setShowSidebar(false);
               }}
@@ -86,7 +91,7 @@ export function Navbar() {
           <li>
             <Link
               className={style["button-nav"]}
-              to="/kontakt"
+              to={Paths.CONTACT.absolute}
               onClick={() => {
                 setShowSidebar(false);
               }}

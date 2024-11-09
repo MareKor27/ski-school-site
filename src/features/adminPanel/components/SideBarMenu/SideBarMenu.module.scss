@@ -1,0 +1,70 @@
+@use "~/scss/abstracts" as *;
+
+.menu {
+  border-radius: 15px;
+  height: 100%;
+  background: var(--gradient-2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.menu .menu-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.menu .menu-logo img {
+  width: 170px;
+  height: 100px;
+}
+
+.menu .menu-sidebar {
+  flex-grow: 1;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu .menu-sidebar .sidebar-li {
+  font-size: 1.5em;
+  text-align: center;
+  background: var(--main-color-4);
+  padding: 10px;
+  color: var(--main-color-2);
+  margin: 0px 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.menu .menu-sidebar .sidebar-li:hover {
+  background: var(--main-color-9);
+  color: var(--main-color-4);
+}
+
+.menu .menu-sidebar a,
+.menu .menu-account a {
+  text-decoration: none;
+}
+
+.menu .menu-sidebar .sidebar-li.active {
+  background: var(--main-color-9);
+  color: var(--main-color-4);
+}
+
+.menu .menu-account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.menu .menu-account .account-profile:nth-child(1) {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+/*========================*/
