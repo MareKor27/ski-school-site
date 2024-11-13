@@ -1,9 +1,52 @@
 .option {
-  height: 100%;
-  background-color: rgb(64, 136, 181, 0.3);
+  // background-color: rgb(64, 136, 181, 0.3);
   backdrop-filter: blur(10px);
-  display: grid;
-  grid-template-columns: 100px repeat(7, 1fr);
-  gap: 10px;
+  box-sizing: border-box;
   border-radius: 15px;
+  display: grid;
+  grid-template-rows: 40px 1fr;
+  height: 100%;
+  gap: 2px;
+}
+
+.option .title-tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+.option .title-tabs .tab {
+  height: 40px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-color-10);
+
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.option .title-tabs .tab.active-tab {
+  background: linear-gradient(var(--main-color-3), var(--main-color-4));
+  transition: background-color 0.7s ease;
+}
+.content-tabs {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+
+.content-tabs .content-tab {
+  background: linear-gradient(var(--main-color-4), var(--main-color-1));
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: inset 0px -8px 4px 0px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.content-tabs .content-tab.active-content {
+  display: block;
 }

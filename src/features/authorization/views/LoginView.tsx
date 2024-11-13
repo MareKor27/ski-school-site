@@ -46,11 +46,11 @@ export function LoginView() {
                 </div>
                 <p className={S(`forget`)}>
                   {" "}
-                  Forgot Password? <a href="#">Click Here</a>
+                  Zapomniałeś hasła? <a href="#">Kliknij tutaj</a>
                 </p>
                 <p className={S(`forget`)}>
                   {" "}
-                  Don't have account? <a href="#">Sign up</a>
+                  Nie mawsz konta? <a href="#">Zarejestruj się</a>
                 </p>
               </form>
             </div>

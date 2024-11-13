@@ -19,6 +19,8 @@
   font-size: 1.3em;
   font-weight: 700;
   color: var(--main-color-2);
+  box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.1),
+    0px 0px 2px 1px rgba(0, 0, 0, 0.1);
 }
 .calendar .hours .hour:nth-child(odd) {
   background-color: var(--main-color-10);
@@ -34,6 +36,8 @@
   text-align: center;
   display: grid;
   grid-template-rows: 50px 50px repeat(11, 1fr);
+  box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.3),
+    0px 0px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
 .calendar .day .date-in-words {
@@ -54,6 +58,8 @@
   justify-content: space-around;
   align-items: center;
   background-color: var(--main-color-10);
+  box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.1),
+    0px 0px 2px 1px rgba(0, 0, 0, 0.1);
 }
 .calendar .day .classes:nth-child(odd) {
   background-color: var(--main-color-7);

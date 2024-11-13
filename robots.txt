@@ -6,4 +6,6 @@ Allow: /cennik
 Allow: /galeria
 Allow: /kontakt
 
+Disallow: /administrator
+
 Sitemap: https://figowski.com/sitemap.xml

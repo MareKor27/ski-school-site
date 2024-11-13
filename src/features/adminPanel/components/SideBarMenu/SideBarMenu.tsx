@@ -15,19 +15,18 @@ export function SideBarMenu() {
         <Link to={Paths.ADMIN.CALENDAR.absolute} className={S("")}>
           <div className={S(`sidebar-li`)}>Harmonogram</div>
         </Link>
-
-        <Link to={Paths.ADMIN.OPTION.absolute} className={S("")}>
-          <div className={S(`sidebar-li`)}>Opcje</div>
-        </Link>
         <Link to={Paths.ADMIN.STUFF.absolute} className={S("")}>
           <div className={S(`sidebar-li`)}>Instruktorzy</div>
+        </Link>
+        <Link to={Paths.ADMIN.OPTION.absolute} className={S("")}>
+          <div className={S(`sidebar-li`)}>Opcje</div>
         </Link>
         {/* <Link to={} className={S("")}>
           <div className={S(`sidebar-li`)}>Raporty</div>
         </Link> */}
       </div>
       <div className={S(`menu-account`)}>
-        <div className={S(`account-profile`)}>Marek Korzeniewski</div>
+        <div className={S(`account-profile`)}>Admin</div>
         <Link className={S("")} to={Paths.INDEX.absolute}>
           <div className={S(`account-profile`)}>Wyloguj</div>
         </Link>

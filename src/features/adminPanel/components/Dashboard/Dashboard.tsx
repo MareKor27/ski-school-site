@@ -1,27 +1,29 @@
+import { Link } from "react-router-dom";
 import style from "./Dashboard.module.scss";
 import useStyles from "~/hooks/useStyle";
+import { Paths } from "~/features/app/constants/Paths";
 const S = useStyles(style);
 export function Dashboard() {
   return (
-    <div className={S(`admin-dashboard`)}>
-      <div className={S(`box`)}>
+    <div className={S(`dashboard`)}>
+      <Link className={S(`box`)} to={Paths.ADMIN.CALENDAR.absolute}>
         <div className={S(`icon`)}>
           <img src="/images/admin/admin-calendar2.png" alt={"Kalendarz"} />
         </div>
-        <div className={S(`name`)}>Harmonogram</div>
-      </div>
-      <div className={S(`box`)}>
+        <div className={S(`name-option`)}>Harmonogram</div>
+      </Link>
+      <Link className={S(`box`)} to={Paths.ADMIN.STUFF.absolute}>
         <div className={S(`icon`)}>
           <img src="/images/admin/admin-account.png" alt={"Instruktorzy"} />
         </div>
-        <div className={S(`name`)}>Instruktorzy</div>
-      </div>
-      <div className={S(`box`)}>
+        <div className={S(`name-option`)}>Instruktorzy</div>
+      </Link>
+      <Link className={S(`box`)} to={Paths.ADMIN.OPTION.absolute}>
         <div className={S(`icon`)}>
           <img src="/images/admin/admin-option2.png" alt={"Opcje"} />
         </div>
-        <div className={S(`name`)}>Opcje</div>
-      </div>
+        <div className={S(`name-option`)}>Opcje</div>
+      </Link>
     </div>
   );
 }
