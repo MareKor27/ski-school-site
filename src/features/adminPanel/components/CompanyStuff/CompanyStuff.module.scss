@@ -119,16 +119,13 @@
 }
 
 /*=========form==========*/
+
 form {
   display: flex;
   flex-direction: column;
   width: 300px;
   margin: 10px;
 }
-input {
-  margin-bottom: 20px;
-}
-
 label,
 input {
   width: 100%;
@@ -144,6 +141,8 @@ input {
   background: rgba(58, 91, 132, 0.2);
   border: 1px solid rgba(58, 91, 132, 0.5);
   margin-top: 5px;
+  font-size: 1.2em;
+  margin-bottom: 20px;
 }
 
 input::placeholder {
