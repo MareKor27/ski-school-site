@@ -11,6 +11,10 @@ export const Paths = {
       absolute: "/administrator/kalendarz",
       routerConfig: "kalendarz",
     },
+    CALENDAR_ADD_RESERVATION: {
+      absolute: "/administrator/rezerwacja",
+      routerConfig: "rezerwacja",
+    },
     OPTION: { absolute: "/administrator/opcje", routerConfig: "opcje" },
     STUFF: {
       absolute: "/administrator/instruktorzy",

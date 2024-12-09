@@ -1,68 +1,3 @@
-.company-stuff {
-  // background-color: rgb(64, 136, 181, 0.3);
-  backdrop-filter: blur(10px);
-  box-sizing: border-box;
-  border-radius: 15px;
-  display: grid;
-  grid-template-rows: 40px 1fr;
-  height: 100%;
-  gap: 2px;
-}
-
-h2.title-page {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  font-size: 1.5em;
-  font-weight: 300;
-  margin-right: 20px;
-  color: azure;
-}
-
-.company-stuff .title-tabs {
-  display: flex;
-  flex-direction: row;
-  gap: 2px;
-}
-.company-stuff .title-tabs .tab.disabled {
-  display: none;
-}
-.company-stuff .title-tabs .tab {
-  height: 40px;
-  width: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--main-color-10);
-
-  border-radius: 10px 10px 0px 0px;
-  box-shadow: inset 0px 4px 15px 0px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 300;
-}
-
-.company-stuff .title-tabs .tab.active-tab {
-  background: linear-gradient(var(--main-color-3), var(--main-color-4));
-  transition: background-color 0.7s ease;
-}
-.content-tabs {
-  display: grid;
-  grid-template-columns: 1fr;
-  height: 100%;
-}
-
-.content-tabs .content-tab {
-  background: linear-gradient(var(--main-color-4), var(--main-color-1));
-  padding: 10px;
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: inset 0px -8px 15px 0px rgba(0, 0, 0, 0.5);
-  display: none;
-}
-
-.content-tabs .content-tab.active-content {
-  display: block;
-}
 /*=========table==========*/
 
 .stuff-table {
@@ -132,21 +67,22 @@ h2.title-page {
 }
 
 /*=========form==========*/
-.company-stuff form {
+
+.stuff-table form {
   display: flex;
   flex-direction: column;
   width: 300px;
   margin: 10px;
 }
-.company-stuff label,
-.company-stuff input {
+.stuff-table label,
+.stuff-table input {
   width: 100%;
   color: #fff;
   display: block;
   font-weight: 300;
   text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
 }
-.company-stuff input {
+.stuff-table input {
   border: none;
   padding: 15px 20px;
   border-radius: 5px;
@@ -157,12 +93,12 @@ h2.title-page {
   margin-bottom: 20px;
 }
 
-.company-stuff input::placeholder {
+.stuff-table input::placeholder {
   color: var(--main-color-2);
   text-shadow: none;
 }
 
-.company-stuff input[type="submit"] {
+.stuff-table input[type="submit"] {
   font-size: 1em;
   background: rgba(58, 91, 132, 0.8);
 }

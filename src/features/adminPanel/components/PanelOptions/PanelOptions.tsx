@@ -12,6 +12,7 @@ export function PanelOptions() {
   return (
     <div className={S(`option`)}>
       <div className={S(`title-tabs`)}>
+        <h2 className={S(`title-page`)}>Opcje</h2>
         <div
           className={toggleOptionState === 1 ? S(`tab active-tab`) : S(`tab`)}
           onClick={() => toggleOptionTab(1)}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2,
+    "imieiNazwisko": "Michał Jaśkiewicz",
+    "tel": "+48 517 933 264",
+    "info1": "",
+    "info2": "",
+    "info3": ""
+  },
+  {
+    "id": 3,
+    "imieiNazwisko": "Donald Tusk",
+    "tel": "+48 513 933 264",
+    "info1": "",
+    "info2": "",
+    "info3": ""
+  },
+  {
+    "id": 4,
+    "imieiNazwisko": "Jarosław Kaczyński",
+    "tel": "+48 555 933 544",
+    "info1": "",
+    "info2": "",
+    "info3": ""
+  }
+]

@@ -9,23 +9,10 @@
   gap: 2px;
 }
 
-h2.title-page {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  font-size: 1.5em;
-  font-weight: 300;
-  margin-right: 20px;
-  color: azure;
-}
-
 .company-stuff .title-tabs {
   display: flex;
   flex-direction: row;
   gap: 2px;
-}
-.company-stuff .title-tabs .tab.disabled {
-  display: none;
 }
 .company-stuff .title-tabs .tab {
   height: 40px;

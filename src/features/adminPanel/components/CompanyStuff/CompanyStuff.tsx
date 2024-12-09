@@ -1,22 +1,35 @@
 import { useState } from "react";
 import style from "./CompanyStuff.module.scss";
 import useStyles from "~/hooks/useStyle";
+import account from "~/data/account.json";
+import { FormCreateEdit } from "./FormCreateEdit/FormCreateEdit";
+import { FormTable } from "./FormTable/FormTable";
+
+export type UserFormType = {
+  id: number;
+  imieiNazwisko: string;
+  tel: string;
+  info1?: string;
+  info2?: string;
+  info3?: string;
+};
+
 const S = useStyles(style);
 export function CompanyStuff() {
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (tabIndex: number) => {
     setToggleState(tabIndex);
+    setFormData({
+      id: 1,
+      imieiNazwisko: "",
+      tel: "",
+      info1: "",
+      info2: "",
+      info3: "",
+    });
   };
 
-  type UserFormType = {
-    id: number;
-    imieiNazwisko: string;
-    tel: string;
-    info1?: string;
-    info2?: string;
-    info3?: string;
-  };
   const [formData, setFormData] = useState<UserFormType>({
     id: 1,
     imieiNazwisko: "",
@@ -26,32 +39,7 @@ export function CompanyStuff() {
     info3: "",
   });
 
-  const [users, setUsers] = useState<UserFormType[]>([
-    {
-      id: 2,
-      imieiNazwisko: "Michał Jaśkiewicz",
-      tel: "+48 517 933 264",
-      info1: "",
-      info2: "",
-      info3: "",
-    },
-    {
-      id: 3,
-      imieiNazwisko: "Donald Tusk",
-      tel: "+48 513 933 264",
-      info1: "",
-      info2: "",
-      info3: "",
-    },
-    {
-      id: 4,
-      imieiNazwisko: "Jarosław Kaczyński",
-      tel: "+48 555 933 544",
-      info1: "",
-      info2: "",
-      info3: "",
-    },
-  ]);
+  const [users, setUsers] = useState<UserFormType[]>(account);
 
   const formatPhoneNumber = (value: string): string => {
     // Usuwamy wszystko poza cyframi i "+"
@@ -131,14 +119,20 @@ export function CompanyStuff() {
   const handleEditUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Aktualizacja listy użytkowników
     setUsers((prevUsers) =>
       prevUsers.map((user) =>
-        user.id === formData.id
-          ? { ...user, ...formData } // Zaktualizowanie użytkownika na podstawie formData
-          : user
+        user.id === formData.id ? { ...user, ...formData } : user
       )
     );
+
+    setFormData({
+      id: 1,
+      imieiNazwisko: "",
+      tel: "",
+      info1: "",
+      info2: "",
+      info3: "",
+    });
 
     setToggleState(1);
   };
@@ -146,23 +140,27 @@ export function CompanyStuff() {
   return (
     <div className={S(`company-stuff`)}>
       <div className={S(`title-tabs`)}>
+        <h2 className={S(`title-page`)}>Instruktorzy</h2>
         <div
           className={toggleState === 1 ? S(`tab active-tab`) : S(`tab`)}
           onClick={() => toggleTab(1)}
         >
           Lista
         </div>
-        <div
-          className={toggleState === 2 ? S(`tab active-tab`) : S(`tab`)}
-          onClick={() => toggleTab(2)}
-        >
-          Zarządzaj
-        </div>
+
         <div
           className={toggleState === 3 ? S(`tab active-tab`) : S(`tab`)}
           onClick={() => toggleTab(3)}
         >
           Stwórz
+        </div>
+        <div
+          className={
+            toggleState === 2 ? S(`tab active-tab`) : S(`tab disabled`)
+          }
+          onClick={() => toggleTab(2)}
+        >
+          Edytuj
         </div>
       </div>
       <div className={S(`content-tabs`)}>
@@ -173,58 +171,20 @@ export function CompanyStuff() {
               : S(`content-tab`)
           }
         >
-          <div className={S(`stuff-table`)}>
-            <div className={S(`stuff-table-row th-cell`)}>
-              <div className={S(`stuff-table-cell`)}>Imie i nazwisko</div>
-              <div className={S(`stuff-table-cell`)}>Nr. kontaktowy</div>
-              <div className={S(`stuff-table-cell`)}>Informacja 1</div>
-              <div className={S(`stuff-table-cell`)}>Informacja 2</div>
-              <div className={S(`stuff-table-cell`)}>Informacja 3</div>
-              <div className={S(`stuff-table-cell`)}>Harmonogram</div>
-              <div className={S(`stuff-table-cell`)}>Opcje</div>
-            </div>
-            {users.map(
-              (account) => (
-                console.log(account),
-                (
-                  <div className={S(`stuff-table-row`)} key={account.tel}>
-                    <div className={S(`stuff-table-cell`)}>
-                      {account.imieiNazwisko}
-                    </div>
-                    <div className={S(`stuff-table-cell`)}>{account.tel}</div>
-                    <div className={S(`stuff-table-cell`)}>{account.info1}</div>
-                    <div className={S(`stuff-table-cell`)}>{account.info2}</div>
-                    <div className={S(`stuff-table-cell`)}>{account.info3}</div>
-                    <div className={S(`stuff-table-cell`)}>
-                      <div className={S(`cell-option-update-calendar`)}>
-                        <img
-                          src="/images/admin/calendar-icon.png"
-                          alt={"Aktualizuj Grafik"}
-                        />
-                        Aktualizuj Grafik
-                      </div>
-                    </div>
-                    <div className={S(`stuff-table-cell`)}>
-                      <div
-                        className={S(`cell-option-edit`)}
-                        onClick={() => handleShowEditUser(account)}
-                      >
-                        <img src="/images/admin/edit-icon.png" alt={"Edytuj"} />
-                        Edytuj {"   "}
-                      </div>
-                      <div
-                        className={S(`cell-option-delete`)}
-                        onClick={() => handleDeleteUser(account.tel)}
-                      >
-                        <img src="/images/admin/delete-icon.png" alt={"Usuń"} />
-                        Usuń
-                      </div>
-                    </div>
-                  </div>
-                )
-              )
-            )}
-          </div>
+          <FormTable
+            headers={[
+              "Imie i nazwisko",
+              "Nr. kontaktowy",
+              "Informacja 1",
+              "Informacja 2",
+              "Informacja 3",
+              "Harmonogram",
+              "Opcje",
+            ]}
+            accounts={users}
+            handleDeleteUser={handleDeleteUser}
+            handleShowEditUser={handleShowEditUser}
+          />
         </div>
         <div
           className={
@@ -233,57 +193,12 @@ export function CompanyStuff() {
               : S(`content-tab`)
           }
         >
-          <form onSubmit={handleEditUser}>
-            <label htmlFor="imieiNazwisko">Imie i Nazwisko:</label>
-            <input
-              type="text"
-              id="imieiNazwisko"
-              name="imieiNazwisko"
-              size={50}
-              onChange={handleInputChange}
-              value={formData.imieiNazwisko}
-            />
-            <label htmlFor="tel">Numer telefonu:</label>
-            <input
-              type="text"
-              id="tel"
-              name="tel"
-              placeholder="+48 123 456 789"
-              pattern="^\+(\d{2})\s(\d{3})\s(\d{3})\s(\d{3})$|^(\d{9})$"
-              title="Numer telefonu musi być w formacie: +XX XXX XXX XXX."
-              onChange={handleInputChange}
-              value={formData.tel}
-            />
-            <label htmlFor="info1">Informacja 1:</label>
-            <input
-              type="text"
-              id="info1"
-              name="info1"
-              size={50}
-              onChange={handleInputChange}
-              value={formData.info1}
-            />
-            <label htmlFor="finfo2">Informacja 2:</label>
-            <input
-              type="text"
-              id="finfo2"
-              name="finfo2"
-              size={50}
-              onChange={handleInputChange}
-              value={formData.info2}
-            />
-            <label htmlFor="finfo3">Informacja 3:</label>
-            <input
-              type="text"
-              id="finfo3"
-              name="finfo3"
-              size={50}
-              onChange={handleInputChange}
-              value={formData.info3}
-            />
-
-            <input type="submit" value="Aktualizuj" />
-          </form>
+          <FormCreateEdit
+            formData={formData}
+            handleInputChange={handleInputChange}
+            handleOnSubmit={handleEditUser}
+            type={"Edit"}
+          />
         </div>
         <div
           className={
@@ -292,57 +207,12 @@ export function CompanyStuff() {
               : S(`content-tab`)
           }
         >
-          <form onSubmit={handleCreateUser}>
-            <label htmlFor="imieiNazwisko">Imie i Nazwisko:</label>
-            <input
-              type="text"
-              id="imieiNazwisko"
-              name="imieiNazwisko"
-              size={50}
-              onChange={handleInputChange}
-              value={formData.imieiNazwisko}
-            />
-            <label htmlFor="tel">Numer telefonu:</label>
-            <input
-              type="text"
-              id="tel"
-              name="tel"
-              placeholder="+48 123 456 789"
-              pattern="^\+(\d{2})\s(\d{3})\s(\d{3})\s(\d{3})$|^(\d{9})$"
-              title="Numer telefonu musi być w formacie: +XX XXX XXX XXX."
-              onChange={handleInputChange}
-              value={formData.tel}
-            />
-            <label htmlFor="info1">Informacja 1:</label>
-            <input
-              type="text"
-              id="info1"
-              name="info1"
-              size={50}
-              onChange={handleInputChange}
-              value={formData.info1}
-            />
-            <label htmlFor="finfo2">Informacja 2:</label>
-            <input
-              type="text"
-              id="finfo2"
-              name="finfo2"
-              size={50}
-              onChange={handleInputChange}
-              value={formData.info2}
-            />
-            <label htmlFor="finfo3">Informacja 3:</label>
-            <input
-              type="text"
-              id="finfo3"
-              name="finfo3"
-              size={50}
-              onChange={handleInputChange}
-              value={formData.info3}
-            />
-
-            <input type="submit" value="Stwórz" />
-          </form>
+          <FormCreateEdit
+            formData={formData}
+            handleInputChange={handleInputChange}
+            handleOnSubmit={handleCreateUser}
+            type={"Create"}
+          />
         </div>
       </div>
     </div>

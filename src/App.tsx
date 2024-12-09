@@ -14,6 +14,7 @@ import { AdminDashboard } from "./pages/AdminDashboard";
 import { AdminOption } from "./pages/AdminOption";
 import { AdminCompanyStuff } from "./pages/AdminCompanyStuff";
 import { Paths } from "./features/app/constants/Paths";
+import { AdminCalendarAddReservation } from "./pages/AdminCalendarAddReservation";
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
           <Route
             path={Paths.ADMIN.CALENDAR.absolute}
             element={<AdminCalendar />}
+          />
+          <Route
+            path={Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute}
+            element={<AdminCalendarAddReservation />}
           />
           <Route path={Paths.ADMIN.OPTION.absolute} element={<AdminOption />} />
           <Route
