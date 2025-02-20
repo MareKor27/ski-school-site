@@ -4,6 +4,8 @@ import { LinkImage } from "~/components/button/LinkImage";
 import { Paths } from "~/features/app/constants/Paths";
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <div className={style["footer-conteiner"]}>
@@ -47,7 +49,7 @@ export function Footer() {
         </div>
         <div className={style["copyright"]}>
           Wszelkie prawa zastrzeżone © <br />
-          2024 FigowSki Sport
+          {currentYear} FigowSki Sport
         </div>
       </div>
     </>

@@ -8,13 +8,13 @@ import { Photos } from "./pages/Photos";
 import { Contact } from "./pages/Contact";
 import GlobalConfig from "./configs/GlobalConfig";
 import PageNotFound from "./pages/PageNotFound";
-import { Login } from "./pages/Login";
+import { Paths } from "./features/app/constants/Paths";
 import { AdminCalendar } from "./pages/AdminCalendar";
+import { AdminCalendarAddReservation } from "./pages/AdminCalendarAddReservation";
+import { AdminCompanyStuff } from "./pages/AdminCompanyStuff";
 import { AdminDashboard } from "./pages/AdminDashboard";
 import { AdminOption } from "./pages/AdminOption";
-import { AdminCompanyStuff } from "./pages/AdminCompanyStuff";
-import { Paths } from "./features/app/constants/Paths";
-import { AdminCalendarAddReservation } from "./pages/AdminCalendarAddReservation";
+import { Login } from "./pages/Login";
 
 function App() {
   return (

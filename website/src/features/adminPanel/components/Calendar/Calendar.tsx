@@ -64,7 +64,7 @@ export function Calendar() {
             {[
               {
                 day: "Poniedziałek",
-                number: "11.11.2024",
+                number: "17.02.2025",
                 hours: [
                   { time: "10:00", available: true },
                   { time: "11:00", available: false },
@@ -81,7 +81,7 @@ export function Calendar() {
               },
               {
                 day: "Wtorek",
-                number: "12.11.2024",
+                number: "18.02.2025",
                 hours: [
                   { time: "10:00", available: true },
                   { time: "11:00", available: true },
@@ -98,7 +98,7 @@ export function Calendar() {
               },
               {
                 day: "Środa",
-                number: "13.11.2024",
+                number: "19.02.2025",
                 hours: [
                   { time: "10:00", available: false },
                   { time: "11:00", available: false },
@@ -115,7 +115,7 @@ export function Calendar() {
               },
               {
                 day: "Czwartek",
-                number: "14.11.2024",
+                number: "20.02.2025",
                 hours: [
                   { time: "10:00", available: false },
                   { time: "11:00", available: false },
@@ -132,7 +132,7 @@ export function Calendar() {
               },
               {
                 day: "Piątek",
-                number: "15.11.2024",
+                number: "21.02.2025",
                 hours: [
                   { time: "10:00", available: true },
                   { time: "11:00", available: true },
@@ -149,7 +149,7 @@ export function Calendar() {
               },
               {
                 day: "Sobota",
-                number: "16.11.2024",
+                number: "22.02.2025",
                 hours: [
                   { time: "10:00", available: true },
                   { time: "11:00", available: true },
@@ -166,7 +166,7 @@ export function Calendar() {
               },
               {
                 day: "Niedziela",
-                number: "17.11.2024",
+                number: "23.02.2025",
                 hours: [
                   { time: "10:00", available: false },
                   { time: "11:00", available: false },
