@@ -13,7 +13,7 @@
 .stuff-table-row {
   display: grid;
   gap: 3px;
-  grid-template-columns: 1.5fr 1fr repeat(3, 0.7fr) repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr) 2fr;
 }
 .stuff-table-cell {
   min-height: 50px;

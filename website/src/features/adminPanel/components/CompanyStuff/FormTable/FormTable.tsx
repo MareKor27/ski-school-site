@@ -3,10 +3,11 @@ import { useState } from "react";
 import { UserFormType } from "../CompanyStuff";
 import style from "./FormTable.module.scss";
 import useStyles from "~/hooks/useStyle";
+import { UserDto } from "~/features/adminPanel/api/type/user.dto";
 
 type FormTableType = {
   headers: string[];
-  accounts: UserFormType[];
+  accounts: UserDto[];
   handleShowEditUser: (user: UserFormType) => void;
   handleDeleteUser: (tel: string) => void;
 };
@@ -28,14 +29,9 @@ export function FormTable({
         (account) => (
           console.log(account),
           (
-            <div className={S(`stuff-table-row`)} key={account.tel}>
-              <div className={S(`stuff-table-cell`)}>
-                {account.imieiNazwisko}
-              </div>
-              <div className={S(`stuff-table-cell`)}>{account.tel}</div>
-              <div className={S(`stuff-table-cell`)}>{account.info1}</div>
-              <div className={S(`stuff-table-cell`)}>{account.info2}</div>
-              <div className={S(`stuff-table-cell`)}>{account.info3}</div>
+            <div className={S(`stuff-table-row`)} key={account.id}>
+              <div className={S(`stuff-table-cell`)}>{account.name}</div>
+              <div className={S(`stuff-table-cell`)}>{account.email}</div>
               <div className={S(`stuff-table-cell`)}>
                 <div className={S(`cell-option-update-calendar`)}>
                   <img
@@ -44,18 +40,16 @@ export function FormTable({
                   />
                   Aktualizuj Grafik
                 </div>
-              </div>
-              <div className={S(`stuff-table-cell`)}>
                 <div
                   className={S(`cell-option-edit`)}
-                  onClick={() => handleShowEditUser(account)}
+                  // onClick={() => handleShowEditUser(account)}
                 >
                   <img src="/images/admin/edit-icon.png" alt={"Edytuj"} />
                   Edytuj {"   "}
                 </div>
                 <div
                   className={S(`cell-option-delete`)}
-                  onClick={() => handleDeleteUser(account.tel)}
+                  // onClick={() => handleDeleteUser(account.tel)}
                 >
                   <img src="/images/admin/delete-icon.png" alt={"Usuń"} />
                   Usuń

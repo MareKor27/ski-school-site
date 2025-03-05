@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./CompanyStuff.module.scss";
 import useStyles from "~/hooks/useStyle";
 import account from "~/data/account.json";
 import { FormCreateEdit } from "./FormCreateEdit/FormCreateEdit";
 import { FormTable } from "./FormTable/FormTable";
+import { readUsers } from "../../api/AdminPanelApi";
+import { UserDto } from "../../api/type/user.dto";
 
 export type UserFormType = {
   id: number;
@@ -17,6 +19,7 @@ export type UserFormType = {
 const S = useStyles(style);
 export function CompanyStuff() {
   const [toggleState, setToggleState] = useState(1);
+  const [users, setUsers] = useState<UserDto[]>([]);
 
   const toggleTab = (tabIndex: number) => {
     setToggleState(tabIndex);
@@ -39,7 +42,17 @@ export function CompanyStuff() {
     info3: "",
   });
 
-  const [users, setUsers] = useState<UserFormType[]>(account);
+  useEffect(() => {
+    const fetchResponse = async () => {
+      try {
+        const response = await readUsers();
+        setUsers(response.content);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+    fetchResponse();
+  }, []);
 
   const formatPhoneNumber = (value: string): string => {
     // Usuwamy wszystko poza cyframi i "+"
@@ -79,41 +92,38 @@ export function CompanyStuff() {
   };
 
   const handleCreateUser = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    setUsers((prevUsers) => [...prevUsers, formData]);
-
-    setFormData({
-      id: 1,
-      imieiNazwisko: "",
-      tel: "",
-      info1: "",
-      info2: "",
-      info3: "",
-    });
-
-    setToggleState(1);
+    // e.preventDefault();
+    // setUsers((prevUsers) => [...prevUsers, formData]);
+    // setFormData({
+    //   id: 1,
+    //   imieiNazwisko: "",
+    //   tel: "",
+    //   info1: "",
+    //   info2: "",
+    //   info3: "",
+    // });
+    // setToggleState(1);
   };
 
   const handleDeleteUser = (tel: string) => {
-    const isConfirmed = window.confirm(
-      "Czy na pewno chcesz usunąć tego użytkownika?"
-    );
-    if (isConfirmed) {
-      setUsers((prevUsers) => prevUsers.filter((user) => user.tel !== tel));
-    }
+    // const isConfirmed = window.confirm(
+    //   "Czy na pewno chcesz usunąć tego użytkownika?"
+    // );
+    // if (isConfirmed) {
+    //   setUsers((prevUsers) => prevUsers.filter((user) => user.tel !== tel));
+    // }
   };
 
   const handleShowEditUser = (user: UserFormType) => {
-    setFormData({
-      id: user.id,
-      imieiNazwisko: user.imieiNazwisko,
-      tel: user.tel,
-      info1: user.info1,
-      info2: user.info2,
-      info3: user.info3,
-    });
-    setToggleState(2);
+    // setFormData({
+    //   id: user.id,
+    //   imieiNazwisko: user.imieiNazwisko,
+    //   tel: user.tel,
+    //   info1: user.info1,
+    //   info2: user.info2,
+    //   info3: user.info3,
+    // });
+    // setToggleState(2);
   };
 
   const handleEditUser = (e: React.FormEvent<HTMLFormElement>) => {
@@ -172,15 +182,7 @@ export function CompanyStuff() {
           }
         >
           <FormTable
-            headers={[
-              "Imie i nazwisko",
-              "Nr. kontaktowy",
-              "Informacja 1",
-              "Informacja 2",
-              "Informacja 3",
-              "Harmonogram",
-              "Opcje",
-            ]}
+            headers={["Imie i nazwisko", "Email", "Opcje"]}
             accounts={users}
             handleDeleteUser={handleDeleteUser}
             handleShowEditUser={handleShowEditUser}
