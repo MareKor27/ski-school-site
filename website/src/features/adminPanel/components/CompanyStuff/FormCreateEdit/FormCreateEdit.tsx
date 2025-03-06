@@ -1,66 +1,54 @@
-import { UserFormType } from "~/features/adminPanel/components/CompanyStuff/CompanyStuff";
+import { CreateUserDto } from "~/features/adminPanel/api/type/user.dto";
+
+import { useState } from "react";
+import { createUser } from "~/features/adminPanel/api/AdminPanelApi";
+import axios from "axios";
 
 type FormCreateEditType = {
-  formData: UserFormType;
+  formData: CreateUserDto;
+  // handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   type: "Edit" | "Create";
 };
 
 export function FormCreateEdit({
   formData,
+  // handleOnSubmit,
   handleInputChange,
-  handleOnSubmit,
   type,
 }: FormCreateEditType) {
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    try {
+      const response = await createUser(formData);
+      console.log("User Created:", response.content);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("Error creating user:");
+        const errors = JSON.parse(error.request.response);
+        console.error(errors.message);
+      }
+    }
+  };
   return (
-    <form onSubmit={handleOnSubmit}>
-      <label htmlFor="imieiNazwisko">Imie i Nazwisko:</label>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="name">Imie i Nazwisko:</label>
       <input
         type="text"
-        id="imieiNazwisko"
-        name="imieiNazwisko"
+        id="name"
+        name="name"
         size={50}
         onChange={handleInputChange}
-        value={formData.imieiNazwisko}
+        value={formData.name}
       />
-      <label htmlFor="tel">Numer telefonu:</label>
+      <label htmlFor="email">Email:</label>
       <input
         type="text"
-        id="tel"
-        name="tel"
-        placeholder="+48 123 456 789"
-        pattern="^\+(\d{2})\s(\d{3})\s(\d{3})\s(\d{3})$|^(\d{9})$"
-        title="Numer telefonu musi być w formacie: +XX XXX XXX XXX."
-        onChange={handleInputChange}
-        value={formData.tel}
-      />
-      <label htmlFor="info1">Informacja 1:</label>
-      <input
-        type="text"
-        id="info1"
-        name="info1"
+        id="email"
+        name="email"
         size={50}
         onChange={handleInputChange}
-        value={formData.info1}
-      />
-      <label htmlFor="finfo2">Informacja 2:</label>
-      <input
-        type="text"
-        id="finfo2"
-        name="finfo2"
-        size={50}
-        onChange={handleInputChange}
-        value={formData.info2}
-      />
-      <label htmlFor="finfo3">Informacja 3:</label>
-      <input
-        type="text"
-        id="finfo3"
-        name="finfo3"
-        size={50}
-        onChange={handleInputChange}
-        value={formData.info3}
+        value={formData.email}
       />
 
       <input type="submit" value={type === "Edit" ? "Aktualizuj" : "Stwórz"} />

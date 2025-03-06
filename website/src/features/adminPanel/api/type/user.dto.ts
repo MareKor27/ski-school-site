@@ -5,3 +5,11 @@ export type UserDto = {
 
   email: string;
 };
+
+export type CreateUserDto = {
+  name: string;
+
+  email: string;
+
+  role: "INSTRUCTOR" | "ADMIN";
+};
