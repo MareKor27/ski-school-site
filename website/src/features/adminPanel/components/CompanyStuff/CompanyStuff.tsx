@@ -1,165 +1,51 @@
-import { useEffect, useState } from "react";
 import style from "./CompanyStuff.module.scss";
 import useStyles from "~/hooks/useStyle";
-import account from "~/data/account.json";
 import { FormCreateEdit } from "./FormCreateEdit/FormCreateEdit";
 import { FormTable } from "./FormTable/FormTable";
-import { createUser, deleteUser, readUsers } from "../../api/AdminPanelApi";
-import { UserDto, CreateUserDto } from "../../api/type/user.dto";
+
+import { useUserAction } from "../../hooks/useUserAction";
+import { useUsers } from "../../hooks/useUsers";
+import { useUserInputData } from "../../hooks/useUserInputData";
 
 const S = useStyles(style);
 export function CompanyStuff() {
-  const [toggleState, setToggleState] = useState(1);
-  const [users, setUsers] = useState<UserDto[]>([]);
+  const [users, fetchResponse] = useUsers();
+  const {
+    userData,
+    activeView,
+    handleInputChange,
+    handleShowEditUser,
+    toggleTab,
+    refreshView,
+  } = useUserInputData(fetchResponse);
 
-  const toggleTab = (tabIndex: number) => {
-    setToggleState(tabIndex);
-    // setFormData({
-    //   id: 1,
-    //   name: "",
-    //   email: "",
-    // });
-  };
-
-  const [formData, setFormData] = useState<CreateUserDto>({
-    name: "",
-    email: "",
-    role: "INSTRUCTOR",
-  });
-
-  useEffect(() => {
-    const fetchResponse = async () => {
-      try {
-        const response = await readUsers();
-        setUsers(response.content);
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    };
-    fetchResponse();
-  }, []);
-
-  // const formatPhoneNumber = (value: string): string => {
-  //   // Usuwamy wszystko poza cyframi i "+"
-  //   const sanitizedValue = value.replace(/[^\d+]/g, "");
-
-  //   // Jeśli numer zaczyna się od "+", przetwarzamy prefiks
-  //   if (sanitizedValue.startsWith("+")) {
-  //     const withoutPlus = sanitizedValue.slice(1); // Usuwamy "+"
-  //     const prefix = withoutPlus.slice(0, 2); // Pobieramy pierwsze 2 cyfry po "+"
-  //     const rest = withoutPlus.slice(2); // Reszta po prefiksie
-  //     const parts = rest.match(/.{1,3}/g) || []; // Grupujemy w bloki po 3 cyfry
-  //     return `+${prefix} ${parts.join(" ")}`.trim(); // Formatowanie z "+" i spacjami
-  //   }
-
-  //   // Jeśli brak "+", grupujemy od początku co 3 cyfry
-  //   const defaultPrefix = "+48";
-  //   const parts = sanitizedValue.match(/.{1,3}/g) || []; // Grupujemy od początku
-  //   return `${defaultPrefix} ${parts.join(" ")}`.trim();
-  // };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    console.log(name);
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleCreateUser = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // setUsers((prevUsers) => [...prevUsers, formData]);
-    // setFormData({
-    //   id: 1,
-    //   imieiNazwisko: "",
-    //   tel: "",
-    //   info1: "",
-    //   info2: "",
-    //   info3: "",
-    // });
-    // setToggleState(1);
-    // const fetchResponse = async () => {
-    //   try {
-    //     const response = await createUser(formData);
-    //     console.log(response);
-    //   } catch (error) {
-    //     console.error("Error fetching users:", error);
-    //   }
-    // };
-    // fetchResponse();
-  };
-
-  const handleDeleteUser = async (
-    id: number,
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
-    const isConfirmed = window.confirm(
-      "Czy na pewno chcesz usunąć tego użytkownika?"
-    );
-    if (isConfirmed) {
-      try {
-        const response = await deleteUser(id);
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    }
-  };
-
-  const handleShowEditUser = (user: UserDto) => {
-    // setFormData({
-    //   id: user.id,
-    //   imieiNazwisko: user.imieiNazwisko,
-    //   tel: user.tel,
-    //   info1: user.info1,
-    //   info2: user.info2,
-    //   info3: user.info3,
-    // });
-
-    console.log(user);
-    // setToggleState(2);
-  };
-
-  // const handleEditUser = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   setUsers((prevUsers) =>
-  //     prevUsers.map((user) =>
-  //       user.id === formData.id ? { ...user, ...formData } : user
-  //     )
-  //   );
-
-  //   setFormData({
-  //     id: 1,
-  //     name: "",
-  //     email: "",
-  //   });
-
-  //   setToggleState(1);
-  // };
+  const [handleCreateUser, handleDeleteUser, handleEditUser] = useUserAction(
+    userData,
+    refreshView
+  );
 
   return (
     <div className={S(`company-stuff`)}>
       <div className={S(`title-tabs`)}>
         <h2 className={S(`title-page`)}>Instruktorzy</h2>
         <div
-          className={toggleState === 1 ? S(`tab active-tab`) : S(`tab`)}
-          onClick={() => toggleTab(1)}
+          className={activeView === "LIST" ? S(`tab active-tab`) : S(`tab`)}
+          onClick={() => toggleTab("LIST")}
         >
           Lista
         </div>
 
         <div
-          className={toggleState === 3 ? S(`tab active-tab`) : S(`tab`)}
-          onClick={() => toggleTab(3)}
+          className={activeView === "CREATE" ? S(`tab active-tab`) : S(`tab`)}
+          onClick={() => toggleTab("CREATE")}
         >
           Stwórz
         </div>
         <div
           className={
-            toggleState === 2 ? S(`tab active-tab`) : S(`tab disabled`)
+            activeView === "EDIT" ? S(`tab active-tab`) : S(`tab disabled`)
           }
-          onClick={() => toggleTab(2)}
+          onClick={() => toggleTab("EDIT")}
         >
           Edytuj
         </div>
@@ -167,7 +53,7 @@ export function CompanyStuff() {
       <div className={S(`content-tabs`)}>
         <div
           className={
-            toggleState === 1
+            activeView === "LIST"
               ? S(`content-tab active-content`)
               : S(`content-tab`)
           }
@@ -181,29 +67,29 @@ export function CompanyStuff() {
         </div>
         <div
           className={
-            toggleState === 2
+            activeView === "EDIT"
               ? S(`content-tab active-content`)
               : S(`content-tab`)
           }
         >
           <FormCreateEdit
-            formData={formData}
+            formData={userData}
             handleInputChange={handleInputChange}
-            // handleOnSubmit={handleEditUser}
+            handleOnSubmit={handleEditUser}
             type={"Edit"}
           />
         </div>
         <div
           className={
-            toggleState === 3
+            activeView === "CREATE"
               ? S(`content-tab active-content`)
               : S(`content-tab`)
           }
         >
           <FormCreateEdit
-            formData={formData}
+            formData={userData}
             handleInputChange={handleInputChange}
-            // handleOnSubmit={handleCreateUser}
+            handleOnSubmit={handleCreateUser}
             type={"Create"}
           />
         </div>

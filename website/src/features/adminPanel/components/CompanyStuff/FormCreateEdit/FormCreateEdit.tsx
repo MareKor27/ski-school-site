@@ -1,37 +1,26 @@
-import { CreateUserDto } from "~/features/adminPanel/api/type/user.dto";
+import {
+  CreateUserDto,
+  UserDto,
+} from "~/features/adminPanel/api/type/user.dto";
 
 import { useState } from "react";
 import { createUser } from "~/features/adminPanel/api/AdminPanelApi";
-import axios from "axios";
 
 type FormCreateEditType = {
-  formData: CreateUserDto;
-  // handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  formData: UserDto;
+  handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   type: "Edit" | "Create";
 };
 
 export function FormCreateEdit({
   formData,
-  // handleOnSubmit,
+  handleOnSubmit,
   handleInputChange,
   type,
 }: FormCreateEditType) {
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    try {
-      const response = await createUser(formData);
-      console.log("User Created:", response.content);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.error("Error creating user:");
-        const errors = JSON.parse(error.request.response);
-        console.error(errors.message);
-      }
-    }
-  };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleOnSubmit}>
       <label htmlFor="name">Imie i Nazwisko:</label>
       <input
         type="text"

@@ -39,7 +39,7 @@ export function FormTable({
             </div>
             <div
               className={S(`cell-option-edit`)}
-              // onClick={() => handleShowEditUser(account)}
+              onClick={() => handleShowEditUser(account)}
             >
               <img src="/images/admin/edit-icon.png" alt={"Edytuj"} />
               Edytuj {"   "}

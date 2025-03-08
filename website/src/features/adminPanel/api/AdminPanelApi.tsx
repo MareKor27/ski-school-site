@@ -23,6 +23,17 @@ export async function createUser(
   return response.data;
 }
 
+export async function updateUser(
+  id: number,
+  user: Partial<CreateUserDto>
+): Promise<ResponseDto<CreateUserDto>> {
+  const response = await api.patch<ResponseDto<CreateUserDto>>(
+    `/users${"/" + id}`,
+    user
+  );
+  return response.data;
+}
+
 export async function deleteUser(id: number): Promise<ResponseDto<UserDto>> {
   const response = await api.delete<ResponseDto<UserDto>>(`/users${"/" + id}`);
   return response.data;
