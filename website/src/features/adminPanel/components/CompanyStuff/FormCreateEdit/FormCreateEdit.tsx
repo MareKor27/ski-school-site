@@ -1,10 +1,4 @@
-import {
-  CreateUserDto,
-  UserDto,
-} from "~/features/adminPanel/api/type/user.dto";
-
-import { useState } from "react";
-import { createUser } from "~/features/adminPanel/api/AdminPanelApi";
+import { UserDto } from "~/features/adminPanel/api/type/user.dto";
 
 type FormCreateEditType = {
   formData: UserDto;
