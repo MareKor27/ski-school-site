@@ -3,10 +3,24 @@ import { CollectionResponseDto } from "./type/collectionResponse.dto";
 import { CreateUserDto, UserDto } from "./type/user.dto";
 import { ResponseDto } from "./type/response.dto";
 import { buildResponseDto } from "./type/response.dto.mapper";
+import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 
 const api = axios.create({
   baseURL: "http://localhost:3000",
 });
+
+api.interceptors.request.use(
+  (config) => {
+    const token = useSessionStore.getState().token;
+    console.log("t", token);
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    console.log("c", config);
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 //react query i walidacja kodu
 

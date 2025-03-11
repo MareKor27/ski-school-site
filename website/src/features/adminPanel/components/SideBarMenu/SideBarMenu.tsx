@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import style from "./SideBarMenu.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { Paths } from "~/features/app/constants/Paths";
+import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 const S = useStyles(style);
 export function SideBarMenu() {
+  const userToken = useSessionStore();
+
   return (
     <div className={S(`menu`)}>
       <div className={S(`menu-logo`)}>
@@ -19,16 +22,18 @@ export function SideBarMenu() {
           <div className={S(`sidebar-li`)}>Instruktorzy</div>
         </Link>
         <Link to={Paths.ADMIN.OPTION.absolute} className={S("")}>
-          <div className={S(`sidebar-li`)}>Opcje</div>
+          <div className={S(`sidebar-li`)}>Dziennik zdarzeń</div>
         </Link>
         {/* <Link to={} className={S("")}>
           <div className={S(`sidebar-li`)}>Raporty</div>
         </Link> */}
       </div>
       <div className={S(`menu-account`)}>
-        <div className={S(`account-profile`)}>Admin</div>
+        <div className={S(`account-profile`)}>{userToken.user?.email}</div>
         <Link className={S("")} to={Paths.INDEX.absolute}>
-          <div className={S(`account-profile`)}>Wyloguj</div>
+          <div className={S(`account-profile`)} onClick={userToken.clear}>
+            Wyloguj
+          </div>
         </Link>
       </div>
     </div>

@@ -9,13 +9,13 @@ import {
 export const useUserAction = (userData: UserDto, refreshView: () => void) => {
   const handleCreateUser = async (event: React.FormEvent) => {
     event.preventDefault();
-    createInstructor(userData);
+    await createInstructor(userData);
     refreshView();
   };
 
   const handleEditUser = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    editInstructor(userData);
+    await editInstructor(userData);
     refreshView();
   };
 

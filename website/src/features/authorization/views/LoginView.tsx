@@ -2,30 +2,15 @@ import { CSSProperties, useState } from "react";
 import useStyles from "~/hooks/useStyle";
 const S = useStyles(style);
 import style from "./Login.module.scss";
+import { useLogin } from "../hooks/useLogin";
+import { useSessionStore } from "../store/useSessionStore";
 
 export function LoginView() {
-  type RegistretionType = {
-    email: string;
-    password: string;
-  };
+  const { onChangeAccount, loginToSystem, account } = useLogin();
+  const token = useSessionStore((state) => state.token);
 
-  const [account, setAccount] = useState<RegistretionType>({
-    email: "",
-    password: "",
-  });
-
-  const onChangeAccount = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const { name, value } = event.target;
-    setAccount((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const loginToSystem = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(account);
+  const showToken = () => {
+    console.log(token);
   };
 
   return (
@@ -79,7 +64,10 @@ export function LoginView() {
                 </div>
                 <p className={S(`forget`)}>
                   {" "}
-                  Zapomniałeś hasła? <a href="#">Kliknij tutaj</a>
+                  Zapomniałeś hasła?{" "}
+                  <a href="#" onClick={showToken}>
+                    Kliknij tutaj
+                  </a>
                 </p>
                 <p className={S(`forget`)}>
                   {" "}
