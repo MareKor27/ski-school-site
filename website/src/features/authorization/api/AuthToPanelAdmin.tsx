@@ -2,7 +2,7 @@ import axios from "axios";
 import { UserData } from "../store/useSessionStore";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:3000/auth",
 });
 
 export type LoginResponeType = {

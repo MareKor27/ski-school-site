@@ -5,7 +5,7 @@ import { ResponseDto } from "./type/response.dto";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:3000/users",
 });
 
 api.interceptors.request.use(
@@ -24,7 +24,7 @@ api.interceptors.request.use(
 //react query i walidacja kodu
 
 export async function readUsers(): Promise<CollectionResponseDto<UserDto>> {
-  const response = await api.get<CollectionResponseDto<UserDto>>("/users");
+  const response = await api.get<CollectionResponseDto<UserDto>>("/");
   return response.data;
 }
 
@@ -32,7 +32,7 @@ export async function createUser(
   user: CreateUserDto
 ): Promise<ResponseDto<CreateUserDto>> {
   console.log(user);
-  const response = await api.post<ResponseDto<CreateUserDto>>("/users", user);
+  const response = await api.post<ResponseDto<CreateUserDto>>("/", user);
   return response.data;
 }
 
@@ -41,13 +41,13 @@ export async function updateUser(
   user: Partial<CreateUserDto>
 ): Promise<ResponseDto<CreateUserDto>> {
   const response = await api.patch<ResponseDto<CreateUserDto>>(
-    `/users${"/" + id}`,
+    `${"/" + id}`,
     user
   );
   return response.data;
 }
 
 export async function deleteUser(id: number): Promise<ResponseDto<UserDto>> {
-  const response = await api.delete<ResponseDto<UserDto>>(`/users${"/" + id}`);
+  const response = await api.delete<ResponseDto<UserDto>>(`${"/" + id}`);
   return response.data;
 }
