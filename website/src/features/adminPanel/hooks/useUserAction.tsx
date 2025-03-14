@@ -1,4 +1,4 @@
-import { deleteUser, readUsers } from "../api/AdminPanelApi";
+import { deleteUser, readUsers } from "../api/AdminUserApi";
 import { UpdateUserDto, UserDto } from "../api/type/user.dto";
 import {
   createInstructor,

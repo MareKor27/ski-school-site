@@ -1,17 +1,11 @@
-import { CSSProperties, useState } from "react";
+import { CSSProperties } from "react";
 import useStyles from "~/hooks/useStyle";
 const S = useStyles(style);
 import style from "./Login.module.scss";
 import { useLogin } from "../hooks/useLogin";
-import { useSessionStore } from "../store/useSessionStore";
 
 export function LoginView() {
   const { onChangeAccount, loginToSystem, account } = useLogin();
-  const token = useSessionStore((state) => state.token);
-
-  const showToken = () => {
-    console.log(token);
-  };
 
   return (
     <div className={S(`login`)}>
@@ -64,10 +58,7 @@ export function LoginView() {
                 </div>
                 <p className={S(`forget`)}>
                   {" "}
-                  Zapomniałeś hasła?{" "}
-                  <a href="#" onClick={showToken}>
-                    Kliknij tutaj
-                  </a>
+                  Zapomniałeś hasła? <a href="#">Kliknij tutaj</a>
                 </p>
                 <p className={S(`forget`)}>
                   {" "}

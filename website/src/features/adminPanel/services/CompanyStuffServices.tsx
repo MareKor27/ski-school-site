@@ -1,5 +1,5 @@
 import { UserDto, CreateUserDto, UpdateUserDto } from "../api/type/user.dto";
-import { createUser, updateUser } from "../api/AdminPanelApi";
+import { createUser, updateUser } from "../api/AdminUserApi";
 import { ResponseDto } from "../api/type/response.dto";
 
 export type ListMenuType = "LIST" | "CREATE" | "EDIT";

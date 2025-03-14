@@ -2,7 +2,6 @@ import axios from "axios";
 import { CollectionResponseDto } from "./type/collectionResponse.dto";
 import { CreateUserDto, UserDto } from "./type/user.dto";
 import { ResponseDto } from "./type/response.dto";
-import { buildResponseDto } from "./type/response.dto.mapper";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 
 const api = axios.create({

@@ -1,9 +1,10 @@
 import { create } from "zustand";
-export type Role = {
-  Client: "CLIENT";
-  Instructor: "INSTRUCTOR";
-  Admin: "ADMIN";
-};
+export type Role = "CLIENT" | "INSTRUCTOR" | "ADMIN";
+// export type Role = {
+//   Client: "CLIENT";
+//   Instructor: "INSTRUCTOR";
+//   Admin: "ADMIN";
+// };
 
 export type UserData = {
   id: number;
