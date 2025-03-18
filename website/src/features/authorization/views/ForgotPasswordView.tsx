@@ -2,12 +2,10 @@ import { CSSProperties } from "react";
 import useStyles from "~/hooks/useStyle";
 const S = useStyles(style);
 import style from "./Login.module.scss";
-import { useLogin } from "../hooks/useLogin";
-import { Paths } from "~/features/app/constants/Paths";
+import { useForgotPassword } from "../hooks/useForgotPassword";
 
-export function LoginView() {
-  const { onChangeAccount, loginToSystem, account } = useLogin();
-
+export function ForgotPasswordView() {
+  const { onChangeEmail, sendReminderLink, email } = useForgotPassword();
   return (
     <div className={S(`login`)}>
       <section>
@@ -32,38 +30,21 @@ export function LoginView() {
           </div>
           <div className={S(`cointainer`)}>
             <div className={S(`form`)}>
-              <h2>Figowski Sport Logowanie</h2>
-              <form onSubmit={loginToSystem}>
+              <h2>Figowski Sport Przypomnij Hasło</h2>
+              <form onSubmit={sendReminderLink}>
                 <div className={S(`inputBox`)}>
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="Adres E-mail"
-                    onChange={onChangeAccount}
-                    value={account.email}
+                    placeholder="Wpisz email użytkownika"
+                    onChange={onChangeEmail}
+                    value={email.email}
                   />
                 </div>
                 <div className={S(`inputBox`)}>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Hasło"
-                    onChange={onChangeAccount}
-                    value={account.password}
-                  />
+                  <input type="submit" name="" id="login" value={"Wyślij"} />
                 </div>
-                <div className={S(`inputBox`)}>
-                  <input type="submit" name="" id="login" value={"Login"} />
-                </div>
-                <p className={S(`forget`)}>
-                  {" "}
-                  Zapomniałeś hasła?{" "}
-                  <a href={Paths.ADMIN.FORGOT_PASSWORD.absolute}>
-                    Kliknij tutaj
-                  </a>
-                </p>
               </form>
             </div>
           </div>

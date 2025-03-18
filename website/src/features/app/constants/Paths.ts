@@ -7,6 +7,14 @@ export const Paths = {
   ADMIN: {
     INDEX: { absolute: "/administrator", routerConfig: "administrator" },
     LOGIN: { absolute: "/administrator/login", routerConfig: "login" },
+    CHANGE_PASSWORD: {
+      absolute: "/administrator/zmien-haslo/:token",
+      routerConfig: "zmien-haslo/:token",
+    },
+    FORGOT_PASSWORD: {
+      absolute: "/administrator/zapomnialem-hasla",
+      routerConfig: "zapomnialem-hasla",
+    },
     CALENDAR: {
       absolute: "/administrator/kalendarz",
       routerConfig: "kalendarz",

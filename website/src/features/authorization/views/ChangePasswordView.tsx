@@ -2,11 +2,20 @@ import { CSSProperties } from "react";
 import useStyles from "~/hooks/useStyle";
 const S = useStyles(style);
 import style from "./Login.module.scss";
-import { useLogin } from "../hooks/useLogin";
+import { useChangePassword } from "../hooks/useChangePassword";
+import { Navigate, useParams } from "react-router-dom";
 import { Paths } from "~/features/app/constants/Paths";
 
-export function LoginView() {
-  const { onChangeAccount, loginToSystem, account } = useLogin();
+export function ChangePasswordView() {
+  const params = useParams();
+  const token = String(params.token);
+
+  const { onChangePasswords, changePasswordOnSubmit, passwords } =
+    useChangePassword(token);
+
+  if (!token) {
+    return <Navigate to={Paths.ADMIN.LOGIN.absolute} replace />;
+  }
 
   return (
     <div className={S(`login`)}>
@@ -32,38 +41,36 @@ export function LoginView() {
           </div>
           <div className={S(`cointainer`)}>
             <div className={S(`form`)}>
-              <h2>Figowski Sport Logowanie</h2>
-              <form onSubmit={loginToSystem}>
+              <h2>Figowski Sport Zmiana Hasła</h2>
+              <form onSubmit={changePasswordOnSubmit}>
                 <div className={S(`inputBox`)}>
                   <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Adres E-mail"
-                    onChange={onChangeAccount}
-                    value={account.email}
+                    type="password"
+                    name="firstPassword"
+                    id="firstPassword"
+                    placeholder="Wpisz Hasło"
+                    onChange={onChangePasswords}
+                    value={passwords.firstPassword}
                   />
                 </div>
                 <div className={S(`inputBox`)}>
                   <input
                     type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Hasło"
-                    onChange={onChangeAccount}
-                    value={account.password}
+                    name="secondPassword"
+                    id="secondPassword"
+                    placeholder="Powtórz Hasło"
+                    onChange={onChangePasswords}
+                    value={passwords.secondPassword}
                   />
                 </div>
                 <div className={S(`inputBox`)}>
-                  <input type="submit" name="" id="login" value={"Login"} />
+                  <input
+                    type="submit"
+                    name=""
+                    id="login"
+                    value={"Zmień hasło"}
+                  />
                 </div>
-                <p className={S(`forget`)}>
-                  {" "}
-                  Zapomniałeś hasła?{" "}
-                  <a href={Paths.ADMIN.FORGOT_PASSWORD.absolute}>
-                    Kliknij tutaj
-                  </a>
-                </p>
               </form>
             </div>
           </div>

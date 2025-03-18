@@ -15,6 +15,8 @@ import { AdminCompanyStuff } from "./pages/AdminCompanyStuff";
 import { AdminDashboard } from "./pages/AdminDashboard";
 import { AdminOption } from "./pages/AdminOption";
 import { Login } from "./pages/Login";
+import { ChangePassword } from "./pages/ChangePassword";
+import { ForgotPassword } from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -28,6 +30,14 @@ function App() {
         <Route path={Paths.ADMIN.INDEX.routerConfig}>
           <Route index element={<AdminDashboard />} />
           <Route path={Paths.ADMIN.LOGIN.absolute} element={<Login />} />
+          <Route
+            path={Paths.ADMIN.CHANGE_PASSWORD.absolute}
+            element={<ChangePassword />}
+          />
+          <Route
+            path={Paths.ADMIN.FORGOT_PASSWORD.absolute}
+            element={<ForgotPassword />}
+          />
           <Route
             path={Paths.ADMIN.CALENDAR.absolute}
             element={<AdminCalendar />}

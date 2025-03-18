@@ -9,6 +9,7 @@ import {
 export const useUserAction = (userData: UserDto, refreshView: () => void) => {
   const handleCreateUser = async (event: React.FormEvent) => {
     event.preventDefault();
+
     await createInstructor(userData);
     refreshView();
   };

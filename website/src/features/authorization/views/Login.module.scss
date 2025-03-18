@@ -183,7 +183,7 @@
 .login section .box .cointainer .form .inputBox input[type="submit"] {
   background: var(--main-color-4);
   color: var(--main-color-8);
-  max-width: 100px;
+  max-width: max-content;
   cursor: pointer;
   margin-bottom: 20px;
   font-weight: 600;

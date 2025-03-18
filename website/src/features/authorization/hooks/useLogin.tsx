@@ -31,7 +31,6 @@ export const useLogin = () => {
     const response = await login(account.email, account.password);
     initializeSession(response.accessToken, response.payload);
     navigate("/administrator");
-    console.log(response);
   };
 
   return { onChangeAccount, loginToSystem, account };

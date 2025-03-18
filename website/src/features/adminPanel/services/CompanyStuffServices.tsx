@@ -1,23 +1,14 @@
 import { UserDto, CreateUserDto, UpdateUserDto } from "../api/type/user.dto";
 import { createUser, updateUser } from "../api/AdminUserApi";
 import { ResponseDto } from "../api/type/response.dto";
+import { register } from "../api/AdminAuthApi";
 
 export type ListMenuType = "LIST" | "CREATE" | "EDIT";
-
-const passwordGeneration = (): string => {
-  return "zaq1@WSX95";
-};
 
 export async function createInstructor(
   userData: UserDto
 ): Promise<ResponseDto<CreateUserDto>> {
-  const newUser: CreateUserDto = {
-    name: userData.name,
-    email: userData.email,
-    password: passwordGeneration(),
-    role: "INSTRUCTOR",
-  };
-  const response = await createUser(newUser);
+  const response = await register(userData.name, userData.email);
   return response;
 }
 
