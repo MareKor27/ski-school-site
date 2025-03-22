@@ -1,19 +1,18 @@
 import { useState } from "react";
-import { login } from "../api/AuthToPanelAdmin";
-import { useSessionStore } from "../store/useSessionStore";
 import { useNavigate } from "react-router-dom";
+import { useSessionStore } from "../store/useSessionStore";
+import { login } from "../api/AuthToPanelAdmin";
+import {
+  FormErrorType,
+  RegistretionType,
+} from "../api/type/authorization-type";
 
 export const useLogin = () => {
-  type RegistretionType = {
-    email: string;
-    password: string;
-  };
-
   const [account, setAccount] = useState<RegistretionType>({
     email: "",
     password: "",
   });
-
+  const [errors, setErrors] = useState<Record<string, FormErrorType>>();
   const initializeSession = useSessionStore((state) => state.initialize);
   const navigate = useNavigate();
 
@@ -26,12 +25,12 @@ export const useLogin = () => {
     }));
   };
 
-  const loginToSystem = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const loginToSystem = async () => {
     const response = await login(account.email, account.password);
+
     initializeSession(response.accessToken, response.payload);
     navigate("/administrator");
   };
 
-  return { onChangeAccount, loginToSystem, account };
+  return { onChangeAccount, loginToSystem, account, errors, setErrors };
 };

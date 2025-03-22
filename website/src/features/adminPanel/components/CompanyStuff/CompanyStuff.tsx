@@ -2,10 +2,9 @@ import style from "./CompanyStuff.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { FormCreateEdit } from "./FormCreateEdit/FormCreateEdit";
 import { FormTable } from "./FormTable/FormTable";
-
-import { useUserAction } from "../../hooks/useUserAction";
-import { useUsers } from "../../hooks/useUsers";
-import { useUserInputData } from "../../hooks/useUserInputData";
+import { useUserAction } from "../../hooks/user/useUserAction";
+import { useUserInputData } from "../../hooks/user/useUserInputData";
+import { useUsers } from "../../hooks/user/useUsers";
 
 const S = useStyles(style);
 export function CompanyStuff() {

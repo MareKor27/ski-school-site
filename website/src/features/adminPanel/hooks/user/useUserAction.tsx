@@ -1,10 +1,9 @@
-import { deleteUser, readUsers } from "../api/AdminUserApi";
-import { UpdateUserDto, UserDto } from "../api/type/user.dto";
+import { deleteUser } from "../../api/AdminUserApi";
+import { UserDto } from "../../api/type/user.dto";
 import {
   createInstructor,
   editInstructor,
-  ListMenuType,
-} from "../services/CompanyStuffServices";
+} from "../../services/CompanyStuffServices";
 
 export const useUserAction = (userData: UserDto, refreshView: () => void) => {
   const handleCreateUser = async (event: React.FormEvent) => {

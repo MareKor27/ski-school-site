@@ -6,7 +6,8 @@ import { useLogin } from "../hooks/useLogin";
 import { Paths } from "~/features/app/constants/Paths";
 
 export function LoginView() {
-  const { onChangeAccount, loginToSystem, account } = useLogin();
+  const { onChangeAccount, loginToSystem, account, errors, setErrors } =
+    useLogin();
 
   return (
     <div className={S(`login`)}>
@@ -33,7 +34,12 @@ export function LoginView() {
           <div className={S(`cointainer`)}>
             <div className={S(`form`)}>
               <h2>Figowski Sport Logowanie</h2>
-              <form onSubmit={loginToSystem}>
+              <form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  loginToSystem();
+                }}
+              >
                 <div className={S(`inputBox`)}>
                   <input
                     type="email"

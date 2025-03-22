@@ -1,10 +1,10 @@
 import React from "react";
-import style from "../Calendar.module.scss";
+import style from "../Schedule.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { Paths } from "~/features/app/constants/Paths";
 import { Link } from "react-router-dom";
 import Tooltip from "../../ToolTip/ToolTip";
-export function ScheduleTable() {
+export function CalendarTable() {
   const S = useStyles(style);
 
   const hours = [
