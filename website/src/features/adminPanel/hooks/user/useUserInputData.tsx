@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { UserDto } from "../api/type/user.dto";
-import { ListMenuType } from "../services/CompanyStuffServices";
+import { UserDto } from "../../api/type/user.dto";
+import { ListMenuType } from "../../services/CompanyStuffServices";
 
 export const useUserInputData = (fetchResponse: () => void) => {
   const [userData, setUserData] = useState<UserDto>({

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useStyles from "~/hooks/useStyle";
 import style from "../Schedule.module.scss";
 import { useAvailability } from "~/features/adminPanel/hooks/appointment/useAvailability";
+import { InputAppSchedule } from "../InputAppSchedule.tsx/InputAppSchedule";
 export function AvailabilityTable() {
   const S = useStyles(style);
   const {
@@ -10,10 +11,9 @@ export function AvailabilityTable() {
     hours,
     dates,
     todayDate,
-    onChangeChecbox,
+    onChangeAppointment,
+    isCheked,
   } = useAvailability();
-
-  const user = { id: 1, name: "Henio" };
 
   return (
     <div className={S(`calendar`)}>
@@ -35,38 +35,40 @@ export function AvailabilityTable() {
         </div>
         {hours.map((hour) => (
           <div className={S(`hour`)} key={hour}>
-            {hour}
+            {hour + ":00"}
           </div>
         ))}
       </div>
 
-      {dates.map((date) => {
-        return (
-          <div key={date.toISOString()} className={S(`day`)}>
-            <div className={S(`date-in-words`)}>
-              {date.toLocaleDateString("pl-PL", { weekday: "long" })}
-            </div>
-            <div className={S(`date-in-number`)}>
-              {date.toLocaleDateString("pl-PL")}
-            </div>
-
-            {hours.map((hour) => {
-              return (
-                <div key={hour} className={S(`classes`)}>
-                  <input
-                    type="checkbox"
-                    name={date.toLocaleDateString("pl-PL")}
-                    disabled={date <= todayDate}
-                    onChange={(e) => {
-                      onChangeChecbox(date, hour, user, e);
-                    }}
-                  />
-                </div>
-              );
-            })}
+      {dates.map((myDate) => (
+        <div key={myDate.toISOString()} className={S(`day`)}>
+          <div className={S(`date-in-words`)}>
+            {myDate.toLocaleDateString("pl-PL", { weekday: "long" })}
           </div>
-        );
-      })}
+          <div className={S(`date-in-number`)}>
+            {myDate.toLocaleDateString("pl-PL")}
+          </div>
+
+          {hours.map((hour) => (
+            <div key={hour} className={S(`classes`)}>
+              <InputAppSchedule
+                date={myDate}
+                hour={hour}
+                onChangeAppointment={onChangeAppointment}
+                isChecked={isCheked}
+              />
+              {/* <input
+                type="checkbox"
+                // checked po dacie i userze
+                disabled={date <= todayDate}
+                // onChange={(e) => {
+                //   onChangeAppointment(date, hour, e);
+                // }}
+              /> */}
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

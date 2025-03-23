@@ -14,3 +14,13 @@ export type AppointmentDto = {
 
   appointmentDate: Date;
 };
+
+export type CreateAdministratorAppointmentDto = {
+  instructorId: number;
+
+  appointmentDate: Date;
+};
+
+export type CreateAppointmentDto = {
+  appointmentDate: Date;
+};
