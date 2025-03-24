@@ -12,7 +12,7 @@ export type AppointmentDto = {
 
   reservation: ReservationDto | EmptyDto | null;
 
-  appointmentDate: Date;
+  appointmentDate: string;
 };
 
 export type CreateAdministratorAppointmentDto = {

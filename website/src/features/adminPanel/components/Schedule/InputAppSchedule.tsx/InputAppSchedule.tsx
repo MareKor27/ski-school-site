@@ -1,31 +1,33 @@
+import { AppointmentDto } from "~/features/adminPanel/api/type/appointment.dto";
+
 type InputAppScheduleType = {
-  date: Date;
+  currentDate: Date;
   hour: number;
   onChangeAppointment: (
     date: Date,
+    appointmentId: number | undefined,
     e: React.ChangeEvent<HTMLInputElement>
   ) => void;
-  isChecked: (date: Date) => boolean;
+  getAppointmentByDate: (date: Date) => AppointmentDto | undefined;
 };
 
 export const InputAppSchedule = ({
-  date,
-  hour,
+  currentDate, //24.03.2025
+  hour, //10
   onChangeAppointment,
-  isChecked,
+  getAppointmentByDate,
 }: InputAppScheduleType) => {
-  //console.log(date, hour);
-  const newDate = date;
+  const todayDate = new Date();
+  const newDate = new Date(currentDate);
   newDate.setHours(hour, 0, 0, 0);
-  //const newData = new Date(date).setHours(hour, 0, 0, 0);
-  //console.log(newData.toLocaleString("pl-PL"));
-  //console.log(date);
+  const appointment = getAppointmentByDate(newDate);
   return (
     <input
       type="checkbox"
-      //   checked={isChecked(date)}
+      disabled={newDate <= todayDate}
+      checked={!!appointment}
       onChange={(e) => {
-        onChangeAppointment(newDate, e);
+        onChangeAppointment(newDate, appointment?.id, e);
       }}
     />
   );

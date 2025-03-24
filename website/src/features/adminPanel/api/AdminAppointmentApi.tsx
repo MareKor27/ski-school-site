@@ -34,8 +34,14 @@ export async function createAppointment(date: Date) {
   return response.data;
 }
 
-export async function getAppoitmentByDate(startDate: Date, endDate: Date) {
-  const response = await api.get<ResponseDto<AppointmentDto>>(
+export async function getAppoitmentsByDate(
+  startDate: Date,
+  howManyDays: number
+) {
+  const endDate = new Date(startDate);
+  endDate.setDate(startDate.getDate() + howManyDays);
+  endDate.setHours(23, 59, 59, 999);
+  const response = await api.get<ResponseDto<AppointmentDto[]>>(
     `/appointment/between/${startDate.toISOString()}/${endDate.toISOString()}`
   );
   return response.data;
@@ -50,11 +56,11 @@ export async function getAppoitmentByDate(startDate: Date, endDate: Date) {
 //   return response.data;
 // }
 
-// export async function deleteAppointmen(
-//   id: number
-// ): Promise<ResponseDto<AppointmentDto>> {
-//   const response = await api.delete<ResponseDto<AppointmentDto>>(
-//     `/appointment${"/" + id}`
-//   );
-//   return response.data;
-// }
+export async function deleteAppointment(
+  id: number
+): Promise<ResponseDto<AppointmentDto>> {
+  const response = await api.delete<ResponseDto<AppointmentDto>>(
+    `/appointment${"/" + id}`
+  );
+  return response.data;
+}

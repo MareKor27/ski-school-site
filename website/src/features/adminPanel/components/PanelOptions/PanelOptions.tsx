@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./PanelOptions.module.scss";
 import useStyles from "~/hooks/useStyle";
 const S = useStyles(style);
@@ -8,6 +8,13 @@ export function PanelOptions() {
   const toggleOptionTab = (tabIndex: number) => {
     setToggleOptionState(tabIndex);
   };
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    const newDate = new Date();
+    newDate.setHours(0, 0, 0, 0);
+    setDate(newDate);
+  }, []);
 
   return (
     <div className={S(`option`)}>
@@ -40,11 +47,9 @@ export function PanelOptions() {
               : S(`content-tab`)
           }
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-          maiores nisi voluptas, earum eveniet a magni nulla ex mollitia
-          voluptate quas illo saepe, necessitatibus, incidunt commodi fuga totam
-          vero dolorem. Dicta quis dolor repellendus. Facilis sit veritatis ad
-          placeat ducimus eaque minima, nobis voluptates, similique nesciunt
+          {/* {new Date().toISOString()} */}
+          {date.toISOString()}
+          {date.toLocaleString()}
         </div>
         <div
           className={

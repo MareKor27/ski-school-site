@@ -4,21 +4,11 @@ import useStyles from "~/hooks/useStyle";
 import { Paths } from "~/features/app/constants/Paths";
 import { Link } from "react-router-dom";
 import Tooltip from "../../ToolTip/ToolTip";
+import { hours } from "~/features/adminPanel/services/AppointmentServices";
+import { v4 as uuidv4 } from "uuid";
 export function CalendarTable() {
   const S = useStyles(style);
 
-  const hours = [
-    "10:00",
-    "11:00",
-    "12:00",
-    "13:00",
-    "14:00",
-    "15:00",
-    "16:00",
-    "17:00",
-    "18:00",
-    "19:00",
-  ];
   return (
     <div className={S(`calendar`)}>
       <div className={S(`hours`)}>
@@ -31,7 +21,9 @@ export function CalendarTable() {
           />
         </div>
         {hours.map((hour) => (
-          <div className={S(`hour`)}>{hour}</div>
+          <div className={S(`hour`)} key={uuidv4()}>
+            {hour + ":00"}
+          </div>
         ))}
       </div>
       {[
@@ -148,7 +140,7 @@ export function CalendarTable() {
           ],
         },
       ].map((termin) => (
-        <div className={S(`day`)}>
+        <div className={S(`day`)} key={uuidv4()}>
           <div className={S(`date-in-words`)}>{termin.day}</div>
           <div className={S(`date-in-number`)}>{termin.number}</div>
 

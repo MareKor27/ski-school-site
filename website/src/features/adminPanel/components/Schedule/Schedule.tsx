@@ -6,7 +6,7 @@ import { useReservation } from "../../hooks/reservation/useReservation";
 import { useReservationAction } from "../../hooks/reservation/useReservationAction";
 import { CalendarTable } from "./CalendarTable/CalendarTable";
 import { ReservationTable } from "./ReservationsTable/ReservationTable";
-import { AvailabilityTable } from "./AvailabilityTable/AvailabilityTable";
+import { AppointmentTable } from "./AppointmentTable/AppointmentTable";
 const S = useStyles(style);
 export function Schedule() {
   const [toggleCalendarState, setToggleCalendarState] = useState(1);
@@ -67,7 +67,7 @@ export function Schedule() {
               : S(`content-tab`)
           }
         >
-          <AvailabilityTable />
+          <AppointmentTable />
         </div>
       </div>
     </div>
