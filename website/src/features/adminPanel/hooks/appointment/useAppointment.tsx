@@ -2,17 +2,12 @@ import React, { useEffect, useMemo, useState } from "react";
 import {
   createAppointment,
   deleteAppointment,
-  getAppoitmentsByDate,
+  getAppoitmentsByDateForOneUser,
 } from "../../api/AdminAppointmentApi";
 import { AppointmentDto } from "../../api/type/appointment.dto";
 import { getWeekDates } from "../../services/AppointmentServices";
 
-type DayInfo = {
-  day: string;
-  number: string;
-};
-
-export const useAppointment = () => {
+export const useAppointment = (userId: number) => {
   const [weekOffset, setWeekOffset] = useState<number>(0);
   const [appointments, setAppointments] = useState<AppointmentDto[]>();
   const [howManyDays, setHowManyDays] = useState<number>(7);
@@ -26,10 +21,11 @@ export const useAppointment = () => {
     return dates;
   }, [weekOffset]);
 
-  const fetchResponse = async (dates: string[]) => {
-    const response = await getAppoitmentsByDate(
+  const fetchResponse = async (dates: Date[]) => {
+    const response = await getAppoitmentsByDateForOneUser(
       new Date(dates[0]),
-      howManyDays
+      howManyDays,
+      userId
     );
     setAppointments(response.content);
   };

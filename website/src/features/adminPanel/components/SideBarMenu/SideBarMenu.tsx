@@ -41,6 +41,8 @@ export function SideBarMenu() {
         <div className={S(`account-profile`)}>
           {userToken.user?.email}
           <br />
+          {userToken.user?.id}
+          <br />
           {user ? user.role : "Wylogowany !"}
         </div>
         <Link className={S("")} to={Paths.ADMIN.LOGIN.absolute}>

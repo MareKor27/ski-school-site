@@ -34,15 +34,21 @@ export async function createAppointment(date: Date) {
   return response.data;
 }
 
-export async function getAppoitmentsByDate(
+export async function getAppoitmentsByDateForOneUser(
   startDate: Date,
-  howManyDays: number
+  howManyDays: number,
+  user?: number
 ) {
+  let options = "";
+  if (user) {
+    options += `?user=${user}`;
+  }
+
   const endDate = new Date(startDate);
   endDate.setDate(startDate.getDate() + howManyDays);
   endDate.setHours(23, 59, 59, 999);
   const response = await api.get<ResponseDto<AppointmentDto[]>>(
-    `/appointment/between/${startDate.toISOString()}/${endDate.toISOString()}`
+    `/appointment/between/${startDate.toISOString()}/${endDate.toISOString()}${options}`
   );
   return response.data;
 }

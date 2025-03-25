@@ -6,7 +6,7 @@ type GetWeekDatesOptions = {
   hour?: number;
 };
 
-export function getWeekDates(options: GetWeekDatesOptions = {}): string[] {
+export function getWeekDates(options: GetWeekDatesOptions = {}): Date[] {
   const daysCount = options.daysCount ?? 7;
   const weekOffSet = options.weekOffSet ?? 0;
   const hour = options.hour ?? 4;
@@ -15,7 +15,7 @@ export function getWeekDates(options: GetWeekDatesOptions = {}): string[] {
   const currentDay = today.getDay();
   const mondayOffset = 1 - currentDay + 7 * weekOffSet;
 
-  const dates: string[] = [];
+  const dates: Date[] = [];
 
   for (let i = 0; i < daysCount; i++) {
     const date = new Date();
@@ -29,7 +29,7 @@ export function getWeekDates(options: GetWeekDatesOptions = {}): string[] {
         0,
         0,
         0
-      ).toISOString()
+      )
     );
   }
   return dates;

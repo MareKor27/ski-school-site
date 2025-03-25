@@ -4,15 +4,22 @@ import style from "../Schedule.module.scss";
 import { useAppointment } from "~/features/adminPanel/hooks/appointment/useAppointment";
 import { InputAppSchedule } from "../InputAppSchedule.tsx/InputAppSchedule";
 import { hours } from "~/features/adminPanel/services/AppointmentServices";
+import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 export function AppointmentTable() {
   const S = useStyles(style);
+  const userToken = useSessionStore();
+  let userID = 0;
+  if (userToken.user?.id) {
+    userID = userToken.user?.id;
+  }
+  // powinno wyrzucać jak nie masz sesji eloooo
   const {
     weekOffset,
     setWeekOffset,
     dates,
     onChangeAppointment,
     getAppointmentByDate,
-  } = useAppointment();
+  } = useAppointment(userID);
 
   return (
     <div className={S(`calendar`)}>

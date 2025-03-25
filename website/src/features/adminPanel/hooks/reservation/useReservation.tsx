@@ -14,5 +14,8 @@ export const useReservation = () => {
     fetchReservationResponse();
   }, []);
 
-  return { reservation, fetchReservationResponse } as const;
+  return {
+    reservation,
+    fetchReservationResponse,
+  } as const;
 };
