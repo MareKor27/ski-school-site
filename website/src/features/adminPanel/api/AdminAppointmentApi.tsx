@@ -1,7 +1,11 @@
 import axios from "axios";
 import { CollectionResponseDto } from "./type/collectionResponse.dto";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
-import { AppointmentDto, CreateAppointmentDto } from "./type/appointment.dto";
+import {
+  AppointmentDto,
+  CreateAppointmentDto,
+  UpdateAppointmentDto,
+} from "./type/appointment.dto";
 import { ResponseDto } from "./type/response.dto";
 import { UserDto } from "./type/user.dto";
 
@@ -53,14 +57,17 @@ export async function getAppoitmentsByDateForOneUser(
   return response.data;
 }
 
-// export async function readAppointmens(): Promise<
-//   CollectionResponseDto<AppointmentDto>
-// > {
-//   const response = await api.get<CollectionResponseDto<AppointmentDto>>(
-//     "/appointment"
-//   );
-//   return response.data;
-// }
+export async function updateAppointment(
+  id: number,
+  updatedAppointment: UpdateAppointmentDto
+): Promise<ResponseDto<AppointmentDto>> {
+  console.log(id, updatedAppointment);
+  const response = await api.patch<ResponseDto<AppointmentDto>>(
+    `/appointment${"/" + id}`,
+    updatedAppointment
+  );
+  return response.data;
+}
 
 export async function deleteAppointment(
   id: number

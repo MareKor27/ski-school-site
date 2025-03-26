@@ -24,3 +24,7 @@ export type CreateAdministratorAppointmentDto = {
 export type CreateAppointmentDto = {
   appointmentDate: Date;
 };
+
+export type UpdateAppointmentDto = {
+  reservationId: number | null;
+};

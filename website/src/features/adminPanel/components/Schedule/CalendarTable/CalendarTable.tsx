@@ -1,12 +1,7 @@
-import React from "react";
 import style from "../Schedule.module.scss";
 import useStyles from "~/hooks/useStyle";
-import { Paths } from "~/features/app/constants/Paths";
-import { Link } from "react-router-dom";
-import Tooltip from "../../ToolTip/ToolTip";
 import { hours } from "~/features/adminPanel/services/AppointmentServices";
 import { v4 as uuidv4 } from "uuid";
-import { useReservation } from "~/features/adminPanel/hooks/reservation/useReservation";
 import { CalendarBox } from "../CalendarBox/CalendarBox";
 import { useCalendar } from "~/features/adminPanel/hooks/calendar/useCalendar";
 export function CalendarTable() {

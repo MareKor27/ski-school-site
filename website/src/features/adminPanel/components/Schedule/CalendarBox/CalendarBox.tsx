@@ -4,7 +4,7 @@ import { Paths } from "~/features/app/constants/Paths";
 import useStyles from "~/hooks/useStyle";
 import style from "../Schedule.module.scss";
 import { AppointmentDto } from "~/features/adminPanel/api/type/appointment.dto";
-import { UserDto } from "~/features/adminPanel/api/type/user.dto";
+import { useReservationStore } from "~/features/adminPanel/hooks/reservation/useReservationStore";
 
 type InputCalendarBoxType = {
   currentDate: Date;
@@ -17,6 +17,8 @@ export const CalendarBox = ({
   hour,
   getAppointmentsByDate,
 }: InputCalendarBoxType) => {
+  const setReservationData = useReservationStore();
+
   const newDate = new Date(currentDate);
   newDate.setHours(hour, 0, 0, 0);
   const S = useStyles(style);
@@ -30,23 +32,19 @@ export const CalendarBox = ({
     return (
       <div>
         <Tooltip
-          content={
-            <p>
-              {appointments?.map((appointment) => (
-                <div>
-                  <span>{appointment.instructor.name} dostępny</span>
-                  <br />
-                </div>
-              ))}
-            </p>
-          }
+          content={appointments?.map((appointment) => (
+            <div key={appointment.instructor.id}>
+              <span>{appointment.instructor.name} dostępny</span>
+              <br />
+            </div>
+          ))}
         >
-          <button className={S(`reservation available`)}>
-            <Link to={Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute}>
-              {" "}
-              Zarezerwuj{" "}
-            </Link>
-          </button>
+          <Link
+            to={Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute}
+            onClick={() => setReservationData.setReservationData(appointments)}
+          >
+            <button className={S(`reservation available`)}>Zarezerwuj</button>
+          </Link>
         </Tooltip>
       </div>
     );

@@ -3,17 +3,13 @@ import style from "./Schedule.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { useState } from "react";
 import { useReservation } from "../../hooks/reservation/useReservation";
-import { useReservationAction } from "../../hooks/reservation/useReservationAction";
 import { CalendarTable } from "./CalendarTable/CalendarTable";
 import { ReservationTable } from "./ReservationsTable/ReservationTable";
 import { AppointmentTable } from "./AppointmentTable/AppointmentTable";
 const S = useStyles(style);
 export function Schedule() {
   const [toggleCalendarState, setToggleCalendarState] = useState(1);
-  const { reservation, fetchReservationResponse } = useReservation();
-  const { handleDeleteReservation } = useReservationAction(
-    fetchReservationResponse
-  );
+  const { reservations, handleDeleteReservation } = useReservation();
 
   return (
     <div className={S(`schedule`)}>
@@ -56,7 +52,7 @@ export function Schedule() {
           }
         >
           <ReservationTable
-            reservations={reservation}
+            reservations={reservations}
             handleDeleteReservation={handleDeleteReservation}
           />
         </div>

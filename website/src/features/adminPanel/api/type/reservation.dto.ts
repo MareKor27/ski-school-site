@@ -41,3 +41,25 @@ export type ReservationDto = {
 
   insuranceInformation: string;
 };
+
+export type CreateReservationDto = {
+  fullName: string;
+
+  email: string;
+
+  phoneNumber: string;
+
+  purchasedTime: PurchasedTime;
+
+  participants: number;
+
+  ageOfParticipants: string;
+
+  advancement: string;
+
+  chosenEquipment: ChosenEquipment;
+
+  additionalComments: string;
+
+  insuranceInformation: string;
+};

@@ -2,52 +2,115 @@ import { Paths } from "~/features/app/constants/Paths";
 import style from "./CalendarAddReservation.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { Link } from "react-router-dom";
+import { AppointmentDto } from "../../api/type/appointment.dto";
+import { useReservation } from "../../hooks/reservation/useReservation";
+import { useReservationStore } from "../../hooks/reservation/useReservationStore";
 const S = useStyles(style);
 export function CalendarAddReservation() {
+  const resevationStore = useReservationStore();
+
+  const { addReservation, onChangeReservation, setAppointmentId } =
+    useReservation();
+
+  let appDate = "";
+  resevationStore.appointmentsData &&
+    resevationStore.appointmentsData.map((appointment: AppointmentDto) => {
+      appDate = appointment.appointmentDate;
+    });
+  const date = new Date(appDate);
   return (
     <div className={S(`add-reservation`)}>
-      <form action="">
-        <label htmlFor="firstAndSecoundName">Imie i Nazwisko:</label>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          addReservation();
+          resevationStore.clearReservationData();
+        }}
+      >
+        <label htmlFor="fullName">Imie i Nazwisko:</label>
         <input
           type="text"
-          id="firstAndSecoundName"
-          name="firstAndSecoundName"
-          size={50}
+          id="fullName"
+          name="fullName"
+          size={60}
+          onChange={onChangeReservation}
         />
-        <label htmlFor="telNumber">Numer telefonu:</label>
-        <input type="text" id="telNumber" name="telNumber" size={50} />
-        <label htmlFor="email">Numer telefonu:</label>
-        <input type="text" id="email" name="email" size={50} />
-        <label htmlFor="groupSize">Liczba osób:</label>
-        <input type="text" id="groupSize" name="groupSize" size={50} />
-        <label htmlFor="membersAge">Wiek osób:</label>
-        <input type="text" id="membersAge" name="membersAge" size={50} />
-        <label htmlFor="skillLevel">Zawansowanie</label>
-        <input type="text" id="skillLevel" name="skillLevel" size={50} />
+        <label htmlFor="email">Adres Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          size={50}
+          onChange={onChangeReservation}
+        />
+        <label htmlFor="phoneNumber">Numer telefonu:</label>
+        <input
+          type="text"
+          id="phoneNumber"
+          name="phoneNumber"
+          size={50}
+          onChange={onChangeReservation}
+        />
+        <label htmlFor="participants">Liczba osób:</label>
+        <input
+          type="number"
+          id="participants"
+          name="participants"
+          size={50}
+          onChange={onChangeReservation}
+        />
+        <label htmlFor="ageOfParticipants">Wiek osób:</label>
+        <input
+          type="text"
+          id="ageOfParticipants"
+          name="ageOfParticipants"
+          size={50}
+          onChange={onChangeReservation}
+        />
+        <label htmlFor="advancement">Poziom</label>
+        <input
+          type="text"
+          id="advancement"
+          name="advancement"
+          size={50}
+          onChange={onChangeReservation}
+        />
         <label htmlFor="skillLevel">Wybór instruktora</label>
-        <select name="skillLevel" id="skillLevel">
+        <select
+          name="skillLevel"
+          id="skillLevel"
+          onChange={(e) => {
+            setAppointmentId(e.target.value);
+          }}
+        >
           <option value="default">Wybierz instruktora</option>
-          <option value="instruktor1">Michał Jaśkiewicz</option>
-          <option value="instruktor2">Instruktor 2</option>
-          <option value="instruktor3">Instruktor 3</option>
-          <option value="instruktor4">Instruktor 4</option>
+          {resevationStore.appointmentsData?.map(
+            (appointment: AppointmentDto) => {
+              return (
+                <option value={appointment.id} key={appointment.instructor.id}>
+                  {appointment.instructor.name}
+                </option>
+              );
+            }
+          )}
         </select>
         <label htmlFor="equipment">Sprzęt</label>
-
         <div className={S(`equipment-choice`)}>
           <input
             type="radio"
             id="equipmentChoice1"
-            name="equipment"
-            value="Swój"
+            name="chosenEquipment"
+            value="WŁASNY"
+            onChange={onChangeReservation}
           />
           <label htmlFor="contactChoice1">Swój</label>
 
           <input
             type="radio"
             id="equipmentChoice2"
-            name="equipment"
-            value="Wypożyczony"
+            name="chosenEquipment"
+            value="WYPOŻYCZONY"
+            onChange={onChangeReservation}
           />
           <label htmlFor="contactChoice2">Wypożyczony</label>
         </div>
@@ -57,9 +120,21 @@ export function CalendarAddReservation() {
           id="additionalComments"
           name="additionalComments"
           size={50}
+          onChange={onChangeReservation}
         />
-        <label htmlFor="insurance">Informacje o ubezpieczeniu:</label>
-        <input type="text" id="insurance" name="insurance" size={50} />
+        <label htmlFor="insuranceInformation">
+          Informacje o ubezpieczeniu:
+        </label>
+        <input
+          type="text"
+          id="insuranceInformation"
+          name="insuranceInformation"
+          size={50}
+          onChange={onChangeReservation}
+        />
+        {/* <Link to={Paths.ADMIN.CALENDAR.absolute}> */}
+        <input type="submit" value={"Zarezerwuj"} />
+        {/* </Link> */}
       </form>
 
       <div className={S(`infobox`)}>
@@ -73,11 +148,14 @@ export function CalendarAddReservation() {
             <div className={S(`wind-speed`)}>13 m/s</div>
           </div>
         </div>
-        <div className={S(`date`)}>16.11.2024</div>
-        <div className={S(`day`)}>Sobota 11:00</div>
-        <Link to={Paths.ADMIN.CALENDAR.absolute}>
-          <input type="submit" value={"Zarezerwuj"} />
-        </Link>
+        <div className={S(`date`)}>{date.toLocaleDateString("PL-pl")}</div>
+        <div className={S(`day`)}>
+          {date.toLocaleDateString("pl-PL", {
+            weekday: "long",
+            hour: "numeric",
+            minute: "2-digit",
+          })}
+        </div>
       </div>
     </div>
   );
