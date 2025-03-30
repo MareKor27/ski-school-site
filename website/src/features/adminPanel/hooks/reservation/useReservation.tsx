@@ -26,41 +26,39 @@ export const useReservation = () => {
     additionalComments: "",
     insuranceInformation: "",
   });
-  const [appointmentId, setAppointmentId] = useState<string>("0");
+  const [appointmentId, setAppointmentId] = useState<number>(0);
   const navigate = useNavigate();
 
-  const onChangeReservation = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const { name, value } = event.target;
+  const setFormValue = <T extends keyof CreateReservationDto>(
+    field: T,
+    value: CreateReservationDto[T]
+  ) => {
     setReservation((prevState) => ({
       ...prevState,
-      [name]: value,
+      [field]: value,
     }));
   };
 
   const addReservation = async () => {
-    // dodanie rezerwacji  rezerw = addRezerw
-    // console.log(appointmentId);
-    if (appointmentId == "default") return;
-    let appointmentResponse;
-    reservation.participants = Number(reservation.participants);
     console.log("reservation: ", reservation);
-    const reservationResponse = await createReservation(reservation);
-    const reservationId = reservationResponse?.content.id;
-    console.log(reservationId);
+    const reservationResponse = await createReservation(
+      reservation,
+      appointmentId
+    );
+    console.log(reservationResponse);
 
-    // update apointment reservation.id = rezerw.id
-    if (reservationId) {
-      const updateAppo: UpdateAppointmentDto = {
-        reservationId: reservationId,
-      };
-      appointmentResponse = await updateAppointment(
-        parseInt(appointmentId),
-        updateAppo
-      );
-    }
-    console.log(appointmentResponse);
-    return appointmentResponse;
+    // // update apointment reservation.id = rezerw.id
+    // if (reservationId) {
+    //   const updateAppo: UpdateAppointmentDto = {
+    //     reservationId: reservationId,
+    //   };
+    //   appointmentResponse = await updateAppointment(
+    //     parseInt(appointmentId),
+    //     updateAppo
+    //   );
+    // }
+    // console.log(appointmentResponse);
+    // return appointmentResponse;
 
     //navigate("/administrator/kalendarz");
   };
@@ -89,7 +87,7 @@ export const useReservation = () => {
     reservations,
     handleDeleteReservation,
     addReservation,
-    onChangeReservation,
     setAppointmentId,
+    setFormValue,
   } as const;
 };
