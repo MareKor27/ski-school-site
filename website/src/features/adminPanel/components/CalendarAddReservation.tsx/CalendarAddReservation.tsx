@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import { AppointmentDto } from "../../api/type/appointment.dto";
 import { useReservation } from "../../hooks/reservation/useReservation";
 import { useReservationStore } from "../../hooks/reservation/useReservationStore";
+import { ChosenEquipment } from "../../api/type/reservation.dto";
 const S = useStyles(style);
 export function CalendarAddReservation() {
   const resevationStore = useReservationStore();
 
-  const { addReservation, onChangeReservation, setAppointmentId } =
-    useReservation();
+  const { addReservation, setAppointmentId, setFormValue } = useReservation();
 
   let appDate = "";
   resevationStore.appointmentsData &&
@@ -33,7 +33,9 @@ export function CalendarAddReservation() {
           id="fullName"
           name="fullName"
           size={60}
-          onChange={onChangeReservation}
+          onChange={(e) => {
+            setFormValue("fullName", e.target.value);
+          }}
         />
         <label htmlFor="email">Adres Email:</label>
         <input
@@ -41,7 +43,9 @@ export function CalendarAddReservation() {
           id="email"
           name="email"
           size={50}
-          onChange={onChangeReservation}
+          onChange={(e) => {
+            setFormValue("email", e.target.value);
+          }}
         />
         <label htmlFor="phoneNumber">Numer telefonu:</label>
         <input
@@ -49,7 +53,9 @@ export function CalendarAddReservation() {
           id="phoneNumber"
           name="phoneNumber"
           size={50}
-          onChange={onChangeReservation}
+          onChange={(e) => {
+            setFormValue("phoneNumber", e.target.value);
+          }}
         />
         <label htmlFor="participants">Liczba osób:</label>
         <input
@@ -57,7 +63,9 @@ export function CalendarAddReservation() {
           id="participants"
           name="participants"
           size={50}
-          onChange={onChangeReservation}
+          onChange={(e) => {
+            setFormValue("participants", e.target.valueAsNumber);
+          }}
         />
         <label htmlFor="ageOfParticipants">Wiek osób:</label>
         <input
@@ -65,7 +73,9 @@ export function CalendarAddReservation() {
           id="ageOfParticipants"
           name="ageOfParticipants"
           size={50}
-          onChange={onChangeReservation}
+          onChange={(e) => {
+            setFormValue("ageOfParticipants", e.target.value);
+          }}
         />
         <label htmlFor="advancement">Poziom</label>
         <input
@@ -73,7 +83,9 @@ export function CalendarAddReservation() {
           id="advancement"
           name="advancement"
           size={50}
-          onChange={onChangeReservation}
+          onChange={(e) => {
+            setFormValue("advancement", e.target.value);
+          }}
         />
         <label htmlFor="skillLevel">Wybór instruktora</label>
         <select
@@ -101,7 +113,12 @@ export function CalendarAddReservation() {
             id="equipmentChoice1"
             name="chosenEquipment"
             value="WŁASNY"
-            onChange={onChangeReservation}
+            onChange={(e) => {
+              setFormValue(
+                "chosenEquipment",
+                e.target.value as ChosenEquipment
+              );
+            }}
           />
           <label htmlFor="contactChoice1">Swój</label>
 
@@ -110,7 +127,12 @@ export function CalendarAddReservation() {
             id="equipmentChoice2"
             name="chosenEquipment"
             value="WYPOŻYCZONY"
-            onChange={onChangeReservation}
+            onChange={(e) => {
+              setFormValue(
+                "chosenEquipment",
+                e.target.value as ChosenEquipment
+              );
+            }}
           />
           <label htmlFor="contactChoice2">Wypożyczony</label>
         </div>
@@ -120,7 +142,9 @@ export function CalendarAddReservation() {
           id="additionalComments"
           name="additionalComments"
           size={50}
-          onChange={onChangeReservation}
+          onChange={(e) => {
+            setFormValue("additionalComments", e.target.value);
+          }}
         />
         <label htmlFor="insuranceInformation">
           Informacje o ubezpieczeniu:
@@ -130,7 +154,9 @@ export function CalendarAddReservation() {
           id="insuranceInformation"
           name="insuranceInformation"
           size={50}
-          onChange={onChangeReservation}
+          onChange={(e) => {
+            setFormValue("insuranceInformation", e.target.value);
+          }}
         />
         {/* <Link to={Paths.ADMIN.CALENDAR.absolute}> */}
         <input type="submit" value={"Zarezerwuj"} />

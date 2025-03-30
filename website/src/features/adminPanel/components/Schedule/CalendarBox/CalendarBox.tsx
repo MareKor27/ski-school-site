@@ -29,15 +29,20 @@ export const CalendarBox = ({
   }
 
   if (appointments?.length) {
+    // JESLI RESERVATIONID != NULL \|/
     return (
       <div>
         <Tooltip
-          content={appointments?.map((appointment) => (
-            <div key={appointment.instructor.id}>
-              <span>{appointment.instructor.name} dostępny</span>
-              <br />
-            </div>
-          ))}
+          content={appointments?.map((appointment) => {
+            if (appointment.reservation == null) {
+              return (
+                <div key={appointment.instructor.id}>
+                  <span>{appointment.instructor.name} dostępny</span>
+                  <br />
+                </div>
+              );
+            }
+          })}
         >
           <Link
             to={Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute}

@@ -39,7 +39,10 @@ export async function deleteReservations(
   return response.data;
 }
 
-export async function createReservation(reservation: CreateReservationDto) {
+export async function createReservation(
+  reservation: CreateReservationDto,
+  appointmentId: number
+) {
   try {
     const response = await api.post<ResponseDto<ReservationDto>>(
       "/reservation",

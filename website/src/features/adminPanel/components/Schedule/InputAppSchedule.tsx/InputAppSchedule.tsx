@@ -24,7 +24,7 @@ export const InputAppSchedule = ({
   return (
     <input
       type="checkbox"
-      disabled={newDate <= todayDate}
+      disabled={newDate <= todayDate || appointment?.reservation != null}
       checked={!!appointment}
       onChange={(e) => {
         onChangeAppointment(newDate, appointment?.id, e);
