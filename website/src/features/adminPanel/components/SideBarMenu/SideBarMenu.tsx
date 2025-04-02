@@ -20,12 +20,12 @@ export function SideBarMenu() {
         </Link>
       </div>
       <div className={S(`menu-sidebar`)}>
-        <Link to={Paths.ADMIN.CALENDAR.absolute} className={S("")}>
+        <Link to={Paths.ADMIN.SCHEDULE.CALENDAR.absolute} className={S("")}>
           <div className={S(`sidebar-li`)}>Harmonogram</div>
         </Link>
         {userToken.user && userToken.user?.role === "ADMIN" && (
           <>
-            <Link to={Paths.ADMIN.STUFF.absolute} className={S("")}>
+            <Link to={Paths.ADMIN.STAFF.INDEX.absolute} className={S("")}>
               <div className={S(`sidebar-li`)}>Instruktorzy</div>
             </Link>
             <Link to={Paths.ADMIN.OPTION.absolute} className={S("")}>

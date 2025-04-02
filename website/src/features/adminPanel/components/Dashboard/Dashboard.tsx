@@ -8,7 +8,7 @@ export function Dashboard() {
   const userToken = useSessionStore();
   return (
     <div className={S(`dashboard`)}>
-      <Link className={S(`box`)} to={Paths.ADMIN.CALENDAR.absolute}>
+      <Link className={S(`box`)} to={Paths.ADMIN.SCHEDULE.CALENDAR.absolute}>
         <div className={S(`icon`)}>
           <img src="/images/admin/admin-calendar2.png" alt={"Kalendarz"} />
         </div>
@@ -16,7 +16,7 @@ export function Dashboard() {
       </Link>
       {userToken.user && userToken.user?.role === "ADMIN" && (
         <>
-          <Link className={S(`box`)} to={Paths.ADMIN.STUFF.absolute}>
+          <Link className={S(`box`)} to={Paths.ADMIN.STAFF.INDEX.absolute}>
             <div className={S(`icon`)}>
               <img src="/images/admin/admin-account.png" alt={"Instruktorzy"} />
             </div>

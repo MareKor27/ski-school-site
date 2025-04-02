@@ -92,10 +92,11 @@ export function CalendarAddReservation() {
           name="skillLevel"
           id="skillLevel"
           onChange={(e) => {
-            setAppointmentId(e.target.value);
+            console.log(e.target.value);
+            console.log(Number(e.target.value));
+            setAppointmentId(Number(e.target.value));
           }}
         >
-          <option value="default">Wybierz instruktora</option>
           {resevationStore.appointmentsData?.map(
             (appointment: AppointmentDto) => {
               return (

@@ -8,9 +8,8 @@ import {
   readReservations,
 } from "../../api/AdminReservationApi";
 import { deleteReservations } from "../../api/AdminReservationApi";
-import { updateAppointment } from "../../api/AdminAppointmentApi";
-import { UpdateAppointmentDto } from "../../api/type/appointment.dto";
 import { useNavigate } from "react-router-dom";
+import { useReservationStore } from "./useReservationStore";
 
 export const useReservation = () => {
   const [reservations, setReservations] = useState<ReservationDto[]>([]);
@@ -28,6 +27,8 @@ export const useReservation = () => {
   });
   const [appointmentId, setAppointmentId] = useState<number>(0);
   const navigate = useNavigate();
+
+  const resevationStore = useReservationStore();
 
   const setFormValue = <T extends keyof CreateReservationDto>(
     field: T,
@@ -81,7 +82,10 @@ export const useReservation = () => {
 
   useEffect(() => {
     fetchReservationResponse();
-  }, []);
+    if (resevationStore.appointmentsData?.length) {
+      setAppointmentId(resevationStore.appointmentsData[0].id);
+    }
+  }, [resevationStore.appointmentsData]);
 
   return {
     reservations,

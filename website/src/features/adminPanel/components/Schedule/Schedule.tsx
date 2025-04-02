@@ -1,70 +1,44 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./Schedule.module.scss";
 import useStyles from "~/hooks/useStyle";
-import { useState } from "react";
-import { useReservation } from "../../hooks/reservation/useReservation";
-import { CalendarTable } from "./CalendarTable/CalendarTable";
-import { ReservationTable } from "./ReservationsTable/ReservationTable";
-import { AppointmentTable } from "./AppointmentTable/AppointmentTable";
+import { ReactNode } from "react";
+import { Paths } from "~/features/app/constants/Paths";
 const S = useStyles(style);
-export function Schedule() {
-  const [toggleCalendarState, setToggleCalendarState] = useState(1);
-  const { reservations, handleDeleteReservation } = useReservation();
 
+type ScheduleType = {
+  children: ReactNode;
+};
+
+export function Schedule({ children }: ScheduleType) {
+  //S(`tab active-tab`) : S(`tab`)}
   return (
     <div className={S(`schedule`)}>
       <div className={S(`title-tabs`)}>
         <h2 className={S(`title-page`)}>Harmonogram</h2>
-        <div
-          className={toggleCalendarState === 1 ? S(`tab active-tab`) : S(`tab`)}
-          onClick={() => setToggleCalendarState(1)}
+
+        <NavLink
+          className={({ isActive }) => S(isActive ? "tab active-tab" : "tab")}
+          to={Paths.ADMIN.SCHEDULE.CALENDAR.absolute}
         >
           Kalendarz
-        </div>
-        <div
-          className={toggleCalendarState === 2 ? S(`tab active-tab`) : S(`tab`)}
-          onClick={() => setToggleCalendarState(2)}
+        </NavLink>
+
+        <NavLink
+          className={({ isActive }) => S(isActive ? "tab active-tab" : "tab")}
+          to={Paths.ADMIN.SCHEDULE.RESERVATION.absolute}
         >
           Rezerwacje
-        </div>
-        <div
-          className={toggleCalendarState === 3 ? S(`tab active-tab`) : S(`tab`)}
-          onClick={() => setToggleCalendarState(3)}
+        </NavLink>
+
+        <NavLink
+          className={({ isActive }) => S(isActive ? "tab active-tab" : "tab")}
+          to={Paths.ADMIN.SCHEDULE.TIMETABLE.absolute}
         >
           Grafik
-        </div>
+        </NavLink>
       </div>
       <div className={S(`content-tabs`)}>
-        <div
-          className={
-            toggleCalendarState === 1
-              ? S(`content-tab active-content`)
-              : S(`content-tab`)
-          }
-        >
-          <CalendarTable />
-        </div>
-        <div
-          className={
-            toggleCalendarState === 2
-              ? S(`content-tab active-content`)
-              : S(`content-tab`)
-          }
-        >
-          <ReservationTable
-            reservations={reservations}
-            handleDeleteReservation={handleDeleteReservation}
-          />
-        </div>
-        <div
-          className={
-            toggleCalendarState === 3
-              ? S(`content-tab active-content`)
-              : S(`content-tab`)
-          }
-        >
-          <AppointmentTable />
-        </div>
+        <div className={S(`content-tab active-content`)}>{children}</div>
       </div>
     </div>
   );

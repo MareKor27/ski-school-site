@@ -14,5 +14,5 @@ export const useUsers = () => {
     fetchResponse();
   }, []);
 
-  return [users, fetchResponse] as const;
+  return { users, fetchResponse } as const;
 };

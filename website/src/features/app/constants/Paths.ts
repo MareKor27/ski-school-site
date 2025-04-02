@@ -15,18 +15,42 @@ export const Paths = {
       absolute: "/administrator/zapomnialem-hasla",
       routerConfig: "zapomnialem-hasla",
     },
-    CALENDAR: {
-      absolute: "/administrator/kalendarz",
-      routerConfig: "kalendarz",
+    SCHEDULE: {
+      INDEX: {
+        absolute: "/administrator/harmonogram",
+        routerConfig: "harmonogram",
+      },
+      CALENDAR: {
+        absolute: "/administrator/harmonogram/kalendarz",
+        routerConfig: "kalendarz",
+      },
+      RESERVATION: {
+        absolute: "/administrator/harmonogram/rezerwacje",
+        routerConfig: "rezerwacje",
+      },
+      TIMETABLE: {
+        absolute: "/administrator/harmonogram/grafik",
+        routerConfig: "grafik",
+      },
     },
     CALENDAR_ADD_RESERVATION: {
       absolute: "/administrator/rezerwacja",
       routerConfig: "rezerwacja",
     },
     OPTION: { absolute: "/administrator/opcje", routerConfig: "opcje" },
-    STUFF: {
-      absolute: "/administrator/instruktorzy",
-      routerConfig: "instruktorzy",
+    STAFF: {
+      INDEX: {
+        absolute: "/administrator/instruktorzy",
+        routerConfig: "instruktorzy",
+      },
+      CREATE: {
+        absolute: "/administrator/instruktorzy/nowy",
+        routerConfig: "nowy",
+      },
+      EDIT: {
+        absolute: (id: number) => `/administrator/instruktorzy/${id}`,
+        routerConfig: ":id",
+      },
     },
   },
 };

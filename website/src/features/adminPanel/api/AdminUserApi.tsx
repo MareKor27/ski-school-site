@@ -11,11 +11,11 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = useSessionStore.getState().token;
-    console.log("t", token);
+
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
-    console.log("c", config);
+
     return config;
   },
   (error) => Promise.reject(error)
@@ -28,13 +28,18 @@ export async function readUsers(): Promise<CollectionResponseDto<UserDto>> {
   return response.data;
 }
 
-export async function createUser(
-  user: CreateUserDto
-): Promise<ResponseDto<CreateUserDto>> {
-  console.log(user);
-  const response = await api.post<ResponseDto<CreateUserDto>>("/", user);
+export async function readUser(id: number): Promise<ResponseDto<UserDto>> {
+  const response = await api.get<ResponseDto<UserDto>>(`${"/" + id}`);
   return response.data;
 }
+
+// export async function createUser(
+//   user: CreateUserDto
+// ): Promise<ResponseDto<CreateUserDto>> {
+//   console.log(user);
+//   const response = await api.post<ResponseDto<CreateUserDto>>("/", user);
+//   return response.data;
+// }
 
 export async function updateUser(
   id: number,

@@ -1,26 +1,36 @@
-import { UserDto, CreateUserDto, UpdateUserDto } from "../api/type/user.dto";
-import { createUser, updateUser } from "../api/AdminUserApi";
-import { ResponseDto } from "../api/type/response.dto";
-import { register } from "../api/AdminAuthApi";
+import { createUser } from "../api/AdminAuthApi";
+import { updateUser } from "../api/AdminUserApi";
+import { UserForm } from "../api/type/user.dto";
 
-export type ListMenuType = "LIST" | "CREATE" | "EDIT";
+export const handleOnSubmit = async (
+  userId: number | null,
+  userForm: UserForm,
+  fetchResponse: () => void
+) => {
+  if (userId) {
+    await updateUser(userId, { name: userForm.name, email: userForm.email });
+  } else {
+    await createUser(userForm.name, userForm.email);
+  }
+  fetchResponse();
+};
 
-export async function createInstructor(
-  userData: UserDto
-): Promise<ResponseDto<CreateUserDto>> {
-  const response = await register(userData.name, userData.email);
-  return response;
-}
+// export async function createInstructor(
+//   userData: CreateUserDto
+// ): Promise<ResponseDto<CreateUserDto>> {
+//   const response = await register(userData.name, userData.email);
+//   return response;
+// }
 
-export async function editInstructor(userData: UserDto) {
-  const updatedUser: UpdateUserDto = {
-    name: userData.name,
-    email: userData.email,
-    role: userData.role,
-  };
-  const response = await updateUser(userData.id, updatedUser);
-  return response;
-}
+// export async function editInstructor(userData: UserDto) {
+//   const updatedUser: UpdateUserDto = {
+//     name: userData.name,
+//     email: userData.email,
+//     role: userData.role,
+//   };
+//   const response = await updateUser(userData.id, updatedUser);
+//   return response;
+// }
 
 // export const toggleTab = (tabIndex: ListMenuType) => {
 //   setActiveView(tabIndex);

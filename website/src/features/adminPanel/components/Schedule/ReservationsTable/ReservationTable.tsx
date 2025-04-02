@@ -1,19 +1,10 @@
-const S = useStyles(style);
-
-import { ReservationDto } from "~/features/adminPanel/api/type/reservation.dto";
 import style from "./ReservationTable.module.scss";
 import useStyles from "~/hooks/useStyle";
+import { useReservation } from "~/features/adminPanel/hooks/reservation/useReservation";
+const S = useStyles(style);
+export function ReservationTable() {
+  const { reservations, handleDeleteReservation } = useReservation();
 
-type ReservationTableType = {
-  reservations: ReservationDto[];
-  //handleShowEditReservation: (reserwation: ReservationDto) => void;
-  handleDeleteReservation: (id: number) => void;
-};
-
-export function ReservationTable({
-  reservations,
-  handleDeleteReservation,
-}: ReservationTableType) {
   const headers = [
     "Imie i nazwisko",
     "Numer telefonu",

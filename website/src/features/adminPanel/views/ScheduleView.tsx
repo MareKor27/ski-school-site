@@ -1,19 +1,19 @@
 import { BlankLayout } from "~/features/app/layouts/BlankLayout";
 import { AdminPanel } from "../components/AdminPanel/AdminPanel";
-import { CompanyStuff } from "../components/CompanyStuff/CompanyStuff";
+import { Schedule } from "../components/Schedule/Schedule";
 import { SideBarMenu } from "../components/SideBarMenu/SideBarMenu";
 import { ReactNode } from "react";
 
-type CompanyStuffViewType = {
+type ScheduleViewType = {
   children: ReactNode;
 };
 
-export function CompanyStuffView({ children }: CompanyStuffViewType) {
+export function ScheduleView({ children }: ScheduleViewType) {
   return (
     <BlankLayout>
       <AdminPanel>
         <SideBarMenu />
-        <CompanyStuff>{children}</CompanyStuff>
+        <Schedule>{children}</Schedule>
       </AdminPanel>
     </BlankLayout>
   );

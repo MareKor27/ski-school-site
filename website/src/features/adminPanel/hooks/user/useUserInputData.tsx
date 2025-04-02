@@ -1,55 +1,50 @@
-import { useState } from "react";
-import { UserDto } from "../../api/type/user.dto";
-import { ListMenuType } from "../../services/CompanyStuffServices";
+import { useEffect, useState } from "react";
+import { UserForm } from "../../api/type/user.dto";
+import { readUser } from "../../api/AdminUserApi";
 
-export const useUserInputData = (fetchResponse: () => void) => {
-  const [userData, setUserData] = useState<UserDto>({
-    id: 1,
+export const useUserInputData = (userId: number | null) => {
+  const [userForm, setUserForm] = useState<UserForm>({
     name: "",
     email: "",
-    role: "INSTRUCTOR",
   });
-  const [activeView, setActiveView] = useState<ListMenuType>("LIST");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setUserData((prevState) => ({
+    setUserForm((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const handleShowEditUser = (user: UserDto) => {
-    setActiveView("EDIT");
-    setUserData({
-      id: user.id,
+  const fetchUser = async (userId: number) => {
+    const response = await readUser(userId);
+    setUserForm({
+      name: response.content.name,
+      email: response.content.email,
+    });
+  };
+
+  const handleShowEditUser = (user: UserForm) => {
+    setUserForm({
       name: user.name,
       email: user.email,
-      role: user.role,
     });
   };
 
-  const toggleTab = (tabIndex: ListMenuType) => {
-    setActiveView(tabIndex);
-    setUserData({
-      id: 1,
-      name: "",
-      email: "",
-      role: "INSTRUCTOR",
-    });
-  };
-
-  const refreshView = () => {
-    setActiveView("LIST");
-    fetchResponse();
-  };
+  useEffect(() => {
+    if (userId) {
+      fetchUser(userId);
+    } else {
+      setUserForm({
+        name: "",
+        email: "",
+      });
+    }
+  }, [userId]);
 
   return {
-    userData,
-    activeView,
+    userForm,
     handleInputChange,
     handleShowEditUser,
-    toggleTab,
-    refreshView,
   } as const;
 };

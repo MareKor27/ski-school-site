@@ -11,11 +11,9 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = useSessionStore.getState().token;
-    console.log("t", token);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
-    console.log("c", config);
     return config;
   },
   (error) => Promise.reject(error)
@@ -45,7 +43,7 @@ export async function createReservation(
 ) {
   try {
     const response = await api.post<ResponseDto<ReservationDto>>(
-      "/reservation",
+      `/reservation?appointment=${appointmentId}`,
       reservation
     );
     return response.data;

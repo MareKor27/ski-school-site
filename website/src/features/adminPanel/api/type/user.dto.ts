@@ -25,3 +25,9 @@ export type UpdateUserDto = {
 
   role: "INSTRUCTOR" | "ADMIN";
 };
+
+export type UserForm = {
+  name: string;
+
+  email: string;
+};
