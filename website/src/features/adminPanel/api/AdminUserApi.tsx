@@ -3,6 +3,7 @@ import { CollectionResponseDto } from "./type/collectionResponse.dto";
 import { CreateUserDto, UserDto } from "./type/user.dto";
 import { ResponseDto } from "./type/response.dto";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
+import { handleApiError } from "~/features/authorization/services/ErrorHandler";
 
 const api = axios.create({
   baseURL: "http://localhost:3000/users",
@@ -45,11 +46,15 @@ export async function updateUser(
   id: number,
   user: Partial<CreateUserDto>
 ): Promise<ResponseDto<CreateUserDto>> {
-  const response = await api.patch<ResponseDto<CreateUserDto>>(
-    `${"/" + id}`,
-    user
-  );
-  return response.data;
+  try {
+    const response = await api.patch<ResponseDto<CreateUserDto>>(
+      `${"/" + id}`,
+      user
+    );
+    return response.data;
+  } catch (error) {
+    throw handleApiError(error);
+  }
 }
 
 export async function deleteUser(id: number): Promise<ResponseDto<UserDto>> {

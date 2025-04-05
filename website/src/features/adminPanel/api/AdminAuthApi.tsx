@@ -2,6 +2,7 @@ import axios from "axios";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 import { ResponseDto } from "./type/response.dto";
 import { CreateUserDto } from "./type/user.dto";
+import { handleApiError } from "~/features/authorization/services/ErrorHandler";
 
 const api = axios.create({
   baseURL: "http://localhost:3000/auth",
@@ -22,9 +23,13 @@ export async function createUser(
   name: string,
   email: string
 ): Promise<ResponseDto<CreateUserDto>> {
-  const response = await api.post<ResponseDto<CreateUserDto>>("/register", {
-    name,
-    email,
-  });
-  return response.data;
+  try {
+    const response = await api.post<ResponseDto<CreateUserDto>>("/register", {
+      name,
+      email,
+    });
+    return response.data;
+  } catch (error) {
+    throw handleApiError(error);
+  }
 }

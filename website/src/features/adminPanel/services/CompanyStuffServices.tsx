@@ -1,5 +1,5 @@
 import { createUser } from "../api/AdminAuthApi";
-import { updateUser } from "../api/AdminUserApi";
+import { deleteUser, updateUser } from "../api/AdminUserApi";
 import { UserForm } from "../api/type/user.dto";
 
 export const handleOnSubmit = async (
@@ -11,6 +11,19 @@ export const handleOnSubmit = async (
     await updateUser(userId, { name: userForm.name, email: userForm.email });
   } else {
     await createUser(userForm.name, userForm.email);
+  }
+  fetchResponse();
+};
+
+export const deleteUserInList = async (
+  id: number,
+  fetchResponse: () => void
+) => {
+  const isConfirmed = window.confirm(
+    "Czy na pewno chcesz usunąć tego użytkownika?"
+  );
+  if (isConfirmed) {
+    await deleteUser(id);
   }
   fetchResponse();
 };

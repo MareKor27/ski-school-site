@@ -7,7 +7,6 @@ import {
   UpdateAppointmentDto,
 } from "./type/appointment.dto";
 import { ResponseDto } from "./type/response.dto";
-import { UserDto } from "./type/user.dto";
 
 const api = axios.create({
   baseURL: "http://localhost:3000",

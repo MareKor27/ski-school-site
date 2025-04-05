@@ -7,6 +7,7 @@ import { deleteUser } from "~/features/adminPanel/api/AdminUserApi";
 import { useUserInputData } from "~/features/adminPanel/hooks/user/useUserInputData";
 import { Paths } from "~/features/app/constants/Paths";
 import { Link } from "react-router-dom";
+import { deleteUserInList } from "~/features/adminPanel/services/CompanyStuffServices";
 
 export function UserManagement() {
   const { users, fetchResponse } = useUsers();
@@ -41,21 +42,13 @@ export function UserManagement() {
                 Edytuj {"   "}
               </div>
             </Link>
-            <div
+            <button
               className={S(`cell-option-delete`)}
-              onClick={() => async (id: number) => {
-                const isConfirmed = window.confirm(
-                  "Czy na pewno chcesz usunąć tego użytkownika?"
-                );
-                if (isConfirmed) {
-                  await deleteUser(id);
-                }
-                fetchResponse();
-              }}
+              onClick={() => deleteUserInList(account.id, fetchResponse)}
             >
               <img src="/images/admin/delete-icon.png" alt={"Usuń"} />
               Usuń
-            </div>
+            </button>
           </div>
         </div>
       ))}
