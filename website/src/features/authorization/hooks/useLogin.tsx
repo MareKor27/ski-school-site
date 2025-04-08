@@ -6,31 +6,45 @@ import {
   FormErrorType,
   RegistretionType,
 } from "../api/type/authorization-type";
+import {
+  ErrorResponseDto,
+  mapApiErrorToFormErrors,
+} from "../services/ErrorServices";
+import { UseFormReturn } from "react-hook-form";
 
-export const useLogin = () => {
-  const [account, setAccount] = useState<RegistretionType>({
-    email: "",
-    password: "",
-  });
-  const [errors, setErrors] = useState<Record<string, FormErrorType>>();
+export const useLogin = (
+  setError: UseFormReturn<RegistretionType>["setError"]
+) => {
+  const [sending, setSending] = useState(false);
   const initializeSession = useSessionStore((state) => state.initialize);
   const navigate = useNavigate();
 
-  const onChangeAccount = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const { name, value } = event.target;
-    setAccount((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  const loginToSystem = async (email: string, password: string) => {
+    setSending(true);
+    let response;
+    try {
+      response = await login(email, password);
+    } catch (error: any) {
+      const mappedErrors = mapApiErrorToFormErrors<RegistretionType>(error, [
+        "email",
+        "password",
+      ]);
+      const result = Object.values(mappedErrors);
 
-  const loginToSystem = async () => {
-    const response = await login(account.email, account.password);
+      result.forEach((element) => {
+        setError(element.field, { message: element.message });
+      });
+      // setBackEndErrors(mappedErrors);
+    }
+    setSending(false);
+    if (!response) return;
 
     initializeSession(response.accessToken, response.payload);
     navigate("/administrator");
   };
 
-  return { onChangeAccount, loginToSystem, account, errors, setErrors };
+  return {
+    loginToSystem,
+    sending,
+  };
 };

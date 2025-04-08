@@ -3,7 +3,7 @@ export type RegistretionType = {
   password: string;
 };
 
-export type FormErrorType = {
-  field: string;
+export type FormErrorType<T extends Record<string, unknown>> = {
+  field: keyof T | "root";
   message: string;
 };

@@ -3,7 +3,7 @@ import { CollectionResponseDto } from "./type/collectionResponse.dto";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 import { CreateReservationDto, ReservationDto } from "./type/reservation.dto";
 import { ResponseDto } from "./type/response.dto";
-import { handleApiError } from "~/features/authorization/services/ErrorHandler";
+import { handleApiError } from "~/features/authorization/services/ErrorServices";
 
 const api = axios.create({
   baseURL: "http://localhost:3000",

@@ -2,12 +2,26 @@ import { CSSProperties } from "react";
 import useStyles from "~/hooks/useStyle";
 const S = useStyles(style);
 import style from "./Login.module.scss";
-import { useLogin } from "../hooks/useLogin";
 import { Paths } from "~/features/app/constants/Paths";
+import { useForm } from "react-hook-form";
+import { RegistretionType } from "../api/type/authorization-type";
+import { useLogin } from "../hooks/useLogin";
 
 export function LoginView() {
-  const { onChangeAccount, loginToSystem, account, errors, setErrors } =
-    useLogin();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setError,
+  } = useForm<RegistretionType>({
+    mode: "onSubmit",
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const { loginToSystem, sending } = useLogin(setError);
 
   return (
     <div className={S(`login`)}>
@@ -34,35 +48,55 @@ export function LoginView() {
           <div className={S(`cointainer`)}>
             <div className={S(`form`)}>
               <h2>Figowski Sport Logowanie</h2>
+
               <form
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  loginToSystem();
-                }}
+                onSubmit={handleSubmit((e) => {
+                  loginToSystem(e.email, e.password);
+                })}
               >
                 <div className={S(`inputBox`)}>
                   <input
-                    type="email"
-                    name="email"
-                    id="email"
+                    {...register("email", {
+                      required: "Pole wymagane",
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: "Nieprawidłowy email",
+                      },
+                    })}
                     placeholder="Adres E-mail"
-                    onChange={onChangeAccount}
-                    value={account.email}
                   />
+                </div>
+                <div className={S(`errors`)}>
+                  {errors.email && errors.email.message}
                 </div>
                 <div className={S(`inputBox`)}>
                   <input
                     type="password"
-                    name="password"
-                    id="password"
+                    {...register("password", {
+                      required: "Pole wymagane",
+                      minLength: {
+                        value: 2,
+                        message: "Hasło musi mieć conajmneij 2 znaków",
+                      },
+                    })}
                     placeholder="Hasło"
-                    onChange={onChangeAccount}
-                    value={account.password}
                   />
                 </div>
-                <div className={S(`inputBox`)}>
-                  <input type="submit" name="" id="login" value={"Login"} />
+
+                <div className={S(`errors`)}>
+                  {errors.password && errors.password.message}
                 </div>
+
+                <div className={S(`inputBox login-button`)}>
+                  <input type="submit" name="" id="login" value={"Login"} />
+                  <div className={S(`sending`)}>
+                    {sending ? "Przetwarzanie" : " "}
+                  </div>
+                </div>
+                <div className={S(`errors`)}>
+                  {errors.root && errors.root.message}
+                </div>
+
                 <p className={S(`forget`)}>
                   {" "}
                   Zapomniałeś hasła?{" "}

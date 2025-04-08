@@ -1,6 +1,6 @@
 import axios from "axios";
 import { UserData } from "../store/useSessionStore";
-import { handleApiError } from "../services/ErrorHandler";
+import { handleApiError } from "../services/ErrorServices";
 
 const api = axios.create({
   baseURL: "http://localhost:3000/auth",
