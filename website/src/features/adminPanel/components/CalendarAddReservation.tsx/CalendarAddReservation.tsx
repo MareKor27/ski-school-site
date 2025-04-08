@@ -1,16 +1,20 @@
-import { Paths } from "~/features/app/constants/Paths";
 import style from "./CalendarAddReservation.module.scss";
 import useStyles from "~/hooks/useStyle";
-import { Link } from "react-router-dom";
 import { AppointmentDto } from "../../api/type/appointment.dto";
 import { useReservation } from "../../hooks/reservation/useReservation";
 import { useReservationStore } from "../../hooks/reservation/useReservationStore";
-import { ChosenEquipment } from "../../api/type/reservation.dto";
+import {
+  ChosenEquipment,
+  CreateReservationDto,
+  ReservationType,
+} from "../../api/type/reservation.dto";
+import { useForm } from "react-hook-form";
 const S = useStyles(style);
 export function CalendarAddReservation() {
   const resevationStore = useReservationStore();
 
-  const { addReservation, setAppointmentId, setFormValue } = useReservation();
+  const { addReservation, register, errors, handleSubmit, sending } =
+    useReservation();
 
   let appDate = "";
   resevationStore.appointmentsData &&
@@ -18,84 +22,102 @@ export function CalendarAddReservation() {
       appDate = appointment.appointmentDate;
     });
   const date = new Date(appDate);
+
   return (
     <div className={S(`add-reservation`)}>
       <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          addReservation();
-          resevationStore.clearReservationData();
-        }}
+        onSubmit={handleSubmit((form) => {
+          addReservation(form);
+        })}
       >
-        <label htmlFor="fullName">Imie i Nazwisko:</label>
+        <label htmlFor="fullName">Imie i Nazwisko*:</label>
         <input
           type="text"
-          id="fullName"
-          name="fullName"
-          size={60}
-          onChange={(e) => {
-            setFormValue("fullName", e.target.value);
-          }}
+          {...register("fullName", {
+            required: "Imie i nazwisko jest wymagane",
+            minLength: {
+              value: 6,
+              message: "Pole musi mieć conajmneij 6 znaków",
+            },
+          })}
         />
-        <label htmlFor="email">Adres Email:</label>
+        <div className={S(`errors`)}>
+          {errors.fullName && errors.fullName.message}
+        </div>
+        <label htmlFor="email">Adres Email*:</label>
         <input
           type="email"
-          id="email"
-          name="email"
-          size={50}
-          onChange={(e) => {
-            setFormValue("email", e.target.value);
-          }}
+          {...register("email", {
+            required: "Adres email jest wymagane",
+            pattern: {
+              value: /^\S+@\S+$/i,
+              message: "Nieprawidłowy email",
+            },
+          })}
         />
-        <label htmlFor="phoneNumber">Numer telefonu:</label>
-        <input
-          type="text"
-          id="phoneNumber"
-          name="phoneNumber"
-          size={50}
-          onChange={(e) => {
-            setFormValue("phoneNumber", e.target.value);
-          }}
-        />
-        <label htmlFor="participants">Liczba osób:</label>
+        <div className={S(`errors`)}>
+          {errors.email && errors.email.message}
+        </div>
+        <label htmlFor="phoneNumber">Numer telefonu*:</label>
         <input
           type="number"
-          id="participants"
-          name="participants"
-          size={50}
-          onChange={(e) => {
-            setFormValue("participants", e.target.valueAsNumber);
-          }}
+          {...register("phoneNumber", {
+            required: "Numer telefonu jest wymagany",
+            pattern: {
+              value: /^[0-9]{9}$/,
+              message: "Numer telefonu musi składać się z 9 cyfr",
+            },
+          })}
         />
-        <label htmlFor="ageOfParticipants">Wiek osób:</label>
+        <div className={S(`errors`)}>
+          {errors.phoneNumber && errors.phoneNumber.message}
+        </div>
+        <label htmlFor="participants">Liczba osób*:</label>
+        <input
+          type="number"
+          {...register("participants", {
+            valueAsNumber: true,
+            required: "Proszę podać liczbę osób",
+          })}
+        />
+        <div className={S(`errors`)}>
+          {errors.participants && errors.participants.message}
+        </div>
+        <label htmlFor="ageOfParticipants">Wiek osób*:</label>
         <input
           type="text"
-          id="ageOfParticipants"
-          name="ageOfParticipants"
-          size={50}
-          onChange={(e) => {
-            setFormValue("ageOfParticipants", e.target.value);
-          }}
+          {...register("ageOfParticipants", {
+            required: "Proszę podać wiek osób",
+          })}
+          placeholder="Słownie lub liczbowo"
         />
-        <label htmlFor="advancement">Poziom</label>
+        <div className={S(`errors`)}>
+          {errors.ageOfParticipants && errors.ageOfParticipants.message}
+        </div>
+        <label htmlFor="advancement">Poziom zawansowania*:</label>
         <input
           type="text"
-          id="advancement"
-          name="advancement"
-          size={50}
-          onChange={(e) => {
-            setFormValue("advancement", e.target.value);
-          }}
+          {...register("advancement", {
+            required: "Proszę określić poziom zawansowania",
+            minLength: {
+              value: 6,
+              message: "Proszę wpisać poziom zawansowania",
+            },
+          })}
         />
-        <label htmlFor="skillLevel">Wybór instruktora</label>
+        <div className={S(`errors`)}>
+          {errors.advancement && errors.advancement.message}
+        </div>
+        <label htmlFor="appointmentId">Wybór instruktora:</label>
         <select
-          name="skillLevel"
-          id="skillLevel"
-          onChange={(e) => {
-            console.log(e.target.value);
-            console.log(Number(e.target.value));
-            setAppointmentId(Number(e.target.value));
-          }}
+          {...register("appointmentId", {
+            required: "Proszę wybrać instruktora",
+          })}
+          // onChange={(e) => {
+          //   console.log(e.target.value);
+          //   console.log(Number(e.target.value));
+          //   setAppointmentId(Number(e.target.value));
+          // }}
         >
           {resevationStore.appointmentsData?.map(
             (appointment: AppointmentDto) => {
@@ -107,60 +129,46 @@ export function CalendarAddReservation() {
             }
           )}
         </select>
+        <div className={S(`errors`)}>
+          {errors.appointmentId && errors.appointmentId.message}
+        </div>
         <label htmlFor="equipment">Sprzęt</label>
         <div className={S(`equipment-choice`)}>
           <input
             type="radio"
-            id="equipmentChoice1"
-            name="chosenEquipment"
             value="WŁASNY"
-            onChange={(e) => {
-              setFormValue(
-                "chosenEquipment",
-                e.target.value as ChosenEquipment
-              );
-            }}
+            {...register("chosenEquipment", {
+              required: "Proszę określić",
+            })}
           />
           <label htmlFor="contactChoice1">Swój</label>
 
           <input
             type="radio"
-            id="equipmentChoice2"
-            name="chosenEquipment"
             value="WYPOŻYCZONY"
-            onChange={(e) => {
-              setFormValue(
-                "chosenEquipment",
-                e.target.value as ChosenEquipment
-              );
-            }}
+            {...register("chosenEquipment", {
+              required: "Proszę określić",
+            })}
           />
           <label htmlFor="contactChoice2">Wypożyczony</label>
         </div>
+        <div className={S(`errors`)}>
+          {errors.chosenEquipment && errors.chosenEquipment.message}
+        </div>
         <label htmlFor="additionalComments">Dodatkowe uwagi:</label>
-        <input
-          type="text"
-          id="additionalComments"
-          name="additionalComments"
-          size={50}
-          onChange={(e) => {
-            setFormValue("additionalComments", e.target.value);
-          }}
-        />
+        <input type="text" {...register("additionalComments")} />
+        <div className={S(`errors`)}></div>
         <label htmlFor="insuranceInformation">
           Informacje o ubezpieczeniu:
         </label>
-        <input
-          type="text"
-          id="insuranceInformation"
-          name="insuranceInformation"
-          size={50}
-          onChange={(e) => {
-            setFormValue("insuranceInformation", e.target.value);
-          }}
-        />
+        <input type="text" {...register("insuranceInformation")} />
+        <div className={S(`errors`)}></div>
         {/* <Link to={Paths.ADMIN.CALENDAR.absolute}> */}
-        <input type="submit" value={"Zarezerwuj"} />
+        <input
+          type="submit"
+          value={sending ? "Przetwarzanie" : "Zarezerwuj"}
+          disabled={sending}
+        />
         {/* </Link> */}
       </form>
 

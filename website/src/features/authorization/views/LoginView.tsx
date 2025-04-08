@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import useStyles from "~/hooks/useStyle";
-const S = useStyles(style);
 import style from "./Login.module.scss";
 import { Paths } from "~/features/app/constants/Paths";
 import { useForm } from "react-hook-form";
@@ -20,9 +19,9 @@ export function LoginView() {
       password: "",
     },
   });
-
   const { loginToSystem, sending } = useLogin(setError);
 
+  const S = useStyles(style);
   return (
     <div className={S(`login`)}>
       <section>

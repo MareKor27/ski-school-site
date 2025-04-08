@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   CreateReservationDto,
   ReservationDto,
+  ReservationType,
 } from "../../api/type/reservation.dto";
 import {
   createReservation,
@@ -10,58 +11,88 @@ import {
 import { deleteReservations } from "../../api/AdminReservationApi";
 import { useNavigate } from "react-router-dom";
 import { useReservationStore } from "./useReservationStore";
+import { useForm, UseFormReturn } from "react-hook-form";
+import { mapApiErrorToFormErrors } from "~/features/authorization/services/ErrorServices";
+import { Paths } from "~/features/app/constants/Paths";
 
 export const useReservation = () => {
   const [reservations, setReservations] = useState<ReservationDto[]>([]);
-  const [reservation, setReservation] = useState<CreateReservationDto>({
-    fullName: "",
-    email: "",
-    phoneNumber: "",
-    purchasedTime: "ONEHOUR",
-    participants: 0,
-    ageOfParticipants: "",
-    advancement: "",
-    chosenEquipment: "WYPOŻYCZONY",
-    additionalComments: "",
-    insuranceInformation: "",
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setError,
+    watch,
+  } = useForm<ReservationType>({
+    mode: "onSubmit",
+    defaultValues: {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      purchasedTime: "ONEHOUR",
+      participants: NaN,
+      ageOfParticipants: "",
+      advancement: "",
+      chosenEquipment: "WŁASNY",
+      additionalComments: "",
+      insuranceInformation: "",
+      appointmentId: "",
+    },
   });
-  const [appointmentId, setAppointmentId] = useState<number>(0);
+  const [sending, setSending] = useState(false);
+
   const navigate = useNavigate();
 
   const resevationStore = useReservationStore();
 
-  const setFormValue = <T extends keyof CreateReservationDto>(
-    field: T,
-    value: CreateReservationDto[T]
-  ) => {
-    setReservation((prevState) => ({
-      ...prevState,
-      [field]: value,
-    }));
-  };
+  // const setFormValue = <T extends keyof CreateReservationDto>(
+  //   field: T,
+  //   value: CreateReservationDto[T]
+  // ) => {
+  //   setReservation((prevState) => ({
+  //     ...prevState,
+  //     [field]: value,
+  //   }));
+  // };
 
-  const addReservation = async () => {
-    console.log("reservation: ", reservation);
-    const reservationResponse = await createReservation(
-      reservation,
-      appointmentId
-    );
+  const addReservation = async (form: ReservationType) => {
+    setSending(true);
+    const { appointmentId, ...rest } = form;
+    const reservation: CreateReservationDto = rest;
+
+    let reservationResponse;
+    try {
+      reservationResponse = await createReservation(
+        reservation,
+        Number(appointmentId)
+      );
+    } catch (error: any) {
+      const mappedErrors = mapApiErrorToFormErrors<ReservationType>(error, [
+        "fullName",
+        "email",
+        "phoneNumber",
+        "purchasedTime",
+        "participants",
+        "ageOfParticipants",
+        "advancement",
+        "chosenEquipment",
+        "additionalComments",
+        "insuranceInformation",
+      ]);
+
+      const result = Object.values(mappedErrors);
+      result.forEach((element) => {
+        setError(element.field, { message: element.message });
+      });
+    }
+
     console.log(reservationResponse);
 
-    // // update apointment reservation.id = rezerw.id
-    // if (reservationId) {
-    //   const updateAppo: UpdateAppointmentDto = {
-    //     reservationId: reservationId,
-    //   };
-    //   appointmentResponse = await updateAppointment(
-    //     parseInt(appointmentId),
-    //     updateAppo
-    //   );
-    // }
-    // console.log(appointmentResponse);
-    // return appointmentResponse;
-
-    //navigate("/administrator/kalendarz");
+    setSending(false);
+    if (!reservationResponse) return;
+    resevationStore.clearReservationData();
+    navigate(Paths.ADMIN.SCHEDULE.CALENDAR.absolute);
   };
 
   const handleDeleteReservation = async (id: number) => {
@@ -82,16 +113,16 @@ export const useReservation = () => {
 
   useEffect(() => {
     fetchReservationResponse();
-    if (resevationStore.appointmentsData?.length) {
-      setAppointmentId(resevationStore.appointmentsData[0].id);
-    }
   }, [resevationStore.appointmentsData]);
 
   return {
     reservations,
     handleDeleteReservation,
     addReservation,
-    setAppointmentId,
-    setFormValue,
+    register,
+    errors,
+    handleSubmit,
+    sending,
+    // setFormValue,
   } as const;
 };
