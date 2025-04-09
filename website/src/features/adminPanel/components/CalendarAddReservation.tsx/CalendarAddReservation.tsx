@@ -1,20 +1,15 @@
 import style from "./CalendarAddReservation.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { AppointmentDto } from "../../api/type/appointment.dto";
-import { useReservation } from "../../hooks/reservation/useReservation";
 import { useReservationStore } from "../../hooks/reservation/useReservationStore";
-import {
-  ChosenEquipment,
-  CreateReservationDto,
-  ReservationType,
-} from "../../api/type/reservation.dto";
-import { useForm } from "react-hook-form";
+
+import { useLessonReservation } from "../../hooks/reservation/useLessonReservation";
 const S = useStyles(style);
 export function CalendarAddReservation() {
   const resevationStore = useReservationStore();
 
   const { addReservation, register, errors, handleSubmit, sending } =
-    useReservation();
+    useLessonReservation();
 
   let appDate = "";
   resevationStore.appointmentsData &&

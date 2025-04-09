@@ -1,19 +1,4 @@
-import { createUser } from "../api/AdminAuthApi";
 import { deleteUser, updateUser } from "../api/AdminUserApi";
-import { UserForm } from "../api/type/user.dto";
-
-export const handleOnSubmit = async (
-  userId: number | null,
-  userForm: UserForm,
-  fetchResponse: () => void
-) => {
-  if (userId) {
-    await updateUser(userId, { name: userForm.name, email: userForm.email });
-  } else {
-    await createUser(userForm.name, userForm.email);
-  }
-  fetchResponse();
-};
 
 export const deleteUserInList = async (
   id: number,

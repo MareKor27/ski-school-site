@@ -2,15 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSessionStore } from "../store/useSessionStore";
 import { login } from "../api/AuthToPanelAdmin";
-import {
-  FormErrorType,
-  RegistretionType,
-} from "../api/type/authorization-type";
-import {
-  ErrorResponseDto,
-  mapApiErrorToFormErrors,
-} from "../services/ErrorServices";
+import { RegistretionType } from "../api/type/authorization-type";
+import { mapApiErrorToFormErrors } from "../services/ErrorServices";
 import { UseFormReturn } from "react-hook-form";
+import { Paths } from "~/features/app/constants/Paths";
 
 export const useLogin = (
   setError: UseFormReturn<RegistretionType>["setError"]
@@ -40,7 +35,7 @@ export const useLogin = (
     if (!response) return;
 
     initializeSession(response.accessToken, response.payload);
-    navigate("/administrator");
+    navigate(Paths.ADMIN.INDEX.absolute);
   };
 
   return {
