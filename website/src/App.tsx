@@ -39,13 +39,12 @@ function App() {
           path={Paths.ADMIN.CHANGE_PASSWORD.absolute}
           element={<ChangePassword />}
         />
-
+        <Route
+          path={Paths.ADMIN.FORGOT_PASSWORD.absolute}
+          element={<ForgotPassword />}
+        />
         <Route path={Paths.ADMIN.INDEX.routerConfig} element={<AuthGuard />}>
           <Route index element={<AdminDashboard />} />
-          <Route
-            path={Paths.ADMIN.FORGOT_PASSWORD.absolute}
-            element={<ForgotPassword />}
-          />
           <Route path={Paths.ADMIN.SCHEDULE.INDEX.routerConfig}>
             <Route
               path={Paths.ADMIN.SCHEDULE.CALENDAR.routerConfig}

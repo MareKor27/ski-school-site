@@ -11,7 +11,7 @@ export const useLogin = (
   setError: UseFormReturn<RegistretionType>["setError"]
 ) => {
   const [sending, setSending] = useState(false);
-  const initializeSession = useSessionStore((state) => state.initialize);
+  const initializeSession = useSessionStore((state) => state.refreshSession);
   const navigate = useNavigate();
 
   const loginToSystem = async (email: string, password: string) => {
@@ -20,6 +20,7 @@ export const useLogin = (
     try {
       response = await login(email, password);
     } catch (error: any) {
+      console.log(error);
       const mappedErrors = mapApiErrorToFormErrors<RegistretionType>(error, [
         "email",
         "password",
@@ -34,7 +35,11 @@ export const useLogin = (
     setSending(false);
     if (!response) return;
 
-    initializeSession(response.accessToken, response.payload);
+    initializeSession(
+      response.accessToken,
+      response.user,
+      new Date(response.expirationDate)
+    );
     navigate(Paths.ADMIN.INDEX.absolute);
   };
 

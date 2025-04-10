@@ -46,13 +46,13 @@ export const useUserInputData = (
           "name",
           "email",
         ]);
-        console.log(error);
         const result = Object.values(mappedErrors);
         result.forEach((element) => {
           setError(element.field, { message: element.message });
         });
       }
       setSending(false);
+      console.log(response);
       if (!response) return;
 
       fetchResponse();

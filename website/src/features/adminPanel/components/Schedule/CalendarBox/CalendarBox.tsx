@@ -28,7 +28,13 @@ export const CalendarBox = ({
     return <div className={S(`reservation unavailable`)}></div>;
   }
 
-  if (appointments?.length) {
+  const checkAppointmentReservationAvailability: boolean = appointments.some(
+    (appointment) => {
+      if (appointment.reservation == null) return true;
+    }
+  );
+
+  if (checkAppointmentReservationAvailability) {
     // JESLI RESERVATIONID != NULL \|/
     return (
       <div>

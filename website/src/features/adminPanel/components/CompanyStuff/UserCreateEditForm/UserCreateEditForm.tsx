@@ -37,7 +37,10 @@ export function UserCreateEditForm() {
           },
         })}
       />
-      <div className={S(`errors`)}>{errors.email && errors.email.message}</div>
+      <div className={S(`errors`)}>
+        {errors.email && errors.email.message}
+        {errors.root && errors.root.message}
+      </div>
 
       <input
         type="submit"

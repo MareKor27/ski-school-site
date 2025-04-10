@@ -116,11 +116,15 @@ export function CalendarAddReservation() {
         >
           {resevationStore.appointmentsData?.map(
             (appointment: AppointmentDto) => {
-              return (
-                <option value={appointment.id} key={appointment.instructor.id}>
-                  {appointment.instructor.name}
-                </option>
-              );
+              if (appointment.reservation == null)
+                return (
+                  <option
+                    value={appointment.id}
+                    key={appointment.instructor.id}
+                  >
+                    {appointment.instructor.name}
+                  </option>
+                );
             }
           )}
         </select>

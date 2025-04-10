@@ -2,11 +2,26 @@ import { Link } from "react-router-dom";
 import style from "./SideBarMenu.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { Paths } from "~/features/app/constants/Paths";
-import { useSessionStore } from "~/features/authorization/store/useSessionStore";
+import {
+  UserData,
+  useSessionStore,
+} from "~/features/authorization/store/useSessionStore";
 import { Role } from "~/features/authorization/store/useSessionStore";
+import { extendSesionTime } from "~/features/authorization/api/AuthToPanelAdmin";
 const S = useStyles(style);
 export function SideBarMenu() {
   const userToken = useSessionStore();
+  const refreshSession = useSessionStore((state) => state.refreshSession);
+
+  const extendSesion = async (user: UserData) => {
+    const response = await extendSesionTime(user);
+    console.log(new Date(response.expirationDate).toLocaleString());
+    refreshSession(
+      response.accessToken,
+      response.user,
+      new Date(response.expirationDate)
+    );
+  };
 
   const user = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user")!)
@@ -45,6 +60,13 @@ export function SideBarMenu() {
           <br />
           {user ? user.role : "Wylogowany !"}
         </div>
+        <div>{userToken.expirationDate?.toLocaleString()}</div>
+        <div>
+          <button onClick={() => extendSesion(userToken.user!)}>
+            Przedłuż sesję
+          </button>
+        </div>
+
         <Link className={S("")} to={Paths.ADMIN.LOGIN.absolute}>
           <div className={S(`account-profile`)} onClick={userToken.clear}>
             Wyloguj
