@@ -2,30 +2,12 @@ import { Link } from "react-router-dom";
 import style from "./SideBarMenu.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { Paths } from "~/features/app/constants/Paths";
-import {
-  UserData,
-  useSessionStore,
-} from "~/features/authorization/store/useSessionStore";
-import { Role } from "~/features/authorization/store/useSessionStore";
-import { extendSesionTime } from "~/features/authorization/api/AuthToPanelAdmin";
-const S = useStyles(style);
+import { useAccount } from "../../hooks/user/useAccount";
+
 export function SideBarMenu() {
-  const userToken = useSessionStore();
-  const refreshSession = useSessionStore((state) => state.refreshSession);
+  const S = useStyles(style);
 
-  const extendSesion = async (user: UserData) => {
-    const response = await extendSesionTime(user);
-    console.log(new Date(response.expirationDate).toLocaleString());
-    refreshSession(
-      response.accessToken,
-      response.user,
-      new Date(response.expirationDate)
-    );
-  };
-
-  const user = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user")!)
-    : null;
+  const { userToken, extendSesion } = useAccount();
 
   return (
     <div className={S(`menu`)}>
@@ -58,7 +40,7 @@ export function SideBarMenu() {
           <br />
           {userToken.user?.id}
           <br />
-          {user ? user.role : "Wylogowany !"}
+          {userToken.user ? userToken.user.role : "Wylogowany !"}
         </div>
         <div>{userToken.expirationDate?.toLocaleString()}</div>
         <div>

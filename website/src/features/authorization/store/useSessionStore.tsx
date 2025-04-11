@@ -1,4 +1,7 @@
 import { create } from "zustand";
+import { NavigateFunction } from "react-router-dom";
+import { Paths } from "~/features/app/constants/Paths";
+import { extendSesionTime } from "../api/AuthToPanelAdmin";
 export type Role = "CLIENT" | "INSTRUCTOR" | "ADMIN";
 // export type Role = {
 //   Client: "CLIENT";
@@ -20,22 +23,45 @@ export type AuthState = {
   clear: () => void;
 };
 
-export const useSessionStore = create<AuthState>((set) => ({
+let logoutTimer: ReturnType<typeof setTimeout> | null = null;
+
+const serializeSesion = (
+  token: string,
+  user: UserData,
+  expirationDate: Date
+) => {
+  localStorage.setItem("token", token);
+  localStorage.setItem("user", JSON.stringify(user));
+  localStorage.setItem("expirationDate", JSON.stringify(expirationDate));
+};
+
+export const useSessionStore = create<AuthState>((set, get) => ({
   token: localStorage.getItem("token"),
   user: JSON.parse(localStorage.getItem("user")!),
   expirationDate: JSON.parse(localStorage.getItem("expirationDate")!),
 
   refreshSession: (token: string, user: UserData, expirationDate: Date) => {
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("expirationDate", JSON.stringify(expirationDate));
+    serializeSesion(token, user, expirationDate);
     set({ token, user, expirationDate });
 
-    let timeA = new Date().getTime();
-    let timeB = new Date(expirationDate).getTime();
-    let timeC = timeB - timeA;
+    if (logoutTimer) clearTimeout(logoutTimer);
 
-    console.log(timeC);
+    const now = new Date().getTime();
+    const expiration = new Date(expirationDate).getTime() - 30000;
+    const timeout = expiration - now;
+
+    logoutTimer = setTimeout(async () => {
+      //If we want the user to have a session a certain amount of time
+      //useSessionStore.getState().clear();
+
+      //If we want the user  to have a session all the time and log out only at their request
+      const response = await extendSesionTime(user);
+      get().refreshSession(
+        response.accessToken,
+        response.user,
+        new Date(response.expirationDate)
+      );
+    }, timeout);
   },
 
   clear: () => {
@@ -43,7 +69,7 @@ export const useSessionStore = create<AuthState>((set) => ({
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     localStorage.removeItem("expirationDate");
+
+    if (logoutTimer) clearTimeout(logoutTimer);
   },
 }));
-
-//zap i odcz
