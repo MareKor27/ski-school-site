@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import useStyles from "~/hooks/useStyle";
-import style from "../Schedule.module.scss";
+import style from "./AppointmentTable.module.scss";
 import { useAppointment } from "~/features/adminPanel/hooks/appointment/useAppointment";
 import { InputAppSchedule } from "../InputAppSchedule.tsx/InputAppSchedule";
 import { hours } from "~/features/adminPanel/services/AppointmentServices";

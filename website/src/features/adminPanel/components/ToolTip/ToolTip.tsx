@@ -29,8 +29,8 @@ const Tooltip: React.FC<TooltipProps> = ({ children, content }) => {
         <div
           style={{
             position: "absolute",
-            top: position.y - 160,
-            left: position.x - 330,
+            top: position.y + 30,
+            left: position.x - 110,
             backgroundColor: "#007bb1",
             color: "#fff",
             padding: "8px 12px",

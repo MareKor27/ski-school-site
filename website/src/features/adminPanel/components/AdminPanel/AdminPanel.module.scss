@@ -6,7 +6,8 @@
   border-radius: 15px;
   margin: auto 0;
   // background-color: rgba(150, 179, 209, 0.05);
-  backdrop-filter: blur(5px);
+  //backdrop-filter: blur(5px);
+  background-color: var(--admin-main-color);
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 10px;

@@ -12,7 +12,7 @@ export function CalendarTable() {
 
   return (
     <div className={S(`calendar`)}>
-      <div className={S(`hours`)}>
+      {/* <div className={S(`hours`)}>
         <div className={S(`hour transparent`)}>
           <button
             disabled={weekOffset === 0}
@@ -33,14 +33,14 @@ export function CalendarTable() {
             {hour + ":00"}
           </div>
         ))}
-      </div>
+      </div> */}
       {dates.map((currentDate) => (
         <div className={S(`day`)} key={currentDate.toISOString()}>
+          <div className={S(`date-in-number`)}>
+            {currentDate.toLocaleDateString("pl-PL").replace(/\./g, "/")}
+          </div>
           <div className={S(`date-in-words`)}>
             {currentDate.toLocaleDateString("pl-PL", { weekday: "long" })}
-          </div>
-          <div className={S(`date-in-number`)}>
-            {currentDate.toLocaleDateString("pl-PL")}
           </div>
           {hours.map((hour) => (
             <div className={S(`classes`)} key={hour}>
