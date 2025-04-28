@@ -1,0 +1,51 @@
+@use "~/scss/abstracts" as *;
+
+.calendar {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  border-radius: 15px;
+  //   padding: 0 5px 0 10px;
+}
+
+.calendar a {
+  color: #fff;
+}
+
+.date-in-words {
+  font-size: 0.9em;
+  color: #fff;
+  text-transform: capitalize;
+}
+.date-in-number {
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #fff;
+  margin: 15px 0 0 0;
+}
+
+.calendar .day {
+  background: hsl(
+    from var(--admin-main-color2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.2
+  );
+  border-radius: 10px;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 40px 30px repeat(10, 1fr);
+  box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.1),
+    0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+  gap: 2px;
+}
+
+.calendar .day .classes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  //   box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.1),
+  //     0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+  background: hsl(
+    from var(--admin-main-color) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5
+  );
+}

@@ -25,7 +25,14 @@ export function CalendarAddReservation() {
           addReservation(form);
         })}
       >
-        <label htmlFor="fullName">Imie i Nazwisko*:</label>
+        <label
+          htmlFor="fullName"
+          onPointerEnter={() => {
+            console.log(errors.fullName);
+          }}
+        >
+          Imie i Nazwisko*:
+        </label>
         <input
           type="text"
           {...register("fullName", {

@@ -1,8 +1,15 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./SideBarMenu.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { Paths } from "~/features/app/constants/Paths";
 import { useAccount } from "../../hooks/user/useAccount";
+import {
+  CalendarClock,
+  ClockArrowUp,
+  LogOut,
+  NotebookTabs,
+  Users,
+} from "lucide-react";
 
 export function SideBarMenu() {
   const S = useStyles(style);
@@ -12,48 +19,78 @@ export function SideBarMenu() {
   return (
     <div className={S(`menu`)}>
       <div className={S(`menu-logo`)}>
-        <Link to={Paths.ADMIN.INDEX.absolute} className={S("")}>
+        <NavLink to={Paths.ADMIN.INDEX.absolute} className={S("")}>
           <img src="/images/logo.webp" alt={"Logo FigowSki Sport"} />
-        </Link>
+        </NavLink>
       </div>
       <div className={S(`menu-sidebar`)}>
-        <Link to={Paths.ADMIN.SCHEDULE.CALENDAR.absolute} className={S("")}>
-          <div className={S(`sidebar-li`)}>Harmonogram</div>
-        </Link>
+        <NavLink
+          to={Paths.ADMIN.SCHEDULE.INDEX.absolute}
+          className={({ isActive }) => S(isActive ? "active-menu-tab" : "")}
+        >
+          <div className={S(`sidebar-li`)}>
+            <CalendarClock size={30} strokeWidth={1} />
+            Harmonogram
+          </div>
+        </NavLink>
         {userToken.user && userToken.user?.role === "ADMIN" && (
           <>
-            <Link to={Paths.ADMIN.STAFF.INDEX.absolute} className={S("")}>
-              <div className={S(`sidebar-li`)}>Instruktorzy</div>
-            </Link>
-            <Link to={Paths.ADMIN.OPTION.absolute} className={S("")}>
-              <div className={S(`sidebar-li`)}>Dziennik zdarzeń</div>
-            </Link>
-            {/* <Link to={} className={S("")}>
+            <NavLink
+              to={Paths.ADMIN.STAFF.INDEX.absolute}
+              className={({ isActive }) => S(isActive ? "active-menu-tab" : "")}
+            >
+              <div className={S(`sidebar-li`)}>
+                <Users size={30} strokeWidth={1} />
+                Instruktorzy
+              </div>
+            </NavLink>
+            <NavLink
+              to={Paths.ADMIN.OPTION.INDEX.absolute}
+              className={({ isActive }) => S(isActive ? "active-menu-tab" : "")}
+            >
+              <div className={S(`sidebar-li`)}>
+                <NotebookTabs size={30} strokeWidth={1} />
+                Dziennik zdarzeń
+              </div>
+            </NavLink>
+            {/* <NavLink to={} className={S("")}>
           <div className={S(`sidebar-li`)}>Raporty</div>
-        </Link> */}
+        </NavLink> */}
           </>
         )}
       </div>
       <div className={S(`menu-account`)}>
-        <div className={S(`account-profile`)}>
-          {userToken.user?.email}
-          <br />
-          {userToken.user?.id}
-          <br />
-          {userToken.user ? userToken.user.role : "Wylogowany !"}
+        <div className={S(`info-account`)}>
+          <div>{userToken.user?.email}</div>
+          <div>{userToken.user ? userToken.user.role : "Wylogowany !"}</div>
         </div>
-        <div>{userToken.expirationDate?.toLocaleString()}</div>
-        <div>
-          <button onClick={() => extendSesion(userToken.user!)}>
-            Przedłuż sesję
-          </button>
+        <div className={S(`info-account-date`)}>
+          {userToken.expirationDate?.toLocaleString("pl-PL", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          })}
         </div>
 
-        <Link className={S("")} to={Paths.ADMIN.LOGIN.absolute}>
+        <div
+          className={S(`account-profile`)}
+          onClick={() => extendSesion(userToken.user!)}
+        >
+          <ClockArrowUp size={20} strokeWidth={1.5} />
+          Przedłuż sesję
+        </div>
+
+        <NavLink className={S("")} to={Paths.ADMIN.LOGIN.absolute}>
           <div className={S(`account-profile`)} onClick={userToken.clear}>
+            {/* <button> */}
+            <LogOut size={20} strokeWidth={1.5} />
             Wyloguj
+            {/* </button> */}
           </div>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

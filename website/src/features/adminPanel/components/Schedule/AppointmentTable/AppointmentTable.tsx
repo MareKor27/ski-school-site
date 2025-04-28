@@ -1,11 +1,15 @@
 import useStyles from "~/hooks/useStyle";
+import calendarStyle from "~/assets/styles/calendarStyles.module.scss";
 import style from "./AppointmentTable.module.scss";
 import { useAppointment } from "~/features/adminPanel/hooks/appointment/useAppointment";
 import { InputAppSchedule } from "../InputAppSchedule.tsx/InputAppSchedule";
 import { hours } from "~/features/adminPanel/services/AppointmentServices";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
+import { SquareChevronLeft, SquareChevronRight } from "lucide-react";
 export function AppointmentTable() {
   const S = useStyles(style);
+  const CS = useStyles(calendarStyle);
+
   const userToken = useSessionStore();
   let userID = 0;
   if (userToken.user?.id) {
@@ -21,53 +25,49 @@ export function AppointmentTable() {
   } = useAppointment(userID);
 
   return (
-    <div className={S(`calendar`)}>
-      <div className={S(`hours`)}>
-        <div className={S(`hour transparent`)}>
+    <>
+      <div className={S(`options-navigation`)}>
+        <div className={S(`options`)}></div>
+        <div className={S(`navigation`)}>
           <button
+            className={S(`arrow`)}
             disabled={weekOffset === 0}
             onClick={() => setWeekOffset((prev) => Math.max(0, prev - 1))}
           >
-            <img src="/images/admin/arrow.png" alt={"W Lewo"} />
+            <SquareChevronLeft size={30} strokeWidth={1} /> Poprzedni Tydzień
           </button>
-          <button onClick={() => setWeekOffset((prev) => prev + 1)}>
-            <img
-              src="/images/admin/arrow.png"
-              className={S(`arrow-right`)}
-              alt={"W Prawo"}
-            />
+          <button
+            onClick={() => setWeekOffset((prev) => prev + 1)}
+            className={S(`arrow`)}
+          >
+            Następny Tydzień <SquareChevronRight size={30} strokeWidth={1} />
           </button>
         </div>
-        {hours.map((hour) => (
-          <div className={S(`hour`)} key={hour}>
-            {hour + ":00"}
-          </div>
-        ))}
       </div>
-
-      {dates
-        .map((dateString) => new Date(dateString))
-        .map((currentDate) => (
-          <div key={currentDate.toISOString()} className={S(`day`)}>
-            <div className={S(`date-in-words`)}>
-              {currentDate.toLocaleDateString("pl-PL", { weekday: "long" })}
-            </div>
-            <div className={S(`date-in-number`)}>
-              {currentDate.toLocaleDateString("pl-PL")}
-            </div>
-
-            {hours.map((hour) => (
-              <div key={hour} className={S(`classes`)}>
-                <InputAppSchedule
-                  currentDate={currentDate}
-                  hour={hour}
-                  onChangeAppointment={onChangeAppointment}
-                  getAppointmentByDate={getAppointmentByDate}
-                />
+      <div className={CS(`calendar`)}>
+        {dates
+          .map((dateString) => new Date(dateString))
+          .map((currentDate) => (
+            <div key={currentDate.toISOString()} className={CS(`day`)}>
+              <div className={CS(`date-in-number`)}>
+                {currentDate.toLocaleDateString("pl-PL").replace(/\./g, "/")}
               </div>
-            ))}
-          </div>
-        ))}
-    </div>
+              <div className={CS(`date-in-words`)}>
+                {currentDate.toLocaleDateString("pl-PL", { weekday: "long" })}
+              </div>
+              {hours.map((hour) => (
+                <div key={hour} className={CS(`classes`)}>
+                  <InputAppSchedule
+                    currentDate={currentDate}
+                    hour={hour}
+                    onChangeAppointment={onChangeAppointment}
+                    getAppointmentByDate={getAppointmentByDate}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+      </div>
+    </>
   );
 }

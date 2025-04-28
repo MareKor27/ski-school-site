@@ -13,7 +13,10 @@ export function UserCreateEditForm() {
     useUserInputData(userId, fetchResponse);
 
   return (
-    <form onSubmit={handleSubmit(createOrUpdateUser)}>
+    <form
+      onSubmit={handleSubmit(createOrUpdateUser)}
+      className={S(`create-edit-form`)}
+    >
       <label htmlFor="name">Imie i Nazwisko:</label>
       <input
         type="text"

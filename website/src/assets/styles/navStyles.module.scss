@@ -1,0 +1,94 @@
+@use "~/scss/abstracts" as *;
+
+:root {
+  --admin-main-color: rgba(37, 59, 81, 0);
+  --admin-main-color2: rgba(244, 248, 253, 1);
+}
+
+h2.title-page {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 300;
+  margin-right: 20px;
+  margin-left: 10px;
+  color: azure;
+}
+
+.title-tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.title-nav-links {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  gap: 0.5rem;
+}
+
+.title-nav-links > a {
+  color: #cecece;
+}
+
+.tab {
+  position: relative;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s;
+
+  &.active-tab {
+    color: #000;
+  }
+}
+
+.title-tabs .tab:hover {
+  background: linear-gradient(var(--main-color-3), transparent);
+  transition: 0.7s ease;
+}
+
+.title-tabs .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: hsl(
+    from var(--admin-main-color2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.2
+  );
+  border-radius: 5px 5px 5px 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 10px 15px 10px 15px;
+  letter-spacing: 0.2px;
+  transition: 0.5s;
+  font-weight: 300;
+  transition: 0.7s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.title-tabs .tab.active-tab {
+  transition: background-color 0.7s ease;
+  color: #ffffff;
+  border-bottom: 3px solid var(--main-color-4);
+  background: linear-gradient(var(--main-color-4), transparent);
+}
+
+.content-tabs {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+
+.content-tab {
+  // background: linear-gradient(var(--main-color-4), var(--main-color-1));
+  //background-color: var(--admin-main-color);
+  border-radius: 0px 0px 10px 10px;
+  height: 100%;
+  // box-shadow: inset 0px -8px 15px 0px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-rows: 44px 1fr;
+}

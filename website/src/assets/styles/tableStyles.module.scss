@@ -1,0 +1,52 @@
+/*=========table==========*/
+
+.stuff-table {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.stuff-table-cell {
+  min-height: 50px;
+  background: hsl(
+    from var(--admin-main-color2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.1
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  // box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.2),
+  //   0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+  color: var(--main-color-5);
+}
+.stuff-table-cell img {
+  width: 30px;
+  height: 30px;
+  filter: grayscale(100%);
+  transition: 0.2s;
+}
+
+.stuff-table .th-cell .stuff-table-cell {
+  font-size: 1.1em;
+  background: hsl(
+    from var(--admin-main-color2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.2
+  );
+  color: #fff;
+  font-weight: 300;
+}
+
+.stuff-table-cell:has(.cell-option-edit) {
+  display: flex;
+  gap: 5px;
+}
+
+//PHONE NUMBER REZERVATION
+.stuff-table-cell a {
+  text-decoration: none;
+  text-transform: none;
+  color: var(--main-color-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}

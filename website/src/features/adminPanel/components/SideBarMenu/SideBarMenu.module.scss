@@ -30,13 +30,15 @@
 }
 
 .menu .menu-sidebar .sidebar-li {
-  font-size: 1.5em;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 1em;
   text-align: center;
   background: var(--main-color-9);
   padding: 10px;
   color: var(--main-color-5);
   margin: 0px 10px;
-  transition: background-color 0.3s ease;
   font-weight: 300;
   cursor: pointer;
   border-radius: 5px;
@@ -44,7 +46,12 @@
   box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.2),
     0px 0px 2px 1px rgba(0, 0, 0, 0.3);
 }
-.menu .menu-sidebar .sidebar-li:hover {
+
+.menu .menu-sidebar .active-menu-tab .sidebar-li {
+  background: var(--main-color-1);
+  color: var(--main-color-5);
+}
+.menu .menu-sidebar :not(.active-menu-tab) .sidebar-li:hover {
   background: var(--main-color-4);
   color: var(--main-color-5);
 }
@@ -66,10 +73,38 @@
   flex-direction: column;
   margin-bottom: 20px;
   text-align: center;
+  gap: 10px;
 }
 
-.menu .menu-account .account-profile:nth-child(1) {
-  font-size: 1.3em;
-  margin-bottom: 10px;
+.account-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  background: var(--main-color-3);
+  color: var(--main-color-5);
+  transition: background-color 0.3s ease;
+  box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.2),
+    0px 0px 2px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.account-profile:hover {
+  background: var(--main-color-1);
+  color: var(--main-color-5);
+}
+
+.info-account {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--main-color-5);
+}
+
+.info-account-date {
+  color: var(--main-color-5);
 }
 /*========================*/

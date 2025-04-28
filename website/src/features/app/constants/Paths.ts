@@ -37,7 +37,24 @@ export const Paths = {
       absolute: "/administrator/rezerwacja",
       routerConfig: "rezerwacja",
     },
-    OPTION: { absolute: "/administrator/opcje", routerConfig: "opcje" },
+    OPTION: {
+      INDEX: {
+        absolute: "/administrator/opcje",
+        routerConfig: "opcje",
+      },
+      OPTION_ONE: {
+        absolute: "/administrator/opcje/one",
+        routerConfig: "one",
+      },
+      OPTION_TWO: {
+        absolute: "/administrator/opcje/two",
+        routerConfig: "two",
+      },
+      OPTION_THREE: {
+        absolute: "/administrator/opcje/three",
+        routerConfig: "three",
+      },
+    },
     STAFF: {
       INDEX: {
         absolute: "/administrator/instruktorzy",

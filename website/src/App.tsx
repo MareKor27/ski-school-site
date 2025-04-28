@@ -1,6 +1,5 @@
 import "./App.scss";
-
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { AboutUs } from "./pages/AboutUs";
 import { PriceList } from "./pages/PriceList";
@@ -9,9 +8,6 @@ import { Contact } from "./pages/Contact";
 import GlobalConfig from "./configs/GlobalConfig";
 import PageNotFound from "./pages/PageNotFound";
 import { Paths } from "./features/app/constants/Paths";
-import { AdminCalendarAddReservation } from "./pages/AdminCalendarAddReservation";
-import { AdminDashboard } from "./pages/AdminDashboard";
-import { AdminOption } from "./pages/AdminOption";
 import { Login } from "./pages/Login";
 import { ChangePassword } from "./pages/ChangePassword";
 import { ForgotPassword } from "./pages/ForgotPassword";
@@ -23,6 +19,12 @@ import { CompanyStuffView } from "./features/adminPanel/views/CompanyStuffView";
 import { UserManagement } from "./features/adminPanel/components/CompanyStuff/UserManagement/UserManagement";
 import { UserCreateEditForm } from "./features/adminPanel/components/CompanyStuff/UserCreateEditForm/UserCreateEditForm";
 import { AuthGuard } from "./features/app/guards/AuthGuard";
+import { OptionView } from "./features/adminPanel/views/OptionView";
+import { Option1 } from "./features/adminPanel/components/PanelOptions/Option1";
+import { Option2 } from "./features/adminPanel/components/PanelOptions/Option2";
+import { Option3 } from "./features/adminPanel/components/PanelOptions/Option3";
+import { DashboardView } from "./features/adminPanel/views/DashboardView";
+import { CalendarAddReservationView } from "./features/adminPanel/views/CalendarAddReservationView";
 
 function App() {
   return (
@@ -44,8 +46,17 @@ function App() {
           element={<ForgotPassword />}
         />
         <Route path={Paths.ADMIN.INDEX.routerConfig} element={<AuthGuard />}>
-          <Route index element={<AdminDashboard />} />
+          <Route index element={<DashboardView />} />
           <Route path={Paths.ADMIN.SCHEDULE.INDEX.routerConfig}>
+            <Route
+              index
+              element={
+                <Navigate
+                  to={Paths.ADMIN.SCHEDULE.CALENDAR.routerConfig}
+                  replace
+                />
+              }
+            />
             <Route
               path={Paths.ADMIN.SCHEDULE.CALENDAR.routerConfig}
               element={
@@ -74,7 +85,7 @@ function App() {
 
           <Route
             path={Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute}
-            element={<AdminCalendarAddReservation />}
+            element={<CalendarAddReservationView />}
           />
 
           <Route path={Paths.ADMIN.STAFF.INDEX.routerConfig}>
@@ -103,7 +114,41 @@ function App() {
               }
             />
           </Route>
-          <Route path={Paths.ADMIN.OPTION.absolute} element={<AdminOption />} />
+          <Route path={Paths.ADMIN.OPTION.INDEX.routerConfig}>
+            <Route
+              index
+              element={
+                <Navigate
+                  to={Paths.ADMIN.OPTION.OPTION_ONE.routerConfig}
+                  replace
+                />
+              }
+            />
+            <Route
+              path={Paths.ADMIN.OPTION.OPTION_ONE.routerConfig}
+              element={
+                <OptionView>
+                  <Option1 />
+                </OptionView>
+              }
+            />
+            <Route
+              path={Paths.ADMIN.OPTION.OPTION_TWO.routerConfig}
+              element={
+                <OptionView>
+                  <Option2 />
+                </OptionView>
+              }
+            />
+            <Route
+              path={Paths.ADMIN.OPTION.OPTION_THREE.routerConfig}
+              element={
+                <OptionView>
+                  <Option3 />
+                </OptionView>
+              }
+            />
+          </Route>
         </Route>
 
         <Route path="*" element={<PageNotFound />} />

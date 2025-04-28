@@ -1,12 +1,17 @@
+import { ReactNode } from "react";
 import { AdminPanel } from "../components/AdminPanel/AdminPanel";
 import { PanelOptions } from "../components/PanelOptions/PanelOptions";
 import { SideBarMenu } from "../components/SideBarMenu/SideBarMenu";
 
-export function OptionView() {
+type OptionViewType = {
+  children: ReactNode;
+};
+
+export function OptionView({ children }: OptionViewType) {
   return (
     <AdminPanel>
       <SideBarMenu />
-      <PanelOptions />
+      <PanelOptions>{children}</PanelOptions>
     </AdminPanel>
   );
 }

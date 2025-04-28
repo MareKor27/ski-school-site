@@ -1,5 +1,7 @@
 import { AppointmentDto } from "~/features/adminPanel/api/type/appointment.dto";
-
+import useStyles from "~/hooks/useStyle";
+import style from "./InputAppSchedule.module.scss";
+const S = useStyles(style);
 type InputAppScheduleType = {
   currentDate: Date;
   hour: number;
@@ -23,6 +25,7 @@ export const InputAppSchedule = ({
   const appointment = getAppointmentByDate(newDate);
   return (
     <input
+      className={S(`input-app-schedule`)}
       type="checkbox"
       disabled={newDate <= todayDate || appointment?.reservation != null}
       checked={!!appointment}

@@ -1,0 +1,55 @@
+$blue: #3b82f6;
+$orange: #f59e0b;
+$red: #ef4444;
+
+.button-option-edit,
+.button-option-delete,
+.button-option-update-calendar {
+  -webkit-appearance: none;
+  border-radius: 0;
+  text-align: inherit;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  color: inherit;
+  font: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  // background-color: var(--main-color-3);
+  border-radius: 10px;
+  padding: 5px;
+  color: #fff;
+  border: 1px solid var(--main-color-7);
+  transition: opacity 0.3s ease;
+  margin: 0 5px;
+}
+
+@mixin button-style($bg-color) {
+  background-color: rgba($bg-color, 0.4);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba($bg-color, 0.8);
+  }
+}
+
+.button-option-edit {
+  @include button-style($blue);
+}
+.button-option-delete {
+  @include button-style($red);
+}
+.button-option-update-calendar {
+  @include button-style($orange);
+}
+
+.button-option-edit:active,
+.button-option-delete:active,
+.button-option-update-calendar:active {
+  scale: 0.95;
+  transition: 0.2s;
+}
