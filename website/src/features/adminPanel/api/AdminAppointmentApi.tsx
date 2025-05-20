@@ -31,8 +31,22 @@ export async function createAppointment(date: Date) {
     "/appointment",
     createAppointment
   );
-  console.log(response);
   return response.data;
+}
+
+export async function getAppointmentsForReservation(
+  data: Date,
+  hour: number
+): Promise<ResponseDto<AppointmentDto[]>> {
+  try {
+    const response = await api.get<ResponseDto<AppointmentDto[]>>(
+      `/appointment/data/${data.toISOString()}/${hour}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching appointments:", error);
+    throw error; // Re-throw to let the caller know something went wrong
+  }
 }
 
 export async function getAppoitmentsByDateForOneUser(
