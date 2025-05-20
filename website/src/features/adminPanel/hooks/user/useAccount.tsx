@@ -1,4 +1,3 @@
-import React from "react";
 import { extendSesionTime } from "~/features/authorization/api/AuthToPanelAdmin";
 import {
   UserData,
