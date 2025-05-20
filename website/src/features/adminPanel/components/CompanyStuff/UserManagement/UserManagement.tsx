@@ -12,13 +12,7 @@ import { useUserInputData } from "~/features/adminPanel/hooks/user/useUserInputD
 import { Paths } from "~/features/app/constants/Paths";
 import { Link } from "react-router-dom";
 import { deleteUserInList } from "~/features/adminPanel/services/CompanyStuffServices";
-import {
-  MonitorCog,
-  SquareChevronLeft,
-  SquareChevronRight,
-  UserPen,
-  UserRoundX,
-} from "lucide-react";
+import { MonitorCog, UserPen, UserRoundX } from "lucide-react";
 
 export function UserManagement() {
   const { users, fetchResponse } = useUsers();
