@@ -4,6 +4,7 @@ import { useSessionStore } from "~/features/authorization/store/useSessionStore"
 import { CreateReservationDto, ReservationDto } from "./type/reservation.dto";
 import { ResponseDto } from "./type/response.dto";
 import { handleApiError } from "~/features/authorization/services/ErrorServices";
+import { AppointmentDto } from "./type/appointment.dto";
 
 const api = axios.create({
   baseURL: "http://localhost:3000",
@@ -40,30 +41,12 @@ export async function deleteReservations(
 
 export async function createReservation(
   reservation: CreateReservationDto,
-  appointmentId: number
+  filteredReservationAppoitmentsIds: number[]
 ) {
-  // try {
-  //   const response = await api.post<ResponseDto<ReservationDto>>(
-  //     `/reservation?appointment=${appointmentId}`,
-  //     reservation
-  //   );
-  //   return response.data;
-  // } catch (error: any) {
-  //   if (error.response) {
-  //     console.error(
-  //       "Błąd serwera:",
-  //       error.response.data.message || error.response.data
-  //     );
-  //   } else if (error.request) {
-  //     console.error("Brak odpowiedzi od serwera");
-  //   } else {
-  //     console.error("Błąd aplikacji:", error.message);
-  //   }
-  // }
   try {
     const response = await api.post<ResponseDto<ReservationDto>>(
-      `/reservation?appointment=${appointmentId}`,
-      reservation
+      `/reservation`,
+      { reservation, filteredReservationAppoitmentsIds }
     );
     return response.data;
   } catch (error) {
