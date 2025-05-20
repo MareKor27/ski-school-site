@@ -22,3 +22,5 @@ export const useReservationStore = create<ReservationStoreType>((set) => ({
       localStorage.removeItem("appointmentsTile");
   },
 }));
+
+///PROPABLY DEL
