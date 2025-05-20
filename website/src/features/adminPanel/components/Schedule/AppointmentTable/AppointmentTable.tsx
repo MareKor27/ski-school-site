@@ -57,6 +57,7 @@ export function AppointmentTable() {
               </div>
               {hours.map((hour) => (
                 <div key={hour} className={CS(`classes`)}>
+                  <div className={CS(`hour`)}>{hour + ":00"}</div>
                   <InputAppSchedule
                     currentDate={currentDate}
                     hour={hour}

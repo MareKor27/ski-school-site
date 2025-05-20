@@ -1,23 +1,24 @@
 import { create } from "zustand";
 import { AppointmentDto } from "../../api/type/appointment.dto";
+import { AppointmentTile } from "../calendar/useCalendar";
 export type ReservationStoreType = {
-  appointmentsData: AppointmentDto[] | null;
-  setReservationData: (data: AppointmentDto[]) => void;
+  appointmentsTile: AppointmentTile[] | null;
+  setAppointmentsTile: (data: AppointmentTile[]) => void;
   clearReservationData: () => void;
 };
 
 export const useReservationStore = create<ReservationStoreType>((set) => ({
-  appointmentsData: JSON.parse(localStorage.getItem("appointmentsData")!),
+  appointmentsTile: JSON.parse(localStorage.getItem("appointmentsTile")!),
 
-  setReservationData: (appointmentsData: AppointmentDto[]) => {
-    set({ appointmentsData }),
+  setAppointmentsTile: (appointmentsTile: AppointmentTile[]) => {
+    set({ appointmentsTile }),
       localStorage.setItem(
-        "appointmentsData",
-        JSON.stringify(appointmentsData)
+        "appointmentsTile",
+        JSON.stringify(appointmentsTile)
       );
   },
   clearReservationData: () => {
-    set({ appointmentsData: null }),
-      localStorage.removeItem("appointmentsData");
+    set({ appointmentsTile: null }),
+      localStorage.removeItem("appointmentsTile");
   },
 }));

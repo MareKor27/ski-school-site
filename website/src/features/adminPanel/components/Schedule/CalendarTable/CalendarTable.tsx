@@ -9,7 +9,7 @@ export function CalendarTable() {
   const S = useStyles(style);
   const CS = useStyles(calendarStyle);
 
-  const { weekOffset, setWeekOffset, dates, getAppointmentsByDate } =
+  const { dates, getAppointmentsByDate, weekOffset, setWeekOffset } =
     useCalendar();
 
   return (
@@ -43,6 +43,8 @@ export function CalendarTable() {
             </div>
             {hours.map((hour) => (
               <div className={CS(`classes`)} key={hour}>
+                <div className={CS(`hour`)}>{hour + ":00"}</div>
+                {/* <div className={CS(`hour`)}>{"Max " + {} + "h"}</div> */}
                 <CalendarBox
                   currentDate={currentDate}
                   hour={hour}

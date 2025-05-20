@@ -28,7 +28,7 @@ export function ReservationTable() {
     "Numer telefonu",
     "Ilość Kursantów",
     "Sprzęt",
-    "Poziom zawansowania",
+    "Poziom zawansowania i czas",
     "Opcje",
   ];
 
@@ -69,7 +69,7 @@ export function ReservationTable() {
               {reservation.chosenEquipment}
             </div>
             <div className={TS(`stuff-table-cell`)}>
-              {reservation.advancement}
+              {reservation.advancement + " " + reservation.purchasedTime}
             </div>
 
             <div className={TS(`stuff-table-cell`)}>

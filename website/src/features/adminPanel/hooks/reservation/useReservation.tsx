@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import { ReservationDto } from "../../api/type/reservation.dto";
 import { readReservations } from "../../api/AdminReservationApi";
 import { deleteReservations } from "../../api/AdminReservationApi";
-import { useReservationStore } from "./useReservationStore";
 
 export const useReservation = () => {
   const [reservations, setReservations] = useState<ReservationDto[]>([]);
-  const resevationStore = useReservationStore();
 
   const handleDeleteReservation = async (id: number) => {
     const isConfirmed = window.confirm(
@@ -26,7 +24,8 @@ export const useReservation = () => {
 
   useEffect(() => {
     fetchReservationResponse();
-  }, [resevationStore.appointmentsData]);
+  }, []);
+  //  TODO: musi siępo czyms odświeżać tylko po czym?
 
   return {
     reservations,
