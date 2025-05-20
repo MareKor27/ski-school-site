@@ -1,11 +1,11 @@
-export const PurchasedTime = {
-  PurchasedOneHour: "ONEHOUR",
-  PurchasedTwoHour: "TWOHOUR",
-  PurchasedThreeHour: "THREEHOUR",
-} as const;
+// export const PurchasedTime = {
+//   PurchasedOneHour: "ONEHOUR",
+//   PurchasedTwoHour: "TWOHOUR",
+//   PurchasedThreeHour: "THREEHOUR",
+// } as const;
 
-export type PurchasedTime = (typeof PurchasedTime)[keyof typeof PurchasedTime];
-export const purchasedTime = Object.values(PurchasedTime);
+// export type PurchasedTime = (typeof PurchasedTime)[keyof typeof PurchasedTime];
+// export const purchasedTime = Object.values(PurchasedTime);
 
 export const ChosenEquipment = {
   OwnEquipment: "WŁASNY",
@@ -27,7 +27,7 @@ export type ReservationDto = {
 
   phoneNumber: string;
 
-  purchasedTime: PurchasedTime;
+  purchasedTime: number;
 
   participants: number;
 
@@ -49,7 +49,7 @@ export type CreateReservationDto = {
 
   phoneNumber: string;
 
-  purchasedTime: PurchasedTime;
+  purchasedTime: number;
 
   participants: number;
 
@@ -69,12 +69,12 @@ export type ReservationType = {
   fullName: string;
   email: string;
   phoneNumber: string;
-  purchasedTime: PurchasedTime;
+  purchasedTime: number;
   participants: number;
   ageOfParticipants: string;
   advancement: string;
   chosenEquipment: ChosenEquipment;
   additionalComments: string;
   insuranceInformation: string;
-  appointmentId: string;
+  instructorId: string;
 };
