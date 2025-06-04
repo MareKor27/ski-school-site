@@ -30,8 +30,12 @@ export async function readUsers(): Promise<CollectionResponseDto<UserDto>> {
 }
 
 export async function readUser(id: number): Promise<ResponseDto<UserDto>> {
-  const response = await api.get<ResponseDto<UserDto>>(`${"/" + id}`);
-  return response.data;
+  try {
+    const response = await api.get<ResponseDto<UserDto>>(`${"/" + id}`);
+    return response.data;
+  } catch (error) {
+    throw handleApiError(error);
+  }
 }
 
 // export async function createUser(
