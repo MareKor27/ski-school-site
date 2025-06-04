@@ -6,15 +6,12 @@ import { InputAppSchedule } from "../InputAppSchedule.tsx/InputAppSchedule";
 import { hours } from "~/features/adminPanel/services/AppointmentServices";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 import { SquareChevronLeft, SquareChevronRight } from "lucide-react";
+import { useLocation } from "react-router-dom";
 export function AppointmentTable() {
   const S = useStyles(style);
   const CS = useStyles(calendarStyle);
+  const location = useLocation();
 
-  const userToken = useSessionStore();
-  let userID = 0;
-  if (userToken.user?.id) {
-    userID = userToken.user?.id;
-  }
   // powinno wyrzucać jak nie masz sesji eloooo
   const {
     weekOffset,
@@ -22,12 +19,13 @@ export function AppointmentTable() {
     dates,
     onChangeAppointment,
     getAppointmentByDate,
-  } = useAppointment(userID);
+    modificationLabel,
+  } = useAppointment(location);
 
   return (
     <>
       <div className={S(`options-navigation`)}>
-        <div className={S(`options`)}></div>
+        <div className={S(`options`)}>{modificationLabel}</div>
         <div className={S(`navigation`)}>
           <button
             className={S(`arrow`)}

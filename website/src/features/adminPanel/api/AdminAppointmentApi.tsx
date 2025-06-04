@@ -34,6 +34,20 @@ export async function createAppointment(date: Date) {
   return response.data;
 }
 
+export async function createAppointmentForInstructor(
+  date: Date,
+  instructorId: number
+) {
+  const createAppointment: CreateAppointmentDto = {
+    appointmentDate: date,
+  };
+  const response = await api.post<CreateAppointmentDto>(
+    `/appointment/instructor/${instructorId}`,
+    createAppointment
+  );
+  return response.data;
+}
+
 export async function getAppointmentsForReservation(
   data: Date,
   hour: number

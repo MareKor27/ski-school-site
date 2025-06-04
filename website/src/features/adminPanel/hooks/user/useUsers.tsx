@@ -10,6 +10,16 @@ export const useUsers = () => {
     setUsers(response.content);
   };
 
+  // async function returnUser(id: number): Promise<UserDto> {
+  //   await fetchResponse();
+  //   console.log(users);
+  //   const user = users.find((user) => user.id == id);
+  //   if (!user) {
+  //     throw new Error(`User with id=${id} not found`);
+  //   }
+  //   return user;
+  // }
+
   useEffect(() => {
     fetchResponse();
   }, []);

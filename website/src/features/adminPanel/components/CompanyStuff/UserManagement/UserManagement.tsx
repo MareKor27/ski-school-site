@@ -45,10 +45,14 @@ export function UserManagement() {
             <div className={TS(`stuff-table-cell`)}>{account.name}</div>
             <div className={TS(`stuff-table-cell`)}>{account.email}</div>
             <div className={TS(`stuff-table-cell`)}>
-              <button className={BS(`button-option-update-calendar`)}>
-                <MonitorCog size={25} strokeWidth={1} />
-                Aktualizuj Grafik
-              </button>
+              <Link
+                to={`${Paths.ADMIN.SCHEDULE.TIMETABLE.absolute}?userid=${account.id}`}
+              >
+                <button className={BS(`button-option-update-calendar`)}>
+                  <MonitorCog size={25} strokeWidth={1} />
+                  Aktualizuj Grafik
+                </button>
+              </Link>
               {/* // linki ? czu buttony? */}
               <Link to={Paths.ADMIN.STAFF.EDIT.absolute(account.id)}>
                 <button className={BS(`button-option-edit`)}>
