@@ -4,7 +4,7 @@ import { useSessionStore } from "~/features/authorization/store/useSessionStore"
 import { CreateReservationDto, ReservationDto } from "./type/reservation.dto";
 import { ResponseDto } from "./type/response.dto";
 import { handleApiError } from "~/features/authorization/services/ErrorServices";
-import { AppointmentDto } from "./type/appointment.dto";
+import { RequestOptions } from "./type/paginationOptions.dto";
 
 const api = axios.create({
   baseURL: "http://localhost:3000",
@@ -21,12 +21,18 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-export async function readReservations(): Promise<
-  CollectionResponseDto<ReservationDto>
-> {
+export async function readReservations(
+  requestOptions: RequestOptions
+): Promise<CollectionResponseDto<ReservationDto>> {
+  console.log(requestOptions);
   const response = await api.get<CollectionResponseDto<ReservationDto>>(
-    "/reservation"
+    "/reservation",
+    {
+      params: requestOptions,
+    }
   );
+  //WPROWADZIĆ
+  console.log(response);
   return response.data;
 }
 
@@ -53,3 +59,7 @@ export async function createReservation(
     throw handleApiError(error);
   }
 }
+
+// /reservation?id=7
+// /reservation?id=
+// /reservation

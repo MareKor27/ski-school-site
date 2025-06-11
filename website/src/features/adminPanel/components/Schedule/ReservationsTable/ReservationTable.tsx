@@ -4,24 +4,26 @@ import buttonStyle from "~/assets/styles/buttonsStyles.module.scss";
 import useStyles from "~/hooks/useStyle";
 
 import { useReservation } from "~/features/adminPanel/hooks/reservation/useReservation";
-import {
-  PhoneForwarded,
-  SquareChevronLeft,
-  SquareChevronRight,
-  Trash2,
-} from "lucide-react";
+import { PhoneForwarded, Trash2, UserCheck } from "lucide-react";
+import { useUsers } from "~/features/adminPanel/hooks/user/useUsers";
 
 const S = useStyles(style);
 const TS = useStyles(tableStyle);
 const BS = useStyles(buttonStyle);
 
 export function ReservationTable() {
-  const { reservations, handleDeleteReservation } = useReservation();
-
-  function formatPhone(phone: string) {
-    const parts = phone.match(/.{1,3}/g);
-    return parts!.join(" ");
-  }
+  const {
+    reservations,
+    handleDeleteReservation,
+    formatPhone,
+    readData,
+    setInstructorId,
+    setPaginationRows,
+    totalRows,
+    lastPage,
+    setPaginationPage,
+  } = useReservation();
+  const { users } = useUsers();
 
   const headers = [
     "Imie i nazwisko",
@@ -35,7 +37,67 @@ export function ReservationTable() {
   return (
     <>
       <div className={S(`options-navigation`)}>
-        <div className={S(`options`)}></div>
+        <div className={S(`options`)}>
+          <UserCheck /> Instruktor:
+          <select
+            name="userId"
+            onChange={(event) => {
+              setInstructorId(
+                event.target.value == "" ? null : Number(event.target.value)
+              );
+            }}
+          >
+            <option value="">Wszyscy</option>
+            {users.map((user) => {
+              return (
+                <option key={user.id} value={user.id}>
+                  {user.name}
+                </option>
+              );
+            })}
+          </select>
+          Paginacja: Wiersze:
+          <select
+            name="pagination-rows"
+            onChange={(event) => {
+              setPaginationRows(Number(event.target.value));
+            }}
+          >
+            <option key={10} value="10">
+              10
+            </option>
+            <option key={20} value="20">
+              20
+            </option>
+            <option key={30} value="30">
+              30
+            </option>
+            <option key={40} value="40">
+              40
+            </option>
+            <option key={50} value="50">
+              50
+            </option>
+            <option key={100} value="100">
+              100
+            </option>
+          </select>
+          Strony:
+          <select
+            name="pagination-rows"
+            onChange={(event) => {
+              setPaginationPage(Number(event.target.value));
+            }}
+          >
+            {Array.from({ length: lastPage }, (_, i) => (
+              <option key={i + 1} value={i + 1}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+          <button onClick={() => readData()}>Filtruj</button>
+          Całe dane: wiersze:{totalRows} Ostatnia strona: {lastPage}
+        </div>
         <div className={S(`navigation`)}>
           {/* <button className={S(`arrow`)}>
             <SquareChevronLeft size={30} strokeWidth={1} /> Poprzedni Tydzień

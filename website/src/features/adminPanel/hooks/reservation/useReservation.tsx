@@ -1,10 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ReservationDto } from "../../api/type/reservation.dto";
 import { readReservations } from "../../api/AdminReservationApi";
 import { deleteReservations } from "../../api/AdminReservationApi";
+import { RequestOptions } from "../../api/type/paginationOptions.dto";
 
 export const useReservation = () => {
   const [reservations, setReservations] = useState<ReservationDto[]>([]);
+  const [instructorId, setInstructorId] = useState<number | null>(null);
+  const [paginationRows, setPaginationRows] = useState<number>(10);
+  const [paginationPage, setPaginationPage] = useState<number>(1);
+  const [totalRows, setTotalRows] = useState<number>(1);
+  const [lastPage, setLastPage] = useState<number>(1);
+
+  const requestOptions = useMemo<RequestOptions>(() => {
+    const filters: string[] = [];
+
+    if (instructorId) {
+      filters.push(`instructorId=${instructorId}`);
+    }
+    return {
+      page: paginationPage,
+      size: paginationRows,
+      filter: filters,
+      sort: [],
+    };
+  }, [paginationRows, paginationPage, instructorId]);
 
   const handleDeleteReservation = async (id: number) => {
     const isConfirmed = window.confirm(
@@ -13,22 +33,43 @@ export const useReservation = () => {
     if (isConfirmed) {
       await deleteReservations(id);
     }
-    fetchReservationResponse();
+    fetchReservationResponse(requestOptions); //, paginationRows, paginationPage);
   };
 
+  function formatPhone(phone: string) {
+    const parts = phone.match(/.{1,3}/g);
+    return parts!.join(" ");
+  }
+
+  function readData() {
+    fetchReservationResponse(requestOptions);
+  }
+
   // refresh
-  const fetchReservationResponse = async () => {
-    const response = await readReservations();
+  const fetchReservationResponse = async (requestOptions: RequestOptions) => {
+    console.log(paginationRows, paginationPage);
+    const response = await readReservations(requestOptions);
+    console.log(response);
     setReservations(response.content);
+    setTotalRows(response.pagination.totalRows);
+    setLastPage(response.pagination.lastPage);
   };
 
   useEffect(() => {
-    fetchReservationResponse();
+    fetchReservationResponse(requestOptions);
   }, []);
   //  TODO: musi siępo czyms odświeżać tylko po czym?
 
   return {
     reservations,
     handleDeleteReservation,
+    formatPhone,
+    readData,
+    setInstructorId,
+    instructorId,
+    setPaginationRows,
+    totalRows,
+    lastPage,
+    setPaginationPage,
   } as const;
 };
