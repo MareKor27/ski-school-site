@@ -23,13 +23,13 @@ $red: #ef4444;
   border-radius: 10px;
   padding: 5px;
   color: #fff;
-  border: 1px solid var(--main-color-7);
+  // border: 1px solid var(--main-color-7);
   transition: opacity 0.3s ease;
-  margin: 0 5px;
+  margin: 0 10px;
 }
 
 @mixin button-style($bg-color) {
-  background-color: rgba($bg-color, 0.4);
+  background-color: rgba($bg-color, 0.3);
   transition: background-color 0.3s ease;
 
   &:hover {

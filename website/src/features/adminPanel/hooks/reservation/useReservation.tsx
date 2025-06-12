@@ -22,7 +22,7 @@ export const useReservation = () => {
       page: paginationPage,
       size: paginationRows,
       filter: filters,
-      sort: [],
+      sort: ["appointmentDate"],
     };
   }, [paginationRows, paginationPage, instructorId]);
 
@@ -45,11 +45,26 @@ export const useReservation = () => {
     fetchReservationResponse(requestOptions);
   }
 
+  function paginationInformation(): string {
+    const firstReserwation = (paginationPage - 1) * paginationRows + 1;
+    const lastReservation =
+      totalRows < paginationRows ? totalRows : paginationRows;
+
+    return (
+      firstReserwation +
+      " do " +
+      lastReservation +
+      " z " +
+      totalRows +
+      " rezerwacji  "
+    );
+  }
+
   // refresh
   const fetchReservationResponse = async (requestOptions: RequestOptions) => {
-    console.log(paginationRows, paginationPage);
+    //console.log(paginationRows, paginationPage);
     const response = await readReservations(requestOptions);
-    console.log(response);
+    console.log(response.content);
     setReservations(response.content);
     setTotalRows(response.pagination.totalRows);
     setLastPage(response.pagination.lastPage);
@@ -71,5 +86,6 @@ export const useReservation = () => {
     totalRows,
     lastPage,
     setPaginationPage,
+    paginationInformation,
   } as const;
 };

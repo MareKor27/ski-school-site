@@ -4,6 +4,9 @@
 //   PurchasedThreeHour: "THREEHOUR",
 // } as const;
 
+import { AppointmentDto } from "./appointment.dto";
+import { UserDto } from "./user.dto";
+
 // export type PurchasedTime = (typeof PurchasedTime)[keyof typeof PurchasedTime];
 // export const purchasedTime = Object.values(PurchasedTime);
 
@@ -40,6 +43,8 @@ export type ReservationDto = {
   additionalComments: string;
 
   insuranceInformation: string;
+
+  appointments: AppointmentDto[];
 };
 
 export type CreateReservationDto = {
