@@ -54,3 +54,10 @@ export function formatAdvancement(advancement: string): string {
       return "brak";
   }
 }
+
+export function ageRangeStudents(ageTable: string): string {
+  const table = ageTable.split(",");
+  if (table.length == 1) return table[0];
+
+  return table[0] + "-" + table[table.length - 1];
+}

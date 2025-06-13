@@ -39,6 +39,8 @@
   justify-content: center;
   margin: 0 10px;
   font-size: 12px;
+  box-shadow: 1px 1px 10px
+    hsl(from var(--main-color-2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5);
 }
 
 .P0,
@@ -58,6 +60,8 @@
   background: hsl(
     from var(--main-color-10) calc(h + 0) calc(s + 0) calc(l + 0) / 0.3
   );
+  box-shadow: 1px 1px 10px
+    hsl(from var(--main-color-2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5);
 }
 
 // .P0 {
@@ -81,8 +85,6 @@
   background: hsl(
     from var(--main-color-4) calc(h + 0) calc(s + 0) calc(l + 0) / 0.3
   );
-  box-shadow: 1px 1px 10px
-    hsl(from var(--main-color-2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5);
   // width: 110px;
 }
 .Własny {
@@ -91,8 +93,6 @@
   background: hsl(
     from var(--main-color-5) calc(h + 0) calc(s + 0) calc(l + 0) / 0.3
   );
-  box-shadow: 1px 1px 10px
-    hsl(from var(--main-color-2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5);
   // width: 110px;
 }
 

@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useUsers } from "~/features/adminPanel/hooks/user/useUsers";
 import {
+  ageRangeStudents,
   formatAdvancement,
   formatEquipment,
   formatToLongDate,
@@ -132,7 +133,7 @@ export function ReservationTable() {
             </div>
 
             <div className={TS(`stuff-table-cell`)}>
-              {reservation.ageOfParticipants}
+              {ageRangeStudents(reservation.ageOfParticipants)}
             </div>
 
             <div
@@ -161,7 +162,7 @@ export function ReservationTable() {
             <img src="/images/admin/edit-icon.png" alt={"Edytuj"} />
             Edytuj {"   "}
           </div> */}
-              <button
+              {/* <button
                 className={BS(`button-option-update-calendar`)}
                 onClick={() => handleDeleteReservation(reservation.id)}
               >
@@ -172,7 +173,7 @@ export function ReservationTable() {
                 onClick={() => handleDeleteReservation(reservation.id)}
               >
                 <FilePen size={25} strokeWidth={1} />
-              </button>
+              </button> */}
               <button
                 className={BS(`button-option-delete`)}
                 onClick={() => handleDeleteReservation(reservation.id)}
@@ -192,7 +193,7 @@ export function ReservationTable() {
               name="pagination-rows"
               onChange={(event) => {
                 setPaginationRows(Number(event.target.value));
-                readData();
+                // readData();
               }}
               className={S(`custom-select`)}
             >
@@ -220,7 +221,7 @@ export function ReservationTable() {
               name="pagination-rows"
               onChange={(event) => {
                 setPaginationPage(Number(event.target.value));
-                readData();
+                // readData();
               }}
               className={S(`custom-select`)}
             >

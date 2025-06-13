@@ -47,8 +47,13 @@ export const useReservation = () => {
 
   function paginationInformation(): string {
     const firstReserwation = (paginationPage - 1) * paginationRows + 1;
+
     const lastReservation =
-      totalRows < paginationRows ? totalRows : paginationRows;
+      firstReserwation > paginationRows
+        ? totalRows
+        : totalRows < paginationRows
+        ? totalRows
+        : paginationRows;
 
     return (
       firstReserwation +
