@@ -23,6 +23,7 @@ export const useLessonReservation = () => {
     formState: { errors },
     setError,
     watch,
+    control,
   } = useForm<ReservationType>({
     mode: "onSubmit",
     defaultValues: {
@@ -222,5 +223,6 @@ export const useLessonReservation = () => {
     allAppointments,
     instructorDataSet,
     lessonLenght,
+    control,
   } as const;
 };

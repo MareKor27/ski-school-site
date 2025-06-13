@@ -19,6 +19,18 @@ export type ChosenEquipment =
   (typeof ChosenEquipment)[keyof typeof ChosenEquipment];
 export const chosenEquipment = Object.values(ChosenEquipment);
 
+export const ReservationAdvancement = {
+  P0: "Początkujący",
+  P1: "Podstawowy",
+  P2: "Średniozawansowany",
+  P3: "Zaawansowany",
+  P4: "Ekspert",
+} as const;
+
+export type ReservationAdvancement =
+  (typeof ReservationAdvancement)[keyof typeof ReservationAdvancement];
+export const reservationAdvancement = Object.values(ReservationAdvancement);
+
 export type ReservationDto = {
   id: number;
 
@@ -36,7 +48,7 @@ export type ReservationDto = {
 
   ageOfParticipants: string;
 
-  advancement: string;
+  advancement: ReservationAdvancement;
 
   chosenEquipment: ChosenEquipment;
 

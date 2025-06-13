@@ -2,6 +2,8 @@ import style from "./CalendarAddReservation.module.scss";
 import errorStyle from "~/assets/styles/errorStyles.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { useLessonReservation } from "../../hooks/reservation/useLessonReservation";
+import { reservationAdvancement } from "../../api/type/reservation.dto";
+import AgeMultiSelect from "./SelectAgeComponent/SelectAgeComponent";
 const S = useStyles(style);
 const ES = useStyles(errorStyle);
 export function CalendarAddReservation() {
@@ -15,6 +17,7 @@ export function CalendarAddReservation() {
     formatTitleDateReservation,
     instructorDataSet,
     lessonLenght,
+    control,
   } = useLessonReservation();
 
   return (
@@ -51,6 +54,7 @@ export function CalendarAddReservation() {
         </div> */}
         <form
           onSubmit={handleSubmit((form) => {
+            // console.log(form);
             addReservation(form);
           })}
         >
@@ -135,20 +139,32 @@ export function CalendarAddReservation() {
               </div>
               <div>
                 <label htmlFor="ageOfParticipants">Wiek osób*:</label>
-                <input
+                <AgeMultiSelect control={control} name="ageOfParticipants" />
+                {/* <input
                   type="text"
                   {...register("ageOfParticipants", {
                     required: "Proszę podać wiek osób",
                   })}
                   placeholder="Słownie lub liczbowo"
-                />
+                /> */}
                 <div className={ES(`errors`)}>
                   {errors.ageOfParticipants && errors.ageOfParticipants.message}
                 </div>
               </div>
               <div>
                 <label htmlFor="advancement">Poziom zawansowania*:</label>
-                <input
+
+                <select
+                  {...register("advancement", {
+                    required: "Proszę określić poziom zawansowania",
+                  })}
+                >
+                  {/* <option>Wybierz poziom</option> */}
+                  {reservationAdvancement.map((text) => (
+                    <option key={text}>{text}</option>
+                  ))}
+                </select>
+                {/* <input
                   type="text"
                   {...register("advancement", {
                     required: "Proszę określić poziom zawansowania",
@@ -157,7 +173,7 @@ export function CalendarAddReservation() {
                       message: "Proszę wpisać poziom zawansowania",
                     },
                   })}
-                />
+                /> */}
                 <div className={ES(`errors`)}>
                   {errors.advancement && errors.advancement.message}
                 </div>
