@@ -3,7 +3,7 @@ import errorStyle from "~/assets/styles/errorStyles.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { useLessonReservation } from "../../hooks/reservation/useLessonReservation";
 import { reservationAdvancement } from "../../api/type/reservation.dto";
-import AgeMultiSelect from "./SelectAgeComponent/SelectAgeComponent";
+import AgeMultiSelect from "./AgeMultiSelect/AgeMultiSelect";
 const S = useStyles(style);
 const ES = useStyles(errorStyle);
 export function CalendarAddReservation() {

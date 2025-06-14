@@ -11,7 +11,9 @@ export const useReservation = () => {
   const [paginationPage, setPaginationPage] = useState<number>(1);
   const [totalRows, setTotalRows] = useState<number>(1);
   const [lastPage, setLastPage] = useState<number>(1);
-
+  const [openAdditionalConntent, setOpenAdditionalConntent] = useState<
+    number | null
+  >(null);
   const requestOptions = useMemo<RequestOptions>(() => {
     const filters: string[] = [];
 
@@ -25,6 +27,10 @@ export const useReservation = () => {
       sort: ["appointmentDate"],
     };
   }, [paginationRows, paginationPage, instructorId]);
+
+  const toogleAdditionalConntent = (id: number): void => {
+    setOpenAdditionalConntent((prev) => (prev == id ? null : id));
+  };
 
   const handleDeleteReservation = async (id: number) => {
     const isConfirmed = window.confirm(
@@ -92,5 +98,7 @@ export const useReservation = () => {
     lastPage,
     setPaginationPage,
     paginationInformation,
+    openAdditionalConntent,
+    toogleAdditionalConntent,
   } as const;
 };

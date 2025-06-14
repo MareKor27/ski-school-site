@@ -20,6 +20,7 @@ import {
   formatToShortDate,
   nameToInitials,
 } from "~/features/adminPanel/utils/formatters";
+import { useState } from "react";
 
 const S = useStyles(style);
 const TS = useStyles(tableStyle);
@@ -33,10 +34,11 @@ export function ReservationTable() {
     readData,
     setInstructorId,
     setPaginationRows,
-    totalRows,
     lastPage,
     setPaginationPage,
     paginationInformation,
+    openAdditionalConntent,
+    toogleAdditionalConntent,
   } = useReservation();
   const { users } = useUsers();
 
@@ -44,7 +46,6 @@ export function ReservationTable() {
     "",
     "Data",
     "Czas",
-
     "Rezerwujący",
     "Nr. telefonu",
     "Ilość",
@@ -99,70 +100,79 @@ export function ReservationTable() {
           ))}
         </div>
         {reservations.map((reservation) => (
-          <div className={S(`stuff-table-row`)} key={reservation.id}>
+          <>
             <div
-              className={`${TS(`stuff-table-cell`)}`}
-              title={reservation.appointments[0].instructor.name}
-            >
-              <div className={`${S(`initial`)}`}>
-                {nameToInitials(reservation.appointments[0].instructor.name)}
-              </div>
-            </div>
-            <div
-              className={TS(`stuff-table-cell`)}
-              title={formatToLongDate(
-                reservation.appointments[0].appointmentDate
-              )}
-            >
-              {formatToShortDate(reservation.appointments[0].appointmentDate)}
-            </div>
-
-            <div className={TS(`stuff-table-cell`)}>
-              {reservation.purchasedTime + "h"}
-            </div>
-            <div className={TS(`stuff-table-cell`)}>{reservation.fullName}</div>
-
-            <div className={TS(`stuff-table-cell`)}>
-              <a href={`tel:+48${reservation.phoneNumber}`}>
-                {/* <PhoneForwarded size={20} strokeWidth={1.5} color="#2e9521" /> */}
-                +48 {formatPhone(reservation.phoneNumber)}
-              </a>
-            </div>
-            <div className={TS(`stuff-table-cell`)}>
-              {reservation.participants}
-            </div>
-
-            <div className={TS(`stuff-table-cell`)}>
-              {ageRangeStudents(reservation.ageOfParticipants)}
-            </div>
-
-            <div
-              className={TS(`stuff-table-cell`)}
-              title={reservation.advancement}
+              className={S(`stuff-table-row`)}
+              key={reservation.id}
+              onClick={() => toogleAdditionalConntent(reservation.id)}
             >
               <div
-                className={S(`${formatAdvancement(reservation.advancement)}`)}
+                className={`${TS(`stuff-table-cell`)}`}
+                title={reservation.appointments[0].instructor.name}
               >
-                {formatAdvancement(reservation.advancement)}
+                <div className={`${S(`initial`)}`}>
+                  {nameToInitials(reservation.appointments[0].instructor.name)}
+                </div>
               </div>
-            </div>
-            <div
-              className={TS(`stuff-table-cell`)}
-              title={reservation.chosenEquipment}
-            >
               <div
-                className={S(`${formatEquipment(reservation.chosenEquipment)}`)}
+                className={TS(`stuff-table-cell`)}
+                title={formatToLongDate(
+                  reservation.appointments[0].appointmentDate
+                )}
               >
-                {formatEquipment(reservation.chosenEquipment)}
+                {formatToShortDate(reservation.appointments[0].appointmentDate)}
               </div>
-            </div>
 
-            <div className={TS(`stuff-table-cell`)}>
-              {/* <div className={S(`cell-option-edit`)}>
-            <img src="/images/admin/edit-icon.png" alt={"Edytuj"} />
-            Edytuj {"   "}
-          </div> */}
-              {/* <button
+              <div className={TS(`stuff-table-cell`)}>
+                {reservation.purchasedTime + "h"}
+              </div>
+              <div className={TS(`stuff-table-cell`)}>
+                {reservation.fullName}
+              </div>
+
+              <div className={TS(`stuff-table-cell`)}>
+                <a href={`tel:+48${reservation.phoneNumber}`}>
+                  {/* <PhoneForwarded size={20} strokeWidth={1.5} color="#2e9521" /> */}
+                  +48 {formatPhone(reservation.phoneNumber)}
+                </a>
+              </div>
+              <div className={TS(`stuff-table-cell`)}>
+                {reservation.participants}
+              </div>
+
+              <div className={TS(`stuff-table-cell`)}>
+                {ageRangeStudents(reservation.ageOfParticipants)}
+              </div>
+
+              <div
+                className={TS(`stuff-table-cell`)}
+                title={reservation.advancement}
+              >
+                <div
+                  className={S(`${formatAdvancement(reservation.advancement)}`)}
+                >
+                  {formatAdvancement(reservation.advancement)}
+                </div>
+              </div>
+              <div
+                className={TS(`stuff-table-cell`)}
+                title={reservation.chosenEquipment}
+              >
+                <div
+                  className={S(
+                    `${formatEquipment(reservation.chosenEquipment)}`
+                  )}
+                >
+                  {formatEquipment(reservation.chosenEquipment)}
+                </div>
+              </div>
+
+              <div className={TS(`stuff-table-cell`)}>
+                {/* <div className={S(`cell-option-edit`)}>
+              <img src="/images/admin/edit-icon.png" alt={"Edytuj"} />
+              Edytuj {"   "}
+              </div> */}
+                {/* <button
                 className={BS(`button-option-update-calendar`)}
                 onClick={() => handleDeleteReservation(reservation.id)}
               >
@@ -174,15 +184,30 @@ export function ReservationTable() {
               >
                 <FilePen size={25} strokeWidth={1} />
               </button> */}
-              <button
-                className={BS(`button-option-delete`)}
-                onClick={() => handleDeleteReservation(reservation.id)}
-                title="Usuń"
-              >
-                <Trash2 size={25} strokeWidth={1} />
-              </button>
+                <button
+                  className={BS(`button-option-delete`)}
+                  onClick={() => handleDeleteReservation(reservation.id)}
+                  title="Usuń"
+                >
+                  <Trash2 size={25} strokeWidth={1} />
+                </button>
+              </div>
             </div>
-          </div>
+            {openAdditionalConntent == reservation.id && (
+              <div className={TS(`additional-conntent`)}>
+                <div>
+                  <b>Dodatkowe uwagi:</b>
+                  <br />
+                  {reservation.additionalComments}
+                </div>
+                <div>
+                  <b>Ubezpieczenie:</b>
+                  <br />
+                  {reservation.insuranceInformation}
+                </div>
+              </div>
+            )}
+          </>
         ))}
 
         <div className={` ${S(`table-footer`)}`}>
