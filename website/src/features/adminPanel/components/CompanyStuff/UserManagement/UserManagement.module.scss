@@ -1,4 +1,4 @@
 .stuff-table-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) 2fr;
+  grid-template-columns: 50px repeat(2, 1fr) 2fr;
 }

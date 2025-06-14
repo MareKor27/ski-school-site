@@ -70,3 +70,22 @@
     var(--main-color-2)
   );
 }
+
+.initial {
+  height: 30px;
+  width: 30px;
+  background: hsl(
+    from var(--admin-main-color2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.2
+  );
+  border-radius: 50%;
+  color: var(--main-color-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  font-size: 15px;
+  box-shadow: 1px 1px 10px
+    hsl(from var(--main-color-2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5);
+  text-shadow: 0px 0px 2px rgb(194, 194, 194);
+  font-weight: 500;
+}

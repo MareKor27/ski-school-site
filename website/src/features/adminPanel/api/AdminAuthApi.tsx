@@ -21,12 +21,14 @@ api.interceptors.request.use(
 
 export async function createUser(
   name: string,
-  email: string
+  email: string,
+  iconColor: string
 ): Promise<ResponseDto<CreateUserDto>> {
   try {
     const response = await api.post<ResponseDto<CreateUserDto>>("/register", {
       name,
       email,
+      iconColor,
     });
     return response.data;
   } catch (error) {

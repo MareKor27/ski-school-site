@@ -44,6 +44,12 @@ export function UserCreateEditForm() {
         {errors.email && errors.email.message}
         {errors.root && errors.root.message}
       </div>
+      <label htmlFor="iconColor">Kolor:</label>
+      <input type="color" {...register("iconColor")} />
+      <div className={S(`errors`)}>
+        {errors.iconColor && errors.iconColor.message}
+        {errors.root && errors.root.message}
+      </div>
 
       <input
         type="submit"

@@ -6,6 +6,8 @@ export type UserDto = {
   email: string;
 
   role: "INSTRUCTOR" | "ADMIN";
+
+  iconColor: string;
 };
 
 export type CreateUserDto = {
@@ -16,6 +18,8 @@ export type CreateUserDto = {
   password: string;
 
   role: "INSTRUCTOR" | "ADMIN";
+
+  iconColor: string;
 };
 
 export type UpdateUserDto = {
@@ -24,10 +28,14 @@ export type UpdateUserDto = {
   email: string;
 
   role: "INSTRUCTOR" | "ADMIN";
+
+  iconColor: string;
 };
 
 export type UserForm = {
   name: string;
 
   email: string;
+
+  iconColor: string;
 };

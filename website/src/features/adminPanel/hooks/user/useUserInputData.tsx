@@ -25,26 +25,34 @@ export const useUserInputData = (
     defaultValues: {
       name: "",
       email: "",
+      iconColor: "",
     },
   });
 
   const createOrUpdateUser = useCallback(
     async (userForm: UserForm) => {
       setSending(true);
+      console.log(userForm);
       let response;
       try {
         if (userId) {
           response = await updateUser(userId, {
             name: userForm.name,
             email: userForm.email,
+            iconColor: userForm.iconColor,
           });
         } else {
-          response = await createUser(userForm.name, userForm.email);
+          response = await createUser(
+            userForm.name,
+            userForm.email,
+            userForm.iconColor
+          );
         }
       } catch (error: any) {
         const mappedErrors = mapApiErrorToFormErrors<UserForm>(error, [
           "name",
           "email",
+          "iconColor",
         ]);
         const result = Object.values(mappedErrors);
         result.forEach((element) => {
@@ -56,7 +64,7 @@ export const useUserInputData = (
       if (!response) return;
 
       fetchResponse();
-      navigate(Paths.ADMIN.STAFF.INDEX.absolute);
+      // navigate(Paths.ADMIN.STAFF.INDEX.absolute);
     },
     [userId]
   );
@@ -65,6 +73,7 @@ export const useUserInputData = (
     const response = await readUser(userId);
     setValue("name", response.content.name);
     setValue("email", response.content.email);
+    setValue("iconColor", response.content.iconColor);
   };
 
   useEffect(() => {
@@ -73,6 +82,7 @@ export const useUserInputData = (
     } else {
       setValue("name", "");
       setValue("email", "");
+      setValue("iconColor", "");
     }
   }, [userId]);
 

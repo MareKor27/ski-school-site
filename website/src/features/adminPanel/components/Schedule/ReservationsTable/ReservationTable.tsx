@@ -5,11 +5,13 @@ import useStyles from "~/hooks/useStyle";
 
 import { useReservation } from "~/features/adminPanel/hooks/reservation/useReservation";
 import {
+  Check,
   FilePen,
   PhoneForwarded,
   Square,
   Trash2,
   UserCheck,
+  X,
 } from "lucide-react";
 import { useUsers } from "~/features/adminPanel/hooks/user/useUsers";
 import {
@@ -18,6 +20,7 @@ import {
   formatEquipment,
   formatToLongDate,
   formatToShortDate,
+  lightenColor,
   nameToInitials,
 } from "~/features/adminPanel/utils/formatters";
 import { useState } from "react";
@@ -34,6 +37,7 @@ export function ReservationTable() {
     readData,
     setInstructorId,
     setPaginationRows,
+
     lastPage,
     setPaginationPage,
     paginationInformation,
@@ -110,7 +114,16 @@ export function ReservationTable() {
                 className={`${TS(`stuff-table-cell`)}`}
                 title={reservation.appointments[0].instructor.name}
               >
-                <div className={`${S(`initial`)}`}>
+                <div
+                  className={`${TS(`initial`)}`}
+                  style={{
+                    backgroundColor: `${lightenColor(
+                      reservation.appointments[0].instructor.iconColor,
+                      90
+                    )}`,
+                    color: `${reservation.appointments[0].instructor.iconColor}`,
+                  }}
+                >
                   {nameToInitials(reservation.appointments[0].instructor.name)}
                 </div>
               </div>
@@ -172,18 +185,12 @@ export function ReservationTable() {
               <img src="/images/admin/edit-icon.png" alt={"Edytuj"} />
               Edytuj {"   "}
               </div> */}
-                {/* <button
-                className={BS(`button-option-update-calendar`)}
-                onClick={() => handleDeleteReservation(reservation.id)}
-              >
-                <Square size={25} strokeWidth={1} />
-              </button>
-              <button
-                className={BS(`button-option-edit`)}
-                onClick={() => handleDeleteReservation(reservation.id)}
-              >
-                <FilePen size={25} strokeWidth={1} />
-              </button> */}
+                <button className={BS(`reservation-accept`)}>
+                  <Check size={25} strokeWidth={1} />
+                </button>
+                <button className={BS(`reservation-rejection`)}>
+                  <X size={25} strokeWidth={1} />
+                </button>
                 <button
                   className={BS(`button-option-delete`)}
                   onClick={() => handleDeleteReservation(reservation.id)}

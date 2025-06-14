@@ -61,3 +61,27 @@ export function ageRangeStudents(ageTable: string): string {
 
   return table[0] + "-" + table[table.length - 1];
 }
+
+export function lightenColor(hex: string, percent: number): string {
+  // Upewnij się, że hex jest poprawny (np. "#ff9900" lub "ff9900")
+  if (!hex) return "";
+  hex = hex.replace(/^#/, "");
+
+  if (hex.length !== 6) {
+    throw new Error("Invalid HEX color.");
+  }
+
+  // Konwersja HEX -> RGB
+  let r = parseInt(hex.slice(0, 2), 16);
+  let g = parseInt(hex.slice(2, 4), 16);
+  let b = parseInt(hex.slice(4, 6), 16);
+
+  // Rozjaśnianie RGB
+  r = Math.min(255, Math.floor(r + (255 - r) * (percent / 100)));
+  g = Math.min(255, Math.floor(g + (255 - g) * (percent / 100)));
+  b = Math.min(255, Math.floor(b + (255 - b) * (percent / 100)));
+
+  // RGB -> HEX
+  const toHex = (n: number) => n.toString(16).padStart(2, "0");
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}

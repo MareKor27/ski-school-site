@@ -33,6 +33,13 @@ form.create-edit-form {
   background: var(--main-color-9);
 }
 
+.create-edit-form > input[type="color"] {
+  height: 50px;
+  // background: var(--main-color-9);
+  padding: 5px;
+  width: 50px;
+}
+
 .errors {
   padding: 0 0 0 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
