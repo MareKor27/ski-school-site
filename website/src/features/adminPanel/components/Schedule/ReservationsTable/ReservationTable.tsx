@@ -9,6 +9,7 @@ import {
   FilePen,
   PhoneForwarded,
   Square,
+  TableOfContents,
   Trash2,
   UserCheck,
   X,
@@ -37,12 +38,12 @@ export function ReservationTable() {
     readData,
     setInstructorId,
     setPaginationRows,
-
     lastPage,
     setPaginationPage,
     paginationInformation,
     openAdditionalConntent,
     toogleAdditionalConntent,
+    handleReservationStatus,
   } = useReservation();
   const { users } = useUsers();
 
@@ -105,11 +106,7 @@ export function ReservationTable() {
         </div>
         {reservations.map((reservation) => (
           <>
-            <div
-              className={S(`stuff-table-row`)}
-              key={reservation.id}
-              onClick={() => toogleAdditionalConntent(reservation.id)}
-            >
+            <div className={S(`stuff-table-row`)} key={reservation.id}>
               <div
                 className={`${TS(`stuff-table-cell`)}`}
                 title={reservation.appointments[0].instructor.name}
@@ -176,7 +173,8 @@ export function ReservationTable() {
                     `${formatEquipment(reservation.chosenEquipment)}`
                   )}
                 >
-                  {formatEquipment(reservation.chosenEquipment)}
+                  {formatEquipment(reservation.chosenEquipment) +
+                    reservation.lessonStatus}
                 </div>
               </div>
 
@@ -185,10 +183,26 @@ export function ReservationTable() {
               <img src="/images/admin/edit-icon.png" alt={"Edytuj"} />
               Edytuj {"   "}
               </div> */}
-                <button className={BS(`reservation-accept`)}>
+                <button
+                  className={BS(`reservation-show-more`)}
+                  onClick={() => toogleAdditionalConntent(reservation.id)}
+                >
+                  <TableOfContents size={25} strokeWidth={1} />
+                </button>
+                <button
+                  className={BS(`reservation-accept`)}
+                  onClick={() =>
+                    handleReservationStatus("completed", reservation.id)
+                  }
+                >
                   <Check size={25} strokeWidth={1} />
                 </button>
-                <button className={BS(`reservation-rejection`)}>
+                <button
+                  className={BS(`reservation-rejection`)}
+                  onClick={() =>
+                    handleReservationStatus("not-taken", reservation.id)
+                  }
+                >
                   <X size={25} strokeWidth={1} />
                 </button>
                 <button

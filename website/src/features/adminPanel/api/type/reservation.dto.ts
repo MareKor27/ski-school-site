@@ -57,6 +57,8 @@ export type ReservationDto = {
   insuranceInformation: string;
 
   appointments: AppointmentDto[];
+
+  lessonStatus: string;
 };
 
 export type CreateReservationDto = {
@@ -79,6 +81,8 @@ export type CreateReservationDto = {
   additionalComments: string;
 
   insuranceInformation: string;
+
+  lessonStatus: string;
 };
 
 //Create Form Reservation
@@ -94,4 +98,5 @@ export type ReservationType = {
   additionalComments: string;
   insuranceInformation: string;
   instructorId: string;
+  lessonStatus: string;
 };

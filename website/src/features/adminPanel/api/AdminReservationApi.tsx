@@ -60,6 +60,17 @@ export async function createReservation(
   }
 }
 
+export async function setReservationStatus(
+  lessonStatus: string,
+  reservationId: number
+) {
+  const response = await api.patch<ResponseDto<ReservationDto>>(
+    `/reservation${"/" + reservationId}`,
+    { lessonStatus }
+  );
+  return response.data;
+}
+
 // /reservation?id=7
 // /reservation?id=
 // /reservation

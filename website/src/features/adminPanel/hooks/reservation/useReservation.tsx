@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { ReservationDto } from "../../api/type/reservation.dto";
-import { readReservations } from "../../api/AdminReservationApi";
+import {
+  readReservations,
+  setReservationStatus,
+} from "../../api/AdminReservationApi";
 import { deleteReservations } from "../../api/AdminReservationApi";
 import { RequestOptions } from "../../api/type/paginationOptions.dto";
 
@@ -71,6 +74,16 @@ export const useReservation = () => {
     );
   }
 
+  const handleReservationStatus = async (
+    lessonStatus: string,
+    reservationId: number
+  ) => {
+    const response = await setReservationStatus(lessonStatus, reservationId);
+    console.log(response.content);
+    console.log(lessonStatus, reservationId);
+    readData();
+  };
+
   // refresh
   const fetchReservationResponse = async (requestOptions: RequestOptions) => {
     //console.log(paginationRows, paginationPage);
@@ -100,5 +113,6 @@ export const useReservation = () => {
     paginationInformation,
     openAdditionalConntent,
     toogleAdditionalConntent,
+    handleReservationStatus,
   } as const;
 };

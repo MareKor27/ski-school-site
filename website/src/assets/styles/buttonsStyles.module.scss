@@ -8,7 +8,8 @@ $rejection: #ddbf14;
 .button-option-delete,
 .button-option-update-calendar,
 .reservation-accept,
-.reservation-rejection {
+.reservation-rejection,
+.reservation-show-more {
   -webkit-appearance: none;
   border-radius: 0;
   text-align: inherit;
@@ -53,6 +54,7 @@ $rejection: #ddbf14;
 
 .reservation-accept:active,
 .reservation-rejection:active,
+.reservation-show-more:active,
 .button-option-edit:active,
 .button-option-delete:active,
 .button-option-update-calendar:active {
@@ -67,4 +69,7 @@ $rejection: #ddbf14;
 }
 .reservation-rejection {
   @include button-style($rejection);
+}
+.reservation-show-more {
+  @include button-style($blue);
 }
