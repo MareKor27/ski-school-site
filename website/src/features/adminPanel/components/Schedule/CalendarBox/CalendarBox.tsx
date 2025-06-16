@@ -4,7 +4,6 @@ import { Paths } from "~/features/app/constants/Paths";
 import useStyles from "~/hooks/useStyle";
 import style from "./CalendarBox.module.scss";
 import { AppointmentDto } from "~/features/adminPanel/api/type/appointment.dto";
-import { useReservationStore } from "~/features/adminPanel/hooks/reservation/useReservationStore";
 import { AppointmentTile } from "~/features/adminPanel/hooks/calendar/useCalendar";
 const S = useStyles(style);
 
@@ -59,7 +58,7 @@ export const CalendarBox = ({
   }
 
   if (!appointments.length) {
-    return <div className={S(`reservation empty`)}></div>;
+    return <div className={S(`reservation unavailable`)}>Niedostepne</div>;
   }
 
   const checkAppointmentReservationAvailability: boolean = appointments.some(
@@ -73,6 +72,10 @@ export const CalendarBox = ({
 
     return (
       <div>
+        <div className={S(`reservation available-hours`)}>
+          {" "}
+          maks. {maxLenght}h
+        </div>
         <Tooltip
           content={appointments.map((appointment) => {
             if (appointment.appointment.reservation == null) {
@@ -108,13 +111,13 @@ export const CalendarBox = ({
           >
             <button className={S(`reservation available`)}>
               {/* {hour + ":00"} */}
-              Zarezerwuj {maxLenght} h
+              Zarezerwuj
             </button>
           </Link>
         </Tooltip>
       </div>
     );
   } else {
-    return <div className={S(`reservation unavailable`)}>{hour + ":00"}</div>;
+    return <div className={S(`reservation reserved`)}>{hour + ":00"}</div>;
   }
 };
