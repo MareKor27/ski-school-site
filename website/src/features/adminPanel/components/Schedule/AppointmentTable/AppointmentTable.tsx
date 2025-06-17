@@ -3,7 +3,7 @@ import calendarStyle from "~/assets/styles/calendarStyles.module.scss";
 import style from "./AppointmentTable.module.scss";
 import { useAppointment } from "~/features/adminPanel/hooks/appointment/useAppointment";
 import { InputAppSchedule } from "../InputAppSchedule.tsx/InputAppSchedule";
-import { hours } from "~/features/adminPanel/services/AppointmentServices";
+import { hoursOfPossibleActions } from "~/features/adminPanel/services/AppointmentServices";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 import { SquareChevronLeft, SquareChevronRight } from "lucide-react";
 import { useLocation } from "react-router-dom";
@@ -20,12 +20,24 @@ export function AppointmentTable() {
     onChangeAppointment,
     getAppointmentByDate,
     modificationLabel,
+    chengeAppointmentsByDay,
+    chengeAppointmentsByWeek,
+    hasAppointmentsOnDay,
   } = useAppointment(location);
 
   return (
     <>
       <div className={S(`options-navigation`)}>
-        <div className={S(`options`)}>{modificationLabel}</div>
+        <div className={S(`options`)}>
+          {modificationLabel}
+          {/* Cały tydzień:{" "}
+          <input
+            type="checkbox"
+            name=""
+            id=""
+            onChange={(e) => chengeAppointmentsByDay(dates[0], e)}
+          /> */}
+        </div>
         <div className={S(`navigation`)}>
           <button
             className={S(`arrow`)}
@@ -51,12 +63,23 @@ export function AppointmentTable() {
                 {currentDate.toLocaleDateString("pl-PL").replace(/\./g, "/")}
               </div>
               <div className={CS(`date-in-words`)}>
-                {currentDate.toLocaleDateString("pl-PL", { weekday: "long" })}
+                {currentDate.toLocaleDateString("pl-PL", { weekday: "long" })}{" "}
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  disabled={currentDate <= new Date()}
+                  checked={hasAppointmentsOnDay(currentDate)}
+                  onChange={(e) => {
+                    chengeAppointmentsByDay(currentDate, e);
+                  }}
+                />
               </div>
-              {hours.map((hour) => (
+              {hoursOfPossibleActions.map((hour) => (
                 <div key={hour} className={CS(`classes`)}>
                   <div className={CS(`hour`)}>{hour + ":00"}</div>
                   <InputAppSchedule
+                    ////appointment={getAppointmentByDate(currentDate, hour)} DO PRZEBUDOWANIA
                     currentDate={currentDate}
                     hour={hour}
                     onChangeAppointment={onChangeAppointment}

@@ -1,7 +1,7 @@
 import calendarStyle from "~/assets/styles/calendarStyles.module.scss";
 import style from "./CalendarTable.module.scss";
 import useStyles from "~/hooks/useStyle";
-import { hours } from "~/features/adminPanel/services/AppointmentServices";
+import { hoursOfPossibleActions } from "~/features/adminPanel/services/AppointmentServices";
 import { CalendarBox } from "../CalendarBox/CalendarBox";
 import { useCalendar } from "~/features/adminPanel/hooks/calendar/useCalendar";
 import { SquareChevronLeft, SquareChevronRight } from "lucide-react";
@@ -41,7 +41,7 @@ export function CalendarTable() {
             <div className={CS(`date-in-words`)}>
               {currentDate.toLocaleDateString("pl-PL", { weekday: "long" })}
             </div>
-            {hours.map((hour) => (
+            {hoursOfPossibleActions.map((hour) => (
               <div className={CS(`classes`)} key={hour}>
                 <div className={CS(`hour`)}>{hour + ":00"}</div>
                 {/* <div className={CS(`hour`)}>{"Max " + {} + "h"}</div> */}

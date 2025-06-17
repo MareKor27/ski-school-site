@@ -4,9 +4,13 @@ import {
   createAppointmentForInstructor,
   deleteAppointment,
   getAppoitmentsByDateForOneUser,
+  setAppointmentsByDay,
 } from "../../api/AdminAppointmentApi";
 import { AppointmentDto } from "../../api/type/appointment.dto";
-import { getWeekDates } from "../../services/AppointmentServices";
+import {
+  getWeekDates,
+  hoursOfPossibleActions,
+} from "../../services/AppointmentServices";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 import { readUser } from "../../api/AdminUserApi";
 
@@ -67,19 +71,56 @@ export const useAppointment = (location?: any) => {
     fetchResponse(dates);
   };
 
+  const chengeAppointmentsByDay = async (
+    chosenDate: Date,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    console.log(
+      "chengeAppointmentsByDay",
+      chosenDate,
+      e.target.checked.valueOf()
+    );
+    const request = await setAppointmentsByDay(
+      chosenDate,
+      e.target.checked.valueOf()
+    );
+    console.log(request);
+    fetchResponse(dates);
+  };
+
+  const chengeAppointmentsByWeek = (
+    chosenDate: Date,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    console.log(chosenDate, e);
+  };
+
   const getAppointmentByDate = (date: Date): AppointmentDto | undefined => {
     const found = appointments?.find((app) => {
       return app.appointmentDate == date.toISOString();
     });
     return found;
   };
+  // const getAppointmentByDate = (
+  //   currentDate: Date,
+  //   hour: number
+  // ): AppointmentDto | undefined => {
+  //   const newDate = new Date(currentDate);
+  //   newDate.setHours(hour, 0, 0, 0);
+
+  //   const found = appointments?.find((app) => {
+  //     return app.appointmentDate == newDate.toISOString();
+  //   });
+  //   return found;
+  // };
 
   const loadModificationLabel = async () => {
     try {
       const ownerResponse = userToken.user?.id
         ? await readUser(userToken.user.id)
         : null;
-      if (userToken.user?.id != userId) {
+
+      if (userId && userToken.user?.id != userId) {
         const instructorResponse = await readUser(userId);
 
         const ownerName = ownerResponse?.content.name || "Ktoś";
@@ -94,6 +135,24 @@ export const useAppointment = (location?: any) => {
     }
   };
 
+  function hasAppointmentsOnDay(date: Date): boolean {
+    const appointmentLenght = appointments?.filter((a) => {
+      const dateA = new Date(a.appointmentDate).toLocaleDateString("pl-PL", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      });
+      const dateB = new Date(date).toLocaleDateString("pl-PL", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      });
+      // console.log(dateA, dateB);
+      return dateA == dateB;
+    }).length;
+    return appointmentLenght == hoursOfPossibleActions.length;
+  }
+
   return {
     weekOffset,
     setWeekOffset,
@@ -102,5 +161,8 @@ export const useAppointment = (location?: any) => {
     getAppointmentByDate,
     userForAppointments,
     modificationLabel,
+    chengeAppointmentsByDay,
+    chengeAppointmentsByWeek,
+    hasAppointmentsOnDay,
   };
 };
