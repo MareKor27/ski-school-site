@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type TooltipProps = {
   children: React.ReactNode; // Elementy, nad którymi ma działać tooltip
@@ -9,28 +9,38 @@ const Tooltip: React.FC<TooltipProps> = ({ children, content }) => {
   const [position, setPosition] = useState<{ x: number; y: number } | null>(
     null
   );
+  const tooltipRef = useRef(null);
+  const [tooltipWidth, setTooltipWidth] = useState(0);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    setPosition({ x: event.pageX, y: event.pageY }); // 10px odstępu
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    setPosition({ x, y });
   };
 
   const handleMouseLeave = () => {
     setPosition(null); // Ukryj tooltip
   };
 
+  // Ustaw szerokość tooltipa po każdym pokazaniu
+  useEffect(() => {
+    if (tooltipRef.current) {
+      // setTooltipWidth(tooltipRef.current.offsetWidth);
+    }
+  }, [position, content]);
+
   return (
     <div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ display: "inline-block" }} // Upewnij się, że działa dla elementów inline
+      style={{ display: "inline-block", position: "relative" }} // Upewnij się, że działa dla elementów inline
     >
       {children}
       {position && (
         <div
+          ref={tooltipRef}
           style={{
-            position: "absolute",
-            // top: position.y / 4,
-            // left: position.x / 4,
             backgroundColor: "#007bb1",
             color: "#fff",
             padding: "8px 12px",

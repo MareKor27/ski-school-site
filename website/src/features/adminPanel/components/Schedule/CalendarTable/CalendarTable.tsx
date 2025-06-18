@@ -42,15 +42,11 @@ export function CalendarTable() {
               {currentDate.toLocaleDateString("pl-PL", { weekday: "long" })}
             </div>
             {hoursOfPossibleActions.map((hour) => (
-              <div className={CS(`classes`)} key={hour}>
-                <div className={CS(`hour`)}>{hour + ":00"}</div>
-                {/* <div className={CS(`hour`)}>{"Max " + {} + "h"}</div> */}
-                <CalendarBox
-                  currentDate={currentDate}
-                  hour={hour}
-                  getAppointmentsByDate={getAppointmentsByDate}
-                />
-              </div>
+              <CalendarBox
+                currentDate={currentDate}
+                hour={hour}
+                getAppointmentsByDate={getAppointmentsByDate}
+              />
             ))}
           </div>
         ))}

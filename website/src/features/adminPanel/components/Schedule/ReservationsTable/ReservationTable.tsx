@@ -173,8 +173,9 @@ export function ReservationTable() {
                     `${formatEquipment(reservation.chosenEquipment)}`
                   )}
                 >
-                  {formatEquipment(reservation.chosenEquipment) +
-                    reservation.lessonStatus}
+                  {formatEquipment(reservation.chosenEquipment)}
+                  {/* +
+                    reservation.lessonStatus} */}
                 </div>
               </div>
 

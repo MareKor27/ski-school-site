@@ -1,11 +1,28 @@
-import Tooltip from "../../ToolTip/ToolTip";
+// import Tooltip from "../../ToolTip/ToolTip";
 import { Link } from "react-router-dom";
 import { Paths } from "~/features/app/constants/Paths";
 import useStyles from "~/hooks/useStyle";
 import style from "./CalendarBox.module.scss";
+import calendarStyle from "~/assets/styles/calendarStyles.module.scss";
 import { AppointmentDto } from "~/features/adminPanel/api/type/appointment.dto";
 import { AppointmentTile } from "~/features/adminPanel/hooks/calendar/useCalendar";
+import { useState } from "react";
+import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+  useHover,
+  useFocus,
+  useDismiss,
+  useRole,
+  useInteractions,
+} from "@floating-ui/react";
+import { Clock4, Hourglass, UserRound } from "lucide-react";
+
 const S = useStyles(style);
+const CS = useStyles(calendarStyle);
 
 const SERVER_MAX_RESERVATION_LENGHT = 3;
 
@@ -20,8 +37,35 @@ export const CalendarBox = ({
   hour,
   getAppointmentsByDate,
 }: InputCalendarBoxType) => {
-  //const setReservationData = useReservationStore();
+  // ===============================================
+  const [isOpen, setIsOpen] = useState(false);
 
+  const { refs, floatingStyles, context } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    middleware: [offset(10), flip(), shift({ padding: 20 })],
+    whileElementsMounted: autoUpdate,
+  });
+
+  const hover = useHover(context, { move: false });
+  const focus = useFocus(context);
+  const dismiss = useDismiss(context);
+  const role = useRole(context, {
+    // If your reference element has its own label (text).
+    role: "tooltip",
+    // If your reference element does not have its own label,
+    // e.g. an icon.
+    // role: "label",
+  });
+
+  // Merge all the interactions into prop getters
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    role,
+  ]);
+  // ===============================================
   const newDate = new Date(currentDate);
   newDate.setHours(hour, 0, 0, 0);
 
@@ -58,7 +102,11 @@ export const CalendarBox = ({
   }
 
   if (!appointments.length) {
-    return <div className={S(`reservation unavailable`)}>Niedostepne</div>;
+    return (
+      <div className={S(`classes`)} key={hour}>
+        <div className={S(`reservation unavailable`)}>Niedostepne</div>
+      </div>
+    );
   }
 
   const checkAppointmentReservationAvailability: boolean = appointments.some(
@@ -71,53 +119,118 @@ export const CalendarBox = ({
     // JESLI RESERVATIONID != NULL \|/
 
     return (
-      <div>
-        <div className={S(`reservation available-hours`)}>
-          {" "}
-          maks. {maxLenght}h
-        </div>
-        <Tooltip
-          content={appointments.map((appointment) => {
-            if (appointment.appointment.reservation == null) {
-              // if (
-              //   newDate.toISOString() ==
-              //   new Date("2025-05-05T08:00:00.000Z").toISOString()
-              // ) {
-              //   console.log(appointment);
-              // }
-
-              // chyba w tym momencie sprawdzamy ile godzin ma dany instruktor od tego momentu
-              // w bazie badamy czy od danej godziny
-              //struktura?????
-              //jak wyciągać ilość godzin?
-
-              return (
-                <div key={appointment.appointment.instructor.id}>
-                  <span>
-                    {appointment.appointment.instructor.name} dostępny{" "}
-                    {maxLenghtFunction(appointment.nextAppointments)} h
-                  </span>
-                  <br />
-                </div>
-              );
-            }
-          })}
+      <>
+        <Link
+          to={`${
+            Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute
+          }?dnia=${formatDate(newDate)}`}
+          ref={refs.setReference}
+          {...getReferenceProps()}
         >
-          <Link
-            to={`${
-              Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute
-            }?dnia=${formatDate(newDate)}`}
-            //onClick={() => setReservationData.setAppointmentsTile(appointments)}
+          <div className={S(`classes active-classes`)} key={hour}>
+            {/* <div className={CS(`hour`)}>{hour + ":00"}</div> */}
+            <div>
+              <div
+                className={S(`reservation available-hours`)}
+                title="Możliwy maksymalny czas lekcji"
+              >
+                {" "}
+                <Clock4 size={15} strokeWidth={2} /> {maxLenght}h
+              </div>
+              <div
+                className={S(`reservation available-instructors`)}
+                title="Dostępni instruktorzy"
+              >
+                {" "}
+                <UserRound size={15} strokeWidth={2} /> {appointments.length}
+              </div>
+              <button className={S(`reservation available`)}>
+                {hour + ":00"}
+                {/* Zarezerwuj */}
+              </button>
+            </div>
+          </div>
+        </Link>
+        {isOpen && (
+          <div
+            ref={refs.setFloating}
+            style={{
+              ...floatingStyles,
+              backgroundColor: "rgba(0, 123, 177, 0.35)",
+              color: "#fff",
+              padding: "8px 12px",
+              borderRadius: "4px",
+              pointerEvents: "none", // Tooltip nie przechwytuje zdarzeń
+              zIndex: 1000,
+              whiteSpace: "nowrap",
+              // boxShadow:
+              // "0 4px 6px rgba(0, 0, 0, 0.6),0 3px 5px rgba(0, 0, 0, 0.6)",
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.37)",
+              backdropFilter: "blur(10px)",
+              //WebkitBackdropFilter: "blur(10px)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+
+              textShadow: "0 0 3px rgba(0, 0, 0, 0.8)",
+              //fontWeight: 00,
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
+            }}
+            {...getFloatingProps()}
+            // style={{
+            // backgroundColor: "#007bb1",
+            // color: "#fff",
+            // padding: "8px 12px",
+            // borderRadius: "4px",
+            // pointerEvents: "none", // Tooltip nie przechwytuje zdarzeń
+            // zIndex: 1000,
+            // whiteSpace: "nowrap",
+            // boxShadow:
+            //   "0 4px 6px rgba(0, 0, 0, 0.6),0 3px 5px rgba(0, 0, 0, 0.6)",
+            // }}
           >
-            <button className={S(`reservation available`)}>
-              {/* {hour + ":00"} */}
-              Zarezerwuj
-            </button>
-          </Link>
-        </Tooltip>
-      </div>
+            {appointments.map((appointment) => {
+              if (appointment.appointment.reservation == null) {
+                return (
+                  <div key={appointment.appointment.instructor.id}>
+                    <span>
+                      {appointment.appointment.instructor.name} dostępny{" "}
+                      {maxLenghtFunction(appointment.nextAppointments)} h
+                    </span>
+                    <br />
+                  </div>
+                );
+              }
+            })}
+          </div>
+        )}
+      </>
     );
   } else {
-    return <div className={S(`reservation reserved`)}>{hour + ":00"}</div>;
+    return (
+      <div className={S(`classes`)} key={hour}>
+        <div className={S(`reservation unavailable`)}>Niedostepne</div>
+      </div>
+    );
   }
 };
+
+// function Tooltip() {
+//   return (
+//     <>
+//       <button ref={refs.setReference} {...getReferenceProps()}>
+//         Reference element
+//       </button>
+//       {isOpen && (
+//         <div
+//           ref={refs.setFloating}
+//           style={floatingStyles}
+//           {...getFloatingProps()}
+//         >
+//           Tooltip element daasd asd assdd ad assd asdasd asdas dasdd d asd asada
+//           aas ddas dasdasdasdd asdas as asasdd asd asdas as das das a
+//         </div>
+//       )}
+//     </>
+//   );
+// }

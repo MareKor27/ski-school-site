@@ -11,6 +11,7 @@
 
 .calendar a {
   color: #fff;
+  height: 100%;
 }
 
 .date-in-words {
@@ -26,15 +27,15 @@
 }
 
 .day {
-  background: hsl(
-    from var(--admin-main-color2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.2
-  );
+  // background: hsl(
+  //   from var(--admin-main-color2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.2
+  // );
   border-radius: 10px;
   text-align: center;
   display: grid;
   grid-template-rows: 40px 30px repeat(10, 1fr);
-  box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.1),
-    0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+  // box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.1),
+  //   0px 0px 2px 1px rgba(0, 0, 0, 0.1);
   gap: 4px;
 }
 
@@ -44,19 +45,38 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  //   box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.1),
-  //     0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.1),
+    0px 0px 2px 1px rgba(0, 0, 0, 0.1);
   background: hsl(
-    from var(--admin-main-color) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5
+    from var(--main-color-10) calc(h + 0) calc(s + 0) calc(l + 0) / 0.4
   );
-  padding-top: 20px;
+  // padding-top: 20px;
+  border-radius: 10px;
 }
+
+// .active-classes {
+//   // padding-top: 10px;
+//   background: hsl(
+//     from var(--main-color-10) calc(h + 0) calc(s + 0) calc(l + 0) / 0.3
+//   );
+//   height: inherit;
+//   transition: background-color 0.3s ease;
+// }
+
+// .active-classes:hover {
+//   background: hsl(
+//     from var(--main-color-10) calc(h + 0) calc(s + 0) calc(l + 0) / 0.7
+//   );
+// }
 
 .hour {
   position: absolute;
   top: 0;
   left: 0;
   padding: 10px;
-  color: var(--main-color-10);
+  color: var(--main-color-6);
   text-shadow: 0 0 7px black;
+  @include screen-md {
+    padding: 3px;
+  }
 }
