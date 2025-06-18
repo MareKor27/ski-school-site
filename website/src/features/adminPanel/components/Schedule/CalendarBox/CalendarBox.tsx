@@ -101,7 +101,7 @@ export const CalendarBox = ({
     return lenght;
   }
 
-  if (!appointments.length) {
+  if (!appointments.length || newDate < new Date()) {
     return (
       <div className={S(`classes`)} key={hour}>
         <div className={S(`reservation unavailable`)}>Niedostepne</div>

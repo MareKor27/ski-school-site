@@ -240,7 +240,6 @@ export function ReservationTable() {
               name="pagination-rows"
               onChange={(event) => {
                 setPaginationRows(Number(event.target.value));
-                // readData();
               }}
               className={S(`custom-select`)}
             >
@@ -268,7 +267,6 @@ export function ReservationTable() {
               name="pagination-rows"
               onChange={(event) => {
                 setPaginationPage(Number(event.target.value));
-                // readData();
               }}
               className={S(`custom-select`)}
             >

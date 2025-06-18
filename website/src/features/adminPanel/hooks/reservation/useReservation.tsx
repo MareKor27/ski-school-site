@@ -12,6 +12,10 @@ export const useReservation = () => {
   const [instructorId, setInstructorId] = useState<number | null>(null);
   const [paginationRows, setPaginationRows] = useState<number>(10);
   const [paginationPage, setPaginationPage] = useState<number>(1);
+  // const [pagination, setPagination] = useState<{ page: number; rows: number }>({
+  //   page: 1,
+  //   rows: 10,
+  // });
   const [totalRows, setTotalRows] = useState<number>(1);
   const [lastPage, setLastPage] = useState<number>(1);
   const [openAdditionalConntent, setOpenAdditionalConntent] = useState<
@@ -95,8 +99,13 @@ export const useReservation = () => {
   };
 
   useEffect(() => {
+    setPaginationPage(1);
+  }, [paginationRows]);
+
+  useEffect(() => {
     fetchReservationResponse(requestOptions);
-  }, []);
+  }, [requestOptions]);
+
   //  TODO: musi siępo czyms odświeżać tylko po czym?
 
   return {
