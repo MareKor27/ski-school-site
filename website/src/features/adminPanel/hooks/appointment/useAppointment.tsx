@@ -78,22 +78,24 @@ export const useAppointment = (location?: any) => {
     console.log(
       "chengeAppointmentsByDay",
       chosenDate,
-      e.target.checked.valueOf()
+      e.target.checked.valueOf(),
+      userForAppointments
     );
     const request = await setAppointmentsByDay(
       chosenDate,
-      e.target.checked.valueOf()
+      e.target.checked.valueOf(),
+      userForAppointments
     );
     console.log(request);
     fetchResponse(dates);
   };
 
-  const chengeAppointmentsByWeek = (
-    chosenDate: Date,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    console.log(chosenDate, e);
-  };
+  // const chengeAppointmentsByWeek = (
+  //   chosenDate: Date,
+  //   e: React.ChangeEvent<HTMLInputElement>
+  // ) => {
+  //   console.log(chosenDate, e);
+  // };
 
   const getAppointmentByDate = (date: Date): AppointmentDto | undefined => {
     const found = appointments?.find((app) => {
@@ -162,7 +164,6 @@ export const useAppointment = (location?: any) => {
     userForAppointments,
     modificationLabel,
     chengeAppointmentsByDay,
-    chengeAppointmentsByWeek,
     hasAppointmentsOnDay,
   };
 };

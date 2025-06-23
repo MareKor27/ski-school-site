@@ -21,7 +21,6 @@ export function AppointmentTable() {
     getAppointmentByDate,
     modificationLabel,
     chengeAppointmentsByDay,
-    chengeAppointmentsByWeek,
     hasAppointmentsOnDay,
   } = useAppointment(location);
 

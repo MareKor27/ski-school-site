@@ -103,8 +103,16 @@ export async function deleteAppointment(
   return response.data;
 }
 
-export async function setAppointmentsByDay(chosenDate: Date, checked: boolean) {
-  const response = await api.post(`/appointment/generate/day`, {
+export async function setAppointmentsByDay(
+  chosenDate: Date,
+  checked: boolean,
+  user?: number
+) {
+  let options = "";
+  if (user) {
+    options += `?user=${user}`;
+  }
+  const response = await api.post(`/appointment/generate/day${options}`, {
     chosenDate,
     checked,
   });
