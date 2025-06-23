@@ -33,19 +33,20 @@ export function CalendarTable() {
         </div>
       </div>
       <div className={CS(`calendar`)}>
-        {dates.map((currentDate) => (
-          <div className={CS(`day`)} key={currentDate.toISOString()}>
+        {dates.map((currentDate, index) => (
+          <div className={CS(`day`)} key={index}>
             <div className={CS(`date-in-number`)}>
               {currentDate.toLocaleDateString("pl-PL").replace(/\./g, "/")}
             </div>
             <div className={CS(`date-in-words`)}>
               {currentDate.toLocaleDateString("pl-PL", { weekday: "long" })}
             </div>
-            {hoursOfPossibleActions.map((hour) => (
+            {hoursOfPossibleActions.map((hour, index) => (
               <CalendarBox
                 currentDate={currentDate}
                 hour={hour}
                 getAppointmentsByDate={getAppointmentsByDate}
+                key={index}
               />
             ))}
           </div>

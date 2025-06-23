@@ -56,8 +56,8 @@ export function AppointmentTable() {
       <div className={CS(`calendar`)}>
         {dates
           .map((dateString) => new Date(dateString))
-          .map((currentDate) => (
-            <div key={currentDate.toISOString()} className={CS(`day`)}>
+          .map((currentDate, index) => (
+            <div key={index} className={CS(`day`)}>
               <div className={CS(`date-in-number`)}>
                 {currentDate.toLocaleDateString("pl-PL").replace(/\./g, "/")}
               </div>

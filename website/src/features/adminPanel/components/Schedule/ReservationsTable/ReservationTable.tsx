@@ -25,6 +25,7 @@ import {
   nameToInitials,
 } from "~/features/adminPanel/utils/formatters";
 import { useState } from "react";
+import { useAccount } from "~/features/adminPanel/hooks/user/useAccount";
 
 const S = useStyles(style);
 const TS = useStyles(tableStyle);
@@ -60,32 +61,38 @@ export function ReservationTable() {
     "Opcje",
   ];
 
+  const { userToken } = useAccount();
+
   return (
     <>
       <div className={S(`options-navigation`)}>
         <div className={S(`options`)}>
-          <UserCheck size={25} strokeWidth={1} />
-          <select
-            name="userId"
-            onChange={(event) => {
-              setInstructorId(
-                event.target.value == "" ? null : Number(event.target.value)
-              );
-            }}
-            className={S(`custom-select`)}
-          >
-            <option value="">Wszyscy instruktorzy</option>
-            {users.map((user) => {
-              return (
-                <option key={user.id} value={user.id}>
-                  {user.name}
-                </option>
-              );
-            })}
-          </select>
-          <button className={S(`filter-button`)} onClick={() => readData()}>
-            Filtruj
-          </button>
+          {userToken.user && userToken.user?.role === "ADMIN" && (
+            <>
+              <UserCheck size={25} strokeWidth={1} />
+              <select
+                name="userId"
+                onChange={(event) => {
+                  setInstructorId(
+                    event.target.value == "" ? null : Number(event.target.value)
+                  );
+                }}
+                className={S(`custom-select`)}
+              >
+                <option value="">Wszyscy instruktorzy</option>
+                {users.map((user) => {
+                  return (
+                    <option key={user.id} value={user.id}>
+                      {user.name}
+                    </option>
+                  );
+                })}
+              </select>
+              <button className={S(`filter-button`)} onClick={() => readData()}>
+                Filtruj
+              </button>
+            </>
+          )}
         </div>
         <div className={S(`navigation`)}>
           {/* <button className={S(`arrow`)}>
@@ -104,6 +111,7 @@ export function ReservationTable() {
             </div>
           ))}
         </div>
+
         {reservations.map((reservation) => (
           <>
             <div className={S(`stuff-table-row`)} key={reservation.id}>
