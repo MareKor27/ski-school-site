@@ -25,5 +25,7 @@ dist-ssr
 notatkiDoOmówienia.txt
 Bez tytułu.png
 
-/notatki
 .env
+/dist
+/node_modules
+/build
