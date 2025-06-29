@@ -25,6 +25,8 @@ import { Option2 } from "./features/adminPanel/components/PanelOptions/Option2";
 import { Option3 } from "./features/adminPanel/components/PanelOptions/Option3";
 import { DashboardView } from "./features/adminPanel/views/DashboardView";
 import { CalendarAddReservationView } from "./features/adminPanel/views/CalendarAddReservationView";
+import { SummaryReservationView } from "./features/adminPanel/views/SummaryReservationView";
+import { VerificationReservationView } from "./features/adminPanel/views/ReservationVerification";
 
 function App() {
   return (
@@ -57,35 +59,34 @@ function App() {
                 />
               }
             />
-            <Route
-              path={Paths.ADMIN.SCHEDULE.CALENDAR.routerConfig}
-              element={
-                <ScheduleView>
-                  <CalendarTable />
-                </ScheduleView>
-              }
-            />
-            <Route
-              path={Paths.ADMIN.SCHEDULE.RESERVATION.routerConfig}
-              element={
-                <ScheduleView>
-                  <ReservationTable />
-                </ScheduleView>
-              }
-            />
-            <Route
-              path={Paths.ADMIN.SCHEDULE.TIMETABLE.routerConfig}
-              element={
-                <ScheduleView>
-                  <AppointmentTable />
-                </ScheduleView>
-              }
-            />
+
+            <Route element={<ScheduleView />}>
+              <Route
+                path={Paths.ADMIN.SCHEDULE.CALENDAR.routerConfig}
+                element={<CalendarTable />}
+              />
+              <Route
+                path={Paths.ADMIN.SCHEDULE.RESERVATION.routerConfig}
+                element={<ReservationTable />}
+              />
+              <Route
+                path={Paths.ADMIN.SCHEDULE.TIMETABLE.routerConfig}
+                element={<AppointmentTable />}
+              />
+            </Route>
           </Route>
 
           <Route
             path={Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute}
             element={<CalendarAddReservationView />}
+          />
+          <Route
+            path={Paths.ADMIN.RESERVATION_SUMMARY.absolute}
+            element={<SummaryReservationView />}
+          />
+          <Route
+            path={Paths.ADMIN.RESERVATION_VERIFICATION.absolute}
+            element={<VerificationReservationView />}
           />
 
           <Route path={Paths.ADMIN.STAFF.INDEX.routerConfig}>

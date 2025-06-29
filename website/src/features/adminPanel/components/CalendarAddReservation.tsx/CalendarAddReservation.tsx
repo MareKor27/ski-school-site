@@ -4,6 +4,7 @@ import useStyles from "~/hooks/useStyle";
 import { useLessonReservation } from "../../hooks/reservation/useLessonReservation";
 import { reservationAdvancement } from "../../api/type/reservation.dto";
 import AgeMultiSelect from "./AgeMultiSelect/AgeMultiSelect";
+import { Info } from "lucide-react";
 const S = useStyles(style);
 const ES = useStyles(errorStyle);
 export function CalendarAddReservation() {
@@ -138,7 +139,12 @@ export function CalendarAddReservation() {
                 </div>
               </div>
               <div>
-                <label htmlFor="ageOfParticipants">Wiek osób*:</label>
+                <label
+                  htmlFor="ageOfParticipants"
+                  title="Proszę wybrać wiek wszystkich uczestników albo tylko najmłodszą i najstarszą osobę z grupy"
+                >
+                  Wiek osób*: <Info size={15} strokeWidth={1.5} />
+                </label>
                 <AgeMultiSelect control={control} name="ageOfParticipants" />
                 {/* <input
                   type="text"

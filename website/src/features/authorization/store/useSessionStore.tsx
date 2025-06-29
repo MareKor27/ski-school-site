@@ -1,13 +1,6 @@
 import { create } from "zustand";
-import { NavigateFunction } from "react-router-dom";
-import { Paths } from "~/features/app/constants/Paths";
 import { extendSesionTime } from "../api/AuthToPanelAdmin";
 export type Role = "CLIENT" | "INSTRUCTOR" | "ADMIN";
-// export type Role = {
-//   Client: "CLIENT";
-//   Instructor: "INSTRUCTOR";
-//   Admin: "ADMIN";
-// };
 
 export type UserData = {
   id: number;

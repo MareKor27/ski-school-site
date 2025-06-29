@@ -174,7 +174,7 @@ export const useLessonReservation = () => {
 
     setSending(false);
     if (!reservationResponse) return;
-    navigate(Paths.ADMIN.SCHEDULE.CALENDAR.absolute);
+    navigate(Paths.ADMIN.RESERVATION_SUMMARY.absolute);
   };
 
   function getReservationAppoitmentsIds(

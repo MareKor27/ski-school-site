@@ -37,6 +37,14 @@ export const Paths = {
       absolute: "/administrator/rezerwacja",
       routerConfig: "rezerwacja",
     },
+    RESERVATION_SUMMARY: {
+      absolute: "/administrator/podsumowanie",
+      routerConfig: "podsumowanie",
+    },
+    RESERVATION_VERIFICATION: {
+      absolute: "/administrator/weryfikacja",
+      routerConfig: "weryfikacja",
+    },
     OPTION: {
       INDEX: {
         absolute: "/administrator/opcje",

@@ -1,0 +1,144 @@
+@use "~/scss/abstracts" as *;
+
+.summary-positioning {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include screen-xs {
+    align-items: start;
+  }
+}
+
+.summary-wrapper {
+  backdrop-filter: blur(0px);
+  display: grid;
+  grid-template-columns: 1fr;
+  //   height: 100%;
+  box-shadow: inset 0px -8px 15px 0px rgba(0, 0, 0, 0.2);
+  //   padding: 10px;
+  place-items: center;
+  background: hsl(
+    from var(--main-color-3) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5
+  );
+  color: var(--main-color-5);
+  width: clamp(300px, 80%, 1200px);
+  border-radius: 10px;
+  @include screen-xs {
+    padding: 0;
+    width: 100%;
+    margin: 10px 10px;
+  }
+}
+
+.section-title {
+  color: var(--main-color-5);
+  background: linear-gradient(var(--main-color-1), var(--main-color-3));
+  border-radius: 15px 15px 0 0;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+
+  h1 {
+    margin-top: 0.5em;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+}
+
+.summary-info {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  @include screen-xs {
+    padding: 10px 15px;
+  }
+  h2 {
+    font-size: 1.4em;
+    font-weight: 600;
+    @include screen-xs {
+      font-size: 1em;
+    }
+  }
+
+  p {
+    padding-top: 30px;
+    @include screen-xs {
+      padding-top: 15px;
+    }
+  }
+
+  b {
+    font-size: 1.2em;
+    font-weight: 800;
+    @include screen-xs {
+      font-size: 1em;
+    }
+  }
+
+  a {
+    align-self: center;
+    padding-top: 10px;
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
+    font-size: 1em;
+    background: hsl(
+      from var(--main-color-4) calc(h + 0) calc(s + 0) calc(l + 0) / 0.9
+    );
+    width: 250px;
+    margin-bottom: 20px;
+    border: 1px solid var(--main-color-3);
+    margin-top: 5px;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+  }
+}
+
+.summary-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 40px;
+  //   justify-content: center;
+  align-items: center;
+  @include screen-xs {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  p {
+    grid-column: span 2;
+    text-align: center;
+    font-weight: 700;
+    @include screen-xs {
+      grid-column: 1;
+    }
+  }
+
+  a {
+    align-self: center;
+    padding-top: 10px;
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
+    font-size: 1em;
+    background: hsl(
+      from var(--main-color-4) calc(h + 0) calc(s + 0) calc(l + 0) / 0.9
+    );
+
+    margin-bottom: 20px;
+    border: 1px solid var(--main-color-3);
+    margin-top: 5px;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    @include screen-xs {
+      width: inherit;
+      margin: 0px 30px 10px 30px;
+    }
+  }
+}
