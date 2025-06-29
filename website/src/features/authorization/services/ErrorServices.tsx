@@ -1,7 +1,4 @@
-import {
-  FormErrorType,
-  RegistretionType,
-} from "../api/type/authorization-type";
+import { FormErrorType } from "../api/type/authorization-type";
 
 export type ErrorResponseDto = {
   statusCode: number;

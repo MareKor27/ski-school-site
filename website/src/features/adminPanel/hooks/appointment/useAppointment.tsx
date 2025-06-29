@@ -17,7 +17,7 @@ import { readUser } from "../../api/AdminUserApi";
 export const useAppointment = (location?: any) => {
   const [weekOffset, setWeekOffset] = useState<number>(0);
   const [appointments, setAppointments] = useState<AppointmentDto[]>();
-  const [howManyDays, setHowManyDays] = useState<number>(7);
+  const [howManyDays] = useState<number>(7);
 
   const userToken = useSessionStore();
 

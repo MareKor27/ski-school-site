@@ -4,7 +4,6 @@ import style from "./AppointmentTable.module.scss";
 import { useAppointment } from "~/features/adminPanel/hooks/appointment/useAppointment";
 import { InputAppSchedule } from "../InputAppSchedule.tsx/InputAppSchedule";
 import { hoursOfPossibleActions } from "~/features/adminPanel/services/AppointmentServices";
-import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 import { SquareChevronLeft, SquareChevronRight } from "lucide-react";
 import { useLocation } from "react-router-dom";
 export function AppointmentTable() {

@@ -10,7 +10,7 @@ const Tooltip: React.FC<TooltipProps> = ({ children, content }) => {
     null
   );
   const tooltipRef = useRef(null);
-  const [tooltipWidth, setTooltipWidth] = useState(0);
+  // const [tooltipWidth, setTooltipWidth] = useState(0);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();

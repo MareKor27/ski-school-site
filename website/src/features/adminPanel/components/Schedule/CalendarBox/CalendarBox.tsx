@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Paths } from "~/features/app/constants/Paths";
 import useStyles from "~/hooks/useStyle";
 import style from "./CalendarBox.module.scss";
-import calendarStyle from "~/assets/styles/calendarStyles.module.scss";
+// import calendarStyle from "~/assets/styles/calendarStyles.module.scss";
 import { AppointmentDto } from "~/features/adminPanel/api/type/appointment.dto";
 import { AppointmentTile } from "~/features/adminPanel/hooks/calendar/useCalendar";
 import { useState } from "react";
@@ -19,10 +19,10 @@ import {
   useRole,
   useInteractions,
 } from "@floating-ui/react";
-import { Clock4, Hourglass, UserRound } from "lucide-react";
+import { Clock4, UserRound } from "lucide-react";
 
 const S = useStyles(style);
-const CS = useStyles(calendarStyle);
+// const CS = useStyles(calendarStyle);
 
 const SERVER_MAX_RESERVATION_LENGHT = 3;
 

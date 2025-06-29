@@ -1,5 +1,4 @@
 import axios from "axios";
-import { CollectionResponseDto } from "./type/collectionResponse.dto";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 import {
   AppointmentDto,

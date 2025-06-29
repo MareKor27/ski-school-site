@@ -2,7 +2,7 @@ import { BlankLayout } from "~/features/app/layouts/BlankLayout";
 import { AdminPanel } from "../components/AdminPanel/AdminPanel";
 import { Schedule } from "../components/Schedule/Schedule";
 import { SideBarMenu } from "../components/SideBarMenu/SideBarMenu";
-import { ReactNode } from "react";
+
 import { Outlet } from "react-router-dom";
 
 // type ScheduleViewType = {

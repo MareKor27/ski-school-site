@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { AppointmentDto } from "../../api/type/appointment.dto";
 import { AppointmentTile } from "../calendar/useCalendar";
 export type ReservationStoreType = {
   appointmentsTile: AppointmentTile[] | null;

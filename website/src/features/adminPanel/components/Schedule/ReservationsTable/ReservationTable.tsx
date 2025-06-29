@@ -4,16 +4,7 @@ import buttonStyle from "~/assets/styles/buttonsStyles.module.scss";
 import useStyles from "~/hooks/useStyle";
 
 import { useReservation } from "~/features/adminPanel/hooks/reservation/useReservation";
-import {
-  Check,
-  FilePen,
-  PhoneForwarded,
-  Square,
-  TableOfContents,
-  Trash2,
-  UserCheck,
-  X,
-} from "lucide-react";
+import { Check, TableOfContents, Trash2, UserCheck, X } from "lucide-react";
 import { useUsers } from "~/features/adminPanel/hooks/user/useUsers";
 import {
   ageRangeStudents,
@@ -24,7 +15,6 @@ import {
   lightenColor,
   nameToInitials,
 } from "~/features/adminPanel/utils/formatters";
-import { useState } from "react";
 import { useAccount } from "~/features/adminPanel/hooks/user/useAccount";
 
 const S = useStyles(style);

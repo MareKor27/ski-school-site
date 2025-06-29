@@ -1,4 +1,4 @@
-import { deleteUser, updateUser } from "../api/AdminUserApi";
+import { deleteUser } from "../api/AdminUserApi";
 
 export const deleteUserInList = async (
   id: number,

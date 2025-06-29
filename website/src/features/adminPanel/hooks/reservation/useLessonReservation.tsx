@@ -41,7 +41,7 @@ export const useLessonReservation = () => {
     },
   });
   const [sending, setSending] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [todayReservation, setTodayReservation] = useState<Date>(new Date());
   const [allAppointments, setAllAppointments] = useState<AppointmentDto[]>([]);
 

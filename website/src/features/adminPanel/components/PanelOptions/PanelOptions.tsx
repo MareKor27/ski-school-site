@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import style from "./PanelOptions.module.scss";
 import useStyles from "~/hooks/useStyle";
 import navStyle from "~/assets/styles/navStyles.module.scss";

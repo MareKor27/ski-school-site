@@ -1,8 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { getAppoitmentsByDateForOneUser } from "../../api/AdminAppointmentApi";
-import { readReservations } from "../../api/AdminReservationApi";
 import { AppointmentDto } from "../../api/type/appointment.dto";
-import { ReservationDto } from "../../api/type/reservation.dto";
+
 import {
   getMondayOfOffset,
   getOffsetFromDate,
@@ -17,7 +16,7 @@ export type AppointmentTile = {
 export const useCalendar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [weekOffset, setWeekOffset] = useState<number>(0);
-  const [howManyDays, setHowManyDays] = useState<number>(7);
+  const [howManyDays] = useState<number>(7);
   const [appointments, setAppointments] = useState<AppointmentDto[]>([]);
 
   const SERVER_MAX_RESERVATION_LENGHT = 3;

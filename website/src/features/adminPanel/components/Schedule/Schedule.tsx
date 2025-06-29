@@ -1,8 +1,8 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./Schedule.module.scss";
 import navStyle from "~/assets/styles/navStyles.module.scss";
 import useStyles from "~/hooks/useStyle";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode } from "react";
 import { Paths } from "~/features/app/constants/Paths";
 import { CalendarCheck, CalendarCog, CalendarDays } from "lucide-react";
 const S = useStyles(style);

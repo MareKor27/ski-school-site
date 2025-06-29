@@ -1,4 +1,4 @@
-import style from "~/components/MainPageBox/MainPageBox.module.scss";
+import style from "~/components/mainPageBox/MainPageBox.module.scss";
 import { Contener } from "../contener/Contener";
 import { ReactNode } from "react";
 import useStyles from "~/hooks/useStyle";
