@@ -3,7 +3,7 @@ import { UserData, useSessionStore } from "../store/useSessionStore";
 import { handleApiError } from "../services/ErrorServices";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/auth",
+  baseURL: "/api/auth",
 });
 
 api.interceptors.request.use(

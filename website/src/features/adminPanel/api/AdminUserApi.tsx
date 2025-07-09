@@ -6,7 +6,7 @@ import { useSessionStore } from "~/features/authorization/store/useSessionStore"
 import { handleApiError } from "~/features/authorization/services/ErrorServices";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/users",
+  baseURL: "/api/users",
 });
 
 api.interceptors.request.use(

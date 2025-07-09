@@ -5,7 +5,7 @@ import { CreateUserDto } from "./type/user.dto";
 import { handleApiError } from "~/features/authorization/services/ErrorServices";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/auth",
+  baseURL: "/api/auth",
 });
 
 api.interceptors.request.use(

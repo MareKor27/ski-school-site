@@ -8,7 +8,7 @@ import {
 import { ResponseDto } from "./type/response.dto";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "/api",
 });
 
 api.interceptors.request.use(

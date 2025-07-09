@@ -7,7 +7,7 @@ import { handleApiError } from "~/features/authorization/services/ErrorServices"
 import { RequestOptions } from "./type/paginationOptions.dto";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "/api",
 });
 
 api.interceptors.request.use(
