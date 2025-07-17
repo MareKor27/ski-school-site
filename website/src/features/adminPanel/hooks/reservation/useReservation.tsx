@@ -1,39 +1,107 @@
 import { useEffect, useMemo, useState } from "react";
-import { ReservationDto } from "../../api/type/reservation.dto";
+import {
+  FilterReservation,
+  ReservationDto,
+} from "../../api/type/reservation.dto";
 import {
   readReservations,
   setReservationStatus,
 } from "../../api/AdminReservationApi";
 import { deleteReservations } from "../../api/AdminReservationApi";
 import { RequestOptions } from "../../api/type/paginationOptions.dto";
+import { useForm } from "react-hook-form";
 
 export const useReservation = () => {
+  const { register, handleSubmit, watch } = useForm<FilterReservation>({
+    mode: "onSubmit",
+    defaultValues: {
+      instructorId: "",
+      appointmentDate: "",
+      reservationId: "",
+    },
+  });
+
   const [reservations, setReservations] = useState<ReservationDto[]>([]);
-  const [instructorId, setInstructorId] = useState<number | null>(null);
+
   const [paginationRows, setPaginationRows] = useState<number>(10);
   const [paginationPage, setPaginationPage] = useState<number>(1);
-  // const [pagination, setPagination] = useState<{ page: number; rows: number }>({
-  //   page: 1,
-  //   rows: 10,
-  // });
+  const [filters, setFilters] = useState<string[]>([
+    // "appointmentDate>=2025-06-07T00:00:00.000",
+    // "appointmentDate<=2025-06-07T23:59:59.999",
+  ]);
+
+  const watchFilters = watch();
+
   const [totalRows, setTotalRows] = useState<number>(1);
   const [lastPage, setLastPage] = useState<number>(1);
   const [openAdditionalConntent, setOpenAdditionalConntent] = useState<
     number | null
   >(null);
-  const requestOptions = useMemo<RequestOptions>(() => {
-    const filters: string[] = [];
 
-    if (instructorId) {
-      filters.push(`instructorId=${instructorId}`);
-    }
+  const requestOptions = useMemo<RequestOptions>(() => {
     return {
       page: paginationPage,
       size: paginationRows,
       filter: filters,
       sort: ["appointmentDate"],
     };
-  }, [paginationRows, paginationPage, instructorId]);
+  }, [paginationRows, paginationPage, filters]);
+
+  function updateFilters(): string[] {
+    const pad = (n: number, len = 2) => String(n).padStart(len, "0");
+
+    function formatLocal(date: Date): string {
+      const year = date.getFullYear();
+      const month = pad(date.getMonth() + 1);
+      const day = pad(date.getDate());
+      const hours = pad(date.getHours());
+      const minutes = pad(date.getMinutes());
+      const seconds = pad(date.getSeconds());
+      const ms = pad(date.getMilliseconds(), 3);
+      return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${ms}`;
+    }
+
+    return Object.entries(watchFilters)
+      .filter(
+        ([_, value]) => value !== null && value !== "" && value !== undefined
+      )
+      .flatMap(([key, value]) => {
+        if (key === "appointmentDate" && value) {
+          const date = new Date(value);
+          const start = new Date(date);
+          start.setHours(0, 0, 0, 0);
+          const end = new Date(date);
+          end.setHours(23, 59, 59, 999);
+
+          return [
+            `appointmentDate>=${formatLocal(start)}`,
+            `appointmentDate<=${formatLocal(end)}`,
+          ];
+        }
+
+        return [`${key}=${value}`];
+      });
+  }
+
+  function buttonFilters() {
+    console.log(filters);
+    setFilters(updateFilters());
+  }
+
+  // const buildRequestOptions = (formData: FilterReservation): RequestOptions => {
+  //   const filters: string[] = Object.entries(formData)
+  //     .filter(
+  //       ([_, value]) => value !== null && value !== "" && value !== undefined
+  //     )
+  //     .map(([key, value]) => `${key}=${value}`);
+
+  //   return {
+  //     page: paginationPage,
+  //     size: paginationRows,
+  //     filter: filters,
+  //     sort: ["appointmentDate"],
+  //   };
+  // };
 
   const toogleAdditionalConntent = (id: number): void => {
     setOpenAdditionalConntent((prev) => (prev == id ? null : id));
@@ -113,8 +181,6 @@ export const useReservation = () => {
     handleDeleteReservation,
     formatPhone,
     readData,
-    setInstructorId,
-    instructorId,
     setPaginationRows,
     totalRows,
     lastPage,
@@ -123,5 +189,8 @@ export const useReservation = () => {
     openAdditionalConntent,
     toogleAdditionalConntent,
     handleReservationStatus,
+    handleSubmit,
+    register,
+    buttonFilters,
   } as const;
 };

@@ -4,7 +4,15 @@ import buttonStyle from "~/assets/styles/buttonsStyles.module.scss";
 import useStyles from "~/hooks/useStyle";
 
 import { useReservation } from "~/features/adminPanel/hooks/reservation/useReservation";
-import { Check, TableOfContents, Trash2, UserCheck, X } from "lucide-react";
+import {
+  BookmarkCheck,
+  CalendarSearch,
+  Check,
+  TableOfContents,
+  Trash2,
+  UserCheck,
+  X,
+} from "lucide-react";
 import { useUsers } from "~/features/adminPanel/hooks/user/useUsers";
 import {
   ageRangeStudents,
@@ -26,8 +34,6 @@ export function ReservationTable() {
     reservations,
     handleDeleteReservation,
     formatPhone,
-    readData,
-    setInstructorId,
     setPaginationRows,
     lastPage,
     setPaginationPage,
@@ -35,6 +41,9 @@ export function ReservationTable() {
     openAdditionalConntent,
     toogleAdditionalConntent,
     handleReservationStatus,
+    handleSubmit,
+    register,
+    buttonFilters,
   } = useReservation();
   const { users } = useUsers();
 
@@ -57,32 +66,58 @@ export function ReservationTable() {
     <>
       <div className={S(`options-navigation`)}>
         <div className={S(`options`)}>
-          {userToken.user && userToken.user?.role === "ADMIN" && (
-            <>
-              <UserCheck size={25} strokeWidth={1} />
-              <select
-                name="userId"
-                onChange={(event) => {
-                  setInstructorId(
-                    event.target.value == "" ? null : Number(event.target.value)
-                  );
-                }}
-                className={S(`custom-select`)}
-              >
-                <option value="">Wszyscy instruktorzy</option>
-                {users.map((user) => {
-                  return (
-                    <option key={user.id} value={user.id}>
-                      {user.name}
-                    </option>
-                  );
-                })}
-              </select>
-              <button className={S(`filter-button`)} onClick={() => readData()}>
-                Filtruj
-              </button>
-            </>
-          )}
+          <form
+            onSubmit={handleSubmit(() => {
+              buttonFilters();
+            })}
+          >
+            {userToken.user && userToken.user?.role === "ADMIN" && (
+              <>
+                <UserCheck size={25} strokeWidth={1} />
+                <select
+                  {...register("instructorId", {
+                    setValueAs: (value: string) =>
+                      value === "" || value === "0" ? null : Number(value),
+                  })}
+                  className={S(`custom-select`)}
+                >
+                  <option value="">Wszyscy instruktorzy</option>
+                  {users.map((user) => {
+                    return (
+                      <option key={user.id} value={user.id}>
+                        {user.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </>
+            )}
+            <BookmarkCheck size={25} strokeWidth={1} />
+            <input
+              type="number"
+              className={S(`custom-select`)}
+              {...register("reservationId", {
+                setValueAs: (value: string) =>
+                  value === "" || value === "0" ? null : Number(value),
+              })}
+            />
+            <CalendarSearch size={25} strokeWidth={1} />
+            <input
+              type="date"
+              {...register("appointmentDate", {
+                setValueAs: (value: string) =>
+                  value === "" || value === "0" ? null : value,
+              })}
+              className={S(`custom-select`)}
+            />
+            <button
+              type="submit"
+              className={S(`filter-button`)}
+              // onClick={() => readData()}
+            >
+              Filtruj
+            </button>
+          </form>
         </div>
         <div className={S(`navigation`)}>
           {/* <button className={S(`arrow`)}>
@@ -215,6 +250,11 @@ export function ReservationTable() {
             </div>
             {openAdditionalConntent == reservation.id && (
               <div className={TS(`additional-conntent`)}>
+                <div>
+                  <b>Numer:</b>
+                  <br />
+                  {reservation.id}
+                </div>
                 <div>
                   <b>Dodatkowe uwagi:</b>
                   <br />

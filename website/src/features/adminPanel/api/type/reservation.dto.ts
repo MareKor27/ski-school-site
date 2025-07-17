@@ -99,3 +99,9 @@ export type ReservationType = {
   instructorId: string;
   lessonStatus: string;
 };
+
+export type FilterReservation = {
+  instructorId: string | null;
+  appointmentDate: string | null;
+  reservationId: string | null;
+};
