@@ -3,11 +3,15 @@ import useStyles from "~/hooks/useStyle";
 const S = useStyles(style);
 import style from "./Login.module.scss";
 import { useForgotPassword } from "../hooks/useForgotPassword";
+import { Helmet } from "react-helmet-async";
 
 export function ForgotPasswordView() {
   const { onChangeEmail, sendReminderLink, email } = useForgotPassword();
   return (
     <div className={S(`login`)}>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <section>
         <div className={S(`color`)}></div>
         <div className={S(`color`)}></div>

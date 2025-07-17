@@ -5,6 +5,7 @@ import style from "./Login.module.scss";
 import { useChangePassword } from "../hooks/useChangePassword";
 import { Navigate, useParams } from "react-router-dom";
 import { Paths } from "~/features/app/constants/Paths";
+import { Helmet } from "react-helmet-async";
 
 export function ChangePasswordView() {
   const params = useParams();
@@ -19,6 +20,9 @@ export function ChangePasswordView() {
 
   return (
     <div className={S(`login`)}>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <section>
         <div className={S(`color`)}></div>
         <div className={S(`color`)}></div>

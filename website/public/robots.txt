@@ -5,5 +5,7 @@ Allow: /o-nas
 Allow: /cennik
 Allow: /galeria
 Allow: /kontakt
+Disallow: /administrator
+Disallow: /api
 
 Sitemap: https://figowski.com/sitemap.xml

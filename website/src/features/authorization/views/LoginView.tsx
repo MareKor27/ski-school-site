@@ -5,6 +5,7 @@ import { Paths } from "~/features/app/constants/Paths";
 import { useForm } from "react-hook-form";
 import { RegistretionType } from "../api/type/authorization-type";
 import { useLogin } from "../hooks/useLogin";
+import { Helmet } from "react-helmet-async";
 
 export function LoginView() {
   const {
@@ -24,6 +25,9 @@ export function LoginView() {
   const S = useStyles(style);
   return (
     <div className={S(`login`)}>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <section>
         <div className={S(`color`)}></div>
         <div className={S(`color`)}></div>
