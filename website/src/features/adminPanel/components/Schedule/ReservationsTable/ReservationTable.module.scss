@@ -99,6 +99,9 @@
   transition: border 0.2s ease, box-shadow 0.2s ease;
   margin: 0 10px;
   color: var(--main-color-6);
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
 }
 
 .custom-select:focus {
