@@ -27,8 +27,15 @@ import { DashboardView } from "./features/adminPanel/views/DashboardView";
 import { CalendarAddReservationView } from "./features/adminPanel/views/CalendarAddReservationView";
 import { SummaryReservationView } from "./features/adminPanel/views/SummaryReservationView";
 import { VerificationReservationView } from "./features/adminPanel/views/ReservationVerification";
+import { useEnvironmentStore } from "./features/environment/environmentStore";
 
 function App() {
+  const isLoaded = useEnvironmentStore((state) => state.isLoaded);
+
+  if (!isLoaded) {
+    return <div>Ładowanie konfiguracji...</div>;
+  }
+
   return (
     <GlobalConfig>
       <Routes>
