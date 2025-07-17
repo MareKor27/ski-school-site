@@ -4,10 +4,10 @@ import { CreateUserDto, UserDto } from "./type/user.dto";
 import { ResponseDto } from "./type/response.dto";
 import { useSessionStore } from "~/features/authorization/store/useSessionStore";
 import { handleApiError } from "~/features/authorization/services/ErrorServices";
+import { store } from "~/features/environment/EnironmentStoreProvider";
 
-const api = axios.create({
-  baseURL: "/api/users",
-});
+// baseURL: "/api/users",
+const api = axios.create();
 
 api.interceptors.request.use(
   (config) => {
@@ -16,6 +16,9 @@ api.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    const baseUrl = store.getState().apiBaseUrl;
+    if (!baseUrl) throw new Error("Config not loaded");
+    config.baseURL = baseUrl;
 
     return config;
   },
@@ -25,13 +28,13 @@ api.interceptors.request.use(
 //react query i walidacja kodu
 
 export async function readUsers(): Promise<CollectionResponseDto<UserDto>> {
-  const response = await api.get<CollectionResponseDto<UserDto>>("/");
+  const response = await api.get<CollectionResponseDto<UserDto>>("/users/");
   return response.data;
 }
 
 export async function readUser(id: number): Promise<ResponseDto<UserDto>> {
   try {
-    const response = await api.get<ResponseDto<UserDto>>(`${"/" + id}`);
+    const response = await api.get<ResponseDto<UserDto>>(`${"/users/" + id}`);
     return response.data;
   } catch (error) {
     throw handleApiError(error);
@@ -52,7 +55,7 @@ export async function updateUser(
 ): Promise<ResponseDto<CreateUserDto>> {
   try {
     const response = await api.patch<ResponseDto<CreateUserDto>>(
-      `${"/" + id}`,
+      `${"/users/" + id}`,
       user
     );
     return response.data;

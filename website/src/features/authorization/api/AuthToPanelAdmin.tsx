@@ -1,10 +1,9 @@
 import axios from "axios";
 import { UserData, useSessionStore } from "../store/useSessionStore";
 import { handleApiError } from "../services/ErrorServices";
-
-const api = axios.create({
-  baseURL: "/api/auth",
-});
+import { store } from "~/features/environment/EnironmentStoreProvider";
+//baseURL: "/api/auth",
+const api = axios.create();
 
 api.interceptors.request.use(
   (config) => {
@@ -12,6 +11,9 @@ api.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    const baseUrl = store.getState().apiBaseUrl;
+    if (!baseUrl) throw new Error("Config not loaded");
+    config.baseURL = baseUrl;
     return config;
   },
   (error) => Promise.reject(error)
@@ -30,7 +32,7 @@ export async function login(
   password: string
 ): Promise<LoginResponeType> {
   try {
-    const response = await api.post<LoginResponeType>("/login", {
+    const response = await api.post<LoginResponeType>("/auth/login", {
       email,
       password,
     });
@@ -41,7 +43,7 @@ export async function login(
 }
 
 export async function changePassword(password: string, token: string) {
-  const response = await api.post("/reset-password", {
+  const response = await api.post("/auth/reset-password", {
     password,
     token,
   });
@@ -49,13 +51,13 @@ export async function changePassword(password: string, token: string) {
 }
 
 export async function forgotPassword(email: string) {
-  const response = await api.post("/forgot-password", { email });
+  const response = await api.post("/auth/forgot-password", { email });
   return response;
 }
 
 export async function extendSesionTime(
   user: UserData
 ): Promise<LoginResponeType> {
-  const response = await api.post<LoginResponeType>("/token", { user });
+  const response = await api.post<LoginResponeType>("/auth/token", { user });
   return response.data;
 }
