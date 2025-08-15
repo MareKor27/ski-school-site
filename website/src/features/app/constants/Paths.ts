@@ -42,8 +42,8 @@ export const Paths = {
       routerConfig: "podsumowanie",
     },
     RESERVATION_VERIFICATION: {
-      absolute: "/administrator/weryfikacja",
-      routerConfig: "weryfikacja",
+      absolute: "/administrator/weryfikacja/:token",
+      routerConfig: "weryfikacja/:token",
     },
     OPTION: {
       INDEX: {
