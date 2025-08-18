@@ -8,6 +8,8 @@ export type UserDto = {
   role: "INSTRUCTOR" | "ADMIN";
 
   iconColor: string;
+
+  status: string;
 };
 
 export type CreateUserDto = {
@@ -20,6 +22,8 @@ export type CreateUserDto = {
   role: "INSTRUCTOR" | "ADMIN";
 
   iconColor: string;
+
+  status: string;
 };
 
 export type UpdateUserDto = {
@@ -30,6 +34,8 @@ export type UpdateUserDto = {
   role: "INSTRUCTOR" | "ADMIN";
 
   iconColor: string;
+
+  status: string;
 };
 
 export type UserForm = {

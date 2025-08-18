@@ -56,7 +56,9 @@ export function UserManagement() {
                 {nameToInitials(account.name)}
               </div>
             </div>
-            <div className={TS(`stuff-table-cell`)}>{account.name}</div>
+            <div className={TS(`stuff-table-cell`)}>
+              {account.name} {account.status}
+            </div>
             <div className={TS(`stuff-table-cell`)}>{account.email}</div>
             <div className={TS(`stuff-table-cell`)}>
               <Link

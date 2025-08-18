@@ -10,6 +10,7 @@ import {
 import { deleteReservations } from "../../api/AdminReservationApi";
 import { RequestOptions } from "../../api/type/paginationOptions.dto";
 import { useForm } from "react-hook-form";
+import { LessonStatus } from "../../api/type/lessonStatus.dto";
 
 export const useReservation = () => {
   const { register, handleSubmit, watch } = useForm<FilterReservation>({
@@ -18,6 +19,7 @@ export const useReservation = () => {
       instructorId: "",
       appointmentDate: "",
       reservationId: "",
+      lessonStatus: LessonStatus.VERIFIED,
     },
   });
 
@@ -26,7 +28,7 @@ export const useReservation = () => {
   const [paginationRows, setPaginationRows] = useState<number>(10);
   const [paginationPage, setPaginationPage] = useState<number>(1);
   const [filters, setFilters] = useState<string[]>([
-    // "appointmentDate>=2025-06-07T00:00:00.000",
+    "lessonStatus=verified",
     // "appointmentDate<=2025-06-07T23:59:59.999",
   ]);
 
@@ -159,6 +161,7 @@ export const useReservation = () => {
   // refresh
   const fetchReservationResponse = async (requestOptions: RequestOptions) => {
     //console.log(paginationRows, paginationPage);
+    console.log(requestOptions);
     const response = await readReservations(requestOptions);
     console.log(response.content);
     setReservations(response.content);

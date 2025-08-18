@@ -65,6 +65,6 @@ export async function updateUser(
 }
 
 export async function deleteUser(id: number): Promise<ResponseDto<UserDto>> {
-  const response = await api.delete<ResponseDto<UserDto>>(`${"/" + id}`);
+  const response = await api.delete<ResponseDto<UserDto>>(`${"/users/" + id}`);
   return response.data;
 }

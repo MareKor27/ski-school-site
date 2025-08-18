@@ -5,6 +5,7 @@
 // } as const;
 
 import { AppointmentDto } from "./appointment.dto";
+import { LessonStatus } from "~/features/adminPanel/api/type/lessonStatus.dto";
 
 // export type PurchasedTime = (typeof PurchasedTime)[keyof typeof PurchasedTime];
 // export const purchasedTime = Object.values(PurchasedTime);
@@ -104,4 +105,5 @@ export type FilterReservation = {
   instructorId: string | null;
   appointmentDate: string | null;
   reservationId: string | null;
+  lessonStatus: LessonStatus;
 };

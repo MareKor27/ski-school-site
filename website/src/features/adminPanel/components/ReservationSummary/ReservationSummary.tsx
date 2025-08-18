@@ -28,11 +28,15 @@ const ReservationSummary = () => {
               trafić.
             </i>
           </p>
+          <br />
+          <h2>UWAGA !</h2>
           <p>
-            Rezerwacja zostanie aktywowana dopiero po kliknięciu
+            Rezerwacja zostanie potwierdzona dopiero po kliknięciu
             <br /> w link z wiadomości.
-            <b> Masz na to 30 min. </b>
-            po tym czasie termin będzie znów dostępny.
+            <br />
+            <b> Masz na to 15 min. </b>
+            po tym czasie zarezerwowany przez Ciebie termin będzie znów
+            dostępny.
           </p>
           <Link to={Paths.INDEX.absolute}> Wróć na Stronę Główną</Link>
         </div>

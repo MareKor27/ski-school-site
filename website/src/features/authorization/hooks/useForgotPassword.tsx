@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { forgotPassword } from "../api/AuthToPanelAdmin";
 import { useNavigate } from "react-router-dom";
+import { Paths } from "~/features/app/constants/Paths";
 
 export const useForgotPassword = () => {
   type ForgotPasswordType = {
@@ -25,7 +26,7 @@ export const useForgotPassword = () => {
     event.preventDefault();
     console.log(email.email);
     const response = await forgotPassword(email.email);
-    response.status == 201 ? navigate("/") : "any";
+    response.status == 201 ? navigate(Paths.ADMIN.LOGIN.absolute) : "any";
   };
 
   return { onChangeEmail, sendReminderLink, email };

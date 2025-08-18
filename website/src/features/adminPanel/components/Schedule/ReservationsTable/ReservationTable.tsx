@@ -24,6 +24,10 @@ import {
   nameToInitials,
 } from "~/features/adminPanel/utils/formatters";
 import { useAccount } from "~/features/adminPanel/hooks/user/useAccount";
+import {
+  lessonStatusLabels,
+  lessonStatusLabelsPL,
+} from "~/features/adminPanel/api/type/lessonStatus.dto";
 
 const S = useStyles(style);
 const TS = useStyles(tableStyle);
@@ -92,6 +96,21 @@ export function ReservationTable() {
                 </select>
               </>
             )}
+            <UserCheck size={25} strokeWidth={1} />
+            <select
+              className={S(`custom-select`)}
+              {...register("lessonStatus")}
+              defaultValue={lessonStatusLabelsPL.VERIFIED}
+            >
+              {/* <option value="">Wszyscy instruktorzy</option> */}
+              {Object.entries(lessonStatusLabelsPL).map(
+                ([statusValue, statusLabel]) => (
+                  <option key={statusValue} value={statusValue}>
+                    {statusLabel}
+                  </option>
+                )
+              )}
+            </select>
             <BookmarkCheck size={25} strokeWidth={1} />
             <input
               type="number"
@@ -223,29 +242,34 @@ export function ReservationTable() {
                 >
                   <TableOfContents size={25} strokeWidth={1} />
                 </button>
-                <button
-                  className={BS(`reservation-accept`)}
-                  onClick={() =>
-                    handleReservationStatus("completed", reservation.id)
-                  }
-                >
-                  <Check size={25} strokeWidth={1} />
-                </button>
-                <button
-                  className={BS(`reservation-rejection`)}
-                  onClick={() =>
-                    handleReservationStatus("not-taken", reservation.id)
-                  }
-                >
-                  <X size={25} strokeWidth={1} />
-                </button>
-                <button
+                {reservation.lessonStatus == "verified" && (
+                  <button
+                    className={BS(`reservation-accept`)}
+                    onClick={() =>
+                      handleReservationStatus("completed", reservation.id)
+                    }
+                  >
+                    <Check size={25} strokeWidth={1} />
+                  </button>
+                )}
+                {(reservation.lessonStatus == "verified" ||
+                  reservation.lessonStatus == "reserved") && (
+                  <button
+                    className={BS(`reservation-rejection`)}
+                    onClick={() =>
+                      handleReservationStatus("cancelled", reservation.id)
+                    }
+                  >
+                    <X size={25} strokeWidth={1} />
+                  </button>
+                )}
+                {/* <button
                   className={BS(`button-option-delete`)}
                   onClick={() => handleDeleteReservation(reservation.id)}
                   title="Usuń"
                 >
                   <Trash2 size={25} strokeWidth={1} />
-                </button>
+                </button> */}
               </div>
             </div>
             {openAdditionalConntent == reservation.id && (

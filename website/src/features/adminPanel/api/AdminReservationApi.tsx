@@ -73,6 +73,9 @@ export async function setReservationStatus(
   return response.data;
 }
 
-// /reservation?id=7
-// /reservation?id=
-// /reservation
+export async function checkReservationToken(token: string) {
+  const response = await api.get<ResponseDto<ReservationDto>>(
+    `auth/verification/${token}`
+  );
+  return response.data;
+}

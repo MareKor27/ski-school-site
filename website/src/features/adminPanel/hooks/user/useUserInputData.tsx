@@ -4,12 +4,15 @@ import { readUser, updateUser } from "../../api/AdminUserApi";
 import { useForm } from "react-hook-form";
 import { createUser } from "../../api/AdminAuthApi";
 import { mapApiErrorToFormErrors } from "~/features/authorization/services/ErrorServices";
+import { Paths } from "~/features/app/constants/Paths";
+import { useNavigate } from "react-router-dom";
 
 export const useUserInputData = (
   userId: number | null,
   fetchResponse: () => void
 ) => {
   const [sending, setSending] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -61,7 +64,7 @@ export const useUserInputData = (
       if (!response) return;
 
       fetchResponse();
-      // navigate(Paths.ADMIN.STAFF.INDEX.absolute);
+      navigate(Paths.ADMIN.STAFF.INDEX.absolute);
     },
     [userId]
   );
