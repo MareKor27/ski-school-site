@@ -24,6 +24,8 @@ dist-ssr
 *.sw?
 notatkiDoOmówienia.txt
 Bez tytułu.png
+build.zip
+michal-site.tar
 
 /notatki
 .env

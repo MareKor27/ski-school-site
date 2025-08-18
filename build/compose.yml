@@ -1,0 +1,76 @@
+name: michal-site
+services:
+  # Gateway
+  #SERVER
+  # gateway:
+  #   container_name: michal-site-gateway
+  #   image: nginx:${NGINX_VERSION:?error}
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/conf.d/default.conf
+  #     - /etc/michal-site/ssl/:/etc/nginx/ssl/
+  #     #HOST:VIRTUAL MACHINE
+  #   ports:
+  #     - ${PUBLIC_PORT:-443}:443
+
+  # LOCAL
+  gateway:
+    container_name: michal-site-gateway
+    image: nginx:${NGINX_VERSION:?error}
+    restart: unless-stopped
+    volumes:
+      - ./local.nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - ${PUBLIC_PORT:-443}:80
+
+  # Frontrend
+  website:
+    image: michal-site-website
+    container_name: michal-site-website
+    ports:
+      - "5173:80"
+    volumes:
+      - ./env.json:/usr/share/nginx/html/env.json
+    #(lewo na zewwntrz , prawa wewnątrz) !!!!!!!!!!!!!!!!!!!!!!!!! WAŻNE
+    restart: unless-stopped
+
+  # Api
+  server:
+    image: michal-site-server
+    container_name: michal-site-server
+    ports:
+      - "3000:3000"
+    environment:
+      # WEBSITE_URL: ${WEBSITE_URL:?error}
+      MAIL_USER: ${MAIL_USER:?error}
+      MAIL_PASS: ${MAIL_PASS:?error}
+      DB_HOST: data_base
+      ROOT_PATH: api
+      # DB_PORT: 5432
+      DB_USER: ${POSTGRES_USER:?error}
+      DB_DIALECT: postgres
+      DB_PASS: ${POSTGRES_PASSWORD:?error}
+      DB_NAME: ${POSTGRES_DB:?error}
+      JWT_SECRET: ${JWT_SECRET:?error}
+    restart: unless-stopped
+    depends_on:
+      - data_base
+
+  # Third Party
+
+  # Data
+  data_base:
+    image: postgres:17-alpine
+    container_name: michal-site-db
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?error}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?error}
+      POSTGRES_DB: ${POSTGRES_DB:?error}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
