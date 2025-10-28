@@ -6,8 +6,8 @@ export const LessonStatus = {
 };
 
 export const lessonStatusLabelsPL = {
-  [LessonStatus.RESERVED]: "Zarezerwowane",
   [LessonStatus.VERIFIED]: "Zweryfikowane",
+  [LessonStatus.RESERVED]: "Zarezerwowane",
   [LessonStatus.COMPLETED]: "Zakończone",
   [LessonStatus.CANCELLED]: "Anulowane",
 };

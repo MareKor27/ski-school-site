@@ -234,6 +234,7 @@ export function ReservationTable() {
                 <button
                   className={BS(`reservation-show-more`)}
                   onClick={() => toogleAdditionalConntent(reservation.id)}
+                  title="Pokaż więcej informacji"
                 >
                   <TableOfContents size={25} strokeWidth={1} />
                 </button>
@@ -243,6 +244,7 @@ export function ReservationTable() {
                     onClick={() =>
                       handleReservationStatus("completed", reservation.id)
                     }
+                    title="Lekcja skończona"
                   >
                     <Check size={25} strokeWidth={1} />
                   </button>
@@ -254,6 +256,7 @@ export function ReservationTable() {
                     onClick={() =>
                       handleReservationStatus("cancelled", reservation.id)
                     }
+                    title="Lekcja nieodbyta"
                   >
                     <X size={25} strokeWidth={1} />
                   </button>

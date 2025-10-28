@@ -2,3 +2,7 @@
   display: grid;
   grid-template-columns: 50px repeat(2, 1fr) 2fr;
 }
+
+.status-indicator {
+  width: 50px;
+}

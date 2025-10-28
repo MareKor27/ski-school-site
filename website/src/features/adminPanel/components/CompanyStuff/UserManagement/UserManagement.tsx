@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { deleteUserInList } from "~/features/adminPanel/services/CompanyStuffServices";
 import { MonitorCog, UserPen, UserRoundX } from "lucide-react";
 import {
+  accountStatus,
   lightenColor,
   nameToInitials,
 } from "~/features/adminPanel/utils/formatters";
@@ -56,9 +57,7 @@ export function UserManagement() {
                 {nameToInitials(account.name)}
               </div>
             </div>
-            <div className={TS(`stuff-table-cell`)}>
-              {account.name} {account.status}
-            </div>
+            <div className={TS(`stuff-table-cell`)}>{account.name}</div>
             <div className={TS(`stuff-table-cell`)}>{account.email}</div>
             <div className={TS(`stuff-table-cell`)}>
               <Link
@@ -76,6 +75,9 @@ export function UserManagement() {
                   Edytuj {"   "}
                 </button>
               </Link>
+              <div title={account.status} className={S(`status-indicator`)}>
+                {" " + accountStatus(account.status)}
+              </div>
               <button
                 className={BS(`button-option-delete`)}
                 onClick={() => deleteUserInList(account.id, fetchResponse)}

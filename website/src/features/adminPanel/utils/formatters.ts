@@ -54,6 +54,20 @@ export function formatAdvancement(advancement: string): string {
       return "brak";
   }
 }
+export function accountStatus(status: string): string {
+  switch (status) {
+    case "CREATED":
+      return "C";
+    case "ACTIVE":
+      return "A";
+    case "PASSWORD_RESET":
+      return "PR";
+    case "INACTIVE":
+      return "IA";
+    default:
+      return "???";
+  }
+}
 
 export function ageRangeStudents(ageTable: string): string {
   const table = ageTable.split(",");

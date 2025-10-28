@@ -27,7 +27,7 @@ export function AppointmentTable() {
     <>
       <div className={S(`options-navigation`)}>
         <div className={S(`options`)}>
-          {modificationLabel}
+          <div className={S(`modyficator`)}>{modificationLabel}</div>
           {/* Cały tydzień:{" "}
           <input
             type="checkbox"
