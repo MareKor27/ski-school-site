@@ -9,7 +9,6 @@ import {
   CalendarSearch,
   Check,
   TableOfContents,
-  Trash2,
   UserCheck,
   X,
 } from "lucide-react";
@@ -24,10 +23,7 @@ import {
   nameToInitials,
 } from "~/features/adminPanel/utils/formatters";
 import { useAccount } from "~/features/adminPanel/hooks/user/useAccount";
-import {
-  lessonStatusLabels,
-  lessonStatusLabelsPL,
-} from "~/features/adminPanel/api/type/lessonStatus.dto";
+import { lessonStatusLabelsPL } from "~/features/adminPanel/api/type/lessonStatus.dto";
 
 const S = useStyles(style);
 const TS = useStyles(tableStyle);
@@ -36,7 +32,6 @@ const BS = useStyles(buttonStyle);
 export function ReservationTable() {
   const {
     reservations,
-    handleDeleteReservation,
     formatPhone,
     setPaginationRows,
     lastPage,
