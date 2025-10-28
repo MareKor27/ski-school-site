@@ -77,5 +77,6 @@ export async function checkReservationToken(token: string) {
   const response = await api.get<ResponseDto<ReservationDto>>(
     `auth/verification/${token}`
   );
+  console.log("response data", response.data);
   return response.data;
 }
