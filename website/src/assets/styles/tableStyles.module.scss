@@ -1,9 +1,13 @@
 /*=========table==========*/
+@use "~/scss/abstracts" as *;
 
 .stuff-table {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  @include screen-xs {
+    gap: 5px;
+  }
 }
 
 .stuff-table-cell {
@@ -20,6 +24,11 @@
 
   color: var(--main-color-6);
   text-shadow: 1px 1px 5px rgb(0 0 0);
+  @include screen-xs {
+    justify-content: center;
+    min-height: 40px;
+    padding-bottom: 5px;
+  }
 }
 .stuff-table-cell img {
   width: 30px;
@@ -35,6 +44,9 @@
   );
   color: #fff;
   font-weight: 300;
+  @include screen-xs {
+    display: none;
+  }
 }
 
 .stuff-table-cell:has(.cell-option-edit) {

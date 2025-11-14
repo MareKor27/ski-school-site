@@ -1,6 +1,37 @@
+@use "~/scss/abstracts" as *;
 .stuff-table-row {
   display: grid;
   grid-template-columns: 50px repeat(2, 1fr) 2fr;
+  @include screen-xs {
+    grid-template-columns: 50px repeat(2, 1fr);
+    grid-template-areas:
+      "avatar name email"
+      "options options options";
+  }
+}
+
+.stuff-table-row > :nth-child(1) {
+  @include screen-xs {
+    grid-area: avatar;
+  }
+}
+.stuff-table-row > :nth-child(2) {
+  @include screen-xs {
+    justify-content: left;
+    grid-area: name;
+  }
+}
+.stuff-table-row > :nth-child(3) {
+  @include screen-xs {
+    justify-content: left;
+    grid-area: email;
+    font-size: 0em;
+  }
+}
+.stuff-table-row > :nth-child(4) {
+  @include screen-xs {
+    grid-area: options;
+  }
 }
 
 .status-indicator {

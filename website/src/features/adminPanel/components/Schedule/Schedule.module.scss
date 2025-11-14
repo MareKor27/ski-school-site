@@ -4,6 +4,9 @@
   display: grid;
   height: 100%;
   grid-template-rows: 40px 1fr;
+  @include screen-xs {
+    grid-template-rows: auto 1fr;
+  }
 }
 
 .calendar .tooltip {

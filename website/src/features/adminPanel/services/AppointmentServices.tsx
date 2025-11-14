@@ -13,7 +13,9 @@ export function getWeekDates(options: GetWeekDatesOptions = {}): Date[] {
 
   const today = new Date();
   const currentDay = today.getDay();
-  const mondayOffset = 1 - currentDay + 7 * weekOffSet;
+  //const mondayOffset = 1 - currentDay + 7 * weekOffSet;
+  const mondayOffset =
+    daysCount == 1 ? weekOffSet : 1 - currentDay + 7 * weekOffSet;
 
   const dates: Date[] = [];
 

@@ -1,3 +1,5 @@
+@use "~/scss/abstracts" as *;
+
 .dashboard {
   height: 100%;
   background-color: rgb(64, 136, 181, 0.3);
@@ -7,6 +9,9 @@
   flex-direction: row;
   padding: 20px;
   gap: 10px;
+  @include screen-xs {
+    flex-direction: column;
+  }
 }
 .box {
   display: flex;
@@ -23,6 +28,10 @@
   transition: background-color 0.3s ease;
   box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.5),
     0px 0px 2px 1px rgba(0, 0, 0, 0.5);
+  @include screen-xs {
+    height: 80px;
+    font-size: 1em;
+  }
 }
 .box:hover {
   background-color: var(--main-color-4);
@@ -39,16 +48,29 @@
   box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.3),
     0px 0px 2px 1px rgba(0, 0, 0, 0.3);
   color: var(--main-color-2);
+  @include screen-xs {
+    width: 80px;
+    height: 80px;
+    font-size: 1em;
+  }
 }
 .box .icon img {
   width: 70px;
   height: 70px;
+  @include screen-xs {
+    width: 50px;
+    height: 50px;
+    font-size: 1em;
+  }
 }
 
 .box .name-option {
   text-align: center;
   width: 200px;
   margin: auto auto;
+  @include screen-xs {
+    width: 120px;
+  }
 }
 
 .box .icon img {

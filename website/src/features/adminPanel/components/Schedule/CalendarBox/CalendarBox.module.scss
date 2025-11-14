@@ -79,6 +79,9 @@ button.reservation {
   @include screen-md {
     padding: 3px 7px;
   }
+  @include screen-xs {
+    padding: 0px;
+  }
 }
 
 button.reservation.available:hover {
@@ -100,6 +103,8 @@ button.reservation.available:hover {
   );
   // padding-top: 20px;
   border-radius: 10px;
+  @include screen-xs {
+  }
 }
 
 .active-classes {

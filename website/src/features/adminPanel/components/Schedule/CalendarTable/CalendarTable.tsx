@@ -9,8 +9,16 @@ export function CalendarTable() {
   const S = useStyles(style);
   const CS = useStyles(calendarStyle);
 
-  const { dates, getAppointmentsByDate, weekOffset, setWeekOffset } =
+  const { dates, getAppointmentsByDate, weekOffset, setWeekOffset, isMobile } =
     useCalendar();
+
+  const handlePrev = () => {
+    setWeekOffset((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNext = () => {
+    setWeekOffset((prev) => prev + 1);
+  };
 
   return (
     <>
@@ -20,15 +28,14 @@ export function CalendarTable() {
           <button
             className={S(`arrow`)}
             disabled={weekOffset === 0}
-            onClick={() => setWeekOffset((prev) => Math.max(0, prev - 1))}
+            onClick={handlePrev}
           >
-            <SquareChevronLeft size={30} strokeWidth={1} /> Poprzedni Tydzień
+            <SquareChevronLeft size={30} strokeWidth={1} />{" "}
+            {isMobile ? "Poprzedni dzień" : "Poprzedni tydzień"}
           </button>
-          <button
-            onClick={() => setWeekOffset((prev) => prev + 1)}
-            className={S(`arrow`)}
-          >
-            Następny Tydzień <SquareChevronRight size={30} strokeWidth={1} />
+          <button onClick={handleNext} className={S(`arrow`)}>
+            {isMobile ? "Następny dzień" : "Następny tydzień"}{" "}
+            <SquareChevronRight size={30} strokeWidth={1} />
           </button>
         </div>
       </div>

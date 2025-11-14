@@ -75,9 +75,7 @@ export function UserManagement() {
                   Edytuj {"   "}
                 </button>
               </Link>
-              <div title={account.status} className={S(`status-indicator`)}>
-                {" " + accountStatus(account.status)}
-              </div>
+
               <button
                 className={BS(`button-option-delete`)}
                 onClick={() => deleteUserInList(account.id, fetchResponse)}
@@ -85,6 +83,9 @@ export function UserManagement() {
                 <UserRoundX size={25} strokeWidth={1} />
                 Usuń
               </button>
+              <div title={account.status} className={S(`status-indicator`)}>
+                {" " + accountStatus(account.status)}
+              </div>
             </div>
           </div>
         ))}

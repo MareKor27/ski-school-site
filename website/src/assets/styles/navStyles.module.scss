@@ -14,12 +14,18 @@ h2.title-page {
   margin-right: 20px;
   margin-left: 10px;
   color: azure;
+  @include screen-xs {
+    justify-content: center;
+  }
 }
 
 .title-tabs {
   display: flex;
   flex-direction: row;
   gap: 5px;
+  @include screen-xs {
+    flex-direction: column;
+  }
 }
 
 .title-nav-links {
@@ -27,6 +33,10 @@ h2.title-page {
   flex-direction: row;
   position: relative;
   gap: 0.5rem;
+  @include screen-xs {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .title-nav-links > a {
@@ -43,6 +53,9 @@ h2.title-page {
 
   &.active-tab {
     color: #000;
+  }
+  @include screen-xs {
+    flex-direction: column;
   }
 }
 
@@ -68,6 +81,10 @@ h2.title-page {
   font-weight: 300;
   transition: 0.7s ease;
   border-bottom: 3px solid transparent;
+  @include screen-xs {
+    padding: 4px 6px 4px 6px;
+    font-size: 0.8em;
+  }
 }
 
 .title-tabs .tab.active-tab {
@@ -90,5 +107,8 @@ h2.title-page {
   height: 100%;
   // box-shadow: inset 0px -8px 15px 0px rgba(0, 0, 0, 0.5);
   display: grid;
-  grid-template-rows: 44px 1fr;
+  grid-template-rows: auto 1fr;
+  // @include screen-xs {
+  //   grid-template-rows: auto 1fr;
+  // }
 }

@@ -8,6 +8,7 @@ import {
   BookmarkCheck,
   CalendarSearch,
   Check,
+  FunnelPlus,
   TableOfContents,
   UserCheck,
   X,
@@ -43,6 +44,9 @@ export function ReservationTable() {
     handleSubmit,
     register,
     buttonFilters,
+    filterActive,
+    setFilterActive,
+    isMobile,
   } = useReservation();
   const { users } = useUsers();
 
@@ -65,13 +69,25 @@ export function ReservationTable() {
     <>
       <div className={S(`options-navigation`)}>
         <div className={S(`options`)}>
+          {isMobile ? (
+            <div
+              className={S(`filters`)}
+              onClick={() => setFilterActive(!filterActive)}
+            >
+              Filtry
+              <FunnelPlus size={25} strokeWidth={1} />
+            </div>
+          ) : (
+            ""
+          )}
+
           <form
             onSubmit={handleSubmit(() => {
               buttonFilters();
             })}
           >
             {userToken.user && userToken.user?.role === "ADMIN" && (
-              <>
+              <div className={filterActive ? "" : S(`form-filters`)}>
                 <UserCheck size={25} strokeWidth={1} />
                 <select
                   {...register("instructorId", {
@@ -89,44 +105,56 @@ export function ReservationTable() {
                     );
                   })}
                 </select>
-              </>
+              </div>
             )}
-            <UserCheck size={25} strokeWidth={1} />
-            <select
-              className={S(`custom-select`)}
-              {...register("lessonStatus")}
-              defaultValue={lessonStatusLabelsPL.VERIFIED}
-            >
-              {/* <option value="">Wszyscy instruktorzy</option> */}
-              {Object.entries(lessonStatusLabelsPL).map(
-                ([statusValue, statusLabel]) => (
-                  <option key={statusValue} value={statusValue}>
-                    {statusLabel}
-                  </option>
-                )
-              )}
-            </select>
-            <BookmarkCheck size={25} strokeWidth={1} />
-            <input
-              type="number"
-              className={S(`custom-select`)}
-              {...register("reservationId", {
-                setValueAs: (value: string) =>
-                  value === "" || value === "0" ? null : Number(value),
-              })}
-            />
-            <CalendarSearch size={25} strokeWidth={1} />
-            <input
-              type="date"
-              {...register("appointmentDate", {
-                setValueAs: (value: string) =>
-                  value === "" || value === "0" ? null : value,
-              })}
-              className={S(`custom-select`)}
-            />
+            <div className={filterActive ? "" : S(`form-filters`)}>
+              <UserCheck size={25} strokeWidth={1} />
+              <select
+                className={S(`custom-select`)}
+                {...register("lessonStatus")}
+                defaultValue={lessonStatusLabelsPL.VERIFIED}
+              >
+                {/* <option value="">Wszyscy instruktorzy</option> */}
+                {Object.entries(lessonStatusLabelsPL).map(
+                  ([statusValue, statusLabel]) => (
+                    <option key={statusValue} value={statusValue}>
+                      {statusLabel}
+                    </option>
+                  )
+                )}
+              </select>
+            </div>
+            <div className={filterActive ? "" : S(`form-filters`)}>
+              <BookmarkCheck size={25} strokeWidth={1} />
+              <input
+                type="number"
+                className={S(`custom-select`)}
+                {...register("reservationId", {
+                  setValueAs: (value: string) =>
+                    value === "" || value === "0" ? null : Number(value),
+                })}
+                placeholder="Numer rezerwacji"
+              />
+            </div>
+            <div className={filterActive ? "" : S(`form-filters`)}>
+              <CalendarSearch size={25} strokeWidth={1} />
+              <input
+                type="date"
+                {...register("appointmentDate", {
+                  setValueAs: (value: string) =>
+                    value === "" || value === "0" ? null : value,
+                })}
+                className={S(`custom-select`)}
+              />
+            </div>
             <button
               type="submit"
-              className={S(`filter-button`)}
+              className={
+                filterActive
+                  ? S(`filter-button`)
+                  : S(`form-filters filter-button`)
+              }
+
               // onClick={() => readData()}
             >
               Filtruj
@@ -143,6 +171,52 @@ export function ReservationTable() {
         </div>
       </div>
       <div className={TS(`stuff-table`)}>
+        <div className={` ${S(`table-footer`)}`}>
+          <div>{paginationInformation()}</div>
+          <div className={` ${S(`pagination`)}`}>
+            {" Ilość wierszy:"}
+            <select
+              name="pagination-rows"
+              onChange={(event) => {
+                setPaginationRows(Number(event.target.value));
+              }}
+              className={S(`custom-select`)}
+            >
+              <option key={10} value="10">
+                10
+              </option>
+              <option key={20} value="20">
+                20
+              </option>
+              <option key={30} value="30">
+                30
+              </option>
+              <option key={40} value="40">
+                40
+              </option>
+              <option key={50} value="50">
+                50
+              </option>
+              <option key={100} value="100">
+                100
+              </option>
+            </select>
+            <div> Strona:</div>
+            <select
+              name="pagination-rows"
+              onChange={(event) => {
+                setPaginationPage(Number(event.target.value));
+              }}
+              className={S(`custom-select`)}
+            >
+              {Array.from({ length: lastPage }, (_, i) => (
+                <option key={i + 1} value={i + 1}>
+                  {i + 1}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
         <div className={`${S(`stuff-table-row`)} ${TS(`th-cell`)}`}>
           {headers.map((title) => (
             <div className={TS(`stuff-table-cell`)} key={title}>
@@ -193,12 +267,12 @@ export function ReservationTable() {
                   +48 {formatPhone(reservation.phoneNumber)}
                 </a>
               </div>
-              <div className={TS(`stuff-table-cell`)}>
-                {reservation.participants}
+              <div className={TS(`stuff-table-cell`)} title="Liczba osób">
+                {reservation.participants} l.o.
               </div>
 
               <div className={TS(`stuff-table-cell`)}>
-                {ageRangeStudents(reservation.ageOfParticipants)}
+                {ageRangeStudents(reservation.ageOfParticipants)} lat
               </div>
 
               <div
@@ -291,53 +365,6 @@ export function ReservationTable() {
             )}
           </>
         ))}
-
-        <div className={` ${S(`table-footer`)}`}>
-          <div>{paginationInformation()}</div>
-          <div className={` ${S(`pagination`)}`}>
-            {" Ilość wierszy:"}
-            <select
-              name="pagination-rows"
-              onChange={(event) => {
-                setPaginationRows(Number(event.target.value));
-              }}
-              className={S(`custom-select`)}
-            >
-              <option key={10} value="10">
-                10
-              </option>
-              <option key={20} value="20">
-                20
-              </option>
-              <option key={30} value="30">
-                30
-              </option>
-              <option key={40} value="40">
-                40
-              </option>
-              <option key={50} value="50">
-                50
-              </option>
-              <option key={100} value="100">
-                100
-              </option>
-            </select>
-            <div> Strona:</div>
-            <select
-              name="pagination-rows"
-              onChange={(event) => {
-                setPaginationPage(Number(event.target.value));
-              }}
-              className={S(`custom-select`)}
-            >
-              {Array.from({ length: lastPage }, (_, i) => (
-                <option key={i + 1} value={i + 1}>
-                  {i + 1}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
       </div>
     </>
   );

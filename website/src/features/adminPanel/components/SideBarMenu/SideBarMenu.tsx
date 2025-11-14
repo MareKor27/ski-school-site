@@ -76,7 +76,7 @@ export function SideBarMenu() {
         </div>
 
         <div
-          className={S(`account-profile`)}
+          className={S(`account-profile extend-session`)}
           onClick={() => extendSesion(userToken.user!)}
         >
           <ClockArrowUp size={20} strokeWidth={1.5} />

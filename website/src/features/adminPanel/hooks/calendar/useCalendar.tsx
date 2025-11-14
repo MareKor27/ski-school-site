@@ -14,12 +14,13 @@ export type AppointmentTile = {
 };
 
 export const useCalendar = () => {
+  const SERVER_MAX_RESERVATION_LENGHT = 3;
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [weekOffset, setWeekOffset] = useState<number>(0);
-  const [howManyDays] = useState<number>(7);
+  const [howManyDays, setHowManyDays] = useState<number>(7);
   const [appointments, setAppointments] = useState<AppointmentDto[]>([]);
-
-  const SERVER_MAX_RESERVATION_LENGHT = 3;
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     const tydzienParam = searchParams.get("tydzien");
@@ -33,6 +34,17 @@ export const useCalendar = () => {
     }
   }, [searchParams]);
 
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 991);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    setHowManyDays(isMobile ? 1 : 7);
+  }, [isMobile]);
+
   const dates = useMemo(() => {
     const dates = getWeekDates({
       hour: 6,
@@ -40,7 +52,7 @@ export const useCalendar = () => {
       daysCount: howManyDays,
     });
     return dates;
-  }, [weekOffset]);
+  }, [weekOffset, howManyDays]);
 
   /// DO ZMIANY DLA WSZYSTKICH
   const fetchAppointmentResponse = async (dates: Date) => {
@@ -112,12 +124,13 @@ export const useCalendar = () => {
     }
 
     fetchAppointmentResponse(dates[0]);
-  }, [weekOffset]);
+  }, [weekOffset, howManyDays]);
 
   return {
     dates,
     weekOffset,
     setWeekOffset,
     getAppointmentsByDate,
+    isMobile,
   } as const;
 };

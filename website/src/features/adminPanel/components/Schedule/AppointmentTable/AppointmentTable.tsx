@@ -21,6 +21,7 @@ export function AppointmentTable() {
     modificationLabel,
     chengeAppointmentsByDay,
     hasAppointmentsOnDay,
+    isMobile,
   } = useAppointment(location);
 
   return (
@@ -42,13 +43,15 @@ export function AppointmentTable() {
             disabled={weekOffset === 0}
             onClick={() => setWeekOffset((prev) => Math.max(0, prev - 1))}
           >
-            <SquareChevronLeft size={30} strokeWidth={1} /> Poprzedni Tydzień
+            <SquareChevronLeft size={30} strokeWidth={1} />{" "}
+            {isMobile ? "Poprzedni dzień" : "Poprzedni tydzień"}
           </button>
           <button
             onClick={() => setWeekOffset((prev) => prev + 1)}
             className={S(`arrow`)}
           >
-            Następny Tydzień <SquareChevronRight size={30} strokeWidth={1} />
+            {isMobile ? "Następny dzień" : "Następny tydzień"}{" "}
+            <SquareChevronRight size={30} strokeWidth={1} />
           </button>
         </div>
       </div>
@@ -73,6 +76,7 @@ export function AppointmentTable() {
                   }}
                 />
               </div>
+
               {hoursOfPossibleActions.map((hour) => (
                 <div key={hour} className={CS(`classes`)}>
                   <div className={CS(`hour`)}>{hour + ":00"}</div>

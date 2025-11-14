@@ -1,11 +1,81 @@
+@use "~/scss/abstracts" as *;
+
 .stuff-table-row {
   display: grid;
   row-gap: 3px;
   // grid-template-columns: 0.5fr 0.4fr 0.3fr 0.7fr 0.5fr 1.2fr;
   grid-template-columns: 50px 100px 50px 150px 140px 50px 60px 80px 1fr 230px;
+  row-gap: 0px;
+  text-align: center;
+  @include screen-xs {
+    // grid-template-columns: 1fr 1fr;
+    // grid-template-rows: auto;
+    // grid-auto-flow: row;
+    display: grid;
+    grid-template-columns: repeat(
+      4,
+      1fr
+    ); // <-- 4 kolumny, bo najdłuższy wiersz ma 4
+    grid-template-areas:
+      "avatar date date hours"
+      "reserving reserving telephone telephone"
+      "people age difficulty equipment"
+      "options options options options";
+  }
 }
 .stuff-table-row > div:nth-child(2) {
   text-align: left;
+}
+
+.stuff-table-row > :nth-child(1) {
+  @include screen-xs {
+    grid-area: avatar;
+  }
+}
+.stuff-table-row > :nth-child(2) {
+  @include screen-xs {
+    grid-area: date;
+  }
+}
+.stuff-table-row > :nth-child(3) {
+  @include screen-xs {
+    grid-area: hours;
+  }
+}
+.stuff-table-row > :nth-child(4) {
+  @include screen-xs {
+    grid-area: reserving;
+  }
+}
+.stuff-table-row > :nth-child(5) {
+  @include screen-xs {
+    grid-area: telephone;
+  }
+}
+.stuff-table-row > :nth-child(6) {
+  @include screen-xs {
+    grid-area: people;
+  }
+}
+.stuff-table-row > :nth-child(7) {
+  @include screen-xs {
+    grid-area: age;
+  }
+}
+.stuff-table-row > :nth-child(8) {
+  @include screen-xs {
+    grid-area: difficulty;
+  }
+}
+.stuff-table-row > :nth-child(9) {
+  @include screen-xs {
+    grid-area: equipment;
+  }
+}
+.stuff-table-row > :nth-child(10) {
+  @include screen-xs {
+    grid-area: options;
+  }
 }
 
 .retractable-panel {
@@ -27,6 +97,7 @@
   align-items: center;
   margin-top: 5px;
   justify-content: flex-end;
+  margin-bottom: 5px;
 }
 
 .P0,
@@ -139,4 +210,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.options {
+  @include screen-xs {
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+  }
+}
+
+.options form {
+  display: flex;
+  justify-content: center;
+  min-height: 30px;
+  @include screen-xs {
+    text-align: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.filters {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.form-filters {
+  display: none;
 }

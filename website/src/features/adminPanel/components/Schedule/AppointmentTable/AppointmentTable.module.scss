@@ -4,11 +4,20 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 5px;
+  @include screen-xs {
+    display: block;
+  }
 }
 
 .options {
   color: white;
   font-weight: 800;
+
+  @include screen-xs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
 }
 
 .navigation {
@@ -16,6 +25,9 @@
   flex-direction: row;
   justify-content: flex-end;
   gap: 20px;
+  @include screen-xs {
+    justify-content: center;
+  }
 }
 
 .modyficator {

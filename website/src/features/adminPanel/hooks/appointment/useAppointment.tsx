@@ -17,7 +17,8 @@ import { readUser } from "../../api/AdminUserApi";
 export const useAppointment = (location?: any) => {
   const [weekOffset, setWeekOffset] = useState<number>(0);
   const [appointments, setAppointments] = useState<AppointmentDto[]>();
-  const [howManyDays] = useState<number>(7);
+  const [howManyDays, setHowManyDays] = useState<number>(7);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const userToken = useSessionStore();
 
@@ -29,6 +30,17 @@ export const useAppointment = (location?: any) => {
     return userId ? userId : userToken.user?.id!;
   }, []);
 
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 991);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  });
+
+  useEffect(() => {
+    setHowManyDays(isMobile ? 1 : 7);
+  }, [isMobile]);
+
   const dates = useMemo(() => {
     const dates = getWeekDates({
       hour: 6,
@@ -36,7 +48,7 @@ export const useAppointment = (location?: any) => {
       daysCount: howManyDays,
     });
     return dates;
-  }, [weekOffset]);
+  }, [weekOffset, howManyDays]);
 
   const fetchResponse = async (dates: Date[]) => {
     const response = await getAppoitmentsByDateForOneUser(
@@ -165,5 +177,6 @@ export const useAppointment = (location?: any) => {
     modificationLabel,
     chengeAppointmentsByDay,
     hasAppointmentsOnDay,
+    isMobile,
   };
 };
