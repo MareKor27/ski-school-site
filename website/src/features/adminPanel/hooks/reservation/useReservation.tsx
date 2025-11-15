@@ -24,8 +24,8 @@ export const useReservation = () => {
   });
 
   const [reservations, setReservations] = useState<ReservationDto[]>([]);
-  const [filterActive, setFilterActive] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [filterActive, setFilterActive] = useState<boolean>(true);
   const [paginationRows, setPaginationRows] = useState<number>(10);
   const [paginationPage, setPaginationPage] = useState<number>(1);
   const [filters, setFilters] = useState<string[]>([
@@ -56,6 +56,12 @@ export const useReservation = () => {
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   });
+
+  useEffect(() => {
+    if (isMobile !== null) {
+      setFilterActive(!isMobile);
+    }
+  }, [isMobile]);
 
   function updateFilters(): string[] {
     const pad = (n: number, len = 2) => String(n).padStart(len, "0");

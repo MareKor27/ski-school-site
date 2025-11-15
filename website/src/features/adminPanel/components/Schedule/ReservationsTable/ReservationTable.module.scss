@@ -234,9 +234,28 @@
 .filters {
   position: absolute;
   top: 5px;
-  right: 10px;
+  border: 1px solid var(--main-color-4);
+  border-radius: 5px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
 }
 
-.form-filters {
+.filters-inactive {
+  transform: translateX(0px);
+}
+
+.filters-active {
+  transform: translateX(150px);
+}
+
+.form-filters-inactive {
   display: none;
+  transition: 0.5s;
+}
+
+.form-filters-active {
+  display: block;
+  transition: 0.5s;
 }

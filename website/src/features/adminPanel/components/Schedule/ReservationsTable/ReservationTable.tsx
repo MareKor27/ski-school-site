@@ -9,6 +9,7 @@ import {
   CalendarSearch,
   Check,
   FunnelPlus,
+  FunnelX,
   TableOfContents,
   UserCheck,
   X,
@@ -71,11 +72,19 @@ export function ReservationTable() {
         <div className={S(`options`)}>
           {isMobile ? (
             <div
-              className={S(`filters`)}
+              className={S(
+                `filters ${
+                  filterActive ? "filters-active" : "filters-inactive"
+                }`
+              )}
               onClick={() => setFilterActive(!filterActive)}
             >
               Filtry
-              <FunnelPlus size={25} strokeWidth={1} />
+              {filterActive ? (
+                <FunnelX size={25} strokeWidth={1} />
+              ) : (
+                <FunnelPlus size={25} strokeWidth={1} />
+              )}
             </div>
           ) : (
             ""
@@ -87,7 +96,13 @@ export function ReservationTable() {
             })}
           >
             {userToken.user && userToken.user?.role === "ADMIN" && (
-              <div className={filterActive ? "" : S(`form-filters`)}>
+              <div
+                className={
+                  filterActive
+                    ? S(`form-filters-active`)
+                    : S(`form-filters-inactive`)
+                }
+              >
                 <UserCheck size={25} strokeWidth={1} />
                 <select
                   {...register("instructorId", {
@@ -107,7 +122,13 @@ export function ReservationTable() {
                 </select>
               </div>
             )}
-            <div className={filterActive ? "" : S(`form-filters`)}>
+            <div
+              className={
+                filterActive
+                  ? S(`form-filters-active`)
+                  : S(`form-filters-inactive`)
+              }
+            >
               <UserCheck size={25} strokeWidth={1} />
               <select
                 className={S(`custom-select`)}
@@ -124,7 +145,13 @@ export function ReservationTable() {
                 )}
               </select>
             </div>
-            <div className={filterActive ? "" : S(`form-filters`)}>
+            <div
+              className={
+                filterActive
+                  ? S(`form-filters-active`)
+                  : S(`form-filters-inactive`)
+              }
+            >
               <BookmarkCheck size={25} strokeWidth={1} />
               <input
                 type="number"
@@ -136,7 +163,13 @@ export function ReservationTable() {
                 placeholder="Numer rezerwacji"
               />
             </div>
-            <div className={filterActive ? "" : S(`form-filters`)}>
+            <div
+              className={
+                filterActive
+                  ? S(`form-filters-active`)
+                  : S(`form-filters-inactive`)
+              }
+            >
               <CalendarSearch size={25} strokeWidth={1} />
               <input
                 type="date"
@@ -151,8 +184,8 @@ export function ReservationTable() {
               type="submit"
               className={
                 filterActive
-                  ? S(`filter-button`)
-                  : S(`form-filters filter-button`)
+                  ? S(`filter-button form-filters-active`)
+                  : S(`form-filters-inactive filter-button`)
               }
 
               // onClick={() => readData()}
