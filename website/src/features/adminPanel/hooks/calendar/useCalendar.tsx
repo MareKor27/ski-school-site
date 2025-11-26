@@ -4,10 +4,13 @@ import { AppointmentDto } from "../../api/type/appointment.dto";
 
 import {
   getMondayOfOffset,
-  getOffsetFromDate,
+  getWeeksOffsetFromDate,
   getWeekDates,
+  getDaysBetween,
+  getTodayOffset,
 } from "../../services/AppointmentServices";
 import { useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
 export type AppointmentTile = {
   appointment: AppointmentDto;
   nextAppointments: AppointmentDto[];
@@ -20,26 +23,29 @@ export const useCalendar = () => {
   const [weekOffset, setWeekOffset] = useState<number>(0);
   const [howManyDays, setHowManyDays] = useState<number>(7);
   const [appointments, setAppointments] = useState<AppointmentDto[]>([]);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(
+    typeof window !== "undefined" ? window.innerWidth < 991 : false
+  );
+
+  onresize = () => {
+    setIsMobile(window.innerWidth < 991);
+  };
 
   useEffect(() => {
     const tydzienParam = searchParams.get("tydzien");
+
     if (tydzienParam) {
       const today = new Date();
       const paramDate = new Date(tydzienParam);
+
       if (paramDate > today) {
-        const offset = getOffsetFromDate(tydzienParam);
+        const offset = isMobile
+          ? getDaysBetween(today, paramDate)
+          : getWeeksOffsetFromDate(tydzienParam);
         setWeekOffset(offset);
       }
     }
   }, [searchParams]);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 991);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   useEffect(() => {
     setHowManyDays(isMobile ? 1 : 7);
@@ -51,6 +57,7 @@ export const useCalendar = () => {
       weekOffSet: weekOffset,
       daysCount: howManyDays,
     });
+
     return dates;
   }, [weekOffset, howManyDays]);
 
@@ -60,6 +67,7 @@ export const useCalendar = () => {
       new Date(dates),
       howManyDays
     );
+
     setAppointments(response.content);
   };
 
@@ -67,6 +75,7 @@ export const useCalendar = () => {
     const responseAppointments: AppointmentDto[] = appointments.filter(
       (appointment) => appointment.appointmentDate == date.toISOString()
     );
+
     return responseAppointments.map((appointment) => {
       return {
         appointment,
@@ -98,16 +107,34 @@ export const useCalendar = () => {
       } else {
         break;
       }
-
       hours++;
     }
 
     return nextAppointments;
   };
 
+  const copyToClipboard = (linkToDay: string, day: string) => {
+    navigator.clipboard.writeText(linkToDay).then(() => {
+      toast.info(`Link do ${day} skopiowany !`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    });
+  };
+
   useEffect(() => {
-    const monday = getMondayOfOffset(weekOffset);
+    const monday = isMobile
+      ? getTodayOffset(weekOffset)
+      : getMondayOfOffset(weekOffset);
+
     const tydzienParam = searchParams.get("tydzien");
+
     const formattedMonday = monday.toISOString().split("T")[0];
     if (tydzienParam !== formattedMonday) {
       setSearchParams(
@@ -132,5 +159,6 @@ export const useCalendar = () => {
     setWeekOffset,
     getAppointmentsByDate,
     isMobile,
+    copyToClipboard,
   } as const;
 };

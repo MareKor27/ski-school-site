@@ -13,9 +13,11 @@ export function getWeekDates(options: GetWeekDatesOptions = {}): Date[] {
 
   const today = new Date();
   const currentDay = today.getDay();
-  //const mondayOffset = 1 - currentDay + 7 * weekOffSet;
+
   const mondayOffset =
-    daysCount == 1 ? weekOffSet : 1 - currentDay + 7 * weekOffSet;
+    daysCount == 1
+      ? weekOffSet
+      : (currentDay === 0 ? -6 : 1 - currentDay) + 7 * weekOffSet;
 
   const dates: Date[] = [];
 
@@ -37,29 +39,31 @@ export function getWeekDates(options: GetWeekDatesOptions = {}): Date[] {
   return dates;
 }
 
+export function getTodayOffset(weekOffset: number): Date {
+  const date = new Date();
+  date.setDate(date.getDate() + weekOffset);
+  return date;
+}
+
 export function getMondayOfOffset(
   weekOffSet: number,
   today = new Date()
 ): Date {
-  const currentDay = today.getDay();
-  const mondayOffset = 1 - currentDay + 7 * weekOffSet;
+  const date = new Date(today);
+  const day = date.getDay();
 
-  today.setDate(today.getDate() + mondayOffset);
-  today.setHours(6);
-  today.setMinutes(0);
-  today.setSeconds(0);
-  return today;
+  const diff = date.getDate() - day + (day == 0 ? -6 : 1);
+
+  date.setDate(diff + weekOffSet * 7);
+  date.setHours(6, 0, 0, 0);
+
+  return date;
 }
 
-export function getOffsetFromDate(date: string) {
-  // const msPerWeek = 24 * 60 * 58 * 1000;
+export function getWeeksOffsetFromDate(date: string) {
   const d1 = getMondayOfOffset(0);
-  // d1.setHours(6);
   const d2 = new Date(date);
-  // const diffInMs = Math.abs((d2.getTime() - d1.getTime()) / msPerWeek);
-  // console.log(diffInMs / 7);
-  // return Math.floor(diffInMs / 7);
-  console.log(weeksBetween(d1, d2));
+
   return weeksBetween(d1, d2);
 }
 
@@ -73,4 +77,16 @@ function weeksBetween(date1: Date, date2: Date) {
   const days = Math.abs((utc2 - utc1) / msPerDay);
 
   return Math.floor(days / 7);
+}
+
+export function getDaysBetween(date1: Date, date2: Date): number {
+  const d1 = new Date(date1);
+  const d2 = new Date(date2);
+  const utc1 = Date.UTC(d1.getFullYear(), d1.getMonth(), d1.getDate());
+  const utc2 = Date.UTC(d2.getFullYear(), d2.getMonth(), d2.getDate());
+
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const days = Math.abs((utc2 - utc1) / msPerDay);
+
+  return Math.floor(days);
 }

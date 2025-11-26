@@ -7,6 +7,7 @@
   grid-template-columns: 50px 100px 50px 150px 140px 50px 60px 80px 1fr 230px;
   row-gap: 0px;
   text-align: center;
+
   @include screen-xs {
     // grid-template-columns: 1fr 1fr;
     // grid-template-rows: auto;

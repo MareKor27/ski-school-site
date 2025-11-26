@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { RegistretionType } from "../api/type/authorization-type";
 import { useLogin } from "../hooks/useLogin";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 export function LoginView() {
   const {
@@ -106,6 +107,10 @@ export function LoginView() {
                   <a href={Paths.ADMIN.FORGOT_PASSWORD.absolute}>
                     Kliknij tutaj
                   </a>
+                </p>
+                <p className={S(`forget`)}>
+                  {" "}
+                  <a href={Paths.INDEX.absolute}>Wróć na stronę główną</a>
                 </p>
               </form>
             </div>

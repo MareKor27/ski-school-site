@@ -80,6 +80,17 @@ export function Navbar() {
           <li>
             <Link
               className={style["button-nav"]}
+              to={Paths.SCHEDULE.absolute}
+              onClick={() => {
+                setShowSidebar(false);
+              }}
+            >
+              Harmonogram
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={style["button-nav"]}
               to={Paths.GALLERY.absolute}
               onClick={() => {
                 setShowSidebar(false);

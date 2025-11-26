@@ -1,5 +1,9 @@
 @use "~/scss/abstracts" as *;
 
+.content {
+  display: flex;
+  flex-direction: column;
+}
 .content p {
   color: var(--font-content);
 }
