@@ -28,6 +28,7 @@ import { CalendarAddReservationView } from "./features/adminPanel/views/Calendar
 import { SummaryReservationView } from "./features/adminPanel/views/SummaryReservationView";
 import { VerificationReservationView } from "./features/adminPanel/views/ReservationVerification";
 import { useEnvironmentStore } from "./features/environment/environmentStore";
+import { Schedule } from "./pages/Schedule";
 
 function App() {
   const isLoaded = useEnvironmentStore((state) => state.isLoaded);
@@ -42,6 +43,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path={Paths.ABOUT_US.absolute} element={<AboutUs />} />
         <Route path={Paths.PRICE_LIST.absolute} element={<PriceList />} />
+        <Route path={Paths.SCHEDULE.absolute} element={<Schedule />} />
         <Route path={Paths.GALLERY.absolute} element={<Photos />} />
         <Route path={Paths.CONTACT.absolute} element={<Contact />} />
 

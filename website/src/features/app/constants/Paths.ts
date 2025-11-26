@@ -2,6 +2,7 @@ export const Paths = {
   INDEX: { absolute: "/", routerConfig: "/" },
   ABOUT_US: { absolute: "/o-nas", routerConfig: "o-nas" },
   PRICE_LIST: { absolute: "/cennik", routerConfig: "cennik" },
+  SCHEDULE: { absolute: "/harmonogram", routerConfig: "harmonogram" },
   GALLERY: { absolute: "/galeria", routerConfig: "galeria" },
   CONTACT: { absolute: "/kontakt", routerConfig: "kontakt" },
   ADMIN: {
