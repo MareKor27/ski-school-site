@@ -80,7 +80,7 @@ export function Navbar() {
           <li>
             <Link
               className={style["button-nav"]}
-              to={Paths.SCHEDULE.absolute}
+              to={Paths.SCHEDULE.INDEX.absolute}
               onClick={() => {
                 setShowSidebar(false);
               }}

@@ -29,6 +29,9 @@ import { SummaryReservationView } from "./features/adminPanel/views/SummaryReser
 import { VerificationReservationView } from "./features/adminPanel/views/ReservationVerification";
 import { useEnvironmentStore } from "./features/environment/environmentStore";
 import { Schedule } from "./pages/Schedule";
+import { ScheduleFormReservation } from "./pages/ScheduleFormReservation";
+import { ScheduleFormSummary } from "./pages/ScheduleFormSummary";
+import { ScheduleFormVeryfication } from "./pages/ScheduleFormVeryfication";
 
 function App() {
   const isLoaded = useEnvironmentStore((state) => state.isLoaded);
@@ -43,7 +46,19 @@ function App() {
         <Route index element={<Home />} />
         <Route path={Paths.ABOUT_US.absolute} element={<AboutUs />} />
         <Route path={Paths.PRICE_LIST.absolute} element={<PriceList />} />
-        <Route path={Paths.SCHEDULE.absolute} element={<Schedule />} />
+        <Route path={Paths.SCHEDULE.INDEX.absolute} element={<Schedule />} />
+        <Route
+          path={Paths.SCHEDULE.CALENDAR_ADD_RESERVATION.routerConfig}
+          element={<ScheduleFormReservation />}
+        />
+        <Route
+          path={Paths.SCHEDULE.RESERVATION_SUMMARY.routerConfig}
+          element={<ScheduleFormSummary />}
+        />
+        <Route
+          path={Paths.SCHEDULE.RESERVATION_VERIFICATION.routerConfig}
+          element={<ScheduleFormVeryfication />}
+        />
         <Route path={Paths.GALLERY.absolute} element={<Photos />} />
         <Route path={Paths.CONTACT.absolute} element={<Contact />} />
 
@@ -72,7 +87,13 @@ function App() {
             <Route element={<ScheduleView />}>
               <Route
                 path={Paths.ADMIN.SCHEDULE.CALENDAR.routerConfig}
-                element={<CalendarTable />}
+                element={
+                  <CalendarTable
+                    getReservationLink={
+                      Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute
+                    }
+                  />
+                }
               />
               <Route
                 path={Paths.ADMIN.SCHEDULE.RESERVATION.routerConfig}
@@ -86,15 +107,15 @@ function App() {
           </Route>
 
           <Route
-            path={Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute}
+            path={Paths.ADMIN.CALENDAR_ADD_RESERVATION.routerConfig}
             element={<CalendarAddReservationView />}
           />
           <Route
-            path={Paths.ADMIN.RESERVATION_SUMMARY.absolute}
+            path={Paths.ADMIN.RESERVATION_SUMMARY.routerConfig}
             element={<SummaryReservationView />}
           />
           <Route
-            path={Paths.ADMIN.RESERVATION_VERIFICATION.absolute}
+            path={Paths.ADMIN.RESERVATION_VERIFICATION.routerConfig}
             element={<VerificationReservationView />}
           />
 

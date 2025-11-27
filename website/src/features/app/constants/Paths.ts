@@ -2,7 +2,22 @@ export const Paths = {
   INDEX: { absolute: "/", routerConfig: "/" },
   ABOUT_US: { absolute: "/o-nas", routerConfig: "o-nas" },
   PRICE_LIST: { absolute: "/cennik", routerConfig: "cennik" },
-  SCHEDULE: { absolute: "/harmonogram", routerConfig: "harmonogram" },
+  SCHEDULE: {
+    INDEX: { absolute: "/harmonogram", routerConfig: "harmonogram" },
+    CALENDAR_ADD_RESERVATION: {
+      absolute: (date: string) => `/harmonogram/rezerwacja?dnia=${date}`,
+      routerConfig: "harmonogram/rezerwacja",
+    },
+    RESERVATION_SUMMARY: {
+      absolute: "/harmonogram/podsumowanie",
+      routerConfig: "harmonogram/podsumowanie",
+    },
+    RESERVATION_VERIFICATION: {
+      absolute: "/harmonogram/weryfikacja/:token",
+      routerConfig: "harmonogram/weryfikacja/:token",
+    },
+  },
+
   GALLERY: { absolute: "/galeria", routerConfig: "galeria" },
   CONTACT: { absolute: "/kontakt", routerConfig: "kontakt" },
   ADMIN: {
@@ -35,7 +50,7 @@ export const Paths = {
       },
     },
     CALENDAR_ADD_RESERVATION: {
-      absolute: "/administrator/rezerwacja",
+      absolute: (date: string) => `/administrator/rezerwacja?dnia=${date}`,
       routerConfig: "rezerwacja",
     },
     RESERVATION_SUMMARY: {

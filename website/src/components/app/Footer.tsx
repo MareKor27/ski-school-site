@@ -33,6 +33,12 @@ export function Footer() {
           <Link className={style["button-nav"]} to={Paths.PRICE_LIST.absolute}>
             Cennik
           </Link>
+          <Link
+            className={style["button-nav"]}
+            to={Paths.SCHEDULE.INDEX.absolute}
+          >
+            Harmonogram
+          </Link>
           <Link className={style["button-nav"]} to={Paths.GALLERY.absolute}>
             Galeria
           </Link>

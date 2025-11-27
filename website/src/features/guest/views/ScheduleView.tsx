@@ -4,6 +4,7 @@ import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
 import { TextBox } from "~/components/textbox/TextBox";
 import { CalendarTable } from "~/features/adminPanel/components/Schedule/CalendarTable/CalendarTable";
+import { Paths } from "~/features/app/constants/Paths";
 import { useCanonicalLink } from "~/hooks/useCanonicalLink";
 
 export function ScheduleView() {
@@ -29,7 +30,9 @@ export function ScheduleView() {
             zimowymi sportami!
           </p>
         </TextBox>
-        <CalendarTable />
+        <CalendarTable
+          getReservationLink={Paths.SCHEDULE.CALENDAR_ADD_RESERVATION.absolute}
+        />
       </Content>
     </Contener>
   );

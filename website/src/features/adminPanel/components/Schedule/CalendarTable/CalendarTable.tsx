@@ -7,7 +7,12 @@ import { useCalendar } from "~/features/adminPanel/hooks/calendar/useCalendar";
 import { Copy, SquareChevronLeft, SquareChevronRight } from "lucide-react";
 import { Paths } from "~/features/app/constants/Paths";
 import { ToastContainer } from "react-toastify";
-export function CalendarTable() {
+
+type CalendarTableProps = {
+  getReservationLink: (date: string) => string;
+};
+
+export function CalendarTable({ getReservationLink }: CalendarTableProps) {
   const S = useStyles(style);
   const CS = useStyles(calendarStyle);
 
@@ -86,6 +91,7 @@ export function CalendarTable() {
                 hour={hour}
                 getAppointmentsByDate={getAppointmentsByDate}
                 key={index}
+                getReservationLink={getReservationLink}
               />
             ))}
           </div>

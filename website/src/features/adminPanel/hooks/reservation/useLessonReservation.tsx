@@ -131,7 +131,10 @@ export const useLessonReservation = () => {
     return new Date(isoString);
   }
 
-  const addReservation = async (form: ReservationType) => {
+  const addReservation = async (
+    form: ReservationType,
+    getSummaryLink: string
+  ) => {
     setSending(true);
     const { instructorId: instructorId, ...rest } = form;
     const reservation: CreateReservationDto = rest;
@@ -174,7 +177,7 @@ export const useLessonReservation = () => {
 
     setSending(false);
     if (!reservationResponse) return;
-    navigate(Paths.ADMIN.RESERVATION_SUMMARY.absolute);
+    navigate(getSummaryLink);
   };
 
   function getReservationAppoitmentsIds(

@@ -1,6 +1,5 @@
 // import Tooltip from "../../ToolTip/ToolTip";
 import { Link } from "react-router-dom";
-import { Paths } from "~/features/app/constants/Paths";
 import useStyles from "~/hooks/useStyle";
 import style from "./CalendarBox.module.scss";
 // import calendarStyle from "~/assets/styles/calendarStyles.module.scss";
@@ -30,12 +29,14 @@ type InputCalendarBoxType = {
   currentDate: Date;
   hour: number;
   getAppointmentsByDate: (date: Date) => AppointmentTile[];
+  getReservationLink: (date: string) => string;
 };
 
 export const CalendarBox = ({
   currentDate,
   hour,
   getAppointmentsByDate,
+  getReservationLink,
 }: InputCalendarBoxType) => {
   // ===============================================
   const [isOpen, setIsOpen] = useState(false);
@@ -117,13 +118,16 @@ export const CalendarBox = ({
 
   if (checkAppointmentReservationAvailability) {
     // JESLI RESERVATIONID != NULL \|/
-
     return (
       <>
         <Link
-          to={`${
-            Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute
-          }?dnia=${formatDate(newDate)}`}
+          // to={`${
+          //   Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute
+          // }?dnia=${formatDate(newDate)}`}
+          // to={Paths.ADMIN.CALENDAR_ADD_RESERVATION.absolute(
+          //   formatDate(newDate)
+          // )}
+          to={getReservationLink(formatDate(newDate))}
           ref={refs.setReference}
           {...getReferenceProps()}
         >

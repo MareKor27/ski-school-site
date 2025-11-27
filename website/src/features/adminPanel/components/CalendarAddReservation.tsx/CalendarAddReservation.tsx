@@ -5,9 +5,17 @@ import { useLessonReservation } from "../../hooks/reservation/useLessonReservati
 import { reservationAdvancement } from "../../api/type/reservation.dto";
 import AgeMultiSelect from "./AgeMultiSelect/AgeMultiSelect";
 import { Info } from "lucide-react";
+
 const S = useStyles(style);
 const ES = useStyles(errorStyle);
-export function CalendarAddReservation() {
+
+type CalendarAddReservationProps = {
+  getSummaryLink: string;
+};
+
+export function CalendarAddReservation({
+  getSummaryLink,
+}: CalendarAddReservationProps) {
   const {
     addReservation,
     register,
@@ -56,7 +64,7 @@ export function CalendarAddReservation() {
         <form
           onSubmit={handleSubmit((form) => {
             // console.log(form);
-            addReservation(form);
+            addReservation(form, getSummaryLink);
           })}
         >
           <div className={S(`form-container`)}>
