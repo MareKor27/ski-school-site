@@ -69,10 +69,10 @@ const ReservationVerification = () => {
         )}
         {!reservation && (
           <div className={S(`summary-info`)}>
+            <p>Twój link do rejestracji zajęć narciarstwa wygasł.</p>
             <p>
-              Twój link do rejestracji zajęć narciarstwa wygasł. Aby rozpocząć
-              proces od nowa i zarezerwować lekcje, zarezerwuj lekcję jeszcze
-              raz.
+              Aby rozpocząć proces od nowa i zarezerwować lekcje, zarezerwuj
+              lekcję jeszcze raz.
             </p>
             <Link to={Paths.INDEX.absolute}>Wróć na Stronę Główną</Link>
           </div>

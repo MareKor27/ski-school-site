@@ -1,7 +1,6 @@
 @use "~/scss/abstracts" as *;
 
 .summary-positioning {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,20 +13,17 @@
   backdrop-filter: blur(0px);
   display: grid;
   grid-template-columns: 1fr;
-  //   height: 100%;
   box-shadow: inset 0px -8px 15px 0px rgba(0, 0, 0, 0.2);
-  //   padding: 10px;
   place-items: center;
   background: hsl(
     from var(--main-color-3) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5
   );
   color: var(--main-color-5);
-  width: clamp(300px, 80%, 1200px);
   border-radius: 10px;
   @include screen-xs {
     padding: 0;
     width: 100%;
-    margin: 10px 10px;
+    margin: 10px 20px;
   }
 }
 
@@ -37,6 +33,7 @@
   border-radius: 15px 15px 0 0;
   padding: 15px;
   text-align: center;
+
   width: 100%;
 
   h1 {
@@ -54,6 +51,8 @@
   padding: 20px 40px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   @include screen-xs {
     padding: 10px 15px;
   }
@@ -82,7 +81,6 @@
 
   a {
     align-self: center;
-    padding-top: 10px;
     text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
     font-size: 1em;
     background: hsl(
@@ -91,7 +89,7 @@
     width: 250px;
     margin-bottom: 20px;
     border: 1px solid var(--main-color-3);
-    margin-top: 5px;
+    margin-top: 25px;
     padding: 10px;
     color: #fff;
     border-radius: 5px;

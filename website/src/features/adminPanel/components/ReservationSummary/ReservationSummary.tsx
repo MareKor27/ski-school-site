@@ -29,7 +29,7 @@ const ReservationSummary = () => {
             </i>
           </p>
           <br />
-          <h2>UWAGA !</h2>
+          <h2 className={S(`summary-warning`)}>UWAGA !</h2>
           <p>
             Rezerwacja zostanie potwierdzona dopiero po kliknięciu
             <br /> w link z wiadomości.

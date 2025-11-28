@@ -1,8 +1,8 @@
 @use "~/scss/abstracts" as *;
 
 .summary-positioning {
-  height: 100vh;
   display: flex;
+  height: auto;
   justify-content: center;
   align-items: center;
   @include screen-xs {
@@ -22,12 +22,12 @@
     from var(--main-color-3) calc(h + 0) calc(s + 0) calc(l + 0) / 0.5
   );
   color: var(--main-color-5);
-  width: clamp(300px, 80%, 1200px);
+  // margin: 10px;
   border-radius: 10px;
   @include screen-xs {
     padding: 0;
     width: 100%;
-    margin: 10px 10px;
+    margin: 20px;
   }
 }
 
@@ -54,6 +54,8 @@
   padding: 40px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   @include screen-xs {
     padding: 10px 15px;
   }
@@ -61,7 +63,17 @@
     font-size: 1.4em;
     font-weight: 600;
     @include screen-xs {
-      font-size: 1em;
+      font-size: 1.4em;
+    }
+  }
+  .summary-warning {
+    font-size: 1.4em;
+    font-weight: 800;
+    color: rgb(151, 0, 0);
+    text-shadow: #fff 0px 0px 10px;
+    letter-spacing: 0.3rem;
+    @include screen-xs {
+      font-size: 1.2em;
     }
   }
 

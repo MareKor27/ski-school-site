@@ -10,6 +10,7 @@
   box-shadow: inset 0px -8px 15px 0px rgba(0, 0, 0, 0);
   padding: 10px;
   place-items: center;
+  margin: 10px;
 }
 
 .form-app-wrapper label,
@@ -50,7 +51,7 @@
 }
 
 .main-container {
-  width: clamp(300px, 80%, 1200px);
+  width: clamp(300px, 100%, 20000px);
   border-radius: 10px;
 }
 
