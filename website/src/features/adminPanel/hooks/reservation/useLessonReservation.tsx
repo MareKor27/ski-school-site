@@ -44,6 +44,7 @@ export const useLessonReservation = () => {
   const [searchParams] = useSearchParams();
   const [todayReservation, setTodayReservation] = useState<Date>(new Date());
   const [allAppointments, setAllAppointments] = useState<AppointmentDto[]>([]);
+  const navigate = useNavigate();
 
   const instructorWithHours = useMemo<
     Record<string, { instructor: UserDto; hours: number }>
@@ -68,16 +69,24 @@ export const useLessonReservation = () => {
     return 0;
   }, [watch("instructorId")]);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
-    // console.log("useEffect");
     const reservationDay = searchParams.get("dnia");
     let date;
     if (reservationDay) {
       date = parseCustomDate(reservationDay);
+
+      if (
+        date.getHours() < 10 ||
+        date.getHours() > 19 ||
+        date.getMinutes() != 0 ||
+        date < new Date()
+      )
+        navigate(Paths.SCHEDULE.INDEX.absolute);
+
       setTodayReservation(date);
       readAllAppointmentsFromDate(date);
+    } else {
+      navigate(Paths.SCHEDULE.INDEX.absolute);
     }
   }, [searchParams]);
 
