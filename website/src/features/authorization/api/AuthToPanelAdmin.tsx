@@ -29,12 +29,15 @@ export type LoginResponeType = {
 
 export async function login(
   email: string,
-  password: string
+  password: string,
+  recaptchaToken: string
 ): Promise<LoginResponeType> {
+  console.log(recaptchaToken);
   try {
     const response = await api.post<LoginResponeType>("/auth/login", {
       email,
       password,
+      recaptchaToken,
     });
     return response.data;
   } catch (error) {
