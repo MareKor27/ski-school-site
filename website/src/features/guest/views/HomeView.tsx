@@ -133,8 +133,8 @@ export function HomeView() {
         <ul>
           <li>Szkolenie indywidualne</li>
           <li>Szkolenie grupowe</li>
-          <li>Wyjazdy narciarskie</li>
-          <li>Wyjazdy rodzinne</li>
+          <li>Szkolenie w Polsce</li>
+          <li>Szkolenie za granicą</li>
           <li>Wsparcie w samorozwoju sportowym kursantów</li>
         </ul>
         <br />

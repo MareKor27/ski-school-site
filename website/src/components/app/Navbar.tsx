@@ -23,6 +23,12 @@ export function Navbar() {
           >
             <img src="/images/logo-biale-2.webp" alt={"Logo FigowSki Sport"} />
           </LinkImage>
+
+          <img
+            src="/images/Licencja-SITN-25-26.png"
+            alt="SITN"
+            className={style["sitn-logo-image"]}
+          />
         </div>
 
         <menu
@@ -77,7 +83,7 @@ export function Navbar() {
               Cennik
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link
               className={style["button-nav"]}
               to={Paths.SCHEDULE.INDEX.absolute}
@@ -87,7 +93,7 @@ export function Navbar() {
             >
               Harmonogram
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link
               className={style["button-nav"]}

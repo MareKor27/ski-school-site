@@ -23,6 +23,12 @@
   @include screen-xl {
     background-position-y: 200px;
   }
+  @include screen-sm {
+    background-position-y: 200px;
+  }
+  @include screen-xs {
+    background-position-y: 140px;
+  }
 }
 
 .appla {

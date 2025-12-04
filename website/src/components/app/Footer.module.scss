@@ -72,12 +72,20 @@ a.button-nav {
 }
 .footer-logo-image {
   height: 6rem;
-  width: 150px;
+  // width: 150px;
+  gap: 10px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  @include screen-xs {
+    flex-direction: column;
+  }
 }
 
 .footer-logo-div img {
   @include screen-xs {
-    transform: scale(1.5);
+    // transform: scale(1.5);
   }
 }
 
@@ -89,4 +97,8 @@ a.button-nav {
   align-items: center;
   text-align: center;
   padding: 10px 0;
+}
+
+.sitn-logo-image {
+  height: 4rem;
 }

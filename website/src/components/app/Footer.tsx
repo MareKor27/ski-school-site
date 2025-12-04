@@ -13,7 +13,7 @@ export function Footer() {
           <div className={style["footer-logo-div"]}>
             <div className={style["footer-logo-image"]}>
               <LinkImage
-                className="linked-image"
+                className={"navbar-logo-image"}
                 to={Paths.INDEX.absolute}
                 target=""
               >
@@ -22,6 +22,12 @@ export function Footer() {
                   alt={"Logo FigowSki Sport"}
                 />
               </LinkImage>
+
+              <img
+                src="/images/Licencja-SITN-25-26.png"
+                alt="SITN"
+                className={style["sitn-logo-image"]}
+              />
             </div>
           </div>
           <Link className={style["button-nav"]} to={Paths.INDEX.absolute}>
@@ -33,12 +39,12 @@ export function Footer() {
           <Link className={style["button-nav"]} to={Paths.PRICE_LIST.absolute}>
             Cennik
           </Link>
-          <Link
+          {/* <Link
             className={style["button-nav"]}
             to={Paths.SCHEDULE.INDEX.absolute}
           >
             Harmonogram
-          </Link>
+          </Link> */}
           <Link className={style["button-nav"]} to={Paths.GALLERY.absolute}>
             Galeria
           </Link>
