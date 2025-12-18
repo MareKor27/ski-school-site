@@ -22,12 +22,6 @@ export function Footer() {
                   alt={"Logo FigowSki Sport"}
                 />
               </LinkImage>
-
-              <img
-                src="/images/Licencja-SITN-25-26.png"
-                alt="SITN"
-                className={style["sitn-logo-image"]}
-              />
             </div>
           </div>
           <Link className={style["button-nav"]} to={Paths.INDEX.absolute}>
@@ -35,6 +29,9 @@ export function Footer() {
           </Link>
           <Link className={style["button-nav"]} to={Paths.ABOUT_US.absolute}>
             O nas
+          </Link>
+          <Link className={style["button-nav"]} to={Paths.WINTER.absolute}>
+            Zima 2026
           </Link>
           <Link className={style["button-nav"]} to={Paths.PRICE_LIST.absolute}>
             Cennik
@@ -58,6 +55,11 @@ export function Footer() {
               <br /> Pn - Ndz: 10:00 - 20:00
             </p>
           </div>
+          <img
+            src="/images/Licencja-SITN-25-26.png"
+            alt="SITN"
+            className={style["sitn-logo-image"]}
+          />
         </div>
         <div className={style["copyright"]}>
           Wszelkie prawa zastrzeżone © <br />

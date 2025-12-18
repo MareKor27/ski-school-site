@@ -85,7 +85,7 @@ a.button-nav {
 
 .footer-logo-div img {
   @include screen-xs {
-    // transform: scale(1.5);
+    transform: scale(1.5);
   }
 }
 
@@ -100,5 +100,6 @@ a.button-nav {
 }
 
 .sitn-logo-image {
-  height: 4rem;
+  height: 5rem;
+  margin-bottom: 10px;
 }

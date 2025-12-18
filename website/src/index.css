@@ -2,15 +2,17 @@
   --page-background: #96b3d1;
   --main-color-1: rgba(58, 91, 132, 1); /*#3a5b84*/
   --main-color-2: rgba(32, 50, 72, 1); /*#203248*/
-  --main-color-3: rgb(64, 136, 181, 1);
+  --main-color-3: rgba(64, 136, 181, 1);
   --main-color-4: rgba(69, 180, 228, 1); /*#45B4E4*/
   /*===*/
   --main-color-5: rgba(217, 217, 217, 1); /*#D9D9D9*/
   --main-color-6: rgba(238, 229, 229, 1); /*#EEE5E5*/
   --main-color-7: rgba(150, 179, 209, 1); /*#96B3D1*/
-  --main-color-8: rgb(189, 243, 255); /*#BDF3FF*/
+  --main-color-8: rgba(189, 243, 255, 1); /*#BDF3FF*/
   --main-color-9: rgba(0, 123, 177, 1); /*#007BB1*/
   --main-color-10: rgba(123, 153, 184, 1); /*#7b99b8*/
+  --main-color-11: rgba(213, 234, 255, 1); /*#D5EAFF*/
+  --main-color-12: rgb(223, 245, 255, 1); /*#DFF5FF*/
 
   --main-color-4-mobile1: rgba(69, 180, 228, 0.3);
   --main-color-4-mobile2: rgba(69, 180, 228, 0.7);

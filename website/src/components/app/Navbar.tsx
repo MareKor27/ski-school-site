@@ -75,6 +75,17 @@ export function Navbar() {
           <li>
             <Link
               className={style["button-nav"]}
+              to={Paths.WINTER.absolute}
+              onClick={() => {
+                setShowSidebar(false);
+              }}
+            >
+              Zima 2026
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={style["button-nav"]}
               to={Paths.PRICE_LIST.absolute}
               onClick={() => {
                 setShowSidebar(false);

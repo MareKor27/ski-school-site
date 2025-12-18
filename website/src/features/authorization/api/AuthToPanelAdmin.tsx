@@ -32,7 +32,6 @@ export async function login(
   password: string,
   recaptchaToken: string
 ): Promise<LoginResponeType> {
-  console.log(recaptchaToken);
   try {
     const response = await api.post<LoginResponeType>("/auth/login", {
       email,

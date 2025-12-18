@@ -68,7 +68,7 @@ export const useCalendar = () => {
       howManyDays
     );
 
-    setAppointments(response.content);
+    setAppointments(response.content || []);
   };
 
   const getAppointmentsByDate = (date: Date): AppointmentTile[] => {

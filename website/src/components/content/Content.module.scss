@@ -21,6 +21,9 @@
 .content img.imgRight {
   width: 40%;
   float: right;
+  @include screen-xs {
+    width: 100%;
+  }
 }
 
 table.price-table {
@@ -29,7 +32,6 @@ table.price-table {
   margin-bottom: 20px;
   display: table;
   flex-direction: column;
-  /* padding: 0px 40px; */
   margin-left: auto;
   margin-right: auto;
   border-spacing: 5px;
@@ -93,4 +95,117 @@ table.price-table {
 }
 .content .margin-top {
   margin-top: 20px;
+}
+
+//=================OFFERS===================
+@import url("https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,slnt,wght@12..36,-6..0,300..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
+.offer-contener {
+  column-count: 2;
+  column-gap: 20px;
+  padding: 20px;
+  @include screen-xs {
+    column-count: 1;
+    padding: 5px;
+  }
+}
+
+.offer-box,
+.offer-box-full {
+  // flex: 1 1 calc(50% - 1rem); /* 2 kolumny */
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: var(--main-color-12);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 10px;
+  box-shadow: var(--main-color-7) 0px 0px 2px 2px;
+  margin: 0 0 20px 0;
+  break-inside: avoid;
+  @include screen-xs {
+    margin: 0 0px 20px 0px;
+    gap: 5px;
+    font-size: 14px;
+  }
+
+  h4 {
+    color: var(--main-color-2);
+    // text-shadow: var(--main-color-5) 0px 2px 4px;
+    margin-top: 0px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+    @include screen-xs {
+      font-size: 21px;
+    }
+  }
+  h5 {
+    color: var(--main-color-2);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+
+  h6 {
+    margin-top: 15px;
+    font-size: 17px;
+    color: var(--main-color-2);
+  }
+
+  p,
+  ul,
+  li {
+    font-family: "TikTok Sans", sans-serif;
+    color: #000;
+  }
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-color-3);
+    width: 50px;
+    height: 50px;
+    border-radius: 25%;
+    border: 1px solid var(--main-color-2);
+    box-shadow: var(--main-color-2) 0px 0px 6px 2px;
+  }
+
+  &-content {
+    padding: 10px 0 10px 0;
+  }
+  // .offer-box-content-split {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  // }
+
+  &-link {
+    @include screen-xs {
+      font-size: 14px;
+    }
+  }
+}
+
+// .offer-box-full {
+//   grid-column: 1 / -1;
+// }
+
+// .offer-content-split {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+// }
+
+.flag {
+  position: absolute;
+  max-width: 80px;
+  box-shadow: 0px 3px 6px 1px rgb(0, 0, 0);
+  border-radius: 20px;
+  left: 270px;
 }

@@ -121,11 +121,12 @@ export function HomeView() {
         <h2>Oferta</h2>
         <p>
           Zapraszamy do zapoznania się z naszą kompleksową ofertą! Proponujemy
-          zarówno szkolenia indywidualne, jak i grupowe, wyjazdy narciarskie dla
-          rodzin oraz wsparcie w rozwoju kursantów – od pierwszych kroków na
-          stoku po zaawansowane umiejętności na drodze do zdobycia tytułu
-          instruktora. Skontaktuj się z nami, aby poznać <br />
-          szczegóły – każde, nawet najmniejsze pytanie, jest dla nas ważne.
+          zarówno szkolenia indywidualne, jak i grupowe, poza granicami Warszawy
+          oraz Polski, szkolenie narciarskie dla rodzin oraz kompleksowe
+          wsparcie w rozwoju kursantów – od pierwszych kroków na stoku po
+          zaawansowane umiejętności na drodze do zdobycia tytułu instruktora.
+          Skontaktuj się z nami, aby poznać szczegóły – każde, nawet najmniejsze
+          pytanie, jest dla nas ważne.
         </p>
         <br />
         <p>Nasza oferta obejmuje:</p>
@@ -149,9 +150,9 @@ export function HomeView() {
       >
         <h2>Galeria</h2>
         <p>
-          Zobacz naszą galerię zdjęć ze szkoleń indywidualnych i grupowych,
-          wyjazdów narciarskich oraz rodzinnych przygód na stoku. Poznaj
-          atmosferę integracji, nauki i zabawy, która towarzyszy naszym
+          Zobacz naszą galerię zdjęć ze szkoleń indywidualnych i grupowych, w
+          Polsce i za granicą, czyli samych narciarskich przygód na stoku.
+          Poznaj atmosferę integracji, nauki i zabawy, która towarzyszy naszym
           kursantom podczas lekcji.
         </p>
         <OwnButton to="/galeria" text={"Zobacz więcej"} />

@@ -52,8 +52,8 @@ export function AboutUsView() {
             pomagając każdemu stać się wspaniałym narciarzem. Na co dzień
             pracuje jako nauczyciel wychowania fizycznego w szkole podstawowej,
             co pozwala mu doskonale rozumieć potrzeby każdego, mocne i słabe
-            strony dzieci i młodzieży. Dzięki temu umiejętnie łączy narciarską
-            zabawę z profesjonalnym podejściem sportowym.
+            strony, dzieci oraz młodzieży. Dzięki temu umiejętnie łączy
+            narciarską zabawę z profesjonalnym podejściem sportowym.
           </p>
           <h2>Nasza misja, nasze motto – „Od zabawy do sportu”</h2>
           <p>

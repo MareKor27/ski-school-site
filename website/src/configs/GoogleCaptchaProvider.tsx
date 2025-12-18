@@ -1,6 +1,5 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import { CAPTCHA_SITE_KEY } from "~/features/app/constants/Captcha";
 
 type GoogleCaptchaProviderProps = {
   children: ReactNode;
@@ -8,10 +7,24 @@ type GoogleCaptchaProviderProps = {
 
 const GoogleCaptchaProvider = (props: GoogleCaptchaProviderProps) => {
   const { children } = props;
+  const [recaptchaToken, setRecaptchaToken] = useState<string>("");
+
+  useEffect(() => {
+    fetch("/env.json")
+      .then((res) => res.json())
+      .then((config) => {
+        setRecaptchaToken(config.RECAPTCHA_PUBLIC_KEY);
+      })
+      .catch((err) => {
+        console.log("Wrong Recaptcha key", err);
+      });
+  }, []);
+
+  if (!recaptchaToken) return null;
 
   return (
     <GoogleReCaptchaProvider
-      reCaptchaKey={CAPTCHA_SITE_KEY}
+      reCaptchaKey={recaptchaToken}
       scriptProps={
         {
           async: true,
