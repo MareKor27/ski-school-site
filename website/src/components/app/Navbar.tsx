@@ -80,7 +80,7 @@ export function Navbar() {
                 setShowSidebar(false);
               }}
             >
-              Zima 2026
+              Oferta-Zima
             </Link>
           </li>
           <li>

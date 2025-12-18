@@ -31,7 +31,7 @@ export function Footer() {
             O nas
           </Link>
           <Link className={style["button-nav"]} to={Paths.WINTER.absolute}>
-            Zima 2026
+            Oferta-Zima
           </Link>
           <Link className={style["button-nav"]} to={Paths.PRICE_LIST.absolute}>
             Cennik

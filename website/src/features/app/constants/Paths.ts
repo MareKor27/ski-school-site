@@ -1,7 +1,7 @@
 export const Paths = {
   INDEX: { absolute: "/", routerConfig: "/" },
   ABOUT_US: { absolute: "/o-nas", routerConfig: "o-nas" },
-  WINTER: { absolute: "/zima2026", routerConfig: "zima2026" },
+  WINTER: { absolute: "/oferta-zima", routerConfig: "oferta-zima" },
   PRICE_LIST: { absolute: "/cennik", routerConfig: "cennik" },
   SCHEDULE: {
     INDEX: { absolute: "/harmonogram", routerConfig: "harmonogram" },

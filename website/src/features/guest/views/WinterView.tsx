@@ -42,11 +42,11 @@ export function WinterView() {
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <Content className={"content"}>
-        <Breadcrums namePage={"Zima 2026"} />
+        <Breadcrums namePage={"Oferta-Zima"} />
         <TextBox>
-          <h1>Zima 2026 w Włoszech</h1>
+          <h1>Oferta Zima 2026 w Włoszech</h1>
           <img
-            className={s(`contentimg imgRight`)}
+            className={s(`contentimg imgFull`)}
             src="images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan1.webp"
             alt={"Górka Szczęśliwicka z rana"}
           />
@@ -54,36 +54,10 @@ export function WinterView() {
           <img
             className={s(`flag`)}
             src="images/trips/flag/italy-flag.png"
-            alt=""
+            alt="Włoskie góry"
           />
           <h3>Termin: 17-24.01.2026</h3>
-
-          <p>
-            Z pierwszym śniegiem zaglądającym już od listopada do okien,
-            chcielibyśmy serdecznie zaprosić Państwa do zapoznania się z naszą
-            najnowszą i — mamy wielką nadzieję — najlepszą i najbliższą (z
-            Polski) na rynku propozycją rodzinnego wyjazdu narciarskiego do
-            Włoch 🙂.
-          </p>
-          <p>
-            W przypadku jakichkolwiek pytań — nawet tych najmniejszych
-            <br />z przyjemnością służę pomocą{" "}
-            <a href="tel:+48517933264">
-              <Phone size={15} strokeWidth={1} />
-              &nbsp;telefonicznie
-            </a>{" "}
-            lub{" "}
-            <a href="mailto:figowskisport@gmail.com">
-              <AtSign size={15} strokeWidth={1} />
-              &nbsp;mailowo.
-            </a>
-          </p>
-          <p>
-            Serdecznie pozdrawiam,
-            <br />
-            Michał Jaśkiewicz - Figowski&nbsp;Sport
-            <br />
-          </p>
+          <h3>(I tydzień ferii mazowieckich)</h3>
         </TextBox>
         <div className={s(`offer-contener`)}>
           <div className={s(`offer-box`)}>
@@ -120,13 +94,13 @@ export function WinterView() {
               <h5>szczegóły cennika</h5>
               <div className={s(`offer-box-content`)}>
                 <div>
-                  <h6>👨 OSOBA DOROSŁA – 450 euro/pobyt</h6>
+                  <h6>👨 OSOBA DOROSŁA – 465 euro/pobyt</h6>
                   <h6>🧒 DZIECKO w wieku:</h6>
                   <p>0-2,99 lat: 60 euro/pobyt</p>
                   <p>3-6,99 lat: 285 euro/pobyt</p>
                   <p>7-13,99 lat: 345 euro/pobyt</p>
-                  <p>14 lat i starsze: 465 euro/pobyt</p>
-                  <h6>CENA ZAWIERA !</h6>
+                  <p>14 lat i starsze: 450 euro/pobyt</p>
+                  <h6>CENA ZAWIERA: </h6>
                   <ul>
                     <li>7 noclegów w hotelu</li>
                     <li>wyżywienie HB + woda i herbata do posiłków</li>
@@ -136,7 +110,7 @@ export function WinterView() {
                     <li>korzystanie ze strefy wellness</li>
                     <li>podatek VAT</li>
                   </ul>
-                  <h6>CENA NIE ZAWIERA !</h6>
+                  <h6>CENA NIE ZAWIERA: </h6>
                   <ul>
                     <li>transportu na miejsce i powrót</li>
                     <li>skipassu (karnet narciarski)</li>
@@ -374,7 +348,6 @@ export function WinterView() {
                     <b>narty biegowe</b> - poza narciarstwem zjazdowym możliwość
                     skorzystania również z narciarskich tras biegowych
                   </li>
-                  <li></li>
                 </ul>
               </div>
             </div>
@@ -501,7 +474,7 @@ export function WinterView() {
           />
           <h2>
             <Link to="/kontakt">
-              Zapraszamy do kontaktu i do zobaczenia na stoku!{" "}
+              Zapraszamy do kontaktu i&nbsp;do&nbsp;zobaczenia na stoku!{" "}
             </Link>
           </h2>
         </TextBox>

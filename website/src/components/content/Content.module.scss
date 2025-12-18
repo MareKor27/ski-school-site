@@ -26,6 +26,11 @@
   }
 }
 
+.content img.imgFull {
+  width: 100%;
+  float: right;
+}
+
 table.price-table {
   width: 100%;
   max-width: 100%;
@@ -164,6 +169,13 @@ table.price-table {
   li {
     font-family: "TikTok Sans", sans-serif;
     color: #000;
+  }
+  li {
+    background: none;
+    list-style-type: disc;
+    display: list-item;
+    padding-left: 0;
+    padding-top: 0;
   }
 
   &-icon {
