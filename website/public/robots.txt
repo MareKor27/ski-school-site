@@ -2,10 +2,12 @@ User-agent: *
 
 Allow: /
 Allow: /o-nas
+Allow: /zima2026
 Allow: /cennik
 Allow: /galeria
 Allow: /kontakt
 Disallow: /administrator
+Disallow: /harmonogram
 Disallow: /api
 
 Sitemap: https://figowski.com/sitemap.xml
