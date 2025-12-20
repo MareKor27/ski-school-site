@@ -175,17 +175,17 @@ export function WinterView() {
                 <div className={s(`offer-sitn-logos`)}>
                   <img
                     className={s(`offer-sitn-logo`)}
-                    src="\images\Logo-SITNus-300x264.png"
+                    src="/images/licenses/sitnus-logo.png"
                     alt=""
                   />
                   <img
                     className={s(`offer-sitn-logo`)}
-                    src="\images\Licencja-SITN-25-26.png"
+                    src="/images/licenses/sitn-25-26.png"
                     alt=""
                   />
                   <img
                     className={s(`offer-sitn-logo`)}
-                    src="\images\sitn_logo-1050x1052.png"
+                    src="/images/licenses/sitn-logo.png"
                     alt=""
                   />
                 </div>

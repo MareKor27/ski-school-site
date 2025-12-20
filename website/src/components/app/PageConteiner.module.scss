@@ -4,4 +4,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-position-y: center;
+  background-position-x: center;
+  background-size: cover;
+  // overflow-y: scroll;
 }

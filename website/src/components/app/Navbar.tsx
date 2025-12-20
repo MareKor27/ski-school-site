@@ -25,7 +25,7 @@ export function Navbar() {
           </LinkImage>
 
           <img
-            src="/images/Licencja-SITN-25-26.png"
+            src="/images/licenses/sitn-25-26.png"
             alt="SITN"
             className={style["sitn-logo-image"]}
           />

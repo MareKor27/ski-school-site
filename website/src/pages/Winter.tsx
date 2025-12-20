@@ -3,7 +3,7 @@ import { WinterView } from "~/features/guest/views/WinterView";
 
 export function Winter() {
   return (
-    <DefaultLayout>
+    <DefaultLayout background={{ type: "color", value: "var(--main-color-2)" }}>
       <WinterView />
     </DefaultLayout>
   );
