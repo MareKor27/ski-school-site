@@ -40,14 +40,6 @@ export function Slider({}: SliderType) {
     }
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     handleClick("+");
-  //   }, 7000);
-
-  //   return () => clearInterval(interval);
-  // }, [activeSlider]);
-
   useEffect(() => {
     startInterval();
     return () => clearCurrentInterval(); // Czyści interval po odmontowaniu komponentu
@@ -93,6 +85,35 @@ export function Slider({}: SliderType) {
             />
           </svg>
         </div>
+        {/* <div className={s2(`${activeSlider === 0 ? "slide" : "slideoff"}`)}>
+          <div className={s2(`appla`)}>
+            <div className={s2(`slider-heading-1`)}>
+              Oferta Zima 2026 w Włoszech
+            </div>
+            <div className={s2(`slider-heading-2`)}>
+              Zapraszamy do zapoznania się z naszą ofertą wyjazdu
+              <br />
+              <br /> <b>do RAVASCLETTO / ZONCOLAN</b>
+              <br />
+              <br /> Termin: 17-24.01.2026
+              <br />
+            </div>
+            <div className={s2(`slider-heading-3`)}>
+              <OwnButton to="/oferta-zima" text={"Czytaj więcej"} />
+            </div>
+          </div>
+          <picture>
+            <source
+              media="(min-width: 990px)"
+              srcSet="images/slider/slider-oferta-zima.webp"
+            />
+            <img
+              src="images/slider/slider-oferta-zima-xs.webp"
+              alt="Wyjazd do Włoch"
+            />
+          </picture>
+        </div> */}
+
         <div className={s2(`${activeSlider === 0 ? "slide" : "slideoff"}`)}>
           <div className={s2(`appla`)}>
             <div className={s2(`slider-heading-1`)}>
@@ -223,6 +244,14 @@ export function Slider({}: SliderType) {
               )}
               onClick={() => handleClick(2)}
             ></div>
+            {/* <div
+              className={s2(
+                `slide-button ${
+                  activeSlider === 3 ? "active-slide-button" : ""
+                }`
+              )}
+              onClick={() => handleClick(3)}
+            ></div> */}
           </div>
         </div>
       </div>

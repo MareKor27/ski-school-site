@@ -29,6 +29,8 @@
 .content img.imgFull {
   width: 100%;
   float: right;
+  aspect-ratio: 16 / 5;
+  object-fit: cover;
 }
 
 table.price-table {
@@ -138,7 +140,7 @@ table.price-table {
   h4 {
     color: var(--main-color-2);
     // text-shadow: var(--main-color-5) 0px 2px 4px;
-    margin-top: 0px;
+    margin-top: 10px;
     font-family: "Space Grotesk", sans-serif;
     font-weight: 500;
     font-size: 24px;
@@ -220,4 +222,22 @@ table.price-table {
   box-shadow: 0px 3px 6px 1px rgb(0, 0, 0);
   border-radius: 20px;
   left: 270px;
+}
+
+.offer-sitn-logos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  @include screen-sm {
+    flex-wrap: wrap;
+  }
+  @include screen-xs {
+    flex-wrap: wrap;
+  }
+}
+
+.offer-sitn-logo {
+  width: 150px;
+  margin-top: 10px;
 }

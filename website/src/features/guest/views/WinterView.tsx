@@ -62,43 +62,262 @@ export function WinterView() {
         <div className={s(`offer-contener`)}>
           <div className={s(`offer-box`)}>
             <div className={s(`offer-box-icon`)}>
-              <TicketsPlane size={30} strokeWidth={1} />
+              <Hotel size={30} strokeWidth={1} />
             </div>
             <div>
-              <h4>WYJAZD RODZINNY </h4>
-              <h5>kilka słów o ofercie</h5>
+              <h4>HOTEL </h4>
+              {/* <h5>
+                HOTEL PARK OASI{" "}
+                <a href="https://www.en.hotelparkoasi.it/">
+                  link <ExternalLink size={15} strokeWidth={1} />
+                </a>
+              </h5> */}
+              <div className={s(`offer-box-content`)}>
+                <h6>
+                  HOTEL PARK OASI{" "}
+                  <a href="https://www.en.hotelparkoasi.it/">
+                    link <ExternalLink size={15} strokeWidth={1} />
+                  </a>
+                </h6>
+                <h6> Położenie & styl</h6>
+                <p>
+                  Hotel jest usytuowany w w północnych Włoszech w Alpach
+                  Karnickich w&nbsp;miejscowości Arta Terme. Kameralny obiekt
+                  restauracyjno-hotelowy, prowadzony przez rodzinę Löwenthal,
+                  oferuje piękne widoki na&nbsp;góry oraz spokojną, relaksującą
+                  atmosferę.
+                </p>
+                <h6>Pokoje</h6>
+                <p>
+                  Pokoje rozmieszczone są na dwóch piętrach, z balkonami lub
+                  bez, i&nbsp;widokiem na lasy lub góry Carnia.
+                </p>
+                <h6>Restauracja & bar</h6>
+                <p>
+                  Regionalna i autentyczna kuchnia oraz pyszne, włoskie dania.
+                  Przestronne wnętrze w rustykalnym stylu tworzy naturalny,
+                  górski klimat, który można podziwiać przez duże okna, siedząc
+                  wygodnie przy stoliku hotelowej restauracji.
+                </p>
+                <h6>Spa / wellness</h6>
+                <p>
+                  Centrum spa hotelu oferuje saunę fińską i łaźnię turecką.
+                  Dodatkowo hotel wyposażony jest w&nbsp;jaccuzzi
+                  z&nbsp;hydromasażem w&nbsp;zewnętrznej części strefy spa.
+                </p>
+                <h6>Udogodnienia</h6>
+                <p>
+                  Bezpłatne Wi‑Fi, parking przy hotelu, bar hotelowy, pralnia,
+                  taras ogrodowy, narciarnia, skibus spod hotelu
+                </p>
+                <h6>Idealny dla grupy znajomych</h6>
+                <p>
+                  Idealny dla grupy zorganizowanej i&nbsp;rodzin z&nbsp;dziećmi
+                </p>
+                <h6>Dostępność zwierząt (pets allowed)</h6>
+              </div>
+            </div>
+            <div className={s(`offer-box-icon`)}>
+              <Utensils size={30} strokeWidth={1} />
+            </div>
+            <div>
+              <h4>Wyżywienie HB </h4>
+              {/* <h5>half board</h5> */}
+              <div className={s(`offer-box-content`)}>
+                <p>
+                  <h6>Śniadanie</h6> - kontynentalne, włoskie, bezglutenowe, w
+                  formie bufetu
+                </p>
+                <p>
+                  <h6>Obiadokolacja</h6> - dania kuchni regionalnej, włoskiej
+                  oraz międzynarodowej
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className={s(`offer-box`)}>
+            <div className={s(`offer-box-icon`)}>
+              <UserStar size={30} strokeWidth={1} />
+            </div>
+            <div>
+              <h4>Szkolenie narciarskie </h4>
+              {/* <h5>z polskimi instruktorami</h5> */}
               <div className={s(`offer-box-content`)}>
                 <ul>
-                  <li>Zakwaterowanie w hotelu</li>
+                  <li>szkoła narciarska z licencją SITN (A+D)</li>
                   <li>
-                    Hotel z możliwością na wyłączność przy zakwaterowaniu
-                    większej grupy Figowski&nbsp;Sport
+                    kadra doświadczonych instruktorów z licencją SITN Polskiego
+                    Związku Narciarskiego
                   </li>
                   <li>
-                    Szkolenie w małych grupach z polskimi instruktorami, idealne
-                    dla rodzin z dziećmi i początkujących narciarzy
+                    małe grupy szkoleniowe z podziałem na wiek i poziom
+                    zaawansowania
                   </li>
-                  <li>Restauracja</li>
-                  <li>Strefa spa</li>
-                  <li>Bar</li>
+                  <li>
+                    video-coaching - analiza materiału ze szkolenia na stoku
+                    podczas animacji
+                  </li>
+                  <li>trening jazdy sportowej SL/GS</li>
+                  <li>zawody narciarskie - slalom/gigant (GS)</li>
+                </ul>
+                <h6>Szkolenie w grupach:</h6>
+                <p>Czas trwania: do 5,5 h dziennie z przerwą na lunch</p>
+                <h6>Podział grup narciarskich</h6>
+                <ul>
+                  <li>
+                    BABY (3–5 lat) – 4h z instruktorem + 1h animacji na stoku
+                  </li>
+                  <li>KIDS (6–7 lat) – 5,0h-5,5h z instruktorem</li>
+                  <li>JUNIOR (8–13 lat) – 5,0-5,5h z instruktorem</li>
+                  <li>DOROŚLI – 3,0-3,5h z instruktorem</li>
+                </ul>
+                <div className={s(`offer-sitn-logos`)}>
+                  <img
+                    className={s(`offer-sitn-logo`)}
+                    src="\images\Logo-SITNus-300x264.png"
+                    alt=""
+                  />
+                  <img
+                    className={s(`offer-sitn-logo`)}
+                    src="\images\Licencja-SITN-25-26.png"
+                    alt=""
+                  />
+                  <img
+                    className={s(`offer-sitn-logo`)}
+                    src="\images\sitn_logo-1050x1052.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={s(`offer-box`)}>
+            <div className={s(`offer-box-icon`)}>
+              <GamepadDirectional size={30} strokeWidth={1} />
+            </div>
+            <div>
+              <h4>Program animacyjny </h4>
+              {/* <h5>dla dzieci i dorosłych</h5> */}
+              <div className={s(`offer-box-content`)}>
+                <ul>
+                  <li>animacje dla dzieci po nartach w hotelu</li>
+                  <li>apres ski</li>
+                  <li>
+                    video-coaching, analiza techniki jazdy na podstawie
+                    materiałów ze&nbsp;szkolenia na stoku
+                  </li>
+                  <li>
+                    opcjonalnie po nartach kąpiele w basenach termalnych (blisko
+                    hotelu) -{" "}
+                    <a href="https://www.ghcspa.com/termediarta/servizi/cure-termali">
+                      więcej&nbsp;
+                      <ExternalLink size={15} strokeWidth={1} />
+                    </a>
+                  </li>
+
+                  <li>nauka serwisowania sprzętu narciarskiego</li>
+                  <li>podsumowanie wyników zawodów z nagrodami</li>
                 </ul>
               </div>
             </div>
           </div>
+
+          <div className={s(`offer-box`)}>
+            <div className={s(`offer-box-icon`)}>
+              <Ticket size={30} strokeWidth={1} />
+            </div>
+            <div>
+              <h4>Skipass </h4>
+              {/* <h5>karnet narciarski</h5> */}
+              <div className={s(`offer-box-content`)}>
+                <p>
+                  🎫 6 dniowy -{" "}
+                  <a href="https://www.turismofvg.it/en/mountain365/rates/winter-skipass">
+                    wiecej&nbsp;
+                    <ExternalLink size={15} strokeWidth={1} />
+                  </a>
+                </p>
+
+                <p>
+                  <b>Ski Area Ravascletto / Zoncolan</b> (+ 4 dodatkowe stacje
+                  narciarskie w&nbsp;1&nbsp;karnecie)
+                </p>
+                <br />
+                <ul>
+                  <li>
+                    <b>ok 30 km tras narciarskich</b> - kameralna stacja
+                    narciarska, mniej zatłoczona niż inne
+                  </li>
+                  <li>
+                    <b>wysokość: 900-2000 m n.p.m</b> – gwarancja śniegu
+                    i&nbsp;pięknych widoków
+                  </li>
+                  <li>
+                    trasy dopasowane do każdego narciarza: niebieskie, czerwone,
+                    czarne
+                  </li>
+                  <li>
+                    <b>12 wyciągów narciarskich</b>
+                  </li>
+                  <li>
+                    ośrodek wyposażony w&nbsp;system sztucznego naśnieżania,
+                    zapewniający dobre warunki przez cały sezon możliwość
+                  </li>
+                  <li>
+                    skorzystania z&nbsp;1&nbsp;karnetu w czterech sąsiadujących
+                    stacjach narciarskich
+                  </li>
+                  <li>
+                    panoramiczna trasa – Lavet-Canalone pozwala na piękny zjazd
+                    z&nbsp;widokami
+                  </li>
+                  <li>
+                    <b>narty biegowe</b> - poza narciarstwem zjazdowym możliwość
+                    skorzystania również z&nbsp;narciarskich tras biegowych
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className={s(`offer-box`)}>
+            <div className={s(`offer-box-icon`)}>
+              <TicketsPlane size={30} strokeWidth={1} />
+            </div>
+            <div>
+              <h4>WYJAZD RODZINNY </h4>
+              {/* <h5>kilka słów o ofercie</h5> */}
+              <div className={s(`offer-box-content`)}>
+                <ul>
+                  <li>zakwaterowanie w hotelu</li>
+                  <li>
+                    szkolenie w małych grupach z polskimi instruktorami, idealne
+                    dla rodzin z dziećmi i początkujących narciarzy
+                  </li>
+                  <li>restauracja</li>
+                  <li>strefa spa</li>
+                  <li>bar</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <div className={s(`offer-box-full`)}>
             <div className={s(`offer-box-icon`)}>
               <CircleDollarSign size={30} strokeWidth={1} />
             </div>
             <div>
               <h4>CENA</h4>
-              <h5>szczegóły cennika</h5>
+              {/* <h5>szczegóły cennika</h5> */}
               <div className={s(`offer-box-content`)}>
                 <div>
                   <h6>👨 OSOBA DOROSŁA – 465 euro/pobyt</h6>
                   <h6>🧒 DZIECKO w wieku:</h6>
-                  <p>0-2,99 lat: 60 euro/pobyt</p>
-                  <p>3-6,99 lat: 285 euro/pobyt</p>
-                  <p>7-13,99 lat: 345 euro/pobyt</p>
+                  <p>0-3 lat: 60 euro/pobyt</p>
+                  <p>3-7 lat: 285 euro/pobyt</p>
+                  <p>7-15 lat: 345 euro/pobyt</p>
                   <p>14 lat i starsze: 450 euro/pobyt</p>
                   <h6>CENA ZAWIERA: </h6>
                   <ul>
@@ -113,11 +332,11 @@ export function WinterView() {
                   <h6>CENA NIE ZAWIERA: </h6>
                   <ul>
                     <li>transportu na miejsce i powrót</li>
-                    <li>skipassu (karnet narciarski)</li>
+                    <li>skipassu </li>
                     <li>szkolenia narciarskiego</li>
-                    <li>napojów do obiadokolacji poza wodą i herbatą</li>
+                    <li>napojów do obiadokolacji poza wodą i&nbsp;herbatą</li>
                     <li>lunchy na stoku</li>
-                    <li>ubezpieczenia turystycznego i sportowego</li>
+                    <li>ubezpieczenia turystycznego i&nbsp;sportowego</li>
                     <li>podatku turystycznego (tourist tax)</li>
                   </ul>
                 </div>
@@ -126,7 +345,7 @@ export function WinterView() {
                   <p>🎫Skipass 6 dniowy</p>
                   <p>
                     Ski Area Ravascletto / Zoncolan, Sella Nevea, Tarvisio,
-                    Sappada, Forni di Sopra
+                    Sappada, Forni di&nbsp;Sopra
                   </p>
                   <ul>
                     <li>BABY (2019-2023 i młodsi): gratis</li>
@@ -160,206 +379,11 @@ export function WinterView() {
 
           <div className={s(`offer-box`)}>
             <div className={s(`offer-box-icon`)}>
-              <Hotel size={30} strokeWidth={1} />
-            </div>
-            <div>
-              <h4>
-                HOTEL{" "}
-                <a href="https://www.en.hotelparkoasi.it/">
-                  link <ExternalLink size={20} strokeWidth={1} />
-                </a>
-              </h4>
-              <h5>HOTEL PARK OASI</h5>
-              <div className={s(`offer-box-content`)}>
-                <h6> Położenie & styl</h6>
-                <p>
-                  Hotel jest usytuowany w w północnych Włoszech w Alpach
-                  Karnickich w miejscowości Arta Terme. Kameralny obiekt
-                  restauracyjno-hotelowy, prowadzony przez rodzinę Löwenthal,
-                  oferuje piękne widoki na góry oraz spokojną, relaksującą
-                  atmosferę.
-                </p>
-                <h6>Pokoje</h6>
-                <p>
-                  Pokoje rozmieszczone są na dwóch piętrach, z balkonami lub
-                  bez, i widokiem na lasy lub góry Carnia.
-                </p>
-                <h6>Restauracja & bar</h6>
-                <p>
-                  Regionalna i autentyczna kuchnia oraz pyszne, włoskie dania.
-                  Przestronne wnętrze w rustykalnym stylu tworzy naturalny,
-                  górski klimat, który można podziwiać przez duże okna, siedząc
-                  wygodnie przy stoliku hotelowej restauracji.
-                </p>
-                <h6>Spa / wellness</h6>
-                <p>
-                  Centrum spa hotelu oferuje saunę fińską i łaźnię turecką.
-                  Dodatkowo hotel wyposażony jest w jaccuzzi z hydromasażem w
-                  zewnętrznej części strefy spa.
-                </p>
-                <h6>Udogodnienia</h6>
-                <p>
-                  Bezpłatne Wi‑Fi, parking przy hotelu, bar hotelowy, pralnia,
-                  taras ogrodowy, narciarnia, skibus spod hotelu
-                </p>
-                <h6>Idealny dla grupy znajomych</h6>
-                <p>Idealny dla grupy zorganizowanej i rodzin z dziećmip</p>
-                <h6>Dostępność zwierząt (pets allowed)</h6>
-              </div>
-            </div>
-            <div className={s(`offer-box-icon`)}>
-              <Utensils size={30} strokeWidth={1} />
-            </div>
-            <div>
-              <h4>Wyżywienie HB </h4>
-              <h5>half board</h5>
-              <div className={s(`offer-box-content`)}>
-                <p>
-                  <h6>Śniadanie</h6> - kontynentalne, włoskie, bezglutenowe, w
-                  formie bufetu
-                </p>
-                <p>
-                  <h6>Obiadokolacja</h6> - dania kuchni regionalnej, włoskiej
-                  oraz międzynarodowej
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className={s(`offer-box`)}>
-            <div className={s(`offer-box-icon`)}>
-              <UserStar size={30} strokeWidth={1} />
-            </div>
-            <div>
-              <h4>Szkolenie narciarskie </h4>
-              <h5>z polskimi instruktorami</h5>
-              <div className={s(`offer-box-content`)}>
-                <ul>
-                  <li>szkoła narciarska z licencją SITN (A+D)</li>
-                  <li>
-                    kadra doświadczonych instruktorów z licencją SITN Polskiego
-                    Związku Narciarskiego
-                  </li>
-                  <li>
-                    małe grupy szkoleniowe z podziałem na wiek i poziom
-                    zaawansowania
-                  </li>
-                  <li>
-                    video-coaching - analiza materiału ze szkolenia na stoku
-                    podczas animacji
-                  </li>
-                  <li>trening jazdy sportowej SL/GS</li>
-                  <li>zawody narciarskie -slalom/gigant (GS)</li>
-                </ul>
-                <h6>Szkolenie w grupach:</h6>
-                <p>Czas trwania: do 5,5 h dziennie z przerwą na lunch</p>
-                <h6>Podział grup narciarskich</h6>
-                <ul>
-                  <li>
-                    BABY (3–5 lat) – 4h z instruktorem + 1h animacji na stoku
-                  </li>
-                  <li>KIDS (6–7 lat) – 5,0h-5,5h z instruktorem</li>
-                  <li>JUNIOR (8–13 lat) – 5,0-5,5h z instruktorem</li>
-                  <li>DOROŚLI – 3,0-3,5h z instruktorem</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className={s(`offer-box`)}>
-            <div className={s(`offer-box-icon`)}>
-              <GamepadDirectional size={30} strokeWidth={1} />
-            </div>
-            <div>
-              <h4>Program animacyjny </h4>
-              <h5>dla dzieci i dorosłych</h5>
-              <div className={s(`offer-box-content`)}>
-                <ul>
-                  <li>animacje dla dzieci po nartach w hotelu</li>
-                  <li>apres ski</li>
-                  <li>
-                    video-coaching, analiza techniki jazdy na podstawie
-                    materiałów ze szkolenia na stoku
-                  </li>
-                  <li>
-                    opcjonalnie po nartach kąpiele w basenach termalnych (blisko
-                    hotelu) -{" "}
-                    <a href="https://www.ghcspa.com/termediarta/servizi/cure-termali">
-                      więcej&nbsp;
-                      <ExternalLink size={15} strokeWidth={1} />
-                    </a>
-                  </li>
-
-                  <li>nauka serwisowania sprzętu narciarskiego</li>
-                  <li>podsumowanie wyników zawodów z nagrodami</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className={s(`offer-box`)}>
-            <div className={s(`offer-box-icon`)}>
-              <Ticket size={30} strokeWidth={1} />
-            </div>
-            <div>
-              <h4>Skipass </h4>
-              <h5>karnet narciarski</h5>
-              <div className={s(`offer-box-content`)}>
-                <p>
-                  🎫 6 dniowy -{" "}
-                  <a href="https://www.turismofvg.it/en/mountain365/rates/winter-skipass">
-                    wiecej&nbsp;
-                    <ExternalLink size={15} strokeWidth={1} />
-                  </a>
-                </p>
-
-                <p>
-                  <b>Ski Area Ravascletto / Zoncolan</b> (+ 4 dodatkowe w 1
-                  karnecie)
-                </p>
-                <ul>
-                  <li>
-                    <b>ok 30 km tras narciarskich</b> - kameralna stacja
-                    narciarska, mniej zatłoczona niż inne
-                  </li>
-                  <li>
-                    <b>wysokość: 900-2000 m n.p.m</b> – gwarancja śniegu i
-                    pięknych widoków
-                  </li>
-                  <li>
-                    trasy dopasowane do każdego narciarza: niebieskie, czerwone,
-                    czarne
-                  </li>
-                  <li>
-                    <b>12 wyciągów narciarskich</b>
-                  </li>
-                  <li>
-                    ośrodek wyposażony w system sztucznegonaśnieżania,
-                    zapewniający dobre warunki przez cały sezon możliwość
-                  </li>
-                  <li>
-                    skorzystania z 1 karnetu w czterech sąsiadujących stacjach
-                  </li>
-                  <li>
-                    narciarskich panoramiczna trasa – Lavet-Canalone pozwala na
-                    piękny zjazd z widokami
-                  </li>
-                  <li>
-                    <b>narty biegowe</b> - poza narciarstwem zjazdowym możliwość
-                    skorzystania również z narciarskich tras biegowych
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className={s(`offer-box`)}>
-            <div className={s(`offer-box-icon`)}>
               <Umbrella size={30} strokeWidth={1} />
             </div>
             <div>
               <h4>Ubezpieczenia </h4>
-              <h5>bezpieczeństwo uczestników</h5>
+              {/* <h5>bezpieczeństwo uczestników</h5> */}
               <div className={s(`offer-box-content`)}>
                 <p>
                   🛡️Obowiązkowe: ubezpieczenie podróżne (KL + NNW + AS + OC +
@@ -369,8 +393,7 @@ export function WinterView() {
                   Zalecane: karta EKUZ – Europejska Karta Ubezpieczenia
                   Zdrowotnego (NFZ) <br />
                   znacznie ułatwia korzystanie z publicznych placówek medycznych
-                  UE,
-                  <br /> w tym we Włoszech
+                  UE, w&nbsp;tym we Włoszech
                 </p>
               </div>
             </div>
@@ -382,7 +405,7 @@ export function WinterView() {
             </div>
             <div>
               <h4>Linki </h4>
-              <h5>przydatne informacje</h5>
+              {/* <h5>przydatne informacje</h5> */}
               <div className={s(`offer-box-content`)}>
                 <ul>
                   <li>
@@ -421,7 +444,7 @@ export function WinterView() {
             </div>
             <div>
               <h4>Adres </h4>
-              <h5>lokalizacja hotelu</h5>
+              {/* <h5>lokalizacja hotelu</h5> */}
               <div className={s(`offer-box-content`)}>
                 <p> Hotel Park Oasi</p>
                 <p> Viale delle Terme 15</p>
@@ -436,7 +459,7 @@ export function WinterView() {
             </div>
             <div>
               <h4>Rezerwacja i kontakt </h4>
-              <h5>skontaktuj się z nami</h5>
+              {/* <h5>skontaktuj się z nami</h5> */}
               <div className={s(`offer-box-content`)}>
                 <p>FigowSki Sport</p>
                 <p>Michał Jaśkiewicz</p>
