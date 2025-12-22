@@ -7,6 +7,7 @@ import { Paths } from "~/features/app/constants/Paths";
 export function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showWinterSubmenu, setShowWinterSubmenu] = useState(false);
+  const isTouchDevice = window.matchMedia("(hover: none)").matches;
 
   return (
     <>
@@ -76,8 +77,12 @@ export function Navbar() {
 
           <li
             className={style["submenu-parent"]}
-            onMouseEnter={() => setShowWinterSubmenu(true)}
-            onMouseLeave={() => setShowWinterSubmenu(false)}
+            onMouseEnter={
+              !isTouchDevice ? () => setShowWinterSubmenu(true) : undefined
+            }
+            onMouseLeave={
+              !isTouchDevice ? () => setShowWinterSubmenu(false) : undefined
+            }
           >
             <button
               className={style["button-nav"]}
