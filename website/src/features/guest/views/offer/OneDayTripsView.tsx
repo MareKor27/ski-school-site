@@ -27,10 +27,10 @@ export function OneDayTripsView() {
       <Content className={"content"}>
         <Breadcrums namePage={"Zima-Oferta / Wyjazdy jednodniowe"} />
         <TextBox>
-          <h1>Wyjazdy jednodniowe razem z Figowski Sport</h1>
+          <h1>Wyjazdy jednodniowe</h1>
           <img
             className={s(`contentimg imgRight`)}
-            src="/images/gallery/sabat-krajno/sabat-krajno-1.webp"
+            src="/images/gallery/sabat-krajno/sabat-krajno-2.webp"
             alt={"Górka Szczęśliwicka z rana"}
           />
           <p>
@@ -45,29 +45,35 @@ export function OneDayTripsView() {
           <h2>Kilka słów o ofercie</h2>
           <p>W ramach wyjazdu oferujemy:</p>
           <ul>
-            <li>
+            <li className={s(`without-tree`)}>
               jednodniowe szkolenie narciarskie orgaznizowane w&nbsp;pobliżu
               Warszawy przez naszą Licencjonowaną Szkołę Narciarską Figowski
               Sport SITN PZN
             </li>
-            <li>całodniową opiekę przez naszych doświadczonych instruktorów</li>
-            <li>
+            <li className={s(`without-tree`)}>
+              całodniową opiekę przez naszych doświadczonych instruktorów
+            </li>
+            <li className={s(`without-tree`)}>
               możliwość zorganizowania dojazdu przez Szkołę Figowski Sport lub
               wybór dojazdu własnego
             </li>
-            <li>lunch na stoku w&nbsp;trakcie szkolenia</li>
-            <li>realizację Programu Nauczania Narciarstwa SITN PZN</li>
-            <li>
+            <li className={s(`without-tree`)}>
+              lunch na stoku w&nbsp;trakcie szkolenia
+            </li>
+            <li className={s(`without-tree`)}>
+              realizację Programu Nauczania Narciarstwa SITN PZN
+            </li>
+            <li className={s(`without-tree`)}>
               przedszkole narciarskie dla dzieci 4-6&nbsp;lat
               <br />
               (Sitnusiowy System Nauczania Narciarstwa Dzieci)
             </li>
-            <li>
+            <li className={s(`without-tree`)}>
               możliwość wypożyczenia sprzętu narciarskiego na&nbsp;czas
               szkolenia
             </li>
-            <li>
-              pełne zaplecze formalne: licencja Szkoły Narciarskiej, licencja
+            <li className={s(`without-tree`)}>
+              pełne zaplecze formalne: licencja szkoły narciarskiej, licencja
               transportowa na przewóz osób oraz wpis do Rejestru Organizatorów
               Turystyki w Urzędzie Marszałkowskim
             </li>
@@ -116,15 +122,15 @@ export function OneDayTripsView() {
 
           <h2>SZKOLENIE NARCIARSKIE (4-4,5h dziennie)</h2>
           <ul>
-            <li>
+            <li className={s(`without-tree`)}>
               szkolenie w grupach z podziałem na wiek i poziom umiejętności
               kursantów (grupy 4-6 osób)
             </li>
-            <li>
+            <li className={s(`without-tree`)}>
               szkolenie indywidualne* – 100% uwagi instruktora, zalecane w
               szczególności dla początkujących
             </li>
-            <li>
+            <li className={s(`without-tree`)}>
               realizujemy sprawdzony System Nauczania Narciarstwa Dzieci SITN,
               oparty na stopniowym zdobywaniu umiejętności narciarskich bez
               rywalizacji, ze wskazaniem na zabawę i integrację.
@@ -137,35 +143,37 @@ export function OneDayTripsView() {
 
           <h2>SKIPASS</h2>
           <ul>
-            <li>
+            <li className={s(`without-tree`)}>
               całodniowy karnet narciarski w cenie wyjazdu i szkolenia grupowego
             </li>
-            <li>
+            <li className={s(`without-tree`)}>
               skipass przekazujemy uczestnikom przed rozpoczęciem szkolenia
             </li>
           </ul>
           <h2>WYŻYWIENIE</h2>
           <ul>
-            <li>
+            <li className={s(`without-tree`)}>
               w połowie szkolenia obowiązuje przerwa na lunch (ok. 45-60 minut)
             </li>
-            <li>posiłek oferowany jest w restauracji lub barze przy stoku</li>
-            <li>
+            <li className={s(`without-tree`)}>
+              posiłek oferowany jest w restauracji lub barze przy stoku
+            </li>
+            <li className={s(`without-tree`)}>
               menu dobieramy zgodnie z preferencjami i możliwościami
               żywieniowymi uczestników
             </li>
           </ul>
           <h2>DOJAZD</h2>
           <ul>
-            <li>
+            <li className={s(`without-tree`)}>
               organizujemy dla grupy dojazd i powrót z opieką instruktorów
             </li>
-            <li>
+            <li className={s(`without-tree`)}>
               wyjazd ok. godz. 8:00 z ustalonego miejsca (np. Górka
               Szczęśliwicka, Decathlon Bemowo lub inne)
             </li>
-            <li>powrót ok. godz. 19:00</li>
-            <li>
+            <li className={s(`without-tree`)}>powrót ok. godz. 19:00</li>
+            <li className={s(`without-tree`)}>
               istnieje możliwość dojazdu własnego i dołączenia do grup
               szkoleniowych bezpośrednio przy wyciągu
             </li>
@@ -174,23 +182,27 @@ export function OneDayTripsView() {
 
           <h3>CENA ZAWIERA</h3>
           <ul>
-            <li>realizację programu szkolenia narciarskiego w grupie</li>
-            <li>
+            <li className={s(`without-tree`)}>
+              realizację programu szkolenia narciarskiego w grupie
+            </li>
+            <li className={s(`without-tree`)}>
               całodzienną opiekę instruktora (przed i po zajęciach na stoku oraz
               podczas transportu)
             </li>
-            <li>skipass - całodzienny karnet narciarski</li>
-            <li>podatek VAT</li>
+            <li className={s(`without-tree`)}>
+              skipass - całodzienny karnet narciarski
+            </li>
+            <li className={s(`without-tree`)}>podatek VAT</li>
           </ul>
           <h3>CENA NIE ZAWIERA</h3>
           <ul>
-            <li>
+            <li className={s(`without-tree`)}>
               opłaty za lunch na stoku (<b>ok. 30 zł</b>)
             </li>
-            <li>
+            <li className={s(`without-tree`)}>
               wynajmu sprzętu narciarskiego (<b>50 zł/dzień</b>)
             </li>
-            <li>
+            <li className={s(`without-tree`)}>
               transportu - dojazd i powrót (<b>95 zł</b>)
             </li>
           </ul>

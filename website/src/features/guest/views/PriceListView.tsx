@@ -57,7 +57,7 @@ export function PriceListView() {
                 </tr>
                 <tr>
                   <td>1</td>
-                  <td>120 zł</td>
+                  <td>130 zł</td>
                   <td>210 zł</td>
                   <td>300 zł</td>
                 </tr>

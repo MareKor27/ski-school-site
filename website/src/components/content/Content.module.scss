@@ -339,3 +339,11 @@ table.price-table {
 h2.trip-price {
   color: rgb(231, 25, 25);
 }
+
+li.without-tree {
+  background: none;
+  list-style-type: disc;
+  display: list-item;
+  padding-left: 0;
+  padding-top: 0;
+}
