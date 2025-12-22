@@ -29,8 +29,6 @@
 .content img.imgFull {
   width: 100%;
   float: right;
-  aspect-ratio: 16 / 5;
-  object-fit: cover;
 }
 
 table.price-table {
@@ -216,14 +214,6 @@ table.price-table {
 //   grid-template-columns: 1fr 1fr;
 // }
 
-.flag {
-  position: absolute;
-  max-width: 80px;
-  box-shadow: 0px 3px 6px 1px rgb(0, 0, 0);
-  border-radius: 20px;
-  left: 270px;
-}
-
 .offer-sitn-logos {
   display: flex;
   justify-content: space-around;
@@ -240,4 +230,112 @@ table.price-table {
 .offer-sitn-logo {
   width: 150px;
   margin-top: 10px;
+}
+
+.offer-intro {
+  position: relative;
+
+  img {
+    position: relative;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+    object-position: 50% 90%;
+    z-index: 100;
+    box-shadow: 0px 3px 6px 1px rgb(0, 0, 0);
+    margin-bottom: 20px;
+    @include screen-xs {
+      z-index: 500;
+    }
+  }
+
+  .offer-intro-text {
+    position: absolute;
+    background-color: var(--main-color-3);
+    background: linear-gradient(
+      130deg,
+      var(--main-color-3),
+      var(--main-color-2)
+    );
+    border-radius: 20px;
+    box-shadow: 0px 3px 6px 1px rgb(0, 0, 0);
+    top: 20px;
+    left: 20px;
+    padding: 0 15px;
+    z-index: 110;
+    @include screen-xs {
+      position: relative;
+      top: unset;
+      left: unset;
+      z-index: 10;
+    }
+
+    h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 500;
+      color: var(--main-color-6);
+      @include screen-xs {
+        padding-top: 0px;
+      }
+    }
+
+    h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 500;
+      padding-top: 10px;
+      span {
+        font-family: "Space Grotesk", sans-serif;
+        @include screen-xs {
+          display: block;
+        }
+      }
+    }
+
+    h4 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 400;
+      font-size: 1em;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+
+    .flag {
+      aspect-ratio: 5 / 3;
+      // position: absolute;
+      max-width: 100px;
+      box-shadow: 0px 3px 6px 1px rgb(0, 0, 0);
+      border-radius: 20px;
+      bottom: -25px;
+      right: 0px;
+      float: right;
+      @include screen-xs {
+        bottom: -5px;
+      }
+    }
+  }
+}
+
+.offer-dates-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  @include screen-xs {
+    grid-template-columns: 1fr;
+  }
+
+  .date-grid {
+    background: linear-gradient(
+      180deg,
+      var(--main-color-1),
+      var(--main-color-2)
+    );
+    color: var(--main-color-12);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    // font-weight: bold;
+  }
+}
+
+h2.trip-price {
+  color: rgb(231, 25, 25);
 }

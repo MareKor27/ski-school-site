@@ -26,38 +26,44 @@ import useStyles from "~/hooks/useStyle";
 import { Gallery } from "~/components/gallery/Gallery";
 import { Link } from "react-router-dom";
 
-import gallery from "~/data/gallery.json";
-
-export function WinterView() {
+export function WinterTripToItaly2025View() {
   const s = useStyles(style);
   const canonicalUrl = useCanonicalLink();
   return (
     <Contener className="body-arranged-md">
       <Helmet>
-        <title>Wyjazd RAVASCLETTO / ZONCOLAN - FigowSki</title>
+        <title>
+          Zorganizowany wyjazd do Włoch RAVASCLETTO / ZONCOLAN - FigowSki
+        </title>
         <meta
           name="description"
-          content="Wyjazd RAVASCLETTO / ZONCOLAN wraz z FigowSki Sport - zapraszamy do zapoznania się z ofertą!"
+          content="Zorganizowany wyjazd do Włoch RAVASCLETTO / ZONCOLAN wraz z FigowSki Sport - zapraszamy do zapoznania się z ofertą!"
         />
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <Content className={"content"}>
-        <Breadcrums namePage={"Oferta-Zima"} />
+        <Breadcrums namePage={"Zima-Oferta / Zima 2026 we Włoszech"} />
         <TextBox>
-          <h1>Oferta Zima 2026 w Włoszech</h1>
-          <img
-            className={s(`contentimg imgFull`)}
-            src="images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan1.webp"
-            alt={"Górka Szczęśliwicka z rana"}
-          />
-          <h2>Region narciarski: RAVASCLETTO / ZONCOLAN</h2>
-          <img
-            className={s(`flag`)}
-            src="images/trips/flag/italy-flag.png"
-            alt="Włoskie góry"
-          />
-          <h3>Termin: 17-24.01.2026</h3>
-          <h3>(I tydzień ferii mazowieckich)</h3>
+          <h1>Oferta Zima 2026 we Włoszech</h1>
+          <div className={s(`offer-intro`)}>
+            <img
+              className={s(`contentimg imgFull`)}
+              src="/images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan1.webp"
+              alt={"Górka Ravascletto Zoncolan we Włoszech"}
+            />
+            <div className={s(`offer-intro-text`)}>
+              <h2>Region narciarski: RAVASCLETTO / ZONCOLAN</h2>
+              <img
+                className={s(`flag`)}
+                src="/images/trips/flag/italy-flag.png"
+                alt="Flaga włoch"
+              />
+              <h3>
+                Termin: <span>17-24.01.2026</span>
+              </h3>
+              <h4>(I tydzień ferii mazowieckich)</h4>
+            </div>
+          </div>
         </TextBox>
         <div className={s(`offer-contener`)}>
           <div className={s(`offer-box`)}>
@@ -490,11 +496,7 @@ export function WinterView() {
           </div>
         </div>
         <TextBox className={"text-center"}>
-          <Gallery
-            photos={gallery.filter(
-              (img) => img.gallery === "2026-winter-ravascletto-zoncolan"
-            )}
-          />
+          <Gallery galeryName={"2026-winter-ravascletto-zoncolan"} />
           <h2>
             <Link to="/kontakt">
               Zapraszamy do kontaktu i&nbsp;do&nbsp;zobaczenia na stoku!{" "}

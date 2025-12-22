@@ -36,6 +36,7 @@ menu.navbar-menu-sidebar {
     gap: 5px;
   }
   @include screen-xs {
+    transition: 0.5s;
     position: fixed;
     top: 0;
     height: 100vh;
@@ -64,6 +65,46 @@ menu.navbar-menu-sidebar li {
     width: 100%;
   }
 }
+menu.navbar-menu-sidebar button {
+  all: unset;
+  cursor: pointer;
+  height: 50px;
+  padding: 0 25px;
+  margin: 0px;
+  min-width: 80px;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.7s ease;
+  // padding: 15px;
+  // border-radius: 100vmax;
+  // box-shadow: 1px 1px 5px 1px #3a5b84, inset 1px 1px 20px 1px #3a5b84;
+  @include screen-lg {
+    padding: 0 15px;
+  }
+  @include screen-md {
+    padding: 0 10px;
+  }
+  @include screen-sm {
+    padding: 0 5px;
+  }
+  @include screen-xs {
+    width: 100%;
+    background-color: var(--main-color-4-mobile2);
+    font-size: 1.2rem;
+    color: var(--menu-color-3);
+    padding: 0px;
+  }
+
+  &:hover {
+    border-radius: 5px;
+    background-color: var(--menu-color-1);
+    color: var(--menu-color-2);
+  }
+}
+
 menu.navbar-menu-sidebar li a {
   height: 100%;
   display: flex;
@@ -219,4 +260,91 @@ a.button-nav {
 
 .sitn-logo-image {
   height: 4.2rem;
+}
+
+//================ submenu styles ================
+
+.submenu-parent {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(180deg, var(--main-color-4), var(--main-color-3));
+  left: -50%;
+  border-radius: 0px;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: 0.5s;
+  @include screen-xs {
+    position: relative;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    left: 0%;
+    width: 100%;
+  }
+}
+
+.submenu-open {
+  transition: 0.5s;
+  opacity: 1;
+  transform: scaleY(1);
+  height: auto;
+  @include screen-xs {
+    max-height: 300px; // musi być większe niż realna wysokość submenu
+    opacity: 1;
+  }
+}
+
+.submenu li a {
+  width: auto;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.submenu li {
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px var(--main-color-11) solid;
+}
+
+menu.navbar-menu-sidebar .submenu li a {
+  display: flex;
+  align-items: center;
+  // padding-left: 40px;
+  font-size: 0.95rem;
+  color: var(--main-color-12);
+  border-radius: 0px;
+
+  &:hover {
+    background-color: var(--menu-color-1);
+    color: var(--menu-color-2);
+  }
+}
+
+.arrow {
+  position: absolute;
+  width: 0.5em;
+  height: 0.7em;
+  display: inline-block;
+  vertical-align: middle;
+  border-left: 0.15em solid black;
+  border-bottom: 0.15em solid black;
+  transform: rotate(-45deg);
+  padding-left: 10px;
+  margin-left: 2px;
+  margin-top: 0;
+  transition: transform 500ms ease-in-out;
+  @include screen-xs {
+    width: 0.5em;
+    height: 0.6em;
+  }
 }

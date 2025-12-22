@@ -6,6 +6,7 @@ import { Paths } from "~/features/app/constants/Paths";
 
 export function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [showWinterSubmenu, setShowWinterSubmenu] = useState(false);
 
   return (
     <>
@@ -72,17 +73,52 @@ export function Navbar() {
               O nas
             </Link>
           </li>
-          <li>
-            <Link
+
+          <li
+            className={style["submenu-parent"]}
+            onMouseEnter={() => setShowWinterSubmenu(true)}
+            onMouseLeave={() => setShowWinterSubmenu(false)}
+          >
+            <button
               className={style["button-nav"]}
-              to={Paths.WINTER.absolute}
               onClick={() => {
-                setShowSidebar(false);
+                setShowWinterSubmenu((prev) => !prev);
               }}
             >
-              Oferta-Zima
-            </Link>
+              Zima-Oferta <span className={style["arrow"]}></span>
+            </button>
+
+            <ul
+              className={`${style["submenu"]} ${
+                showWinterSubmenu ? style["submenu-open"] : ""
+              }`}
+            >
+              <li>
+                <Link
+                  to={Paths.TRIP_ITALY.absolute}
+                  onClick={() => {
+                    setShowSidebar(false);
+                    setShowWinterSubmenu(false);
+                  }}
+                >
+                  Zima 2026 we Włoszech
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to={Paths.ONEDAY_TRIPS.absolute}
+                  onClick={() => {
+                    setShowSidebar(false);
+                    setShowWinterSubmenu(false);
+                  }}
+                >
+                  Jednodniowe wyjazdy narciarskie
+                </Link>
+              </li>
+            </ul>
           </li>
+
           <li>
             <Link
               className={style["button-nav"]}

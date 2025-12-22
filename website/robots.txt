@@ -2,10 +2,14 @@ User-agent: *
 
 Allow: /
 Allow: /o-nas
+Allow: /zima-oferta/jednodniowe-wyjazdy
+Allow: /zima-oferta/wyjazd-do-wloch
 Allow: /cennik
 Allow: /galeria
 Allow: /kontakt
 
 Disallow: /administrator
+Disallow: /harmonogram
+
 
 Sitemap: https://figowski.com/sitemap.xml

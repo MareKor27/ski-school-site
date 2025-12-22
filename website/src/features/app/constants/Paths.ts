@@ -1,7 +1,15 @@
 export const Paths = {
   INDEX: { absolute: "/", routerConfig: "/" },
   ABOUT_US: { absolute: "/o-nas", routerConfig: "o-nas" },
-  WINTER: { absolute: "/oferta-zima", routerConfig: "oferta-zima" },
+  WINTER_OFFER: { absolute: "/zima-oferta", routerConfig: "zima-oferta" },
+  TRIP_ITALY: {
+    absolute: "/zima-oferta/wyjazd-do-wloch",
+    routerConfig: "zima-oferta/wyjazd-do-wloch",
+  },
+  ONEDAY_TRIPS: {
+    absolute: "/zima-oferta/jednodniowe-wyjazdy",
+    routerConfig: "zima-oferta/jednodniowe-wyjazdy",
+  },
   PRICE_LIST: { absolute: "/cennik", routerConfig: "cennik" },
   SCHEDULE: {
     INDEX: { absolute: "/harmonogram", routerConfig: "harmonogram" },

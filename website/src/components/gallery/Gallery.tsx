@@ -2,18 +2,24 @@ import { useState } from "react";
 import Modal from "~/components/modal/Modal";
 import style2 from "~/components/gallery/Gallery.module.scss";
 import useStyles from "~/hooks/useStyle";
+import gallery from "~/data/gallery.json";
 
 type GalleryType = {
-  photos: {
-    url: string;
-    alt: string;
-  }[];
+  galeryName: string;
 };
 
-export function Gallery({ photos }: GalleryType) {
+type PhotosType = {
+  url: string;
+  alt: string;
+}[];
+
+export function Gallery({ galeryName }: GalleryType) {
   const s2 = useStyles(style2);
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
+  const photos: PhotosType = gallery.filter(
+    (img) => img.gallery === galeryName
+  );
   const closeModal = () => {
     setActiveImage(null);
   };

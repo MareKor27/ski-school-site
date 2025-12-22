@@ -260,38 +260,63 @@
     "gallery": "galleryOne"
   },
   {
-    "url": "images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan2.webp",
+    "url": "/images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan2.webp",
     "alt": "Włoskie Góry przy Ravascletto / Zoncolan",
     "gallery": "2026-winter-ravascletto-zoncolan"
   },
   {
-    "url": "images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan3.webp",
+    "url": "/images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan3.webp",
     "alt": "Dziecko na stoku",
     "gallery": "2026-winter-ravascletto-zoncolan"
   },
   {
-    "url": "images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan4.webp",
+    "url": "/images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan4.webp",
     "alt": "Narty i struks",
     "gallery": "2026-winter-ravascletto-zoncolan"
   },
   {
-    "url": "images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan5.webp",
+    "url": "/images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan5.webp",
     "alt": "Dzieci impregnują narty",
     "gallery": "2026-winter-ravascletto-zoncolan"
   },
   {
-    "url": "images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan6.webp",
+    "url": "/images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan6.webp",
     "alt": "Sprzed do odśnieżania",
     "gallery": "2026-winter-ravascletto-zoncolan"
   },
   {
-    "url": "images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan7.webp",
+    "url": "/images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan7.webp",
     "alt": "Góry wraz ze stokiem",
     "gallery": "2026-winter-ravascletto-zoncolan"
   },
   {
-    "url": "images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan8.webp",
+    "url": "/images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan8.webp",
     "alt": "Stok szybkiego ruchu",
     "gallery": "2026-winter-ravascletto-zoncolan"
+  },
+  {
+    "url": "/images/gallery/sabat-krajno/sabat-krajno-2.webp",
+    "alt": "Stok z lotu ptaka",
+    "gallery": "sabat-krajno"
+  },
+  {
+    "url": "/images/gallery/sabat-krajno/sabat-krajno-3.webp",
+    "alt": "Stok ranem",
+    "gallery": "sabat-krajno"
+  },
+  {
+    "url": "/images/gallery/sabat-krajno/sabat-krajno-4.webp",
+    "alt": "Widok pomiędzy drzewami",
+    "gallery": "sabat-krajno"
+  },
+  {
+    "url": "/images/gallery/sabat-krajno/sabat-krajno-5.webp",
+    "alt": "Naśnieżarka przy stoku",
+    "gallery": "sabat-krajno"
+  },
+  {
+    "url": "/images/gallery/sabat-krajno/sabat-krajno-6.webp",
+    "alt": "Bar przy stoku",
+    "gallery": "sabat-krajno"
   }
 ]

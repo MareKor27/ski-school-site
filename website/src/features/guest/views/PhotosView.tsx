@@ -3,7 +3,6 @@ import { Contener } from "~/components/contener/Contener";
 import { Content } from "~/components/content/Content";
 import { TextBox } from "~/components/textbox/TextBox";
 import { Helmet } from "react-helmet-async";
-import gallery from "~/data/gallery.json";
 import { Breadcrums } from "~/components/breadcrumbs/Breadcrumbs";
 import { useCanonicalLink } from "~/hooks/useCanonicalLink";
 
@@ -34,9 +33,7 @@ export function PhotosView() {
           </p>
         </TextBox>
         <TextBox className={"text-center"}>
-          <Gallery
-            photos={gallery.filter((img) => img.gallery === "galleryOne")}
-          />
+          <Gallery galeryName={"galleryOne"} />
         </TextBox>
       </Content>
     </Contener>

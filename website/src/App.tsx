@@ -32,7 +32,8 @@ import { Schedule } from "./pages/Schedule";
 import { ScheduleFormReservation } from "./pages/ScheduleFormReservation";
 import { ScheduleFormSummary } from "./pages/ScheduleFormSummary";
 import { ScheduleFormVeryfication } from "./pages/ScheduleFormVeryfication";
-import { Winter } from "./pages/Winter";
+import { WinterTripToItaly2025 } from "./pages/offer/WinterTripToItaly2025";
+import { OneDayTrips } from "./pages/offer/OneDayTrips";
 
 function App() {
   const isLoaded = useEnvironmentStore((state) => state.isLoaded);
@@ -46,7 +47,11 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path={Paths.ABOUT_US.absolute} element={<AboutUs />} />
-        <Route path={Paths.WINTER.absolute} element={<Winter />} />
+        <Route
+          path={Paths.TRIP_ITALY.absolute}
+          element={<WinterTripToItaly2025 />}
+        />
+        <Route path={Paths.ONEDAY_TRIPS.absolute} element={<OneDayTrips />} />
         <Route path={Paths.PRICE_LIST.absolute} element={<PriceList />} />
         <Route path={Paths.SCHEDULE.INDEX.absolute} element={<Schedule />} />
         <Route
