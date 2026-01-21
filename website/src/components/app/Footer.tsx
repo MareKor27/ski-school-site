@@ -30,10 +30,7 @@ export function Footer() {
           <Link className={style["button-nav"]} to={Paths.ABOUT_US.absolute}>
             O nas
           </Link>
-          <Link
-            className={style["button-nav"]}
-            to={Paths.WINTER_OFFER.absolute}
-          >
+          <Link className={style["button-nav"]} to={Paths.TRIP_ITALY.absolute}>
             Zima-Oferta
           </Link>
           <Link className={style["button-nav"]} to={Paths.PRICE_LIST.absolute}>

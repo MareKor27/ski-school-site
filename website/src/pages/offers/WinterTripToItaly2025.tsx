@@ -1,5 +1,5 @@
 import { DefaultLayout } from "~/features/app/layouts/DefaultLayout";
-import { WinterTripToItaly2025View } from "~/features/guest/views/offer/WinterTripToItaly2025View";
+import { WinterTripToItaly2025View } from "~/features/guest/views/offers/WinterTripToItaly2025View";
 
 export function WinterTripToItaly2025() {
   return (

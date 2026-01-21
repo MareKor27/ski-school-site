@@ -84,7 +84,10 @@ export function OneDayTripsView() {
             jednej z poniższych lokalizacji:
           </p>
 
-          <h3>SABAT KRAJNO / RYBNO / SZWAJCARIA BAŁTOWSKA / KAZIMIERZ DOLNY</h3>
+          <h3>
+            SABAT KRAJNO / BABA JAGA / RYBNO / SZWAJCARIA BAŁTOWSKA / KAZIMIERZ
+            DOLNY
+          </h3>
 
           <h2>TERMINY*</h2>
           <h3>Grudzień</h3>
@@ -224,7 +227,8 @@ export function OneDayTripsView() {
             </p>
             <p>
               <a
-                href="www.facebook.com/FigowSkiSport"
+                href="https://www.facebook.com/FigowSkiSport"
+                target="_blank"
                 className={s(`offer-box-link`)}
               >
                 <Globe size={15} strokeWidth={1} />{" "}

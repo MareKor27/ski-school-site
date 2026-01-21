@@ -1,5 +1,5 @@
 import { DefaultLayout } from "~/features/app/layouts/DefaultLayout";
-import PageNotFoundView from "~/features/guest/views/PageNotFoundView";
+import PageNotFoundView from "~/features/guest/views/main/PageNotFoundView";
 
 const PageNotFound = () => {
   return (

@@ -1,12 +1,12 @@
 import "./App.scss";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { AboutUs } from "./pages/AboutUs";
-import { PriceList } from "./pages/PriceList";
-import { Photos } from "./pages/Photos";
-import { Contact } from "./pages/Contact";
+import { Home } from "./pages/main/Home";
+import { AboutUs } from "./pages/main/AboutUs";
+import { PriceList } from "./pages/main/PriceList";
+import { Photos } from "./pages/main/Photos";
+import { Contact } from "./pages/main/Contact";
 import GlobalConfig from "./configs/GlobalConfig";
-import PageNotFound from "./pages/PageNotFound";
+import PageNotFound from "./pages/main/PageNotFound";
 import { Paths } from "./features/app/constants/Paths";
 import { Login } from "./pages/Login";
 import { ChangePassword } from "./pages/ChangePassword";
@@ -32,8 +32,8 @@ import { Schedule } from "./pages/Schedule";
 import { ScheduleFormReservation } from "./pages/ScheduleFormReservation";
 import { ScheduleFormSummary } from "./pages/ScheduleFormSummary";
 import { ScheduleFormVeryfication } from "./pages/ScheduleFormVeryfication";
-import { WinterTripToItaly2025 } from "./pages/offer/WinterTripToItaly2025";
-import { OneDayTrips } from "./pages/offer/OneDayTrips";
+import { WinterTripToItaly2025 } from "./pages/offers/WinterTripToItaly2025";
+import { OneDayTrips } from "./pages/offers/OneDayTrips";
 
 function App() {
   const isLoaded = useEnvironmentStore((state) => state.isLoaded);

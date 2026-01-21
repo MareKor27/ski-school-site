@@ -1,10 +1,10 @@
 import { DefaultLayout } from "~/features/app/layouts/DefaultLayout";
-import { HomeView } from "~/features/guest/views/HomeView";
+import { AboutUsView } from "~/features/guest/views/main/AboutUsView";
 
-export function Home() {
+export function AboutUs() {
   return (
     <DefaultLayout>
-      <HomeView />
+      <AboutUsView />
     </DefaultLayout>
   );
 }

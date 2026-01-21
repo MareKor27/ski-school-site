@@ -1,10 +1,10 @@
 import { DefaultLayout } from "~/features/app/layouts/DefaultLayout";
-import { AboutUsView } from "~/features/guest/views/AboutUsView";
+import { ContactView } from "~/features/guest/views/main/ContactView";
 
-export function AboutUs() {
+export function Contact() {
   return (
     <DefaultLayout>
-      <AboutUsView />
+      <ContactView />
     </DefaultLayout>
   );
 }

@@ -1,0 +1,84 @@
+@use "~/scss/abstracts" as *;
+
+.offer-intro {
+  position: relative;
+
+  img {
+    display: block;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+    object-position: 50% 90%;
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0px 3px 6px 1px rgb(0, 0, 0);
+    border-radius: 20px;
+    margin: 0px 0px 0px 0px;
+    @include screen-xs {
+    }
+  }
+
+  .offer-intro-text {
+    position: absolute;
+    background: linear-gradient(
+      130deg,
+      hsl(from var(--main-color-3) calc(h + 0) calc(s + 0) calc(l + 0) / 0.9),
+      hsl(from var(--main-color-2) calc(h + 0) calc(s + 0) calc(l + 0) / 0.8)
+    );
+
+    border-radius: 20px;
+    box-shadow: 0px 3px 6px 1px rgb(0, 0, 0);
+    bottom: 20px;
+    left: 20px;
+    padding: 0 15px;
+    z-index: 110;
+    @include screen-xs {
+      position: relative;
+      top: 10px;
+      left: unset;
+      z-index: 10;
+    }
+
+    h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 500;
+      color: var(--main-color-6);
+      @include screen-xs {
+        padding-top: 0px;
+      }
+    }
+
+    h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 500;
+      padding-top: 10px;
+      span {
+        font-family: "Space Grotesk", sans-serif;
+        @include screen-xs {
+          display: block;
+        }
+      }
+    }
+
+    h4 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 400;
+      font-size: 1em;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+
+    .flag {
+      aspect-ratio: 5 / 3;
+      // position: absolute;
+      max-width: 100px;
+      box-shadow: 0px 3px 6px 1px rgb(0, 0, 0);
+      border-radius: 20px;
+      bottom: -25px;
+      right: 0px;
+      float: right;
+      @include screen-xs {
+        bottom: -5px;
+      }
+    }
+  }
+}

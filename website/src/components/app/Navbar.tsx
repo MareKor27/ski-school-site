@@ -106,7 +106,7 @@ export function Navbar() {
                     setShowWinterSubmenu(false);
                   }}
                 >
-                  Zima 2026 we Włoszech
+                  Włochy 2026
                 </Link>
               </li>
 

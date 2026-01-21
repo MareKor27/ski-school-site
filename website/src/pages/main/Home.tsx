@@ -1,10 +1,10 @@
 import { DefaultLayout } from "~/features/app/layouts/DefaultLayout";
-import { ContactView } from "~/features/guest/views/ContactView";
+import { HomeView } from "~/features/guest/views/main/HomeView";
 
-export function Contact() {
+export function Home() {
   return (
     <DefaultLayout>
-      <ContactView />
+      <HomeView />
     </DefaultLayout>
   );
 }
