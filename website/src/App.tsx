@@ -34,12 +34,15 @@ import { ScheduleFormSummary } from "./pages/ScheduleFormSummary";
 import { ScheduleFormVeryfication } from "./pages/ScheduleFormVeryfication";
 import { WinterTripToItaly2025 } from "./pages/offers/WinterTripToItaly2025";
 import { OneDayTrips } from "./pages/offers/OneDayTrips";
+import { SecondWeekHolidays } from "./pages/offers/SecondWeekHolidays";
+import { LoadingPage } from "./pages/main/LoadingPage";
+import { Statute } from "./pages/main/Statute";
 
 function App() {
   const isLoaded = useEnvironmentStore((state) => state.isLoaded);
 
   if (!isLoaded) {
-    return <div>Ładowanie konfiguracji...</div>;
+    return <LoadingPage />;
   }
 
   return (
@@ -50,6 +53,10 @@ function App() {
         <Route
           path={Paths.TRIP_ITALY.absolute}
           element={<WinterTripToItaly2025 />}
+        />
+        <Route
+          path={Paths.TRIP_POLAND.absolute}
+          element={<SecondWeekHolidays />}
         />
         <Route path={Paths.ONEDAY_TRIPS.absolute} element={<OneDayTrips />} />
         <Route path={Paths.PRICE_LIST.absolute} element={<PriceList />} />
@@ -68,6 +75,7 @@ function App() {
         />
         <Route path={Paths.GALLERY.absolute} element={<Photos />} />
         <Route path={Paths.CONTACT.absolute} element={<Contact />} />
+        <Route path={Paths.STATUTE.absolute} element={<Statute />} />
 
         <Route path={Paths.ADMIN.LOGIN.absolute} element={<Login />} />
         <Route

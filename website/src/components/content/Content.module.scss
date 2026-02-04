@@ -55,19 +55,29 @@ table.price-table td strong {
 .price-table th {
   font-size: 1.2em;
   padding: 20px;
-  background-color: rgb(0, 81, 124);
+  background: linear-gradient(
+    var(--main-color-3) 10%,
+    var(--main-color-1) 100%
+  );
   /* border: 1px solid #000000; */
   color: var(--table-color-1);
 }
 
-.price-table td:nth-child(2n-1) {
-  background-color: var(--table-color-1);
+.price-table td:nth-child(3) {
+  background: linear-gradient(
+    var(--main-color-10) 10%,
+    var(--main-color-7) 90%
+  );
 }
 .price-table td:nth-child(2n) {
-  background-color: #72c7ff;
+  background: linear-gradient(var(--main-color-5) 10%, var(--main-color-7) 90%);
 }
 .price-table td:nth-child(1) {
-  background-color: #00517c;
+  background: linear-gradient(
+    var(--main-color-3) 50%,
+    var(--main-color-1) 100%
+  );
+
   color: var(--table-color-1);
   width: 25%;
 }
@@ -75,7 +85,9 @@ table.price-table td strong {
 .price-table th,
 .price-table td {
   border-radius: 5px;
-  box-shadow: 4px 4px 10px 2px black;
+  box-shadow:
+    4px 4px 10px 2px black,
+    inset 0px -2px 5px 0px var(--main-color-1);
 }
 
 table.price-table {

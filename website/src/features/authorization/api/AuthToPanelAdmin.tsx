@@ -16,7 +16,7 @@ api.interceptors.request.use(
     config.baseURL = baseUrl;
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 export type LoginResponeType = {
@@ -30,7 +30,7 @@ export type LoginResponeType = {
 export async function login(
   email: string,
   password: string,
-  recaptchaToken: string
+  recaptchaToken: string,
 ): Promise<LoginResponeType> {
   try {
     const response = await api.post<LoginResponeType>("/auth/login", {
@@ -58,7 +58,7 @@ export async function forgotPassword(email: string) {
 }
 
 export async function extendSesionTime(
-  user: UserData
+  user: UserData,
 ): Promise<LoginResponeType> {
   const response = await api.post<LoginResponeType>("/auth/token", { user });
   return response.data;

@@ -59,10 +59,10 @@ export function CalendarTable({ getReservationLink }: CalendarTableProps) {
               className={CS(`date-in-number`)}
               onClick={() =>
                 copyToClipboard(
-                  Paths.ADMIN.SCHEDULE.CALENDAR.absolute +
+                  Paths.SCHEDULE.INDEX.absolute +
                     `?tydzien=` +
                     currentDate.toISOString().split("T")[0],
-                  currentDate.toISOString().split("T")[0]
+                  currentDate.toISOString().split("T")[0],
                 )
               }
             >
@@ -72,10 +72,10 @@ export function CalendarTable({ getReservationLink }: CalendarTableProps) {
               className={CS(`date-in-words`)}
               onClick={() =>
                 copyToClipboard(
-                  Paths.ADMIN.SCHEDULE.CALENDAR.absolute +
+                  Paths.SCHEDULE.INDEX.absolute +
                     `?tydzien=` +
                     currentDate.toISOString().split("T")[0],
-                  currentDate.toISOString().split("T")[0]
+                  currentDate.toISOString().split("T")[0],
                 )
               }
             >

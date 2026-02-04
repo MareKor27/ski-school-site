@@ -46,35 +46,43 @@ export function PriceListView() {
                     <b>ILOŚĆ OSÓB PODCZAS ZAJĘĆ</b>
                   </td>
                   <td>
-                    <b>1h</b>
+                    <b>1 h</b>
                   </td>
                   <td>
-                    <b>2h</b>
+                    <b>2 h</b>
                   </td>
                   <td>
-                    <b>3h</b>
+                    <b>3 h</b>
                   </td>
                 </tr>
                 <tr>
-                  <td>1</td>
+                  <td>
+                    <b>1</b>
+                  </td>
                   <td>130 zł</td>
                   <td>210 zł</td>
                   <td>300 zł</td>
                 </tr>
                 <tr>
-                  <td>2</td>
+                  <td>
+                    <b>2</b>
+                  </td>
                   <td>190 zł</td>
                   <td>350 zł</td>
                   <td>380 zł</td>
                 </tr>
                 <tr>
-                  <td>3</td>
+                  <td>
+                    <b>3</b>
+                  </td>
                   <td>220 zł</td>
                   <td>390 zł</td>
                   <td>460 zł</td>
                 </tr>
                 <tr>
-                  <td>4</td>
+                  <td>
+                    <b>4</b>
+                  </td>
                   <td>240 zł</td>
                   <td>420 zł</td>
                   <td>480 zł</td>

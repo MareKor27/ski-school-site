@@ -6,6 +6,10 @@ export const Paths = {
     absolute: "/zima-oferta/wyjazd-do-wloch",
     routerConfig: "zima-oferta/wyjazd-do-wloch",
   },
+  TRIP_POLAND: {
+    absolute: "/zima-oferta/wyjazd-do-polski",
+    routerConfig: "zima-oferta/wyjazd-do-polski",
+  },
   ONEDAY_TRIPS: {
     absolute: "/zima-oferta/jednodniowe-wyjazdy",
     routerConfig: "zima-oferta/jednodniowe-wyjazdy",
@@ -29,6 +33,8 @@ export const Paths = {
 
   GALLERY: { absolute: "/galeria", routerConfig: "galeria" },
   CONTACT: { absolute: "/kontakt", routerConfig: "kontakt" },
+  STATUTE: { absolute: "/regulamin", routerConfig: "regulamin" },
+
   ADMIN: {
     INDEX: { absolute: "/administrator", routerConfig: "administrator" },
     LOGIN: { absolute: "/administrator/login", routerConfig: "login" },
