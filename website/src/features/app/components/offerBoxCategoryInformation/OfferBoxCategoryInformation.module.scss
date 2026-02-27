@@ -12,8 +12,7 @@
   }
 }
 
-.offer-box,
-.offer-box-full {
+.offer-box {
   // flex: 1 1 calc(50% - 1rem); /* 2 kolumny */
   box-sizing: border-box;
   padding: 10px;
@@ -102,9 +101,9 @@
   }
 }
 
-// .offer-box-full {
-//   grid-column: 1 / -1;
-// }
+.offer-box-full {
+  grid-column: 1 / -1;
+}
 
 // .offer-content-split {
 //   display: grid;

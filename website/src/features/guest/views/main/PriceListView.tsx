@@ -60,22 +60,22 @@ export function PriceListView() {
                     <b>1</b>
                   </td>
                   <td>130 zł</td>
-                  <td>210 zł</td>
-                  <td>300 zł</td>
+                  <td>240 zł</td>
+                  <td>320 zł</td>
                 </tr>
                 <tr>
                   <td>
                     <b>2</b>
                   </td>
-                  <td>190 zł</td>
+                  <td>210 zł</td>
                   <td>350 zł</td>
-                  <td>380 zł</td>
+                  <td>420 zł</td>
                 </tr>
                 <tr>
                   <td>
                     <b>3</b>
                   </td>
-                  <td>220 zł</td>
+                  <td>240 zł</td>
                   <td>390 zł</td>
                   <td>460 zł</td>
                 </tr>
@@ -83,9 +83,9 @@ export function PriceListView() {
                   <td>
                     <b>4</b>
                   </td>
-                  <td>240 zł</td>
-                  <td>420 zł</td>
+                  <td>280 zł</td>
                   <td>480 zł</td>
+                  <td>520 zł</td>
                 </tr>
               </tbody>
             </table>

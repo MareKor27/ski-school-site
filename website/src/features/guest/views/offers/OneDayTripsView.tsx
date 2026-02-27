@@ -20,7 +20,7 @@ export function OneDayTripsView() {
         <title>Wyjazdy jednodniowe - Szkoła narciarska FigowSki Sport</title>
         <meta
           name="description"
-          content="Figowski Sport organizuje wyjazdy jednodniowe, pólkolonie oraz jednodniówki zapraszamy do zapoznania się z ofertą!"
+          content="Figowski Sport organizuje wyjazdy jednodniowe, półkolonie oraz jednodniówki zapraszamy do zapoznania się z ofertą!"
         />
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
@@ -89,7 +89,7 @@ export function OneDayTripsView() {
             DOLNY
           </h3>
 
-          <h2>TERMINY*</h2>
+          {/* <h2>TERMINY*</h2>
           <h3>Grudzień</h3>
           <div className={s("offer-dates-grid")}>
             <div className={s("date-grid")}>29.12.2025</div>
@@ -121,7 +121,7 @@ export function OneDayTripsView() {
             <br />* realizacja oferty uzależniona jest od otwarcia stacji
             narciarskich, warunków śniegowych na stokach oraz zapisu minimalnej
             liczby osób w&nbsp;grupie
-          </p>
+          </p> */}
 
           <h2>SZKOLENIE NARCIARSKIE (4-4,5h dziennie)</h2>
           <ul>

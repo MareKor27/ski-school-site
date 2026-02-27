@@ -54,7 +54,7 @@ export const useAppointment = (location?: any) => {
     const response = await getAppoitmentsByDateForOneUser(
       new Date(dates[0]),
       howManyDays,
-      userForAppointments
+      userForAppointments,
     );
     setAppointments(response.content);
   };
@@ -69,7 +69,7 @@ export const useAppointment = (location?: any) => {
   const onChangeAppointment = async (
     date: Date,
     appointmentId: number | undefined,
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     if (e.target.checked) {
       if (userId != 0) {
@@ -85,20 +85,19 @@ export const useAppointment = (location?: any) => {
 
   const chengeAppointmentsByDay = async (
     chosenDate: Date,
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     console.log(
       "chengeAppointmentsByDay",
       chosenDate,
       e.target.checked.valueOf(),
-      userForAppointments
+      userForAppointments,
     );
     const request = await setAppointmentsByDay(
       chosenDate,
       e.target.checked.valueOf(),
-      userForAppointments
+      userForAppointments,
     );
-    console.log(request);
     fetchResponse(dates);
   };
 

@@ -6,7 +6,7 @@ export const Paths = {
     absolute: "/zima-oferta/wyjazd-do-wloch",
     routerConfig: "zima-oferta/wyjazd-do-wloch",
   },
-  TRIP_POLAND: {
+  TRIP_POLAND_JAWORKI: {
     absolute: "/zima-oferta/wyjazd-do-polski",
     routerConfig: "zima-oferta/wyjazd-do-polski",
   },

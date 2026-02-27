@@ -1,3 +1,4 @@
+import { AuditLog } from "../api/type/auditLog.dto";
 import { ChosenEquipment } from "../api/type/reservation.dto";
 
 export function formatToLongDate(data: string): string {
@@ -8,6 +9,27 @@ export function formatToLongDate(data: string): string {
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
+    hour12: false,
+  });
+}
+
+export function formatToAuditDate(data: Date): string {
+  return new Date(data).toLocaleDateString("pl-PL", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+}
+
+export function formatToAuditPerDay(data: Date): string {
+  return new Date(data).toLocaleDateString("pl-PL", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
     hour12: false,
   });
 }
@@ -98,4 +120,39 @@ export function lightenColor(hex: string, percent: number): string {
   // RGB -> HEX
   const toHex = (n: number) => n.toString(16).padStart(2, "0");
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
+export function auditActionToDescription(audit: AuditLog): string {
+  switch (audit.action) {
+    case "AUTH_LOGIN_TO_SYSTEM":
+      if (audit.isError) {
+        return `Nieudane logowanie użytkownika ${audit.body?.email}`;
+      }
+      return `Logowanie użytkownika ${audit.body?.email}`;
+    case "APPO_ADM_MODIFIES_USERS":
+      return `Utworzenie lekcji ${formatToShortDate(audit.response?.appointmentDate)} ${audit.response?.id != audit.userId.id ? "" : "użytkownikowi " + audit.response?.instructorName} przez ${audit.userId.name}`;
+    case "APPO_INS_MODIFIES":
+      return `Utworzenie lekcji ${formatToShortDate(audit.response?.appointmentDate)} przez instruktora ${audit.response?.instructorName}`;
+    case "APPO_BY_DAY":
+      if (audit.body?.checked) {
+        return `Zaznaczenie lekcji dnia ${formatToAuditPerDay(audit.body?.chosenDate)}  ${audit.response?.id == audit.userId.id ? "" : "dla " + audit.response?.instructorName} przez ${audit.userId.name}`;
+      }
+      return `Odznaczenie lekcji dnia ${formatToAuditPerDay(audit.body?.chosenDate)}  ${audit.response?.id == audit.userId.id ? "" : "dla " + audit.response?.instructorName} przez ${audit.userId.name}`;
+    case "APPO_DELETE":
+      if (audit.userId?.id == audit.response.instructorId) {
+        return `Usunięcie lekcji ${formatToShortDate(audit.response?.appointmentDate)} przez instruktora ${
+          audit.response?.instructorName
+        }`;
+      }
+      return `Usunięcie lekcji ${formatToShortDate(audit.response?.appointmentDate)} instruktora ${audit.response?.instructorName} przez ${audit.userId?.name} `;
+    case "USER_UPDATE":
+      return `Aktualizacja użytkownika ${audit.response?.name} przez ${audit.userId.name}`;
+    case "USER_DELETE":
+      return `Usunięcie użytkownika ${audit.response?.content.name} przez ${audit.userId}`;
+
+    case "REMOVE_EXPIRED_TOKENS":
+      return `Usunięcie przeterminowanych tokenów ${audit.body?.reservationId}`;
+    default:
+      return "Nieznana akcja";
+  }
 }

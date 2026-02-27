@@ -34,7 +34,7 @@ import { ScheduleFormSummary } from "./pages/ScheduleFormSummary";
 import { ScheduleFormVeryfication } from "./pages/ScheduleFormVeryfication";
 import { WinterTripToItaly2025 } from "./pages/offers/WinterTripToItaly2025";
 import { OneDayTrips } from "./pages/offers/OneDayTrips";
-import { SecondWeekHolidays } from "./pages/offers/SecondWeekHolidays";
+import { SkiWeekendPoland } from "./pages/offers/SkiWeekendPoland";
 import { LoadingPage } from "./pages/main/LoadingPage";
 import { Statute } from "./pages/main/Statute";
 
@@ -55,8 +55,8 @@ function App() {
           element={<WinterTripToItaly2025 />}
         />
         <Route
-          path={Paths.TRIP_POLAND.absolute}
-          element={<SecondWeekHolidays />}
+          path={Paths.TRIP_POLAND_JAWORKI.absolute}
+          element={<SkiWeekendPoland />}
         />
         <Route path={Paths.ONEDAY_TRIPS.absolute} element={<OneDayTrips />} />
         <Route path={Paths.PRICE_LIST.absolute} element={<PriceList />} />

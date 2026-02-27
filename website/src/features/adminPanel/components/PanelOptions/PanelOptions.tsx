@@ -22,6 +22,15 @@ export function PanelOptions({ children }: ScheduleType) {
             className={({ isActive }) =>
               NS(isActive ? "tab active-tab" : "tab")
             }
+            to={Paths.ADMIN.OPTION.OPTION_THREE.absolute}
+          >
+            <Logs size={25} strokeWidth={1} />
+            Dziennik zdarzeń
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              NS(isActive ? "tab active-tab" : "tab")
+            }
             to={Paths.ADMIN.OPTION.OPTION_ONE.absolute}
           >
             <Videotape size={25} strokeWidth={1} />
@@ -36,16 +45,6 @@ export function PanelOptions({ children }: ScheduleType) {
           >
             <SquareActivity size={25} strokeWidth={1} />
             Opcja 2
-          </NavLink>
-
-          <NavLink
-            className={({ isActive }) =>
-              NS(isActive ? "tab active-tab" : "tab")
-            }
-            to={Paths.ADMIN.OPTION.OPTION_THREE.absolute}
-          >
-            <Logs size={25} strokeWidth={1} />
-            Opcja 3
           </NavLink>
         </div>
       </div>

@@ -51,7 +51,7 @@ export function WinterTripToItaly2025View() {
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <Content className={"content"}>
-        <Breadcrums namePage={"Zima-Oferta / Ferie II tydzień Polska 2026"} />
+        <Breadcrums namePage={"Zima-Oferta / Ferie I tydzień Włochy 2026"} />
         <TextBox>
           <h1>Oferta Zima 2026 we Włoszech</h1>
           <OfferIntroImage

@@ -100,6 +100,18 @@ export function Navbar() {
             >
               <li>
                 <Link
+                  to={Paths.TRIP_POLAND_JAWORKI.absolute}
+                  onClick={() => {
+                    setShowSidebar(false);
+                    setShowWinterSubmenu(false);
+                  }}
+                >
+                  Weekend narciarski - Jaworki
+                </Link>
+              </li>
+
+              <li>
+                <Link
                   to={Paths.TRIP_ITALY.absolute}
                   onClick={() => {
                     setShowSidebar(false);
