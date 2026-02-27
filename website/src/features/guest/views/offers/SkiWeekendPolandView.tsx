@@ -1,4 +1,14 @@
-import { Phone, AtSign, Globe, Hotel, ExternalLink } from "lucide-react";
+import {
+  Phone,
+  AtSign,
+  Globe,
+  Hotel,
+  ExternalLink,
+  Soup,
+  Trophy,
+  MountainSnow,
+  HandCoins,
+} from "lucide-react";
 
 import { Helmet } from "react-helmet-async";
 import { Breadcrums } from "~/components/breadcrumbs/Breadcrumbs";
@@ -54,7 +64,7 @@ export function SkiWeekendPolandView() {
             stoku są wciąż idealne do jazdy. Ferie w prawdzie nam się już
             skończyły, jednak, by móc jeszcze efektywniej wykorzystać sezon
             narciarski, zapraszam do wspólnego wyjazdu i aktywnego rodzinnego
-            weekendu na nartach lub snowboardzie .
+            weekendu na nartach lub snowboardzie 🙂.
           </p>
           <p>
             Wyjazd ma charakter przedłużonego weekendu: wyjazd w czwartek po
@@ -81,7 +91,7 @@ export function SkiWeekendPolandView() {
             będzie miał możliwość w tym kameralnym niezaludnionym ośrodku
             wyjeździć się na nartach, zrelaksować, posmakować regionalnych dań
             oraz aktywnie z rodziną spędzić czas na stoku i oczywiście
-            szkoleniowo z naszą kadrą  .
+            szkoleniowo z naszą kadrą 🙂.
           </p>
         </TextBox>
         <CategoryBoxesContener>
@@ -124,7 +134,7 @@ export function SkiWeekendPolandView() {
               </ul>
             </CategoryDescription>
             <CategoryIcon>
-              <Hotel size={30} strokeWidth={1} />
+              <Soup size={30} strokeWidth={1} />
             </CategoryIcon>
 
             <CategoryDescription title="WYŻYWIENIE">
@@ -156,7 +166,7 @@ export function SkiWeekendPolandView() {
           </CategoryBox>
           <CategoryBox>
             <CategoryIcon>
-              <Hotel size={30} strokeWidth={1} />
+              <Trophy size={30} strokeWidth={1} />
             </CategoryIcon>
 
             <CategoryDescription title="SZKOLENIE NARCIARSKIE">
@@ -190,7 +200,7 @@ export function SkiWeekendPolandView() {
           </CategoryBox>
           <CategoryBox>
             <CategoryIcon>
-              <Hotel size={30} strokeWidth={1} />
+              <MountainSnow size={30} strokeWidth={1} />
             </CategoryIcon>
 
             <CategoryDescription title="CENA WYJAZDU (BEZ SZKOLENIA):">
@@ -227,7 +237,7 @@ export function SkiWeekendPolandView() {
               </ul>
             </CategoryDescription>
             <CategoryIcon>
-              <Hotel size={30} strokeWidth={1} />
+              <HandCoins size={30} strokeWidth={1} />
             </CategoryIcon>
 
             <CategoryDescription title="CENA SZKOLENIA:">
