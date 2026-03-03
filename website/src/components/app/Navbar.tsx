@@ -84,14 +84,29 @@ export function Navbar() {
               !isTouchDevice ? () => setShowWinterSubmenu(false) : undefined
             }
           >
-            <button
+            {/* <button
               className={style["button-nav"]}
               onClick={() => {
                 setShowWinterSubmenu((prev) => !prev);
               }}
             >
               Zima-Oferta <span className={style["arrow"]}></span>
-            </button>
+            </button> */}
+            <Link
+              className={style["button-nav"]}
+              to={Paths.OFFER.INDEX.absolute}
+              onClick={() => {
+                setShowSidebar(false);
+              }}
+            >
+              Zima-Oferta
+              <span
+                className={style["arrow"]}
+                onClick={() => {
+                  setShowWinterSubmenu((prev) => !prev);
+                }}
+              ></span>
+            </Link>
 
             <ul
               className={`${style["submenu"]} ${
@@ -100,7 +115,7 @@ export function Navbar() {
             >
               <li>
                 <Link
-                  to={Paths.TRIP_POLAND_JAWORKI.absolute}
+                  to={Paths.OFFER.TRIP_POLAND_JAWORKI.absolute}
                   onClick={() => {
                     setShowSidebar(false);
                     setShowWinterSubmenu(false);
@@ -112,7 +127,7 @@ export function Navbar() {
 
               <li>
                 <Link
-                  to={Paths.TRIP_ITALY.absolute}
+                  to={Paths.OFFER.TRIP_ITALY.absolute}
                   onClick={() => {
                     setShowSidebar(false);
                     setShowWinterSubmenu(false);
@@ -124,7 +139,7 @@ export function Navbar() {
 
               <li>
                 <Link
-                  to={Paths.ONEDAY_TRIPS.absolute}
+                  to={Paths.OFFER.ONEDAY_TRIPS.absolute}
                   onClick={() => {
                     setShowSidebar(false);
                     setShowWinterSubmenu(false);

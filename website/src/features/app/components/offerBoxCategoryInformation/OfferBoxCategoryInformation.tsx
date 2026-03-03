@@ -15,10 +15,11 @@ export function CategoryBoxesContener({
 
 type SingleCategoryProps = {
   children: ReactNode;
+  classNames?: string;
 };
 
-export function CategoryBox({ children }: SingleCategoryProps) {
-  return <div className={s(`offer-box`)}>{children}</div>;
+export function CategoryBox({ children, classNames }: SingleCategoryProps) {
+  return <div className={s(`offer-box ${classNames}`)}>{children}</div>;
 }
 
 type CategoryIconProps = {

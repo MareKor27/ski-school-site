@@ -33,7 +33,7 @@ import {
   CategoryIcon,
   SitnLogos,
 } from "~/features/app/components/offerBoxCategoryInformation/OfferBoxCategoryInformation";
-import { ContactForm } from "~/features/app/components/contactForm/ContactForm";
+// import { ContactForm } from "~/features/app/components/contactForm/ContactForm";
 
 export function WinterTripToItaly2025View() {
   const s = useStyles(style);
@@ -58,9 +58,9 @@ export function WinterTripToItaly2025View() {
             srcImage="/images/trips/2026/winter/ravascletto_zoncolan/ravascletto_zoncolan1.webp"
             altImage="Górka Ravascletto Zoncolan we Włoszech"
             title="Region narciarski: RAVASCLETTO / ZONCOLAN"
-            srcFlagImage="/images/trips/flag/italy-flag.png"
+            srcFlagImage="/images/trips/flag/italy-flag.webp"
             altFlagImage="Flaga włoch"
-            dateOfTheTrip="17-24.01.2026"
+            dateOfTheTrip="17-24 I 2026"
             description="(I tydzień ferii mazowieckich)"
           />
         </TextBox>

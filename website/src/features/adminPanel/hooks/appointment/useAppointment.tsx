@@ -93,7 +93,7 @@ export const useAppointment = (location?: any) => {
       e.target.checked.valueOf(),
       userForAppointments,
     );
-    const request = await setAppointmentsByDay(
+    await setAppointmentsByDay(
       chosenDate,
       e.target.checked.valueOf(),
       userForAppointments,

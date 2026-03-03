@@ -107,6 +107,7 @@ menu.navbar-menu-sidebar button {
 
 menu.navbar-menu-sidebar li a {
   height: 100%;
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,7 +287,9 @@ a.button-nav {
     position: relative;
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
+    transition:
+      max-height 0.4s ease,
+      opacity 0.4s ease;
     left: 0%;
     width: 100%;
   }
@@ -331,7 +334,6 @@ menu.navbar-menu-sidebar .submenu li a {
 }
 
 .arrow {
-  position: absolute;
   width: 0.5em;
   height: 0.7em;
   display: inline-block;
@@ -339,12 +341,15 @@ menu.navbar-menu-sidebar .submenu li a {
   border-left: 0.15em solid black;
   border-bottom: 0.15em solid black;
   transform: rotate(-45deg);
-  padding-left: 10px;
-  margin-left: 2px;
-  margin-top: 0;
+  padding-left: 9px;
+  margin-top: -7px;
   transition: transform 500ms ease-in-out;
   @include screen-xs {
-    width: 0.5em;
-    height: 0.6em;
+    padding-left: 11px;
+    margin-left: 10px;
   }
+  // @include screen-sm {
+  //   width: 0.5em;
+  //   height: 0.6em;
+  // }
 }

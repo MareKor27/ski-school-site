@@ -103,6 +103,7 @@
 
 .offer-box-full {
   grid-column: 1 / -1;
+  column-span: all;
 }
 
 // .offer-content-split {

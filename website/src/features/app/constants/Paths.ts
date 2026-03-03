@@ -1,19 +1,22 @@
 export const Paths = {
   INDEX: { absolute: "/", routerConfig: "/" },
   ABOUT_US: { absolute: "/o-nas", routerConfig: "o-nas" },
-  WINTER_OFFER: { absolute: "/zima-oferta", routerConfig: "zima-oferta" },
-  TRIP_ITALY: {
-    absolute: "/zima-oferta/wyjazd-do-wloch",
-    routerConfig: "zima-oferta/wyjazd-do-wloch",
+  OFFER: {
+    INDEX: { absolute: "/zima-oferta", routerConfig: "zima-oferta" },
+    TRIP_ITALY: {
+      absolute: "/zima-oferta/wyjazd-do-wloch",
+      routerConfig: "zima-oferta/wyjazd-do-wloch",
+    },
+    TRIP_POLAND_JAWORKI: {
+      absolute: "/zima-oferta/wyjazd-do-jaworek",
+      routerConfig: "zima-oferta/wyjazd-do-jaworek",
+    },
+    ONEDAY_TRIPS: {
+      absolute: "/zima-oferta/jednodniowe-wyjazdy",
+      routerConfig: "zima-oferta/jednodniowe-wyjazdy",
+    },
   },
-  TRIP_POLAND_JAWORKI: {
-    absolute: "/zima-oferta/wyjazd-do-polski",
-    routerConfig: "zima-oferta/wyjazd-do-polski",
-  },
-  ONEDAY_TRIPS: {
-    absolute: "/zima-oferta/jednodniowe-wyjazdy",
-    routerConfig: "zima-oferta/jednodniowe-wyjazdy",
-  },
+
   PRICE_LIST: { absolute: "/cennik", routerConfig: "cennik" },
   SCHEDULE: {
     INDEX: { absolute: "/harmonogram", routerConfig: "harmonogram" },

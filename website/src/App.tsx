@@ -37,6 +37,7 @@ import { OneDayTrips } from "./pages/offers/OneDayTrips";
 import { SkiWeekendPoland } from "./pages/offers/SkiWeekendPoland";
 import { LoadingPage } from "./pages/main/LoadingPage";
 import { Statute } from "./pages/main/Statute";
+import { MainOffert } from "./pages/offers/MainOffert";
 
 function App() {
   const isLoaded = useEnvironmentStore((state) => state.isLoaded);
@@ -50,15 +51,19 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path={Paths.ABOUT_US.absolute} element={<AboutUs />} />
+        <Route path={Paths.OFFER.INDEX.absolute} element={<MainOffert />} />
         <Route
-          path={Paths.TRIP_ITALY.absolute}
+          path={Paths.OFFER.TRIP_ITALY.absolute}
           element={<WinterTripToItaly2025 />}
         />
         <Route
-          path={Paths.TRIP_POLAND_JAWORKI.absolute}
+          path={Paths.OFFER.TRIP_POLAND_JAWORKI.absolute}
           element={<SkiWeekendPoland />}
         />
-        <Route path={Paths.ONEDAY_TRIPS.absolute} element={<OneDayTrips />} />
+        <Route
+          path={Paths.OFFER.ONEDAY_TRIPS.absolute}
+          element={<OneDayTrips />}
+        />
         <Route path={Paths.PRICE_LIST.absolute} element={<PriceList />} />
         <Route path={Paths.SCHEDULE.INDEX.absolute} element={<Schedule />} />
         <Route

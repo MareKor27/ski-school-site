@@ -1,6 +1,6 @@
 import style from "./PanelOptions.module.scss";
 import tableStyle from "~/assets/styles/tableStyles.module.scss";
-import buttonStyle from "~/assets/styles/buttonsStyles.module.scss";
+// import buttonStyle from "~/assets/styles/buttonsStyles.module.scss";
 import useStyles from "~/hooks/useStyle";
 import { useAudit } from "../../hooks/audit/useAudit";
 import {
@@ -10,7 +10,7 @@ import {
 
 const S = useStyles(style);
 const TS = useStyles(tableStyle);
-const BS = useStyles(buttonStyle);
+// const BS = useStyles(buttonStyle);
 
 export function Option3() {
   const headers = ["Czas", "Informacja"];
@@ -26,7 +26,7 @@ export function Option3() {
             {" Ilość wierszy:"}
             <select
               name="pagination-rows"
-              onChange={(event) => {}}
+              // onChange={(event) => {}}
               className={S(`custom-select`)}
             >
               <option key={10} value="10">
@@ -51,7 +51,7 @@ export function Option3() {
             <div> Strona:</div>
             <select
               name="pagination-rows"
-              onChange={(event) => {}}
+              // onChange={(event) => {}}
               className={S(`custom-select`)}
             ></select>
           </div>
