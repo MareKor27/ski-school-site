@@ -21,11 +21,13 @@
   width: 100%;
   display: grid;
   grid-template-columns: 60px 1fr;
+
   gap: 10px;
   box-shadow: var(--main-color-7) 0px 0px 2px 2px;
   margin: 0 0 20px 0;
   break-inside: avoid;
   @include screen-xs {
+    grid-template-columns: 1fr;
     margin: 0 0px 20px 0px;
     gap: 5px;
     font-size: 14px;
@@ -43,8 +45,10 @@
     margin-bottom: 5px;
     @include screen-xs {
       font-size: 21px;
+      text-align: center;
     }
   }
+
   h5 {
     color: var(--main-color-2);
     font-family: "Space Grotesk", sans-serif;
@@ -66,6 +70,21 @@
     font-family: "TikTok Sans", sans-serif;
     color: #000;
   }
+
+  a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: #0d7ee0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    &:hover {
+      color: var(--main-color-1);
+    }
+  }
+
   li {
     background: none;
     list-style-type: disc;
@@ -127,4 +146,14 @@
 .offer-sitn-logo {
   width: 150px;
   margin-top: 10px;
+}
+
+.offer-box-content {
+  padding-left: 10px;
+}
+
+.offer-box-icon {
+  @include screen-xs {
+    justify-self: center;
+  }
 }

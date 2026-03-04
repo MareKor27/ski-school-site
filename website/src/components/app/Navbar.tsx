@@ -92,21 +92,31 @@ export function Navbar() {
             >
               Zima-Oferta <span className={style["arrow"]}></span>
             </button> */}
-            <Link
-              className={style["button-nav"]}
-              to={Paths.OFFER.INDEX.absolute}
-              onClick={() => {
-                setShowSidebar(false);
-              }}
-            >
-              Zima-Oferta
-              <span
-                className={style["arrow"]}
+            <div className={style["submenu-parent-inner"]}>
+              <Link
+                className={style["button-nav"]}
+                to={Paths.OFFER.INDEX.absolute}
                 onClick={() => {
-                  setShowWinterSubmenu((prev) => !prev);
+                  setShowSidebar(false);
                 }}
-              ></span>
-            </Link>
+              >
+                Zima-Oferta
+                <span
+                  className={style["arrow"]}
+                  onClick={() => {
+                    setShowWinterSubmenu((prev) => !prev);
+                  }}
+                ></span>
+              </Link>
+              <div className={style["arrow-mobile-wrapper"]}>
+                <span
+                  className={style["arrow-mobile"]}
+                  onClick={() => {
+                    setShowWinterSubmenu((prev) => !prev);
+                  }}
+                ></span>
+              </div>
+            </div>
 
             <ul
               className={`${style["submenu"]} ${

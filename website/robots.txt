@@ -2,6 +2,8 @@ User-agent: *
 
 Allow: /
 Allow: /o-nas
+Allow: /zima-oferta
+Allow: /zima-oferta/wyjazd-do-jaworek
 Allow: /zima-oferta/jednodniowe-wyjazdy
 Allow: /zima-oferta/wyjazd-do-wloch
 Allow: /cennik
@@ -10,6 +12,7 @@ Allow: /kontakt
 
 Disallow: /administrator
 Disallow: /harmonogram
+Disallow: /regulamin
 
 
 Sitemap: https://figowski.com/sitemap.xml

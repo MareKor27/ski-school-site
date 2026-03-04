@@ -117,7 +117,7 @@ export function Slider({}: SliderType) {
         <div className={s2(`${activeSlider === 0 ? "slide" : "slideoff"}`)}>
           <div className={s2(`appla`)}>
             <div className={s2(`slider-heading-1`)}>
-              Nauka jazdy na nartach w Warszawie
+              Nauka jazdy na nartach w&nbsp;Warszawie
             </div>
             <div className={s2(`slider-heading-2`)}>
               <b>Doświadczony instruktor PZN</b> nauczy Cię
@@ -144,12 +144,12 @@ export function Slider({}: SliderType) {
         <div className={s2(`${activeSlider === 1 ? "slide" : "slideoff"}`)}>
           <div className={s2(`appla`)}>
             <div className={s2(`slider-heading-1`)}>
-              Cennik lekcji narciarskich i snowboardowych
+              Cennik lekcji narciarskich i&nbsp;snowboardowych
             </div>
             <div className={s2(`slider-heading-2`)}>
               Zapraszamy do zapoznania się z naszymi propozycjami
-              <br /> cenowymi w różnych opcjach szkolenia narciarskiego i
-              snowboardowego.
+              <br /> cenowymi w różnych opcjach szkolenia narciarskiego
+              i&nbsp;snowboardowego.
               <br />{" "}
               <b>
                 Oferujemy pakiety szkoleniowe dla wszystkich
@@ -224,7 +224,7 @@ export function Slider({}: SliderType) {
               className={s2(
                 `slide-button ${
                   activeSlider === 0 ? "active-slide-button" : ""
-                }`
+                }`,
               )}
               onClick={() => handleClick(0)}
             ></div>
@@ -232,7 +232,7 @@ export function Slider({}: SliderType) {
               className={s2(
                 `slide-button ${
                   activeSlider === 1 ? "active-slide-button" : ""
-                }`
+                }`,
               )}
               onClick={() => handleClick(1)}
             ></div>
@@ -240,7 +240,7 @@ export function Slider({}: SliderType) {
               className={s2(
                 `slide-button ${
                   activeSlider === 2 ? "active-slide-button" : ""
-                }`
+                }`,
               )}
               onClick={() => handleClick(2)}
             ></div>

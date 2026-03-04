@@ -65,7 +65,7 @@ export function MainOffertView() {
             </div>
           </div>
           <div className={s(`information-section`)}>
-            <h2>Weekend narciarski w Jaworkach</h2>
+            <h2>Weekend narciarski w&nbsp;Jaworkach</h2>
             <div className={s(`location`)}>
               <div className={s(`icon`)}>
                 <MapPin size={25} strokeWidth={1.5} />
